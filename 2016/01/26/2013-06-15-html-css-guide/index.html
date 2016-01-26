@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML/CSS 开发规范指南 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTML/CSS开发规范指南目录
+规范概述
+基本信息
+通用约定
+文档目录结构
+分离
+文件命名
+缩进
+编码
+小写
+注释
+待办事项
+行尾空格
+省略嵌入式资源协议头
+代码有效性
+
+
+HTML约定
+文档类型
+省略type属性
+省略属性值
+用双引号包裹属性值
+嵌套
+标签闭合
+多媒体替代方案
+有效操作
+按模块添加注释
+格式
+语义化标签
+模块化
+
+
+CSS约定
+文件引用
+命名-组成元素
+命名-词汇规范
+命名-缩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML/CSS 开发规范指南">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-06-15-html-css-guide/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="HTML/CSS开发规范指南目录
+规范概述
+基本信息
+通用约定
+文档目录结构
+分离
+文件命名
+缩进
+编码
+小写
+注释
+待办事项
+行尾空格
+省略嵌入式资源协议头
+代码有效性
+
+
+HTML约定
+文档类型
+省略type属性
+省略属性值
+用双引号包裹属性值
+嵌套
+标签闭合
+多媒体替代方案
+有效操作
+按模块添加注释
+格式
+语义化标签
+模块化
+
+
+CSS约定
+文件引用
+命名-组成元素
+命名-词汇规范
+命名-缩">
+<meta property="og:updated_time" content="2016-01-26T12:39:23.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML/CSS 开发规范指南">
+<meta name="twitter:description" content="HTML/CSS开发规范指南目录
+规范概述
+基本信息
+通用约定
+文档目录结构
+分离
+文件命名
+缩进
+编码
+小写
+注释
+待办事项
+行尾空格
+省略嵌入式资源协议头
+代码有效性
+
+
+HTML约定
+文档类型
+省略type属性
+省略属性值
+用双引号包裹属性值
+嵌套
+标签闭合
+多媒体替代方案
+有效操作
+按模块添加注释
+格式
+语义化标签
+模块化
+
+
+CSS约定
+文件引用
+命名-组成元素
+命名-词汇规范
+命名-缩">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-06-15-html-css-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-06-15-html-css-guide/" class="article-date">
+  	<time datetime="2016-01-26T12:39:23.734Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML/CSS 开发规范指南
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Guide/">Guide</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HTML/CSS开发规范指南">HTML/CSS开发规范指南</h1><h2 id="目录">目录</h2><ol>
+<li><a href="#intro">规范概述</a></li>
+<li><a href="#profile">基本信息</a></li>
+<li><a href="#general">通用约定</a><ul>
+<li><a href="#directory">文档目录结构</a></li>
+<li><a href="#separate">分离</a></li>
+<li><a href="#file-name">文件命名</a></li>
+<li><a href="#indentation">缩进</a></li>
+<li><a href="#encoding">编码</a></li>
+<li><a href="#lowercase">小写</a></li>
+<li><a href="#comment">注释</a></li>
+<li><a href="#todo">待办事项</a></li>
+<li><a href="#end-line-space">行尾空格</a></li>
+<li><a href="#protocol-relative-url">省略嵌入式资源协议头</a></li>
+<li><a href="#validator">代码有效性</a></li>
+</ul>
+</li>
+<li><a href="#html">HTML约定</a><ul>
+<li><a href="#doctype">文档类型</a></li>
+<li><a href="#type">省略type属性</a></li>
+<li><a href="#attribute">省略属性值</a></li>
+<li><a href="#quots">用双引号包裹属性值</a></li>
+<li><a href="#nest">嵌套</a></li>
+<li><a href="#close-tag">标签闭合</a></li>
+<li><a href="#perceivable">多媒体替代方案</a></li>
+<li><a href="#friendly">有效操作</a></li>
+<li><a href="#html-comment">按模块添加注释</a></li>
+<li><a href="#format">格式</a></li>
+<li><a href="#semantic">语义化标签</a></li>
+<li><a href="#html-module">模块化</a></li>
+</ul>
+</li>
+<li><a href="#css">CSS约定</a><ul>
+<li><a href="#link">文件引用</a></li>
+<li><a href="#element">命名-组成元素</a></li>
+<li><a href="#word">命名-词汇规范</a></li>
+<li><a href="#abbr">命名-缩写规范</a></li>
+<li><a href="#prefix">命名-前缀规范</a></li>
+<li><a href="#id">id与class</a></li>
+<li><a href="#packaging">书写格式</a></li>
+<li><a href="#semicolon">规则与分号</a></li>
+<li><a href="#unit">0与单位</a></li>
+<li><a href="#decimal">0与小数</a></li>
+<li><a href="#non-quotes">去掉uri中引用资源的引号</a></li>
+<li><a href="#hex">HEX颜色值写法</a></li>
+<li><a href="#order">属性书写顺序</a></li>
+<li><a href="#css-comment">注释规范</a></li>
+<li><a href="#hack">hack规范</a></li>
+<li><a href="#low-selector">避免低效率选择器</a></li>
+<li><a href="#override">属性缩写与分拆</a></li>
+<li><a href="#css-module">模块化</a></li>
+</ul>
+</li>
+<li><a href="#img">图像约定</a><ul>
+<li><a href="#img-compress">图像压缩</a></li>
+<li><a href="#background-image">背景图</a></li>
+<li><a href="#image">前景图</a></li>
+<li><a href="#sprite">Sprite</a></li>
+</ul>
+</li>
+<li><a href="#end">结语</a><a id="more"></a>
+<a name="intro"></a><h2 id="规范概述">规范概述</h2></li>
+</ol>
+<p>规范的制定是我们长期以来对工作的积累与沉淀的产物，帮助我们更快、更好、更高效的完成繁重、复杂、多样化的任务，我们制作规范的主要目的在于：</p>
+<ul>
+<li>降低每个组员介入项目的门槛成本；</li>
+<li>提高工作效率及协同开发的便捷性；</li>
+<li>高度统一的代码风格；</li>
+<li>提供一整套HTML、CSS解决方案，来帮助开发人员快速做出高质量的符合要求的页面。</li>
+</ul>
+<p><a name="profile"></a></p>
+<h2 id="基本信息">基本信息</h2><table>
+<thead>
+<tr>
+<th>规范名称</th>
+<th>Cook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前版本</td>
+<td>v1.0 beta</td>
+</tr>
+<tr>
+<td>规范发起</td>
+<td><a href="http://weibo.com/doyoe" target="_blank" rel="external">杜瑶(@doyoe)</a></td>
+</tr>
+<tr>
+<td>参与人群</td>
+<td>Qunar FED</td>
+</tr>
+<tr>
+<td>最后更新</td>
+<td>2015.03.20</td>
+</tr>
+</tbody>
+</table>
+<p><a name="general"></a></p>
+<h2 id="通用约定">通用约定</h2><p><a name="directory"></a></p>
+<h3 id="1-文档目录结构">1.文档目录结构</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- 项目名</span></span><br><span class="line">	<span class="string">|-- src	开发环境</span></span><br><span class="line">		<span class="string">|-- html    静态页面模板目录</span></span><br><span class="line">		<span class="string">|-- bgimg   背景图目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- image   前景图目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- font    字体目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- scripts      脚本目录</span></span><br><span class="line">		<span class="string">|-- styles（Yo）  样式目录</span></span><br><span class="line">			<span class="string">|-- lib   基础库</span></span><br><span class="line">				<span class="string">|-- core      核心代码：reset</span></span><br><span class="line">				<span class="string">|-- element   元素</span></span><br><span class="line">				<span class="string">|-- fragment  公用碎片</span></span><br><span class="line">				<span class="string">|-- layout    布局</span></span><br><span class="line">				<span class="string">|-- widget    组件</span></span><br><span class="line">			<span class="string">|-- usage  项目具体实现</span></span><br><span class="line">				<span class="string">|-- project 某个子项目</span></span><br><span class="line">					<span class="string">|-- core      核心代码：桥接lib中的core，可以进行项目级扩展</span></span><br><span class="line">					<span class="string">|-- fragment  项目公用碎片</span></span><br><span class="line">					<span class="string">|-- module    模块</span></span><br><span class="line">					<span class="string">|-- page      page桥接文件目录：src-list</span></span><br><span class="line">					<span class="string">|-- export    page pack之后的文件目录</span></span><br><span class="line">	<span class="string">|-- prd	生产环境</span></span><br><span class="line">		<span class="string">|-- bgimg   背景图目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- image   前景图目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- font    字体目录（假设有的话）</span></span><br><span class="line">		<span class="string">|-- scripts      脚本目录</span></span><br><span class="line">		<span class="string">|-- styles（Yo）  样式目录</span></span><br><span class="line">			<span class="string">|-- project1 子项目</span></span><br><span class="line">				<span class="string">|-- index.css</span></span><br><span class="line">				<span class="string">|-- login.css</span></span><br><span class="line">				<span class="string">|-- and etc...</span></span><br><span class="line">			<span class="string">|-- project2 子项目</span></span><br><span class="line">				<span class="string">|-- index.css</span></span><br><span class="line">				<span class="string">|-- login.css</span></span><br><span class="line">				<span class="string">|-- and etc...</span></span><br><span class="line">			<span class="string">|-- and etc...</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>src</code>, <code>scripts</code>, <code>styles</code> 三个目录是为了和现有项目保持一致，避免修改过大，所以保持不变。</p>
+<p><code>html</code> 目录，用于存放前端开发做的静态页面，以备查阅、备份、review或给后端套页面。</p>
+<p><code>bgimg</code>, <code>image</code>, <code>font</code> 三个目录在Qunar一般不会直接存在，因为我们有source服务器，这些资源都会在那上面管理；不过特殊情况也会有，比如一些独立的项目，没有使用source的，那么就需要遵循这样的目录划分。</p>
+<p>至于 <code>html</code>, <code>bgimg</code>, <code>image</code>, <code>font</code> 这几个目录为什么没有加 <code>s</code>，主要是因为不希望大家去想某个目录是否为复数，简单点就好。</p>
+<p><code>prd</code> 为生产环境目录，以 <code>xxx</code> 项目中的一个子项目 <code>mobile</code> 为例，其生产环境中的某个CSS外链大致如下：<code>//sitename.com/prd/styles/mobile/index.css</code></p>
+</blockquote>
+<p><a name="separate"></a></p>
+<h3 id="2-分离">2.分离</h3><p>结构（HTML）、表现（CSS）、行为分离（JavaScript）</p>
+<blockquote>
+<p>将结构与表现、行为分离，保证它们之间的最小耦合，这对前期开发和后期维护都至关重要。</p>
+</blockquote>
+<p><a name="file-name"></a></p>
+<h3 id="3-文件命名">3.文件命名</h3><ul>
+<li>CSS模块文件，其文件名必须与模块名一致；</li>
+</ul>
+<p>假定有这样一个模块：</p>
+<pre><code><span class="title">.m-detail { sRules; }</span>
+<span class="title">.m-detail-hd { sRules; }</span>
+<span class="title">.m-detail-bd { sRules; }</span>
+<span class="title">.m-detail-ft { sRules; }</span>
+</code></pre><blockquote>
+<p>那么该模块的文件名应该为：<code>m-detail.css</code></p>
+</blockquote>
+<ul>
+<li>CSS页面文件，其文件名必须与HTML文件名一致；</li>
+</ul>
+<blockquote>
+<p>假定有一个HTML页面叫 <code>product.html</code>，那么其相对应的CSS页面文件名应该为：<code>product.css</code></p>
+<p>假定现在有一个 <code>product.html</code>，里面有2个模块：</p>
+</blockquote>
+<pre><code>+&lt;section <span class="keyword">class</span>=<span class="string">"m-list"</span>&gt;
++&lt;section <span class="keyword">class</span>=<span class="string">"m-info"</span>&gt;
+</code></pre><p>那么开发人员能快速找到与该页面相关的3个直接CSS文件，包括：<code>product.css</code>, <code>m-list.css</code>, <code>m-info.css</code></p>
+<p><a name="indentation"></a></p>
+<h3 id="4-缩进">4.缩进</h3><p>使用tab（4个空格宽度）来进行缩进，可以在IDE里进行设置</p>
+<p><a name="encoding"></a></p>
+<h3 id="5-编码">5.编码</h3><ul>
+<li>以 UTF-8 无 BOM 编码作为文件格式；</li>
+<li>在HTML中文档中用 <code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code> 来指定编码；</li>
+<li>为每个CSS文档显示的定义编码，在文档首行定义 <code>@charset &quot;utf-8&quot;;</code></li>
+</ul>
+<blockquote>
+<p>在 Sass 中，如果文档中出现中文，却未显示定义编码，将会编译出错，为了统一各种写法，且提前规避错误几率，统一要求每个CSS文档都需要定义编码</p>
+</blockquote>
+<p><a name="lowercase"></a></p>
+<h3 id="6-小写">6.小写</h3><ul>
+<li>所有的HTML标签必须小写；</li>
+<li>所有的HTML属性必须小写；</li>
+<li>所有的样式名及规则必须小写。</li>
+</ul>
+<p><a name="comment"></a></p>
+<h3 id="7-注释">7.注释</h3><p>尽可能的为你的代码写上注释。解释为什么要这样写，它是新鲜的方案还是解决了什么问题。</p>
+<p><a name="todo"></a></p>
+<h3 id="8-待办事项">8.待办事项</h3><p>用 TODO 标示待办事项和正在开发的条目</p>
+<pre><code><span class="comment">&lt;!-- <span class="doctag">TODO:</span> 图文混排 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"g-imgtext"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"1.png"</span> <span class="attribute">alt</span>=<span class="value">""</span> /&gt;</span>
+...
+
+/* TODO: 图文混排 comm: g-imgtext */
+.g-imgtext { sRules; }
+</code></pre><p><a name="end-line-space"></a></p>
+<h3 id="9-行尾空格">9.行尾空格</h3><p>删除行尾空格，这些空格没有必要存在</p>
+<p><a name="protocol-relative-url"></a></p>
+<h3 id="10-省略嵌入式资源协议头">10.省略嵌入式资源协议头</h3><p>省略图像、媒体文件、样式表和脚本等URL协议头部声明 ( http: , https: )。如果不是这两个声明的URL则不省略。</p>
+<p>省略协议声明，使URL成相对地址，防止内容混淆问题和导致小文件重复下载（这个主要是指http和https交杂的场景中）。</p>
+<p>不推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://www.google.com/js/gweb/analytics/autotrack.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//www.google.com/js/gweb/analytics/autotrack.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>不推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.example</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(http://www.google.com/images/example)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.example</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(//www.google.com/images/example)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：省略协议头在IE7-8下会有一点小问题，外部CSS文件（link和@import）会被下载两遍，所以该条目的约定看具体项目。</p>
+</blockquote>
+<p><a name="validator"></a></p>
+<h3 id="11-代码有效性">11.代码有效性</h3><ul>
+<li>使用 <a href="http://validator.w3.org/" target="_blank" rel="external">W3C HTML Validator</a> 来验证你的HTML代码有效性；</li>
+<li>使用 <a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">W3C CSS Validator</a> 来验证你的CSS代码有效性。</li>
+</ul>
+<blockquote>
+<p>代码验证不是最终目的，真的目的在于让开发者在经过多次的这种验证过程后，能够深刻理解到怎样的语法或写法是非标准和不推荐的，即使在某些场景下被迫要使用非标准写法，也可以做到心中有数。</p>
+</blockquote>
+<p><a name="html"></a></p>
+<h2 id="HTML约定">HTML约定</h2><p><a name="doctype"></a></p>
+<h3 id="1-文档类型">1.文档类型</h3><ul>
+<li>统一使用HTML5的标准文档类型：<code>&lt;!DOCTYPE html&gt;</code>；</li>
+</ul>
+<blockquote>
+<p>HTML5文档类型具备前后兼容的特质，并且易记易书写</p>
+</blockquote>
+<ul>
+<li>在文档doctype申明之前，不允许加上任何非空字符；</li>
+</ul>
+<blockquote>
+<p>任何出现在doctype申明之前的字符都将使得你的HTML文档进入非标准模式</p>
+</blockquote>
+<ul>
+<li>不允许添加 <code>&lt;meta&gt;</code> 标签强制改变文档模式。</li>
+</ul>
+<blockquote>
+<p>避免出现不可控的问题</p>
+</blockquote>
+<p><a name="type"></a></p>
+<h3 id="2-省略type属性">2.省略type属性</h3><p>在调用CSS和JavaScript时，可以将type属性省略不写</p>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"base.css"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"base.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"base.css"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"base.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><blockquote>
+<p>因为HTML5在引入CSS时，默认type值为text/css；在引入JavaScript时，默认type值为text/javascript</p>
+</blockquote>
+<p><a name="attribute"></a></p>
+<h3 id="3-省略属性值">3.省略属性值</h3><p>非必须属性值可以省略</p>
+<p>不允许：</p>
+<pre><code>&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> readonly=<span class="string">"readonly"</span> /&gt;
+&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> disabled=<span class="string">"disabled"</span> /&gt;
+</code></pre><p>应该：</p>
+<pre><code>&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> readonly /&gt;
+&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> disabled /&gt;
+</code></pre><blockquote>
+<p>这里的 readonly 和 disabled 属性的值是非必须的，可以省略不写，我们知道HTML5表单元素新增了很多类似的属性，如: required</p>
+</blockquote>
+<p><a name="quots"></a></p>
+<h3 id="4-用双引号包裹属性值">4.用双引号包裹属性值</h3><p>所有的标签属性值必须要用双引号包裹，同时也不允许有的用双引号，有的用单引号的情况</p>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">http:</span>//<span class="attribute">www.qunar.com</span> <span class="attribute">class</span>=<span class="value">home</span>&gt;</span>去哪儿网<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.qunar.com"</span> <span class="attribute">class</span>=<span class="value">"home"</span>&gt;</span>去哪儿网<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+</code></pre><p><a name="nest"></a></p>
+<h3 id="5-嵌套">5.嵌套</h3><p>所有元素必须正确嵌套</p>
+<ul>
+<li>不允许交叉；</li>
+</ul>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">dfn</span>&gt;</span>交叉嵌套<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">dfn</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">dfn</span>&gt;</span>交叉嵌套<span class="tag">&lt;/<span class="title">dfn</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+</code></pre><ul>
+<li>不允许非法的子元素嵌套。</li>
+</ul>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h3</span>&gt;</span>xx列表<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>asdasdsdasd<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>asdasdsdasd<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h3</span>&gt;</span>xx列表<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span>&gt;</span>asdasdsdasd<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span>&gt;</span>asdasdsdasd<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><ul>
+<li>不推荐inline元素包含block元素；</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>这是一个块级h1元素<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>这是一个块级p元素<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>这是一个块级h1元素<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>这是一个块级p元素<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><blockquote>
+<p>规则可参考：</p>
+<p>HTML4/XHTML1.0 Strict: <a href="http://www.cs.tut.fi/~jkorpela/html/strict.html" target="_blank" rel="external">嵌套规则</a>。</p>
+<p>HTML5: <a href="http://www.w3.org/TR/html5/" target="_blank" rel="external">嵌套规则</a></p>
+<p>举个例子，在HTML5中，a元素同时属于 Flow content, Phrasing content, Interactive content, Palpable content 4个分类，那些子元素是 phrasing 元素的元素可以是 a 的父元素，a 允许的子元素是以它的父元素允许的子元素为准，但不能包含 interactive 元素。</p>
+</blockquote>
+<p><a name="close-tag"></a></p>
+<h3 id="6-标签闭合">6.标签闭合</h3><p>所有标签必须闭合</p>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>balabala...
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"*.css"</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>balabala...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"*.css"</span> /&gt;</span>
+</code></pre><blockquote>
+<p>虽然有些标记没有要求必须关闭，但是为了避免出错的几率，要求必须全部关闭，省去判断某标记是否需要关闭的时间</p>
+</blockquote>
+<p><a name="perceivable"></a></p>
+<h3 id="7-多媒体替代方案">7.多媒体替代方案</h3><ul>
+<li>为img元素加上alt属性；</li>
+<li>为视频内容提供音轨替代；</li>
+<li>为音频内容提供字母替代等等。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"banner.jpg"</span> /&gt;
+</code></pre><p>推荐：</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"banner.jpg"</span> alt=<span class="string">"520即将到来，爱就大声说出来"</span> /&gt;
+</code></pre><blockquote>
+<p>alt属性的内容为对该图片的简要描述，这对于盲人用户和图像损毁都非常有意义，即无障碍。对于纯粹的装饰性图片，alt属性值可以留空，如 alt=””</p>
+</blockquote>
+<p><a name="friendly"></a></p>
+<h3 id="8-有效操作">8.有效操作</h3><p>为表单元素label加上for属性</p>
+<p>不允许：</p>
+<pre><code>&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> name=<span class="string">"color"</span> value=<span class="string">"0"</span> /&gt;&lt;<span class="keyword">label</span>&gt;蓝色&lt;/<span class="keyword">label</span>&gt;
+&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> name=<span class="string">"color"</span> value=<span class="string">"1"</span> /&gt;&lt;<span class="keyword">label</span>&gt;粉色&lt;/<span class="keyword">label</span>&gt;
+</code></pre><p>应该：</p>
+<pre><code>&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> id=<span class="string">"blue"</span> name=<span class="string">"color"</span> value=<span class="string">"0"</span> /&gt;&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"blue"</span>&gt;蓝色&lt;/<span class="keyword">label</span>&gt;
+&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> id=<span class="string">"pink"</span> name=<span class="string">"color"</span> value=<span class="string">"1"</span> /&gt;&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"pink"</span>&gt;粉色&lt;/<span class="keyword">label</span>&gt;
+</code></pre><blockquote>
+<p>for属性能让点击label标签的时候，同时focus到对应的 input 和 textarea上，增加响应区域</p>
+</blockquote>
+<p><a name="html-comment"></a></p>
+<h3 id="9-按模块添加注释">9.按模块添加注释</h3><p>在每个模块开始和结束的地方添加注释</p>
+<pre><code><span class="xml"><span class="comment">&lt;!-- 新闻列表模块 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"m-news g-mod"</span>
+<span class="attribute">...</span>
+&lt;!<span class="attribute">--</span> /新闻列表模块 <span class="attribute">--</span>&gt;</span>
+
+<span class="comment">&lt;!-- 排行榜模块 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"m-topic g-mod"</span>
+<span class="attribute">...</span>
+&lt;!<span class="attribute">--</span> /排行榜模块 <span class="attribute">--</span>&gt;</span></span>
+</code></pre><blockquote>
+<p>注释内容左右两边保留和注释符号有1个空格位，在注释内容内不允许再出现中划线“-”，某些浏览器会报错。</p>
+<p>注释风格保持与原生HTML的语法相似：成对出现 <code>&lt;!-- comment --&gt;&lt;!-- /comment --&gt;</code></p>
+</blockquote>
+<p><a name="format"></a></p>
+<h3 id="10-格式">10.格式</h3><ul>
+<li>将每个块元素、列表元素或表格元素都放在新行；</li>
+<li>inline元素视情况换行，以长度不超过编辑器一屏为宜；</li>
+<li>每个子元素都需要相对其父级缩进（参见<a href="#indentation">缩进约定</a>）。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">h1</span>&gt;</span>asdas<span class="tag">&lt;/<span class="title">h1</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>dff<span class="tag">&lt;<span class="title">em</span>&gt;</span>asd<span class="tag">&lt;/<span class="title">em</span>&gt;</span>asda<span class="tag">&lt;<span class="title">span</span>&gt;</span>sds<span class="tag">&lt;/<span class="title">span</span>&gt;</span>dasdasd<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>asdas<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>dff<span class="tag">&lt;<span class="title">em</span>&gt;</span>asd<span class="tag">&lt;/<span class="title">em</span>&gt;</span>asda<span class="tag">&lt;<span class="title">span</span>&gt;</span>sds<span class="tag">&lt;/<span class="title">span</span>&gt;</span>dasdasd<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p><a name="semantic"></a></p>
+<h3 id="11-语义化标签">11.语义化标签</h3><ul>
+<li>根据HTML元素的本身用途去使用它们；</li>
+<li>禁止使用被废弃的用于表现的标签，如 center, font 等；</li>
+<li>部分在XHTML1中被废弃的标签，在HTML5中被重新赋予了新的语义，在选用时请先弄清其语义，如:b, i, u等。</li>
+</ul>
+<p>不允许：</p>
+<pre><code><span class="tag">&lt;<span class="title">p</span>&gt;</span>标题<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>应该：</p>
+<pre><code><span class="tag">&lt;<span class="title">h1</span>&gt;</span>标题<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+</code></pre><blockquote>
+<p>虽然使用p标签，也可以通过CSS去定义它的外观和标题相同，但p标签本身的并不是表示标题，而是表示文本段落</p>
+<p>参阅：<a href="http://www.w3.org/TR/html5/" target="_blank" rel="external">HTML5 Elements</a></p>
+</blockquote>
+<p><a name="html-module"></a></p>
+<h3 id="12-模块化">12.模块化</h3><ul>
+<li>每个模块必须有一个模块名；</li>
+<li>每个模块的基本组成部分应该一致；</li>
+<li>模块的子节点类名需带上模块名（防止模块间嵌套时产生不必要的覆盖）；</li>
+<li>孙辈节点无需再带模块名。</li>
+</ul>
+<p>代码如：</p>
+<pre><code><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"m-detail"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">header</span> <span class="attribute">class</span>=<span class="value">"m-detail-hd"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>模块标题<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"m-detail-bd"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"info"</span>&gt;</span>一些实际内容<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">footer</span> <span class="attribute">class</span>=<span class="value">"m-detail-ft"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"more"</span>&gt;</span>更多<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">footer</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><blockquote>
+<p>其中 <code>.m-detail-hd</code>, <code>.m-detail-bd</code>, <code>.m-detail-ft</code> 为可选，视具体模块情况决定是否需要抽象为这种 <strong>头，中，尾</strong> 的结构</p>
+</blockquote>
+<p><a name="css"></a></p>
+<h2 id="CSS约定">CSS约定</h2><p><a name="link"></a></p>
+<h3 id="1-文件引用">1.文件引用</h3><ul>
+<li>一律使用link的方式调用外部样式</li>
+<li>不允许在页面中使用 <code>&lt;style&gt;</code> 块；</li>
+<li>不允许在 <code>&lt;style&gt;</code> 块中使用 <code>@import</code>；</li>
+<li>不允许使用 <code>style</code> 属性写行内样式。</li>
+</ul>
+<blockquote>
+<p>一般情况下，在页面中只允许使用 <code>&lt;link /&gt;</code> 标签来引用CSS文件，</p>
+</blockquote>
+<p><a name="element"></a></p>
+<h3 id="2-命名-组成元素">2.命名-组成元素</h3><ul>
+<li>命名必须由单词、中划线①或数字组成；</li>
+<li>不允许使用拼音（约定俗成的除外，如：youku, baidu），尤其是缩写的拼音、拼音与英文的混合。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="title">.xiangqing { sRules; }</span>
+<span class="title">.news_list { sRules; }</span>
+<span class="title">.zhuti { sRules; }</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="title">.detail { sRules; }</span>
+<span class="title">.news-list { sRules; }</span>
+<span class="title">.topic { sRules; }</span>
+</code></pre><blockquote>
+<p>①我们使用中划线 “-” 作为连接字符，而不是下划线 “_”。</p>
+<p>我们知道2种方式都有不少支持者，但 “-“ 能让你少按一次shift键，并且更符合CSS原生语法，所以我们只选一种目前业内普遍使用的方式</p>
+</blockquote>
+<p><a name="word"></a></p>
+<h3 id="3-命名-词汇规范">3.命名-词汇规范</h3><ul>
+<li>不依据表现形式来命名；</li>
+<li>可根据内容来命名；</li>
+<li>可根据功能来命名。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="keyword">left</span>, <span class="keyword">right</span>, <span class="keyword">center</span>, <span class="keyword">red</span>, black
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">nav</span>, <span class="tag">aside</span>, news, type, search
+</code></pre><p><a name="abbr"></a></p>
+<h3 id="4-命名-缩写规范">4.命名-缩写规范</h3><ul>
+<li>保证缩写后还能较为清晰保持原单词所能表述的意思；</li>
+<li>使用业界熟知的或者约定俗成的。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code>navigation   =&gt;  navi
+header       =&gt;  head
+description  =&gt;  des
+</code></pre><p>推荐：</p>
+<pre><code>navigation   =&gt;  <span class="tag">nav</span>
+<span class="tag">header</span>       =&gt;  hd
+description  =&gt;  desc
+</code></pre><p><a name="prefix"></a></p>
+<h3 id="5-命名-前缀规范">5.命名-前缀规范</h3><table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>g-</td>
+<td>全局通用样式命名，前缀g全称为global，一旦修改将影响全站样式</td>
+<td>g-mod</td>
+</tr>
+<tr>
+<td>m-</td>
+<td>模块命名方式</td>
+<td>m-detail</td>
+</tr>
+<tr>
+<td>ui-</td>
+<td>组件命名方式</td>
+<td>ui-selector</td>
+</tr>
+<tr>
+<td>js-</td>
+<td>所有用于纯交互的命名，不涉及任何样式规则。JSer拥有全部定义权限</td>
+<td>js-switch</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>选择器必须是以某个前缀开头</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="title">.info { sRules; }</span>
+<span class="title">.current { sRules; }</span>
+<span class="title">.news { sRules; }</span>
+</code></pre><blockquote>
+<p>因为这样将给我们带来不可预知的管理麻烦以及沉重的历史包袱。你永远也不会知道哪些样式名已经被用掉了，如果你是一个新人，你可能会遭遇，你每定义个样式名，都有同名的样式已存在，然后你只能是换样式名或者覆盖规则。</p>
+</blockquote>
+<p>推荐：</p>
+<pre><code>.<span class="keyword">m</span>-detail .info { sRules; }
+.<span class="keyword">m</span>-detail .current { sRules; }
+.<span class="keyword">m</span>-detail .<span class="keyword">news</span> { sRules; }
+</code></pre><blockquote>
+<p>所有的选择器必须是以 g-, m-, ui- 等有前缀的选择符开头的，意思就是说所有的规则都必须在某个相对的作用域下才生效，尽可能减少全局污染。</p>
+</blockquote>
+<p>js- 这种级别的className完全交由JSer自定义，但是命名的规则也可以保持跟重构一致，比如说不能使用拼音之类的</p>
+<p><a name="id"></a></p>
+<h3 id="6-id与class">6.id与class</h3><p>重构工程师只允许使用class（因历史原因及大家的习惯做出妥协）。</p>
+<p><a name="packaging"></a></p>
+<h3 id="7-书写格式">7.书写格式</h3><ul>
+<li>选择器与大括号之间保留一个空格；</li>
+<li>分号之后保留一个空格；</li>
+<li>逗号之后保留一个空格；</li>
+<li>所有规则需换行；</li>
+<li>多组选择器之间需换行。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="tag">main</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;
+}</span>
+<span class="tag">h1</span>,<span class="tag">h2</span>,<span class="tag">h3</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="function">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">5</span>)</span></span>;
+}</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">main</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+}</span>
+<span class="tag">h1</span>,
+<span class="tag">h2</span>,
+<span class="tag">h3</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>)</span></span>;
+}</span>
+</code></pre><p><a name="semicolon"></a></p>
+<h3 id="8-规则与分号">8.规则与分号</h3><p>每条规则结束后都必须加上分号</p>
+<p>不推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14px</span>
+</span></span></span>}
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14px</span></span></span>;
+}</span>
+</code></pre><p><a name="unit"></a></p>
+<h3 id="9-0与单位">9.0与单位</h3><p>如果属性值为0，则不需要为0加单位</p>
+<p>不推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0px</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0px</span></span></span>;
+}</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
+}</span>
+</code></pre><p><a name="decimal"></a></p>
+<h3 id="10-0与小数">10.0与小数</h3><p>如果是0开始的小数，前面的0可以省略不写</p>
+<p>不推荐：</p>
+<pre><code>body {
+    opacity: <span class="number">0.6</span>;
+    text-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>)</span></span>;
+}
+</code></pre><p>推荐：</p>
+<pre><code>body {
+    opacity: <span class="number">.6</span>;
+    text-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>)</span></span>;
+}
+</code></pre><p><a name="non-quotes"></a></p>
+<h3 id="11-去掉uri中引用资源的引号">11.去掉uri中引用资源的引号</h3><p>不要在url()里对引用资源加引号</p>
+<p>不推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(<span class="string">"sprites.png"</span>)</span></span>;
+}</span>
+<span class="at_rule">@<span class="keyword">import</span> <span class="function">url</span>(<span class="string">"global.css"</span>)</span>;
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(sprites.png)</span></span>;
+}</span>
+<span class="at_rule">@<span class="keyword">import</span> <span class="function">url</span>(global.css)</span>;
+</code></pre><p><a name="hex"></a></p>
+<h3 id="12-HEX颜色值写法">12.HEX颜色值写法</h3><ul>
+<li>将所有的颜色值小写；</li>
+<li>可以缩写的缩写至3位。</li>
+</ul>
+<p>不推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#FF0000</span></span></span>;
+}</span>
+</code></pre><p>推荐：</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f00</span></span></span>;
+}</span>
+</code></pre><p><a name="order"></a></p>
+<h3 id="13-属性书写顺序">13.属性书写顺序</h3><ul>
+<li>遵循先布局后内容的顺序。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.g-box</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">10px</span> solid</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#aaa</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#000</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">14px</span>/<span class="number">1.5</span> sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个应该好理解，比如优先布局，我们知道布局属性有 display, float, overflow 等等；内容次之，比如 color, font, text-align 之类。</p>
+</blockquote>
+<ul>
+<li>组概念。</li>
+</ul>
+<p>拿上例的代码来说，如果我们还需要进行定位及堆叠，规则我们可以改成如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.g-box</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">10px</span> solid</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#aaa</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#000</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">14px</span>/<span class="number">1.5</span> sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从代码中可以看到，我们直接将z-index, top, left 紧跟在 position 之后，因为这几个属性其实是一组的，如果去掉position，则后3条属性规则都将失效。</p>
+</blockquote>
+<ul>
+<li>私有属性在前标准属性在后</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.g-box &#123;</span><br><span class="line">　　　-webkit-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">　　　-moz-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">　　　-o-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">　　　box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当有一天你的浏览器升级后，可能不再支持私有写法，那么这时写在后面的标准写法将生效，避免无法向后兼容的情况发生。</p>
+</blockquote>
+<p><a name="css-comment"></a></p>
+<h3 id="14-注释规范">14.注释规范</h3><p>保持注释内容与星号之间有一个空格的距离</p>
+<p><strong>普通注释（单行）</strong></p>
+<pre><code>/<span class="keyword">*</span> 普通注释 <span class="keyword">*</span>/
+</code></pre><p><strong>区块注释</strong></p>
+<pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+ <span class="keyword">*</span> 模块: m-detail
+ <span class="keyword">*</span> 描述：酒店详情模块
+ <span class="keyword">*</span> 应用：page detail, info and etc...etc
+ <span class="keyword">*</span>/
+</code></pre><blockquote>
+<p>有特殊作用的规则一定要有注释说明<br>应用了高级技巧的地方一定要注释说明</p>
+</blockquote>
+<p><a name="hack"></a></p>
+<h3 id="15-hack规范">15.hack规范</h3><ul>
+<li>尽可能的减少对Hack的使用和依赖，如果在项目中对Hack的使用太多太复杂，对项目的维护将是一个巨大的挑战；</li>
+<li>使用其它的解决方案代替Hack思路；</li>
+<li>如果非Hack不可，选择稳定且常用并易于理解的。</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.test</span> &#123;</span><br><span class="line">　　　<span class="attribute">color</span>: <span class="hexcolor">#000</span>;       <span class="comment">/* For all */</span></span><br><span class="line">　　　<span class="attribute">color</span>: <span class="hexcolor">#111</span>\<span class="number">9</span>;     <span class="comment">/* For all IE */</span></span><br><span class="line">　　　<span class="attribute">color</span>: <span class="hexcolor">#222</span>\<span class="number">0</span>;     <span class="comment">/* For IE8 and later, Opera without Webkit */</span></span><br><span class="line">　　　<span class="attribute">color</span>: <span class="hexcolor">#333</span>\<span class="number">9</span>\<span class="number">0</span>;   <span class="comment">/* For IE8 and later */</span></span><br><span class="line">　　　<span class="attribute">color</span>: <span class="hexcolor">#444</span>\<span class="number">0</span>/;    <span class="comment">/* For IE8 and later */</span></span><br><span class="line">　　　*<span class="attribute">color</span>: <span class="hexcolor">#666</span>;      <span class="comment">/* For IE7 and earlier */</span></span><br><span class="line">　　　<span class="attribute">_color</span>: <span class="hexcolor">#777</span>;      <span class="comment">/* For IE6 and earlier */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>严谨且长期的项目，针对IE可以使用条件注释作为预留Hack或者在当前使用</li>
+</ul>
+<p>IE条件注释语法：</p>
+<pre><code><span class="comment">&lt;!--[if &lt;keywords&gt;? IE &lt;version&gt;?]&gt;
+&lt;link rel="stylesheet" href="*.css" /&gt;
+&lt;![endif]--&gt;</span>
+</code></pre><p>语法说明：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;keywords&gt;</span><br><span class="line"><span class="keyword">if</span>条件共包含<span class="number">6</span>种选择方式：是否、大于、大于或等于、小于、小于或等于、非指定版本</span><br><span class="line">是否：指定是否IE或IE某个版本。关键字：空</span><br><span class="line">大于：选择大于指定版本的IE版本。关键字：gt（<span class="operator">greater</span> than）</span><br><span class="line">大于或等于：选择大于或等于指定版本的IE版本。关键字：gte（<span class="operator">greater</span> than <span class="keyword">or</span> <span class="operator">equal</span>）</span><br><span class="line">小于：选择小于指定版本的IE版本。关键字：lt（<span class="operator">less</span> than）</span><br><span class="line">小于或等于：选择小于或等于指定版本的IE版本。关键字：lte（<span class="operator">less</span> than <span class="keyword">or</span> <span class="operator">equal</span>）</span><br><span class="line">非指定版本：选择除指定版本外的所有IE版本。关键字：!</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="property">version</span>&gt;</span><br><span class="line">目前的常用IE版本为<span class="number">6.0</span>及以上，推荐酌情忽略低版本，把精力花在为使用高级浏览器的用户提供更好的体验上，另从IE10开始已无此特性</span><br></pre></td></tr></table></figure>
+<p><a name="low-selector"></a></p>
+<h3 id="16-避免低效率选择器">16.避免低效率选择器</h3><ul>
+<li>避免类型选择器</li>
+</ul>
+<p>不允许：</p>
+<pre><code><span class="keyword">div</span><span class="comment">#doc { sRules; }</span>
+li.<span class="keyword">first</span> { sRules; }
+</code></pre><p>应该：</p>
+<pre><code><span class="comment">#doc { sRules; }</span>
+.<span class="keyword">first</span> { sRules; }
+</code></pre><blockquote>
+<p>CSS选择器是由右到左进行解析的，所以 div#doc 本身并不会比 #doc 更快</p>
+</blockquote>
+<ul>
+<li>避免多id选择器</li>
+</ul>
+<p>不允许：</p>
+<pre><code><span class="variable">#xxx</span> <span class="variable">#yyy</span> { sRules; }
+</code></pre><p>应该：</p>
+<pre><code><span class="preprocessor">#yyy { sRules; }</span>
+</code></pre><p><a name="override"></a></p>
+<h3 id="17-属性缩写与分拆">17.属性缩写与分拆</h3><ul>
+<li>无继承关系时，使用缩写</li>
+</ul>
+<p>不推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>存在继承关系时，使用分拆方式</li>
+</ul>
+<p>不推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.m-detail</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> bold <span class="number">12px</span>/<span class="number">1.5</span> arial, sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.m-detail</span> <span class="class">.info</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> normal <span class="number">14px</span>/<span class="number">1.5</span> arial, sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>要避免错误的覆盖：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.m-detail</span> <span class="class">.info</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">14px</span> sans</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果你只是想改字号和字体，然后写成了上面这样，这是错误的写法，因为 <code>font</code> 复合属性里的其他属性将会被重置为 user agent 的默认值，比如 <code>font-weight</code> 就会被重置为 <code>normal</code>。</p>
+</blockquote>
+<p>推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.m-detail</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font</span>:<span class="value"> bold <span class="number">12px</span>/<span class="number">1.5</span> arial, sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.m-detail</span> <span class="class">.info</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font-weight</span>:<span class="value"> normal</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在存在继承关系的情况下，只将需要变更的属性重定义，不进行缩写，避免不需要的重写的属性被覆盖定义</p>
+</blockquote>
+<ul>
+<li>根据规则条数选择缩写和拆分</li>
+</ul>
+<p>不推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.m-detail</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">1px</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border-style</span>:<span class="value"> solid</span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border-color</span>:<span class="value"> <span class="hexcolor">#000</span> <span class="hexcolor">#000</span> <span class="hexcolor">#f00</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>推荐：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.m-detail</span> <span class="rules">&#123;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#000</span></span></span>;</span><br><span class="line">　　　<span class="rule"><span class="attribute">border-bottom-color</span>:<span class="value"> <span class="hexcolor">#f00</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><a name="css-module"></a></p>
+<h3 id="18-模块化">18.模块化</h3><ul>
+<li>每个模块必须是一个独立的样式文件，文件名与模块名一致；</li>
+<li>模块样式的选择器必须以模块名开头以作范围约定；</li>
+</ul>
+<p>假定有一个模块如前文 <a href="#html-module">HTML模块化</a>，那么 <code>m-detail.scss</code> 的写法大致如下：</p>
+<pre><code><span class="class">.m-detail</span> {
+    <span class="attribute">background</span>: <span class="hexcolor">#fff</span>;
+    <span class="attribute">color</span>: <span class="hexcolor">#333</span>;
+    <span class="keyword">&amp;</span><span class="tag">-hd</span> {
+        <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">10px</span>;
+        <span class="attribute">background</span>: <span class="hexcolor">#eee</span>;
+        <span class="class">.title</span> {
+            <span class="attribute">background</span>: <span class="hexcolor">#eee</span>;
+        }
+    }
+    <span class="keyword">&amp;</span><span class="tag">-bd</span> {
+        <span class="attribute">padding</span>: <span class="number">10px</span>;
+        <span class="class">.info</span> {
+            <span class="attribute">font-size</span>: <span class="number">14px</span>;
+            <span class="attribute">text-indent</span>: <span class="number">2em</span>;
+        }
+    }
+    <span class="keyword">&amp;</span><span class="tag">-ft</span> {
+        <span class="attribute">text-align</span>: center;
+        <span class="class">.more</span> {
+            <span class="attribute">color</span>: blue;
+        }
+    }
+}
+</code></pre><p>编译之后代码如下：</p>
+<pre><code><span class="class">.m-detail</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#fff</span></span></span>;
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#333</span></span></span>;
+}</span>
+<span class="class">.m-detail-hd</span> <span class="rules">{
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5px</span> <span class="number">10px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#eee</span></span></span>;
+}</span>
+<span class="class">.m-detail-hd</span> <span class="class">.title</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#eee</span></span></span>;
+}</span>
+<span class="class">.m-detail-bd</span> <span class="rules">{
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>;
+}</span>
+<span class="class">.m-detail-bd</span> <span class="class">.info</span> <span class="rules">{
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14px</span></span></span>;
+    <span class="rule"><span class="attribute">text-indent</span>:<span class="value"> <span class="number">2em</span></span></span>;
+}</span>
+<span class="class">.m-detail-ft</span> <span class="rules">{
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+}</span>
+<span class="class">.m-detail-ft</span> <span class="class">.more</span> <span class="rules">{
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;
+}</span>
+</code></pre><blockquote>
+<p>任何超过3级的选择器，需要思考是否必要，是否有无歧义的，能唯一命中的更简短的写法</p>
+</blockquote>
+<p><a name="img"></a></p>
+<h2 id="图像约定">图像约定</h2><p><a name="img-compress"></a></p>
+<h3 id="1-图像压缩">1.图像压缩</h3><p>所有图片必须经过一定的压缩和优化才能发布</p>
+<p><a name="background-image"></a></p>
+<h3 id="2-背景图">2.背景图</h3><ul>
+<li>使用PNG格式而不是GIF格式，因为PNG格式色彩更丰富，还能提供更好的压缩比；</li>
+<li>在需要兼容IE6的项目中，尽可能选择PNG8，而不是使用PNG24+滤镜。</li>
+</ul>
+<p><a name="image"></a></p>
+<h3 id="3-前景图">3.前景图</h3><ul>
+<li>内容图片建议使用JPG，可以拥有更好地显示效果；</li>
+<li>装饰性图片使用PNG。</li>
+</ul>
+<p><a name="sprite"></a></p>
+<h3 id="4-Sprite">4.Sprite</h3><ul>
+<li>CSS Sprite是一种将数个图片合成为一张大图的技术（既可以是背景图也可以是前景图），然后通过偏移来进行图像位置选取；</li>
+<li>CSS Sprite可以减少http请求。</li>
+</ul>
+<p><a name="end"></a></p>
+<h2 id="结语">结语</h2><p>坚持一致性的原则。</p>
+<p>一个团队的代码风格如果统一了，首先可以培养良好的协同和编码习惯，其次可以减少无谓的思考，再次可以提升代码质量和可维护性。</p>
+<p>统一的代码风格，团队内部阅读或编辑代码，将会变得非常轻松，因为所有组员都处在一致思维环境中。</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-06-15-html-css-guide/">HTML/CSS 开发规范指南</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时39分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时39分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-06-15-html-css-guide/" title="HTML/CSS 开发规范指南">http://notes.seirhsiao.com/2016/01/26/2013-06-15-html-css-guide/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-06-15-html-css-guide/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-07-06-books-collection/">
+        给程序员的开源、免费图书集合
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-07-01-git-style-guide/">
+        Git 风格指南
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML/CSS开发规范指南"><span class="toc-number">1.</span> <span class="toc-text">HTML/CSS开发规范指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规范概述"><span class="toc-number">1.2.</span> <span class="toc-text">规范概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本信息"><span class="toc-number">1.3.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通用约定"><span class="toc-number">1.4.</span> <span class="toc-text">通用约定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文档目录结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.文档目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分离"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.分离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-文件命名"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.文件命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缩进"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-编码"><span class="toc-number">1.4.5.</span> <span class="toc-text">5.编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-小写"><span class="toc-number">1.4.6.</span> <span class="toc-text">6.小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-注释"><span class="toc-number">1.4.7.</span> <span class="toc-text">7.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-待办事项"><span class="toc-number">1.4.8.</span> <span class="toc-text">8.待办事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-行尾空格"><span class="toc-number">1.4.9.</span> <span class="toc-text">9.行尾空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-省略嵌入式资源协议头"><span class="toc-number">1.4.10.</span> <span class="toc-text">10.省略嵌入式资源协议头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-代码有效性"><span class="toc-number">1.4.11.</span> <span class="toc-text">11.代码有效性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML约定"><span class="toc-number">1.5.</span> <span class="toc-text">HTML约定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文档类型"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.文档类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-省略type属性"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.省略type属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-省略属性值"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.省略属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-用双引号包裹属性值"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.用双引号包裹属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-嵌套"><span class="toc-number">1.5.5.</span> <span class="toc-text">5.嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-标签闭合"><span class="toc-number">1.5.6.</span> <span class="toc-text">6.标签闭合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-多媒体替代方案"><span class="toc-number">1.5.7.</span> <span class="toc-text">7.多媒体替代方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-有效操作"><span class="toc-number">1.5.8.</span> <span class="toc-text">8.有效操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-按模块添加注释"><span class="toc-number">1.5.9.</span> <span class="toc-text">9.按模块添加注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-格式"><span class="toc-number">1.5.10.</span> <span class="toc-text">10.格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-语义化标签"><span class="toc-number">1.5.11.</span> <span class="toc-text">11.语义化标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-模块化"><span class="toc-number">1.5.12.</span> <span class="toc-text">12.模块化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS约定"><span class="toc-number">1.6.</span> <span class="toc-text">CSS约定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文件引用"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.文件引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-命名-组成元素"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.命名-组成元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-命名-词汇规范"><span class="toc-number">1.6.3.</span> <span class="toc-text">3.命名-词汇规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-命名-缩写规范"><span class="toc-number">1.6.4.</span> <span class="toc-text">4.命名-缩写规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-命名-前缀规范"><span class="toc-number">1.6.5.</span> <span class="toc-text">5.命名-前缀规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-id与class"><span class="toc-number">1.6.6.</span> <span class="toc-text">6.id与class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-书写格式"><span class="toc-number">1.6.7.</span> <span class="toc-text">7.书写格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-规则与分号"><span class="toc-number">1.6.8.</span> <span class="toc-text">8.规则与分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-0与单位"><span class="toc-number">1.6.9.</span> <span class="toc-text">9.0与单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-0与小数"><span class="toc-number">1.6.10.</span> <span class="toc-text">10.0与小数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-去掉uri中引用资源的引号"><span class="toc-number">1.6.11.</span> <span class="toc-text">11.去掉uri中引用资源的引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-HEX颜色值写法"><span class="toc-number">1.6.12.</span> <span class="toc-text">12.HEX颜色值写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-属性书写顺序"><span class="toc-number">1.6.13.</span> <span class="toc-text">13.属性书写顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-注释规范"><span class="toc-number">1.6.14.</span> <span class="toc-text">14.注释规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-hack规范"><span class="toc-number">1.6.15.</span> <span class="toc-text">15.hack规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-避免低效率选择器"><span class="toc-number">1.6.16.</span> <span class="toc-text">16.避免低效率选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-属性缩写与分拆"><span class="toc-number">1.6.17.</span> <span class="toc-text">17.属性缩写与分拆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-模块化"><span class="toc-number">1.6.18.</span> <span class="toc-text">18.模块化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像约定"><span class="toc-number">1.7.</span> <span class="toc-text">图像约定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-图像压缩"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.图像压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-背景图"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.背景图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-前景图"><span class="toc-number">1.7.3.</span> <span class="toc-text">3.前景图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Sprite"><span class="toc-number">1.7.4.</span> <span class="toc-text">4.Sprite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">1.8.</span> <span class="toc-text">结语</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-06-15-html-css-guide/" data-title="HTML/CSS 开发规范指南" data-url="http://notes.seirhsiao.com/2016/01/26/2013-06-15-html-css-guide/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-07-06-books-collection/" title="上一篇: 给程序员的开源、免费图书集合">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-07-01-git-style-guide/" title="下一篇: Git 风格指南">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

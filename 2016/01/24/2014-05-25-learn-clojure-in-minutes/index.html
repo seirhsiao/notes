@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>几分钟内学习 Clojure | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="此处获取源码: learnclojure.clj
+Clojure是JVM上的一个LISP语言变种。它比Common Lisp更强调纯函数式编程，但提供了一些STM工具以处理它所引入的状态问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几分钟内学习 Clojure">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-05-25-learn-clojure-in-minutes/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="此处获取源码: learnclojure.clj
+Clojure是JVM上的一个LISP语言变种。它比Common Lisp更强调纯函数式编程，但提供了一些STM工具以处理它所引入的状态问题。">
+<meta property="og:updated_time" content="2015-11-21T13:02:34.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几分钟内学习 Clojure">
+<meta name="twitter:description" content="此处获取源码: learnclojure.clj
+Clojure是JVM上的一个LISP语言变种。它比Common Lisp更强调纯函数式编程，但提供了一些STM工具以处理它所引入的状态问题。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-05-25-learn-clojure-in-minutes" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/" class="article-date">
+  	<time datetime="2016-01-24T02:06:28.237Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      几分钟内学习 Clojure
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此处获取源码: <a href="http://learnxinyminutes.com/docs/files/learnclojure.clj" target="_blank" rel="external">learnclojure.clj</a></p>
+<p>Clojure是JVM上的一个LISP语言变种。它比Common Lisp更强调纯<a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank" rel="external">函数式编程</a>，但提供了一些STM工具以处理它所引入的状态问题。<br><a id="more"></a><br>这个组合使并行处理更加简单，并且通常是自动的。</p>
+<p>Clojure源码托管在：<a href="https://github.com/clojure/clojure" target="_blank" rel="external">clojure源码</a></p>
+<p>在线练习编译环境： himera(<a href="http://himera.herokuapp.com/index.html" target="_blank" rel="external">http://himera.herokuapp.com/index.html</a>)</p>
+<p>learnclojure.clj 示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">; 分号作为注释的开始</span><br><span class="line"></span><br><span class="line">; Clojure 用一种把元素用括号括起来的像列表一样的方式来书写，元素之间用空格隔开</span><br><span class="line">; clojure 解释器会把第一个元素当做是函数或者宏调用，其他的都作为参数</span><br><span class="line">; 下面这个函数用于设置当前的命名空间</span><br><span class="line">(ns test)</span><br><span class="line"></span><br><span class="line">; 更多基本的例子：</span><br><span class="line"></span><br><span class="line">; str 函数会用它所有的参数创造一个字符串</span><br><span class="line">(str "Hello" " " "World") ; =&gt; "Hello World"</span><br><span class="line"></span><br><span class="line">; 数学运算很直观，不过是前缀表达式</span><br><span class="line">(+ 1 1) ; =&gt; 2</span><br><span class="line">(- 2 1) ; =&gt; 1</span><br><span class="line">(* 1 2) ; =&gt; 2</span><br><span class="line">(/ 2 1) ; =&gt; 2</span><br><span class="line"></span><br><span class="line">;  相等比较使用 “=”符号</span><br><span class="line">(= 1 1) ; =&gt; true</span><br><span class="line">(= 2 1) ; =&gt; false</span><br><span class="line"></span><br><span class="line">; 你也不必担心逻辑运算</span><br><span class="line">(not true) ; =&gt; false</span><br><span class="line"></span><br><span class="line">; 嵌套方式正如你预料的那样</span><br><span class="line">(+ 1 (- 3 2)) ; = 1 + (3 - 2) =&gt; 2</span><br><span class="line"></span><br><span class="line">; 类型系统</span><br><span class="line">;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; Clojure 使用java对象类型来表示 布尔值、字符串和数字</span><br><span class="line">; 使用 `class`函数来检测它们.</span><br><span class="line">(class 1) ; 整形字面值默认是java中的Long类型</span><br><span class="line">(class 1.); 浮点字面值对应着java中的Double类型</span><br><span class="line">(class ""); 字符串总是用双引号括起来,并且对应着java中的Sring类型</span><br><span class="line">(class false) ;布尔值对应着java中的Boolean类型</span><br><span class="line">(class nil); null值被称为 nil（英语含义：无、零点）</span><br><span class="line"></span><br><span class="line">; 如果你想创建一列数据字面值, 使用一个单引号 ' 来防表达式被解析执行</span><br><span class="line">'(+ 1 2) ; =&gt; (+ 1 2) ;这里没有返回3</span><br><span class="line">; (上面表达式和(quote (+ 1 2)) 等价，不过更简洁</span><br><span class="line"></span><br><span class="line">; 你可以运算一个引用列表</span><br><span class="line">(eval '(+ 1 2)) ; =&gt; 3</span><br><span class="line"></span><br><span class="line">; 集合和序列</span><br><span class="line">;;;;;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; 向量和列表也是java类哦！！</span><br><span class="line">(class [1 2 3]); =&gt; clojure.lang.PersistentVector</span><br><span class="line">(class '(1 2 3)); =&gt; clojure.lang.PersistentList</span><br><span class="line"></span><br><span class="line">;书写一个列表形如(1 2 3)一样简单, 但是我们不得不把它“引”（前面加个单引号）起来</span><br><span class="line">;这样就能防止解释器把它当做一个函数来解析</span><br><span class="line">;另外，(list 1 2 3) 和 '(1 2 3) 等价</span><br><span class="line"></span><br><span class="line">;列表和向量都是集合:</span><br><span class="line">(coll? '(1 2 3)) ; =&gt; true</span><br><span class="line">(coll? [1 2 3]) ; =&gt; true</span><br><span class="line"></span><br><span class="line">; 只有列表是序列.（序列是有顺序的）</span><br><span class="line">(seq? '(1 2 3)) ; =&gt; true</span><br><span class="line">(seq? [1 2 3]) ; =&gt; false</span><br><span class="line"></span><br><span class="line">; 序列是列表一种逻辑上的接口,可以懒加载.</span><br><span class="line">; "懒" 意味着可以定义无穷序列,就像下面一样:</span><br><span class="line">(range 4) ; =&gt; (0 1 2 3)</span><br><span class="line">(range) ; =&gt; (0 1 2 3 4 ...) (一个无穷序列)</span><br><span class="line">(take 4 (range)) ;  (0 1 2 3)</span><br><span class="line"></span><br><span class="line">; 使用cons 来追加一个元素到列表或者向量的头部</span><br><span class="line">(cons 4 [1 2 3]) ; =&gt; (4 1 2 3)</span><br><span class="line">(cons 4 '(1 2 3)) ; =&gt; (4 1 2 3)</span><br><span class="line"></span><br><span class="line">; 使用conj追加一个元素到列表的头部，或者向量的尾部,</span><br><span class="line">(conj [1 2 3] 4) ; =&gt; [1 2 3 4]</span><br><span class="line">(conj '(1 2 3) 4) ; =&gt; (4 1 2 3)</span><br><span class="line"></span><br><span class="line">; 使用concat来连接列表和向量</span><br><span class="line">(concat [1 2] '(3 4)) ; =&gt; (1 2 3 4)</span><br><span class="line"></span><br><span class="line">; 使用filter, map 来进行列表计算</span><br><span class="line">(map inc [1 2 3]) ; =&gt; (2 3 4)</span><br><span class="line">(filter even? [1 2 3]) ; =&gt; (2)</span><br><span class="line"></span><br><span class="line">; 使用reduce 来进行化繁为简  （map/reduce 思想就来自于lisp）</span><br><span class="line">(reduce + [1 2 3 4])</span><br><span class="line">; = (+ (+ (+ 1 2) 3) 4)</span><br><span class="line">; =&gt; 10</span><br><span class="line"></span><br><span class="line">; Reduce 可以使用一个初始值</span><br><span class="line">(reduce conj [] '(3 2 1))</span><br><span class="line">; = (conj (conj (conj [] 3) 2) 1)</span><br><span class="line">; =&gt; [3 2 1]</span><br><span class="line"></span><br><span class="line">; 函数</span><br><span class="line">;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; 使用fn来创建一个函数。所有的函数都有返回值，就是它的最后一个表达式</span><br><span class="line">(fn [] "Hello World") ; =&gt; fn</span><br><span class="line"></span><br><span class="line">; (你需要额外的括号去调用它)</span><br><span class="line">((fn [] "Hello World")) ; =&gt; "Hello World"</span><br><span class="line"></span><br><span class="line">;你可以使用def来创建变量</span><br><span class="line">(def x 1)</span><br><span class="line">x ; =&gt; 1</span><br><span class="line"></span><br><span class="line">; 将函数赋值给一个变量</span><br><span class="line">(def hello-world (fn [] "Hello World"))</span><br><span class="line">(hello-world) ; =&gt; "Hello World"</span><br><span class="line"></span><br><span class="line">; 你可以使用defn来简化定义过程</span><br><span class="line">(defn hello-world [] "Hello World")</span><br><span class="line"></span><br><span class="line">;[] 是函数的参数列表</span><br><span class="line">(defn hello [name]</span><br><span class="line">  (str "Hello " name))</span><br><span class="line">(hello "Steve") ; =&gt; "Hello Steve"</span><br><span class="line"></span><br><span class="line">; 你也可以使用下面这种简写方式</span><br><span class="line">(def hello2 #(str "Hello " %1))</span><br><span class="line">(hello2 "Fanny") ; =&gt; "Hello Fanny"</span><br><span class="line"></span><br><span class="line">; 你可以创建拥有可变参数的函数</span><br><span class="line">(defn hello3</span><br><span class="line">  ([] "Hello World")</span><br><span class="line">  ([name] (str "Hello " name)))</span><br><span class="line">(hello3 "Jake") ; =&gt; "Hello Jake"</span><br><span class="line">(hello3) ; =&gt; "Hello World"</span><br><span class="line"></span><br><span class="line">; 函数允许将参数打包成列表 （有点类似python中的*）</span><br><span class="line">(defn count-args [&amp; args]</span><br><span class="line">  (str "You passed " (count args) " args: " args))</span><br><span class="line">(count-args 1 2 3) ; =&gt; "You passed 3 args: (1 2 3)"</span><br><span class="line"></span><br><span class="line">; 你可以将普通参数和列表参数混合使用</span><br><span class="line">(defn hello-count [name &amp; args]</span><br><span class="line">  (str "Hello " name ", you passed " (count args) " extra args"))</span><br><span class="line">(hello-count "Finn" 1 2 3)</span><br><span class="line">; =&gt; "Hello Finn, you passed 3 extra args"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 哈希表</span><br><span class="line">;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">(class &#123;:a 1 :b 2 :c 3&#125;) ; =&gt; clojure.lang.PersistentArrayMap</span><br><span class="line"></span><br><span class="line">; 关键字类似字符串，但是做了一些性能上的优化</span><br><span class="line">(class :a) ; =&gt; clojure.lang.Keyword</span><br><span class="line"></span><br><span class="line">; Maps 的键可以是任意类型，但是通常推荐使用keywords</span><br><span class="line">(def stringmap (hash-map "a" 1, "b" 2, "c" 3))</span><br><span class="line">stringmap  ; =&gt; &#123;"a" 1, "b" 2, "c" 3&#125;</span><br><span class="line"></span><br><span class="line">(def keymap (hash-map :a 1 :b 2 :c 3))</span><br><span class="line">keymap ; =&gt; &#123;:a 1, :c 3, :b 2&#125; (不保证顺序)</span><br><span class="line"></span><br><span class="line">; 顺便说一下, 逗号只是为了看着更清晰，其他都和空格一样，什么都不做.</span><br><span class="line"></span><br><span class="line">; 从一个map中检索一个值，可以直接把这个map当做函数调用（这个NB）</span><br><span class="line">(stringmap "a") ; =&gt; 1</span><br><span class="line">(keymap :a) ; =&gt; 1</span><br><span class="line"></span><br><span class="line">; 关键字也可以当做函数来调用，从一个map中检索值（这个更NB）</span><br><span class="line">(:b keymap) ; =&gt; 2</span><br><span class="line"></span><br><span class="line">; stings 可没有这个功能，所以下面会抛出异常。（这也是为什么推荐使用keywords）</span><br><span class="line">;("a" stringmap)</span><br><span class="line">; =&gt; Exception: java.lang.String cannot be cast to clojure.lang.IFn</span><br><span class="line"></span><br><span class="line">; 检索一个不存在的值会返回nil</span><br><span class="line">(stringmap "d") ; =&gt; nil</span><br><span class="line"></span><br><span class="line">; 使用assoc 向一个map中添加新的键值对。</span><br><span class="line">(assoc keymap :d 4) ; =&gt; &#123;:a 1, :b 2, :c 3, :d 4&#125;</span><br><span class="line"></span><br><span class="line">; 请记住, clojure 类型是不可变的!</span><br><span class="line">keymap ; =&gt; &#123;:a 1, :b 2, :c 3&#125;</span><br><span class="line"></span><br><span class="line">; 使用dissoc 来删除key（可以删除多个）</span><br><span class="line">(dissoc keymap :a :b) ; =&gt; &#123;:c 3&#125;</span><br><span class="line"></span><br><span class="line">; 集合</span><br><span class="line">;;;;;;</span><br><span class="line"></span><br><span class="line">(class #&#123;1 2 3&#125;) ; =&gt; clojure.lang.PersistentHashSet</span><br><span class="line">(set [1 2 3 1 2 3 3 2 1 3 2 1]) ; =&gt; #&#123;1 2 3&#125;</span><br><span class="line"></span><br><span class="line">; 使用con来添加新值</span><br><span class="line">(conj #&#123;1 2 3&#125; 4) ; =&gt; #&#123;1 2 3 4&#125;</span><br><span class="line"></span><br><span class="line">; 使用disj删除原有值</span><br><span class="line">(disj #&#123;1 2 3&#125; 1) ; =&gt; #&#123;2 3&#125;</span><br><span class="line"></span><br><span class="line">; 直接将set当做函数来测试是否包含某个值（NB）</span><br><span class="line">(#&#123;1 2 3&#125; 1) ; =&gt; 1  (有就返回原有的值）</span><br><span class="line">(#&#123;1 2 3&#125; 4) ; =&gt; nil (没有就返回nil)</span><br><span class="line"></span><br><span class="line">; clojure.sets 命名空间包含更多的函数</span><br><span class="line"></span><br><span class="line">; 一些有用的形式</span><br><span class="line">;;;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; clojure中的逻辑结构都是宏, 看起来也没什么不同</span><br><span class="line">(if false "a" "b") ; =&gt; "b"</span><br><span class="line">(if false "a") ; =&gt; nil</span><br><span class="line"></span><br><span class="line">; 使用let 来创建临时绑定</span><br><span class="line">(let [a 1 b 2]</span><br><span class="line">  (&gt; a b)) ; =&gt; false</span><br><span class="line"></span><br><span class="line">; 执行多条语句，返回最后一条语句</span><br><span class="line">(do</span><br><span class="line">  (print "Hello")</span><br><span class="line">  "World") ; =&gt; "World" (prints "Hello")</span><br><span class="line"></span><br><span class="line">; 所有的函数都包含一个隐式的do</span><br><span class="line">(defn print-and-say-hello [name]</span><br><span class="line">  (print "Saying hello to " name)</span><br><span class="line">  (str "Hello " name))</span><br><span class="line">(print-and-say-hello "Jeff") ;=&gt; "Hello Jeff" (prints "Saying hello to Jeff")</span><br><span class="line"></span><br><span class="line">; let绑定也是哦</span><br><span class="line">(let [name "Urkel"]</span><br><span class="line">  (print "Saying hello to " name)</span><br><span class="line">  (str "Hello " name)) ; =&gt; "Hello Urkel" (prints "Saying hello to Urkel")</span><br><span class="line"></span><br><span class="line">; 模块</span><br><span class="line">;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; 使用“use”来获得一个模块中所有的函数</span><br><span class="line">(use 'clojure.set)</span><br><span class="line"></span><br><span class="line">; 现在我们可以使用集合操作</span><br><span class="line">(intersection #&#123;1 2 3&#125; #&#123;2 3 4&#125;) ; =&gt; #&#123;2 3&#125;  求交集</span><br><span class="line">(difference #&#123;1 2 3&#125; #&#123;2 3 4&#125;) ; =&gt; #&#123;1&#125;   求差集</span><br><span class="line"></span><br><span class="line">; 你可以只导入一个函数子集（例如下面只包含交集函数）</span><br><span class="line">(use '[clojure.set :only [intersection]])</span><br><span class="line"></span><br><span class="line">; 使用reqire来导入一个模块</span><br><span class="line">(require 'clojure.string)</span><br><span class="line"></span><br><span class="line">; 使用/从一个模块中调用函数</span><br><span class="line">(clojure.string/blank? "") ; =&gt; true</span><br><span class="line"></span><br><span class="line">; 你可以在导入模块的时候自定义名称</span><br><span class="line">(require '[clojure.string :as str])  </span><br><span class="line">(str/replace "This is a test." #"[a-o]" str/upper-case) ; =&gt; "THIs Is A tEst."</span><br><span class="line">; (#"" denotes a regular expression literal)</span><br><span class="line"></span><br><span class="line">; 你可以使用":require" 从一个命名空间中引入模块（use也可以，但是别这么做）</span><br><span class="line">; 如果你使用:require的话，就没必要把模块“引”（前面加个单引号）起来了.</span><br><span class="line">(ns test</span><br><span class="line">  (:require</span><br><span class="line">    [clojure.string :as str]</span><br><span class="line">    [clojure.set :as set]))</span><br><span class="line"></span><br><span class="line">; Java</span><br><span class="line">;;;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">; java 拥有一个庞大的各种用途的标准库,你一定迫不及待想学习如何在clojure中使用这些库</span><br><span class="line"></span><br><span class="line">; 使用import类引入java模块（这个还好没变化）</span><br><span class="line">(import java.util.Date)</span><br><span class="line"></span><br><span class="line">; 你也可以从一个命名空间中引入</span><br><span class="line">(ns test</span><br><span class="line">  (:import java.util.Date</span><br><span class="line">           java.util.Calendar))</span><br><span class="line"></span><br><span class="line">; 类名字后加个”."用来创建一个对象</span><br><span class="line">(Date.) ; &lt;a date object&gt;</span><br><span class="line"></span><br><span class="line">; 使用. 来调用方法. 或者使用“.方法名"简写的方式</span><br><span class="line">(. (Date.) getTime) ; &lt;a timestamp&gt;</span><br><span class="line">(.getTime (Date.)) ; 和上面一样哦</span><br><span class="line"></span><br><span class="line">; 使用/ 来调用静态方法</span><br><span class="line">(System/currentTimeMillis) ; &lt;a timestamp&gt; (system is always present)</span><br><span class="line"></span><br><span class="line">; 使用 doto 来处理可变的类&lt;span style="font-family:宋体;"&gt;，所有的函数始终用最初的那个对象值，最后还是返回最初的那个对象&lt;/span&gt;  (import java.util.Calendar)</span><br><span class="line">(doto (Calendar/getInstance)</span><br><span class="line">  (.set 2000 1 1 0 0 0)</span><br><span class="line">  .getTime) ; =&gt; A Date. set to 2000-01-01 00:00:00</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="http://learnxinyminutes.com/docs/clojure/" target="_blank" rel="external">英文原文</a>：<a href="http://learnxinyminutes.com/docs/clojure/" target="_blank" rel="external">Learn Clojure in minutes</a></p>
+</li>
+<li><p><a href="http://www.oschina.net/translate/learn-clojure-in-minutes" target="_blank" rel="external">译文链接</a>：<a href="http://www.oschina.net/translate/learn-clojure-in-minutes" target="_blank" rel="external">http://www.oschina.net/translate/learn-clojure-in-minutes</a></p>
+</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/">几分钟内学习 Clojure</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时02分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/" title="几分钟内学习 Clojure">http://notes.seirhsiao.com/2016/01/24/2014-05-25-learn-clojure-in-minutes/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-05-25-learn-clojure-in-minutes/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-05-26-clojure-set-up/">
+        Clojure学习 —— 安装与配置
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2013-08-08-vi-hand-book/">
+        vi编辑器使用指南
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-05-25-learn-clojure-in-minutes/" data-title="几分钟内学习 Clojure" data-url="http://notes.seirhsiao.com/2016/01/24/2014-05-25-learn-clojure-in-minutes/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-05-26-clojure-set-up/" title="上一篇: Clojure学习 —— 安装与配置">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2013-08-08-vi-hand-book/" title="下一篇: vi编辑器使用指南">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

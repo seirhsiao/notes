@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vi编辑器使用指南 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、Unix编辑器概述编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。
+值得庆幸的是，Unix提供了全屏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vi编辑器使用指南">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2013-08-08-vi-hand-book/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="一、Unix编辑器概述编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。
+值得庆幸的是，Unix提供了全屏">
+<meta property="og:updated_time" content="2015-11-21T13:02:20.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vi编辑器使用指南">
+<meta name="twitter:description" content="一、Unix编辑器概述编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。
+值得庆幸的是，Unix提供了全屏">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-08-08-vi-hand-book" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2013-08-08-vi-hand-book/" class="article-date">
+  	<time datetime="2016-01-24T02:06:28.159Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vi编辑器使用指南
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Linux/">Linux</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/">vi</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Unix编辑器概述">一、Unix编辑器概述</h2><p>编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。</p>
+<p>值得庆幸的是，Unix提供了全屏幕的Vi编辑器，这使我们的工作轻松不少。不少DOS用户抱怨Vi编辑器不象DOS下的编辑器如edit那么好用，这是因为Vi考虑到各种用户的需要，没有使用某些通用的编辑键（在各个不同的终端机上他们的定义是不同的，在某些终端机上甚至没有这些键）。而是采用状态切换的方法，但这只是习惯的问题，一旦你熟练的使用上了vi你就会觉得它其实也很好用。虽然 Vi采用了状态切换的方法，但电脑的硬件及操作系统多种多样，某些电脑的键盘上没有特定的几个功能键！那麽不就有某些功能不能用了？这个问题在 Unix 系统上也一样，几乎各大电脑厂商都有自己的Unix 系统，而 vi 的操作方法也会随之有点出入。这里我们采用 PC 的键盘来说明 vi 的操作，但在具体的环境中还要参考相应的资料，这一点是值得注意的。</p>
+<a id="more"></a>
+<h2 id="二、Vi入门">二、Vi入门</h2><h3 id="（一）、进入vi">（一）、进入vi</h3><p>在系统提示字符(如$、#)下敲入vi ＜档案名称＞，vi 可以自动帮你载入所要编辑的文件或是开启一个新文件（如果该文件不存在或缺少文件名）。进入 vi 后萤幕左方会出现波浪符号，凡是列首有该符号就代表此列目前是空的。</p>
+<h3 id="（二）、两种模式">（二）、两种模式</h3><p>如上所述，vi存在两种模式：指令模式和输入模式。在指令模式下输入的按键将做为指令来处理：如输入a，vi即认为是在当前位置插入字符。而在输入模式下，vi则把输入的按键当作插入的字符来处理。指令模式切换到输入模式只需键入相应的输入命令即可（如a,A），而要从输入模式切换到指令模式，则需在输入模式下键入ESC键，如果不晓得现在是处於什麽模式，可以多按几次 [ESC]，系统如发出哔哔声就表示已处于指令模式下了。</p>
+<p>付：有指令模式进入输入模式的指令：</p>
+<ul>
+<li>新增 (append)</li>
+</ul>
+<p><code>a</code>：从光标所在位置後面开始新增资料，光标後的资料随新增资料向後移动。</p>
+<p><code>A</code>： 从光标所在列最後面的地方开始新增资料。</p>
+<ul>
+<li>插入 (insert)</li>
+</ul>
+<p><code>i</code>： 从光标所在位置前面开始插入资料，光标後的资料随新增资料向後移动。</p>
+<p><code>I</code>：从光标所在列的第一个非空白字元前面开始插入资料。</p>
+<ul>
+<li>开始 (open)</li>
+</ul>
+<p><code>o</code>：在光标所在列下新增一列并进入输入模式。</p>
+<p><code>O</code>: 在光标所在列上方新增一列并进入输入模式。</p>
+<h3 id="（三）、退出vi">（三）、退出vi</h3><p>在指令模式下键入:q,:q!,:wq或:x(注意:号），就会退出vi。其中:wq和:x是存盘退出，而:q是直接退出，如果文件已有新的变化，vi会提示你保存文件而:q命令也会失效，这时你可以用:w命令保存文件后再用:q退出，或用:wq或:x命令退出，如果你不想保存改变后的文件，你就需要用:q!命令，这个命令将不保存文件而直接退出vi。</p>
+<h3 id="（四）、基本编辑">（四）、基本编辑</h3><p>配合一般键盘上的功能键，像是方向键、[Insert] 、[Delete] 等等，现在你应该已经可以利用 vi 来编辑文件了。当然 vi 还提供其他许许多多功能让文字的处理更为方便。</p>
+<p>何谓编辑？一般认为是文字的新增、修改以及删除，甚至包括文字区块的搬移、复制等等。先这里介绍 vi的如何做删除与修改。（注意：在 vi 的原始观念里，输入跟编辑是两码子事。编辑是在指令模式下操作的，先利用指令移动光标来定位要进行编辑的地方，然後才下指令做编辑。）</p>
+<p>删除与修改文件的命令：</p>
+<p><code>x</code>： 删除光标所在字符。</p>
+<p><code>dd</code>：删除光标所在的列。</p>
+<p><code>r</code>：修改光标所在字元，r 後接著要修正的字符。</p>
+<p><code>R</code>： 进入取替换状态，新增文字会覆盖原先文字，直到按 [ESC] 回到指令模式下为止。</p>
+<p><code>s</code>： 删除光标所在字元，并进入输入模式。</p>
+<p><code>S</code>： 删除光标所在的列，并进入输入模式。</p>
+<p>其实呢，在PC上根本没有这麽麻烦！输入跟编辑都可以在输入模式下完成。例如要删除字元，直接按[Delete] 不就得了。而插入状态与取代状态可以直接用 [Insert] 切换，犯不著用什麽指令模式的编辑指令。不过就如前面所提到的，这些指令几乎是每台终端机都能用，而不是仅仅在 PC 上。<br>在指令模式下移动光标的基本指令是 h, j, k, l 。想来各位现在也应该能猜到只要直接用 PC 的方向键就可以了，而且无论在指令模式或输入模式下都可以。多容易不是。<br>当然 PC 键盘也有不足之处。有个很好用的指令 u 可以恢复被删除的文字，而 U 指令则可以恢复光标所在列的所有改变。这与某些电脑上的 [Undo] 按键功能相同。  </p>
+<h2 id="三、附件：vi详细指令表">三、附件：vi详细指令表</h2><h3 id="（一）、基本编辑指令：">（一）、基本编辑指令：</h3><ul>
+<li>新增 (append)</li>
+</ul>
+<p><code>a</code>：从光标所在位置後面开始新增资料，光标後的资料随新增资料向後移动。</p>
+<p><code>A</code>： 从光标所在列最後面的地方开始新增资料。</p>
+<ul>
+<li>插入 (insert)</li>
+</ul>
+<p><code>i</code>： 从光标所在位置前面开始插入资料，光标後的资料随新增资料向後移动。</p>
+<p><code>I</code>：从光标所在列的第一个非空白字元前面开始插入资料。</p>
+<ul>
+<li>开始 (open)</li>
+</ul>
+<p><code>o</code>：在光标所在列下新增一列并进入输入模式。</p>
+<p><code>O</code>: 在光标所在列上方新增一列并进入输入模式。</p>
+<p><code>x</code>： 删除光标所在字符。</p>
+<p><code>dd</code>：删除光标所在的列。</p>
+<p><code>r</code>：修改光标所在字元，r 後接著要修正的字符。</p>
+<p><code>R</code>： 进入取替换状态，新增文字会覆盖原先文字，直到按 [ESC] 回到指令模式下为止。</p>
+<p><code>s</code>： 删除光标所在字元，并进入输入模式。</p>
+<p><code>S</code>： 删除光标所在的列，并进入输入模式。</p>
+<h3 id="（二）、光标移动指令：">（二）、光标移动指令：</h3><p>由於许多编辑工作是藉由光标来定位，所以 vi 提供许多移动光标的方式，这个我们列<br>几张简表来说明（这些当然是指令模式下的指令）：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:right">功能键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align:center">移动到光标所在列的最前面</td>
+<td style="text-align:right">[Home]</td>
+</tr>
+<tr>
+<td>$</td>
+<td style="text-align:center">移动到光标所在列的最後面</td>
+<td style="text-align:right">[End]</td>
+</tr>
+<tr>
+<td>[CTRL][d]</td>
+<td style="text-align:center">向下半页</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>[CTRL][f]</td>
+<td style="text-align:center">向下一页</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>[CTRL][u]</td>
+<td style="text-align:center">向上半页</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>[CTRL][b]</td>
+<td style="text-align:center">向上一页</td>
+<td style="text-align:right">[PageUP]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H</td>
+<td style="text-align:center">移动到视窗的第一列</td>
+</tr>
+<tr>
+<td>M</td>
+<td style="text-align:center">移动到视窗的中间列</td>
+</tr>
+<tr>
+<td>L</td>
+<td style="text-align:center">移动到视窗的最後列</td>
+</tr>
+<tr>
+<td>b</td>
+<td style="text-align:center">移动到上个字的第一个字母</td>
+</tr>
+<tr>
+<td>w</td>
+<td style="text-align:center">移动到下个字的第一个字母</td>
+</tr>
+<tr>
+<td>e</td>
+<td style="text-align:center">移动到下个字的最後一个字母</td>
+</tr>
+<tr>
+<td>^</td>
+<td style="text-align:center">移动到光标所在列的第一个非空白字元</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n-</td>
+<td style="text-align:center">减号移动到上一列的第一个非空白字元前面加上数字可以指定移动到以上 n 列</td>
+</tr>
+<tr>
+<td>n+</td>
+<td style="text-align:center">加号移动到下一列的第一个非空白字元前面加上数字可以指定移动到以下 n 列</td>
+</tr>
+<tr>
+<td>nG</td>
+<td style="text-align:center">直接用数字 n 加上大写 G 移动到第 n 列</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fx</td>
+<td style="text-align:center">往右移动到 x 字元上</td>
+</tr>
+<tr>
+<td>Fx</td>
+<td style="text-align:center">往左移动到 x 字元上</td>
+</tr>
+<tr>
+<td>tx</td>
+<td style="text-align:center">往右移动到 x 字元前</td>
+</tr>
+<tr>
+<td>Tx</td>
+<td style="text-align:center">往左移动到 x 字元前</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>;</td>
+<td style="text-align:center">配合f&amp;t使用      重复一次</td>
+</tr>
+<tr>
+<td>,</td>
+<td style="text-align:center">配合f&amp;t使用反方向重复一次</td>
+</tr>
+<tr>
+<td>/</td>
+<td style="text-align:center">往右移动到有字符的地方</td>
+</tr>
+<tr>
+<td>？</td>
+<td style="text-align:center">往左移动到有字符的地方</td>
+</tr>
+<tr>
+<td>n</td>
+<td style="text-align:center">配合/&amp;?使用重复一次</td>
+</tr>
+<tr>
+<td>N</td>
+<td style="text-align:center">配合/&amp;?使用反方向重复一次</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:right">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n(</td>
+<td style="text-align:center">左括号移动到句子的最前面</td>
+<td style="text-align:right">句子是以前面加上数字可以指定往前移动n个句子! . ? 三种符号来界定</td>
+</tr>
+<tr>
+<td>n)</td>
+<td style="text-align:center">右括号移动到下个句子的最前面</td>
+<td style="text-align:right">句子是以前面加上数字可以指定往後移动n个句子! . ? 三种符号来界定</td>
+</tr>
+<tr>
+<td>n{</td>
+<td style="text-align:center">左括弧移动到段落的最前面</td>
+<td style="text-align:right">前面加上数字可以指定往前移动n个段落,段落是以段落间的空白列界定</td>
+</tr>
+<tr>
+<td>n}</td>
+<td style="text-align:center">右括弧移动到下个段落的最前面</td>
+<td style="text-align:right">前面加上数字可以指定往後移动n个段落,段落是以段落间的空白列界定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="（三）、更多的编辑指令">（三）、更多的编辑指令</h3><p>这些编辑指令非常有弹性，基本上可以说是由指令与范围所构成。例如 dw 怯缮境噶?nbsp;d 与范围 w 所组成，代表删除一个字 d(elete) w(ord) 。<br>指令列表如下：<br><code>d</code> 删除(delete)<br><code>y</code> 复制(yank)<br><code>p</code> 放置(put)<br><code>c</code> 修改(change)<br>范围可以是下列几个：<br><code>e</code> 光标所在位置到下一个单词的结尾<br><code>w</code> 光标所在位置到下个字的第一个字母<br><code>b</code> 光标所在位置到上个字的第一个字母<br><code>$</code> 光标所在位置到该列的最後一个字母<br><code>0</code> 光标所在位置到该列的第一个字母<br><code>)</code> 光标所在位置到下个句子的第一个字母<br><code>(</code> 光标所在位置到该句子的第一个字母<br><code>}</code> 光标所在位置到该段落的最後一个字母<br><code>{</code> 光标所在位置到该段落的第一个字母<br>说实在的，组合这些指令来编辑文件有一点点艺术气息。不管怎麽样，它们提供更多编辑文字的能力。值得注意的一点是删除与复制都会将指定范围的内容放到暂存区里，然後就可以用指令 p 贴到其它地方去，这是 vi 用来处理区段拷贝与搬移的办法。<br>某些 vi 版本，例如 Linux 所用的 elvis 可以大幅简化这一坨指令。如果稍微观察一下这些编辑指令就会发现问题其实是定范围的方式有点杂，实际上只有四个指令罢了。指令 v 非常好用，只要按下 v 键，光标所在的位置就会反白，然後就可以移动光标来设定范围，接著再直接下指令进行编辑即可。对於整列操作， vi 另外提供了更方便的编辑指令。前面曾经提到过删除整列文字的指令 dd 就是其中一个；cc 可以修改整列文字；而 yy 则是复制整列文字；指令 D 则可以删除光标到该列结束为止所有的文字。  </p>
+<h3 id="（四）、文件操作指令">（四）、文件操作指令</h3><p>文件操作指令多以 : 开头，这跟编辑指令有点区别。<br><code>:q</code> 结束编辑(quit)<br><code>:q!</code> 不存档而要放弃编辑过的文件。<br><code>:w</code> 保存文件(write)其後可加所要存档的档名。<br><code>:wq</code> 即存档後离开。<br><code>zz</code> 功能与 :wq 相同。<br><code>:x</code> 与:wq相同</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2013-08-08-vi-hand-book/">vi编辑器使用指南</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时02分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2013-08-08-vi-hand-book/" title="vi编辑器使用指南">http://notes.seirhsiao.com/2016/01/24/2013-08-08-vi-hand-book/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2013-08-08-vi-hand-book/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/">
+        几分钟内学习 Clojure
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2013-07-10-frontend-knowledge-structure/">
+        前端知识结构
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Unix编辑器概述"><span class="toc-number">1.</span> <span class="toc-text">一、Unix编辑器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Vi入门"><span class="toc-number">2.</span> <span class="toc-text">二、Vi入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）、进入vi"><span class="toc-number">2.1.</span> <span class="toc-text">（一）、进入vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）、两种模式"><span class="toc-number">2.2.</span> <span class="toc-text">（二）、两种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）、退出vi"><span class="toc-number">2.3.</span> <span class="toc-text">（三）、退出vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（四）、基本编辑"><span class="toc-number">2.4.</span> <span class="toc-text">（四）、基本编辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、附件：vi详细指令表"><span class="toc-number">3.</span> <span class="toc-text">三、附件：vi详细指令表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）、基本编辑指令："><span class="toc-number">3.1.</span> <span class="toc-text">（一）、基本编辑指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）、光标移动指令："><span class="toc-number">3.2.</span> <span class="toc-text">（二）、光标移动指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）、更多的编辑指令"><span class="toc-number">3.3.</span> <span class="toc-text">（三）、更多的编辑指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（四）、文件操作指令"><span class="toc-number">3.4.</span> <span class="toc-text">（四）、文件操作指令</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2013-08-08-vi-hand-book/" data-title="vi编辑器使用指南" data-url="http://notes.seirhsiao.com/2016/01/24/2013-08-08-vi-hand-book/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/" title="上一篇: 几分钟内学习 Clojure">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2013-07-10-frontend-knowledge-structure/" title="下一篇: 前端知识结构">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

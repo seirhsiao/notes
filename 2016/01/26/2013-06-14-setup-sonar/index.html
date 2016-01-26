@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sonar及其eclipse插件的安装 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文档用于帮助您安装Sonar和Eclipse的Sonar插件,并利用Sonar分析您的项目，动态地清理代码中的问题，提高代码质量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sonar及其eclipse插件的安装">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-06-14-setup-sonar/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="本文档用于帮助您安装Sonar和Eclipse的Sonar插件,并利用Sonar分析您的项目，动态地清理代码中的问题，提高代码质量。">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_01.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_02.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_03.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_04.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_05.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_06.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_07.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_08.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_09.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_10.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_11.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_12.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_13.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_14.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_15.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_16.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_17.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_17_b.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_18.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_19.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/sonar/sonar_01_20.png">
+<meta property="og:updated_time" content="2016-01-26T12:37:06.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sonar及其eclipse插件的安装">
+<meta name="twitter:description" content="本文档用于帮助您安装Sonar和Eclipse的Sonar插件,并利用Sonar分析您的项目，动态地清理代码中的问题，提高代码质量。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-06-14-setup-sonar" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-06-14-setup-sonar/" class="article-date">
+  	<time datetime="2016-01-26T12:37:06.631Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sonar及其eclipse插件的安装
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Maven/">Maven</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nexus/">nexus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文档用于帮助您安装Sonar和Eclipse的Sonar插件,并利用Sonar分析您的项目，动态地清理代码中的问题，提高代码质量。<br><a id="more"></a></p>
+<h3 id="一、Sonar安装">一、Sonar安装</h3><ol>
+<li>下载Sonar</li>
+</ol>
+<p>点击下面网址：<br><a href="http://dist.sonar.codehaus.org/sonar-3.5.1.zip" target="_blank" rel="external">下载Sonar</a> </p>
+<p>下载后解压</p>
+<ol>
+<li>解压后安装</li>
+</ol>
+<p>解压后你将要看到如下图所示的目录结构：<br><img src="/static/images/sonar/sonar_01_01.png" alt="sonar_01_01.png"><br>图 1 Sonar目录结构</p>
+<ol>
+<li>运行Sonar</li>
+</ol>
+<p>不同的操作系统需要执行不同的可执行文件，例如64位linux-x86系统需要执行<code>start.sh</code><br><img src="/static/images/sonar/sonar_01_02.png" alt="sonar_01_02.png"><br>图 2 运行Sonar</p>
+<ol>
+<li>Sonar控制台</li>
+</ol>
+<p>启动Sonar后您将看到如下信息：<br><img src="/static/images/sonar/sonar_01_03.png" alt="sonar_01_03.png"><br>图 3 Sonar控制台</p>
+<ol>
+<li>访问Sonar</li>
+</ol>
+<p>现在你可以通过<a href="http://localhost:9000访问你的Sonar" target="_blank" rel="external">http://localhost:9000访问你的Sonar</a></p>
+<h3 id="二、生成Sonar报告">二、生成Sonar报告</h3><ul>
+<li>POM中增加Sonar配置</li>
+</ul>
+<p>Sonar安装完成后，为了可以生成maven项目的报告，我们需要在项目的pom.xml文件中添加下图所示的行（在properties section中增加Sonar主机地址）<br><img src="/static/images/sonar/sonar_01_04.png" alt="sonar_01_04.png"><br>图 4 POM XML中添加Sonar配置</p>
+<ul>
+<li><p>例子</p>
+<ul>
+<li><p>让我们看一个普通项目的例子;执行下列操作步骤</p>
+<ul>
+<li>从库中检出最新的代码到您的工作中</li>
+<li>执行<code>mvn clean install</code></li>
+<li><p>修改pom.xml文件，在properties section中添加如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">sonar.host.url</span>&gt;</span> http://localhost:9000/ <span class="tag">&lt;/<span class="title">sonar.host.url</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存文件</p>
+</li>
+<li>在命令行中执行<code>mvn sonar:sonar</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>你将看到如下信息<br><img src="/static/images/sonar/sonar_01_05.png" alt="sonar_01_05.png"><br>图 5 生成Sonar报告-1</p>
+<p><strong>注意</strong>：需要等待几分钟（等待时间取决于sonar报告的模块大小，可能需要更长的时间）</p>
+<p><img src="/static/images/sonar/sonar_01_06.png" alt="sonar_01_06.png"><br>图 6 生成Sonar报告-2</p>
+<p>最后看到如下信息时，表明sonar报告已经完成。</p>
+<p><img src="/static/images/sonar/sonar_01_07.png" alt="sonar_01_07.png"><br>图 7 Sonar报告生成成功</p>
+<h3 id="三、Sonar中访问您的项目">三、Sonar中访问您的项目</h3><p>现在登陆 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> ，你将看到生成的项目报告<br><img src="/static/images/sonar/sonar_01_08.png" alt="sonar_01_08.png"><br>图8 本地生成的Sonar报告</p>
+<h3 id="四、Eclipse中集成Sonar">四、Eclipse中集成Sonar</h3><ul>
+<li><p>安装Eclipse的Sonar插件<br>通过Eclipse Market Place安装<br><img src="/static/images/sonar/sonar_01_09.png" alt="sonar_01_09.png"><br>图 9 Sonar的Eclipse插件安装（Market Place）1<br><img src="/static/images/sonar/sonar_01_10.png" alt="sonar_01_10.png"><br>图 10 Sonar的Eclipse插件安装（Market Place）2</p>
+</li>
+<li><p>通过Eclipse Software Update安装</p>
+</li>
+</ul>
+<p>点击Help -&gt; Install New Software,将弹出Install对话框。 复制地址<a href="http://dist.sonar-ide.codehaus.org/eclipse/" target="_blank" rel="external">http://dist.sonar-ide.codehaus.org/eclipse/</a> 到Work with栏并回车，将显示可用的插件和组件列表，如下图</p>
+<p><img src="/static/images/sonar/sonar_01_11.png" alt="sonar_01_11.png"><br>图 11 Sonar的Eclipse插件安装（通过安装新软件菜单）</p>
+<ul>
+<li>选择Sonar Java, 按照步骤安装插件</li>
+</ul>
+<p><strong>注意</strong>：请确保你要关联Sonar的项目已经被Sonar安装版分析过</p>
+<ul>
+<li>配置Eclipse中的Sonar</li>
+<li>配置eclispe的本地/远程Sonar服务器</li>
+</ul>
+<p>点击Window -&gt; Preferences -&gt; Sonar -&gt; Servers Sonar Eclipse预置的访问本地Sonar服务器的地址为<a href="http://localhost:9000/" target="_blank" rel="external">http://localhost:9000/</a> ，你可以修改、删除或者新增一个地址<br><img src="/static/images/sonar/sonar_01_12.png" alt="sonar_01_12.png"><br>图 12 Eclipse中配置Sonar服务器</p>
+<ul>
+<li>第一次链接你的项目</li>
+</ul>
+<p>Sonar服务器配置完成后，下一步是将你的Eclipse项目链接到Sonar服务器，并利用Sonar服务器进行分析</p>
+<p>首先，在Project Explorer中右键单击项目，然后点击Configure -&gt; Associate with Sonar.<br><img src="/static/images/sonar/sonar_01_13.png" alt="sonar_01_13.png"><br>图 13配置/关联您的Eclipse项目到Sonar</p>
+<ul>
+<li><p>在Sonar project文本位置输入项目的名称，并在列表框中选择<br><img src="/static/images/sonar/sonar_01_14.png" alt="sonar_01_14.png"><br>图 14关联您的Eclipse项目到Sonar 2</p>
+</li>
+<li><p>点击Finsh。您的项目现在关联到您的Sonar服务器上进行分析</p>
+</li>
+</ul>
+<h3 id="五、分析和清理代码">五、分析和清理代码</h3><ul>
+<li>执行本地分析，清理代码<br><img src="/static/images/sonar/sonar_01_15.png" alt="sonar_01_15.png"><br>图 15 配置模块<br><img src="/static/images/sonar/sonar_01_16.png" alt="sonar_01_16.png"><br>图 16 在Eclipse中配置Sonar模块</li>
+</ul>
+<p><strong>注意</strong>：请确保你的本地Sonar服务器已经启动（在运行Sonar一节描述），否则您无法看到您打算配置的Sonar项目</p>
+<ul>
+<li>本地运行Sonar分析</li>
+</ul>
+<p><img src="/static/images/sonar/sonar_01_17.png" alt="sonar_01_17_a.png"><br>图 17.a 设置Sonar分析为本地模式</p>
+<p><img src="/static/images/sonar/sonar_01_17_b.png" alt="sonar_01_17_b.png"><br>图 17.b 本地运行Sonar分析<br><img src="/static/images/sonar/sonar_01_18.png" alt="sonar_01_18.png"><br>图 18 Sonar问题分析控制台<br><img src="/static/images/sonar/sonar_01_19.png" alt="sonar_01_19.png"><br>图 19 Sonar问题分析控制台2<br><img src="/static/images/sonar/sonar_01_20.png" alt="sonar_01_20.png"><br>图 20 Sonar问题标记</p>
+<h3 id="六、参考推荐">六、参考推荐</h3><p>原文链接： dzone 翻译： ImportNew.com - norwind<br>译文链接： <a href="http://www.importnew.com/10017.html" target="_blank" rel="external">http://www.importnew.com/10017.html</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-06-14-setup-sonar/">Sonar及其eclipse插件的安装</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时37分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时37分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-06-14-setup-sonar/" title="Sonar及其eclipse插件的安装">http://notes.seirhsiao.com/2016/01/26/2013-06-14-setup-sonar/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-06-14-setup-sonar/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-07-03-rails-style-guide/">
+        Rails 风格指南
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-12-setup-jenkins-on-windows/">
+        Jenkins安装以及集成使用
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Sonar安装"><span class="toc-number">1.</span> <span class="toc-text">一、Sonar安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、生成Sonar报告"><span class="toc-number">2.</span> <span class="toc-text">二、生成Sonar报告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Sonar中访问您的项目"><span class="toc-number">3.</span> <span class="toc-text">三、Sonar中访问您的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Eclipse中集成Sonar"><span class="toc-number">4.</span> <span class="toc-text">四、Eclipse中集成Sonar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、分析和清理代码"><span class="toc-number">5.</span> <span class="toc-text">五、分析和清理代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、参考推荐"><span class="toc-number">6.</span> <span class="toc-text">六、参考推荐</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-06-14-setup-sonar/" data-title="Sonar及其eclipse插件的安装" data-url="http://notes.seirhsiao.com/2016/01/26/2013-06-14-setup-sonar/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-07-03-rails-style-guide/" title="上一篇: Rails 风格指南">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-06-12-setup-jenkins-on-windows/" title="下一篇: Jenkins安装以及集成使用">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

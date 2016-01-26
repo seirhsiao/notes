@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Eclipse设置、调优、使用 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="eclipse调优使用eclipse调优
+一般在不对eclipse进行相关设置的时候，使用eclipse总是会觉得启动好慢，用起来好卡，其实只要对eclipse的相关参数进行一些配置，就会有很大的改善。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse设置、调优、使用">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-06-08-eclipse-setup-and-optimization/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="eclipse调优使用eclipse调优
+一般在不对eclipse进行相关设置的时候，使用eclipse总是会觉得启动好慢，用起来好卡，其实只要对eclipse的相关参数进行一些配置，就会有很大的改善。">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_01.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_02.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_03.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_04.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_05.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_06.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_07.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_08.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_09.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_10.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_11.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_12.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_13.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_14.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_14.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_15.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_16.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_17.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_18.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_19.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_20.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_21.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_22.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_23.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_24.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_25.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_26.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_27.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_28.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_29.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_30.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_31.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_32.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_33.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_34.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_35.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_36.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/eclipse/eclipse_02_37.png">
+<meta property="og:updated_time" content="2016-01-26T12:33:35.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eclipse设置、调优、使用">
+<meta name="twitter:description" content="eclipse调优使用eclipse调优
+一般在不对eclipse进行相关设置的时候，使用eclipse总是会觉得启动好慢，用起来好卡，其实只要对eclipse的相关参数进行一些配置，就会有很大的改善。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-06-08-eclipse-setup-and-optimization" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/" class="article-date">
+  	<time datetime="2016-01-26T12:33:35.969Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Eclipse设置、调优、使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Eclipse/">Eclipse</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="eclipse调优使用">eclipse调优使用</h2><p>eclipse调优</p>
+<p>一般在不对eclipse进行相关设置的时候，使用eclipse总是会觉得启动好慢，用起来好卡，其实只要对eclipse的相关参数进行一些配置，就会有很大的改善。<br><a id="more"></a></p>
+<h3 id="加快启动速度">加快启动速度</h3><ol>
+<li>在eclipse启动的时候，它总是会搜索让其运行的jre，往往就是这个搜索过程让eclipse启动变慢了。（没设置时，等2-3s出现进度条，设置后直接出现进度条）</li>
+</ol>
+<p>只要在eclipse.ini中加入-vm的参数就可以了<br><img src="/static/images/eclipse/eclipse_02_01.png" alt="eclipse_02_01.png"></p>
+<ol>
+<li><p>取消所有启动时要激活的插件（在用时激活也一样）和其它的相关的在启动时执行的操作。<br><img src="/static/images/eclipse/eclipse_02_02.png" alt="eclipse_02_02.png"></p>
+</li>
+<li><p>关闭自动更新</p>
+</li>
+</ol>
+<p><img src="/static/images/eclipse/eclipse_02_03.png" alt="eclipse_02_03.png"><br><img src="/static/images/eclipse/eclipse_02_04.png" alt="eclipse_02_04.png"><br><img src="/static/images/eclipse/eclipse_02_05.png" alt="eclipse_02_05.png"></p>
+<p>减少jvm内存回收引起的eclipse卡的问题<br>这个主要是jvm在client模式，进行内存回收时，会停下所有的其它工作，带回收完毕才去执行其它任务，在这期间eclipse就卡住了。所以适当的增加jvm申请的内存大小来减少其回收的次数甚至不回收，就会是卡的现象有明显改善。</p>
+<p>主要通过以下的几个jvm参数来设置堆内存的：<br>表格是我觉得 Markdown 比较累人的地方，例子如下：<br>|   参数              |                                              描述                                                 |<br>| ——————- |:————————————————————————————————-:|<br>| -Xmx512m            | 最大总堆内存，一般设置为物理内存的1/4                                                             |<br>| -Xms512m            | 初始总堆内存，一般将它设置的和最大堆内存一样大，这样就不需要根据当前堆使用情况而调整堆的大小了    |<br>| -Xmn192m            | 年轻带堆内存，sun官方推荐为整个堆的3/8                                                            |<br>| 堆内存的组成        | 总堆内存 = 年轻带堆内存 + 年老带堆内存 + 持久带堆内存                                             |<br>| 年轻带堆内存        | 对象刚创建出来时放在这里                                                                          |<br>| 老带堆内存          | 对象在被真正会回收之前会先放在这里                                                                |<br>| 持久带堆内存        | class文件，元数据等放在这里                                                                       |<br>| -XX:PermSize=128m   | 持久带堆的初始大小                                                                                |<br>| -XX:MaxPermSize=128m| 持久带堆的最大大小，eclipse默认为256m。如果要编译jdk这种，一定要把这个设的很大，因为它的类太多了。|  </p>
+<p>持久带堆的最大大小，eclipse默认为256m。如果要编译jdk这种，一定要把这个设的很大，因为它的类太多了。</p>
+<p>我的配置（2g内存的笔记本）：<br><img src="/static/images/eclipse/eclipse_02_06.png" alt="eclipse_02_06.png"></p>
+<p>还有其它的相关参数可以看看下面的参考材料，很有启发的：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"><span class="constant">XX</span><span class="symbol">:+UseParallelGC</span> 使用并发内存回收</span><br><span class="line"></span>-<span class="ruby"><span class="constant">XX</span><span class="symbol">:+DisableExplicitGC</span> 禁用<span class="constant">System</span>.gc()的显示内存回收</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="eclipse相关设置来来减少卡的现象">eclipse相关设置来来减少卡的现象</h3><ol>
+<li><p>关闭自动构建。在启用时，每保存一下，eclipse就会自动为我们构建整个项目，这样对于大的项目来说，每次保存时都会造成很卡。其实自动构建完全没有必要，只要保证在运行前构建一次就ok了，eclipse也会在运行前自动为我们构建，所以关闭是最明智的选择。<br><img src="/static/images/eclipse/eclipse_02_07.png" alt="eclipse_02_07.png"></p>
+</li>
+<li><p>关闭拼写检查设置<br><img src="/static/images/eclipse/eclipse_02_08.png" alt="eclipse_02_08.png"></p>
+</li>
+<li><p>关闭SaveAction。在每次保存时都会执行的操作，这个会严重的拖慢保存，特别是文件大时。这个其实只要自己养成良好的编程习惯，就完全不需要这个了。<br><img src="/static/images/eclipse/eclipse_02_09.png" alt="eclipse_02_09.png"></p>
+</li>
+<li><p>优化代码提示。<br><img src="/static/images/eclipse/eclipse_02_10.png" alt="eclipse_02_10.png"></p>
+</li>
+<li><p>eclipse按Ctrl键卡死的问题解决方法</p>
+</li>
+</ol>
+<p>在eclipse中编辑3万行左右的代码时，在用ctrl+c/v复制时eclipse经常会卡住较长的时间。<br>后来发现只要按下ctrl键就会卡，我猜测应该是因为eclipse中按住ctrl后可以用鼠标单击跳转到变量定义的地方，所以当按下ctrl键时eclipse会去生成这个映射，当文件比较大时，这个行为会花费比较多的时间，非常不爽，经过一番查找才知道，可以通过以下方法设置快捷键。</p>
+<p><code>Eclipse</code>: <code>Windows</code>-&gt; <code>Preferences</code> -&gt; <code>General</code> -&gt; <code>Editors</code> -&gt; <code>Text Editors</code> -&gt; <code>Hyperlinking</code>:<br>去掉这个选项：<code>Enable on demand hyperlinks style navigation</code><br>或者将你不想做Ctrl跳转的文件不选即可！</p>
+<h2 id="eclipse设置">eclipse设置</h2><p>eclipse的使用，在其help文件中都有详细的介绍如何使用的，一般可以去那边找。</p>
+<h3 id="代码折叠设置">代码折叠设置</h3><p><img src="/static/images/eclipse/eclipse_02_11.png" alt="eclipse_02_11.png"></p>
+<h3 id="快捷键设置">快捷键设置</h3><p><img src="/static/images/eclipse/eclipse_02_12.png" alt="eclipse_02_12.png"></p>
+<h3 id="编译器错误、警告设置">编译器错误、警告设置</h3><p><img src="/static/images/eclipse/eclipse_02_13.png" alt="eclipse_02_13.png"></p>
+<h3 id="本地历史设置">本地历史设置</h3><p><img src="/static/images/eclipse/eclipse_02_14.png" alt="eclipse_02_14.png"></p>
+<h3 id="代码格式化设置">代码格式化设置</h3><p><img src="/static/images/eclipse/eclipse_02_14.png" alt="eclipse_02_14.png"></p>
+<h3 id="库设置">库设置</h3><p><img src="/static/images/eclipse/eclipse_02_15.png" alt="eclipse_02_15.png"></p>
+<p><img src="/static/images/eclipse/eclipse_02_16.png" alt="eclipse_02_16.png"></p>
+<h3 id="文本编辑器设置">文本编辑器设置</h3><p><img src="/static/images/eclipse/eclipse_02_17.png" alt="eclipse_02_17.png"></p>
+<h3 id="让eclipse能启动多个实例">让eclipse能启动多个实例</h3><p><img src="/static/images/eclipse/eclipse_02_18.png" alt="eclipse_02_18.png"></p>
+<h3 id="工作空间设置">工作空间设置</h3><p><img src="/static/images/eclipse/eclipse_02_19.png" alt="eclipse_02_19.png"></p>
+<h3 id="xml编辑器设置">xml编辑器设置</h3><p><img src="/static/images/eclipse/eclipse_02_20.png" alt="eclipse_02_20.png"><br><img src="/static/images/eclipse/eclipse_02_21.png" alt="eclipse_02_21.png"><br><img src="/static/images/eclipse/eclipse_02_22.png" alt="eclipse_02_22.png"></p>
+<h3 id="外观设置">外观设置</h3><p><img src="/static/images/eclipse/eclipse_02_23.png" alt="eclipse_02_23.png"></p>
+<h3 id="代码格式化风格设置">代码格式化风格设置</h3><p><img src="/static/images/eclipse/eclipse_02_24.png" alt="eclipse_02_24.png"></p>
+<h3 id="鼠标over代码等时的提示设置">鼠标over代码等时的提示设置</h3><p><img src="/static/images/eclipse/eclipse_02_25.png" alt="eclipse_02_25.png"></p>
+<h3 id="创建新文件时生成文件的模版设置">创建新文件时生成文件的模版设置</h3><p><img src="/static/images/eclipse/eclipse_02_26.png" alt="eclipse_02_26.png"></p>
+<h3 id="junit_launcher设置。在开发android时，如果用eclipse内置的launcher是不行的，必须用android提供的。">junit launcher设置。在开发android时，如果用eclipse内置的launcher是不行的，必须用android提供的。</h3><p><img src="/static/images/eclipse/eclipse_02_27.png" alt="eclipse_02_27.png"></p>
+<h2 id="eclipse使用">eclipse使用</h2><h3 id="文件比较">文件比较</h3><p><img src="/static/images/eclipse/eclipse_02_28.png" alt="eclipse_02_28.png"><br><img src="/static/images/eclipse/eclipse_02_29.png" alt="eclipse_02_29.png"></p>
+<h3 id="Eclipse列编辑模式">Eclipse列编辑模式</h3><p><img src="/static/images/eclipse/eclipse_02_30.png" alt="eclipse_02_30.png"></p>
+<h3 id="earch功能（还有一个是Find/Replace）">earch功能（还有一个是Find/Replace）</h3><p><img src="/static/images/eclipse/eclipse_02_31.png" alt="eclipse_02_31.png"></p>
+<p>一个文件打开多次，这样在你写代码时，需要参考文件的不同部分时，就不需要滚上滚下了<br><img src="/static/images/eclipse/eclipse_02_32.png" alt="eclipse_02_32.png"></p>
+<h3 id="提取公共代码到私有的公共方法">提取公共代码到私有的公共方法</h3><p><img src="/static/images/eclipse/eclipse_02_33.png" alt="eclipse_02_33.png"><br><img src="/static/images/eclipse/eclipse_02_34.png" alt="eclipse_02_34.png"></p>
+<h3 id="eclipse显示启动时间的插件：">eclipse显示启动时间的插件：</h3><p>看这里<a href="http://www.blogjava.net/shenh062326/archive/2011/10/16/361360.html" target="_blank" rel="external">http://www.blogjava.net/shenh062326/archive/2011/10/16/361360.html</a></p>
+<p>////////////////////////////////////////////////////////////</p>
+<h3 id="eclipse_debug使用部分">eclipse debug使用部分</h3><p>////////////////////////////////////////////////////////////<br>debug的variable界面显示初等变量的十六进制、ascii等形式<br><img src="/static/images/eclipse/eclipse_02_35.png" alt="eclipse_02_35.png"></p>
+<p>////////////////////////////////////////////////////////////</p>
+<h3 id="eclipse常见问题及解决">eclipse常见问题及解决</h3><p>////////////////////////////////////////////////////////////<br>Eclipse 3.7 Indigo在Win7和Vista下面，文本编辑器字体不能改成CourierNew！！！</p>
+<p>直接编辑</p>
+<p><code>org.eclipse.jface_3.7.0.I20110522-1430.jar\org\eclipse\jface\resource\jfacefonts_windows7.properties</code></p>
+<p>用XP里面的字体替换一下，重启Eclipse搞定。</p>
+<p><img src="/static/images/eclipse/eclipse_02_36.png" alt="eclipse_02_36.png"></p>
+<p>修改完后，进入解压目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;e:</span><br><span class="line">&gt;<span class="built_in">cd</span> org.eclipse.jface_3.<span class="number">7.0</span>.I20110522-<span class="number">1430</span></span><br></pre></td></tr></table></figure></p>
+<p>然后打包所有的文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -cfm org<span class="class">.eclipse</span><span class="class">.jface_3</span>.<span class="number">7.0</span><span class="class">.I20110522-1430</span><span class="class">.jar</span> <span class="string">"META-INF/MANIFEST.MF"</span> <span class="string">"org/"</span> <span class="string">"META-INF/"</span> <span class="class">.api_description</span> about<span class="class">.html</span> plugin.properties</span><br></pre></td></tr></table></figure></p>
+<p><img src="/static/images/eclipse/eclipse_02_37.png" alt="eclipse_02_37.png"></p>
+<p>最后将该jar文件覆盖原来的，重启eclipse就ok了。（在最后有做好的jar文件下载）</p>
+<p><strong>Exception in checkAndLoadTargetData.PermGen space解决</strong><br><a href="http://hi.baidu.com/marsjin/blog/item/60756189fa65e4b00f244494.html" target="_blank" rel="external">http://hi.baidu.com/marsjin/blog/item/60756189fa65e4b00f244494.html</a></p>
+<p><strong>Error notifying a preference change listener</strong><br>遇到该错误，说明eclipse的cdt插件太旧了，只要把plugin下的cdt相关的插件删除就可以解决这个问题。</p>
+<p>英文网址：<a href="http://www.velocityreviews.com/forums/t361244-eclipse-error-notifying-a-preference-change-listener.html" target="_blank" rel="external">http://www.velocityreviews.com/forums/t361244-eclipse-error-notifying-a-preference-change-listener.html</a></p>
+<p><strong>启动Eclipse，提示“ Failed to create the Java Virtual Machine”</strong><br>可能是eclipse的配置文件eclipse/eclipse.ini<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"><span class="constant">Xms512m</span></span><br><span class="line"></span>-<span class="ruby"><span class="constant">Xmx512m</span></span></span><br></pre></td></tr></table></figure></p>
+<p>中这两个参数设的过大了，设置一个小一点的值，比如256</p>
+<p>eclipse的所有设置的配置文件位置(window-&gt;preferences中的设置的存放位置):<br>workspace.metadata.plugins\org.eclipse.core.runtime.settings</p>
+<h3 id="参考材料">参考材料</h3><p>jvm启动参数大全：<a href="http://www.blogjava.net/midstr/archive/2008/09/21/230265.html" target="_blank" rel="external">http://www.blogjava.net/midstr/archive/2008/09/21/230265.html</a><br>jvm结构的一些知识(其中的堆的构成)：<a href="http://hllvm.group.iteye.com/group/wiki/2905-JVM" target="_blank" rel="external">http://hllvm.group.iteye.com/group/wiki/2905-JVM</a><br>jvm堆知识：<a href="http://ruijf.iteye.com/blog/1028455" target="_blank" rel="external">http://ruijf.iteye.com/blog/1028455</a><br>eclipse启动调优：<a href="http://www.iteye.com/topic/756538" target="_blank" rel="external">http://www.iteye.com/topic/756538</a><br>eclipse自带的help contents(搜索”Running Eclipse”可以找到启动相关的配置)<br>其它的优化链接<br><a href="http://wcgdonot.iteye.com/blog/1380429" target="_blank" rel="external">http://wcgdonot.iteye.com/blog/1380429</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/">Eclipse设置、调优、使用</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时33分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时33分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/" title="Eclipse设置、调优、使用">http://notes.seirhsiao.com/2016/01/26/2013-06-08-eclipse-setup-and-optimization/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-06-08-eclipse-setup-and-optimization/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-08-maven-and-nexus-configuration/">
+        Maven+Nexus配置手册
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-05-12-uml-class-diagram-instance/">
+        UML类图实例
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#eclipse调优使用"><span class="toc-number">1.</span> <span class="toc-text">eclipse调优使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加快启动速度"><span class="toc-number">1.1.</span> <span class="toc-text">加快启动速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eclipse相关设置来来减少卡的现象"><span class="toc-number">1.2.</span> <span class="toc-text">eclipse相关设置来来减少卡的现象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eclipse设置"><span class="toc-number">2.</span> <span class="toc-text">eclipse设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码折叠设置"><span class="toc-number">2.1.</span> <span class="toc-text">代码折叠设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键设置"><span class="toc-number">2.2.</span> <span class="toc-text">快捷键设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译器错误、警告设置"><span class="toc-number">2.3.</span> <span class="toc-text">编译器错误、警告设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地历史设置"><span class="toc-number">2.4.</span> <span class="toc-text">本地历史设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码格式化设置"><span class="toc-number">2.5.</span> <span class="toc-text">代码格式化设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#库设置"><span class="toc-number">2.6.</span> <span class="toc-text">库设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本编辑器设置"><span class="toc-number">2.7.</span> <span class="toc-text">文本编辑器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让eclipse能启动多个实例"><span class="toc-number">2.8.</span> <span class="toc-text">让eclipse能启动多个实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作空间设置"><span class="toc-number">2.9.</span> <span class="toc-text">工作空间设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml编辑器设置"><span class="toc-number">2.10.</span> <span class="toc-text">xml编辑器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观设置"><span class="toc-number">2.11.</span> <span class="toc-text">外观设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码格式化风格设置"><span class="toc-number">2.12.</span> <span class="toc-text">代码格式化风格设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标over代码等时的提示设置"><span class="toc-number">2.13.</span> <span class="toc-text">鼠标over代码等时的提示设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新文件时生成文件的模版设置"><span class="toc-number">2.14.</span> <span class="toc-text">创建新文件时生成文件的模版设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#junit_launcher设置。在开发android时，如果用eclipse内置的launcher是不行的，必须用android提供的。"><span class="toc-number">2.15.</span> <span class="toc-text">junit launcher设置。在开发android时，如果用eclipse内置的launcher是不行的，必须用android提供的。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eclipse使用"><span class="toc-number">3.</span> <span class="toc-text">eclipse使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件比较"><span class="toc-number">3.1.</span> <span class="toc-text">文件比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eclipse列编辑模式"><span class="toc-number">3.2.</span> <span class="toc-text">Eclipse列编辑模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#earch功能（还有一个是Find/Replace）"><span class="toc-number">3.3.</span> <span class="toc-text">earch功能（还有一个是Find/Replace）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取公共代码到私有的公共方法"><span class="toc-number">3.4.</span> <span class="toc-text">提取公共代码到私有的公共方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eclipse显示启动时间的插件："><span class="toc-number">3.5.</span> <span class="toc-text">eclipse显示启动时间的插件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eclipse_debug使用部分"><span class="toc-number">3.6.</span> <span class="toc-text">eclipse debug使用部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eclipse常见问题及解决"><span class="toc-number">3.7.</span> <span class="toc-text">eclipse常见问题及解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考材料"><span class="toc-number">3.8.</span> <span class="toc-text">参考材料</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-06-08-eclipse-setup-and-optimization/" data-title="Eclipse设置、调优、使用" data-url="http://notes.seirhsiao.com/2016/01/26/2013-06-08-eclipse-setup-and-optimization/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-06-08-maven-and-nexus-configuration/" title="上一篇: Maven+Nexus配置手册">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-05-12-uml-class-diagram-instance/" title="下一篇: UML类图实例">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

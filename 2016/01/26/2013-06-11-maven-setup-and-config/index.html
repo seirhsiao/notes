@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Maven学习 —— Maven 环境搭建 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="初始环境：
+操作系统：windows 7 旗舰版64 bit
+已装JDK1.7
+已装tomcat7.0
+Eclipse juno 64 bit
+远程SVN服务器已搭建且已与eclipse集成
+接下来开始进行环境搭建：
+MAVEN:
+主要介绍包括maven安装，与eclipse的集成与使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven学习 —— Maven 环境搭建">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-06-11-maven-setup-and-config/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="初始环境：
+操作系统：windows 7 旗舰版64 bit
+已装JDK1.7
+已装tomcat7.0
+Eclipse juno 64 bit
+远程SVN服务器已搭建且已与eclipse集成
+接下来开始进行环境搭建：
+MAVEN:
+主要介绍包括maven安装，与eclipse的集成与使用。">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_01.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_01.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_02.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_03.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_04.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_05.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_06.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_07.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_08.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_09.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_10.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_11.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_12.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_13.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_14.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_15.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_16.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_17.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/maven/maven_01_18.png">
+<meta property="og:updated_time" content="2016-01-26T12:35:42.984Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven学习 —— Maven 环境搭建">
+<meta name="twitter:description" content="初始环境：
+操作系统：windows 7 旗舰版64 bit
+已装JDK1.7
+已装tomcat7.0
+Eclipse juno 64 bit
+远程SVN服务器已搭建且已与eclipse集成
+接下来开始进行环境搭建：
+MAVEN:
+主要介绍包括maven安装，与eclipse的集成与使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-06-11-maven-setup-and-config" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-06-11-maven-setup-and-config/" class="article-date">
+  	<time datetime="2016-01-26T12:35:42.984Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Maven学习 —— Maven 环境搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Maven/">Maven</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>初始环境：</p>
+<p>操作系统：windows 7 旗舰版64 bit</p>
+<p>已装JDK1.7</p>
+<p>已装tomcat7.0</p>
+<p>Eclipse juno 64 bit</p>
+<p>远程SVN服务器已搭建且已与eclipse集成</p>
+<p>接下来开始进行环境搭建：</p>
+<p>MAVEN:</p>
+<p>主要介绍包括maven安装，与eclipse的集成与使用。<br><a id="more"></a></p>
+<h3 id="一、_Maven_安装">一、 Maven 安装</h3><ol>
+<li><p>从官网下载<code>apache-maven-3.0.5-bin</code>文件，下载下来之后解压缩(路径随意)。</p>
+</li>
+<li><p>配置系统环境变量。</p>
+</li>
+</ol>
+<p>新建系统变量 maven_home=解压之后的文件夹位置。</p>
+<p>因为已经配置了java环境变量，所以就在已有的Path中添加<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;% MAVEN_HOME%\bin</span></span><br></pre></td></tr></table></figure></p>
+<p>例如: maven_home=D:\work\maven\apache-maven-3.0.5-bin\apache-maven-3.0.5</p>
+<p>Path =%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%MAVEN_HOME%\bin</p>
+<ol>
+<li>修改配置文件，指定jar包仓库存放的位置。</li>
+</ol>
+<p>在解压之后的文件夹下面有个conf文件夹，里面有个<code>settings.xml</code>文件。</p>
+<p>用notepad等编辑工具打开，在下图所示位置输入你想要存放的仓库路径。</p>
+<p>我输入的是：<code>&lt;localRepository&gt;D:\maven&lt;/localRepository&gt;</code></p>
+<p><img src="/static/images/maven/maven_01_01.jpg" alt="maven_01_01.jpg"></p>
+<p>配置好之后，在开始菜单输入<code>cmd</code>，打开dos，输入指令<code>mvn –v</code>,显示如下信息表示配置成功。</p>
+<p><img src="/static/images/maven/maven_01_01.png" alt="maven_01_01.png"></p>
+<h3 id="二、与eclipse集成">二、与eclipse集成</h3><ol>
+<li><p>打开eclipse，安装maven插件。在eclipse中点击Help -&gt; eclipse Marketplace，在搜索栏中输入maven,回车。<br><img src="/static/images/maven/maven_01_02.png" alt="maven_01_02.png"></p>
+</li>
+<li><p>在查询结果中选择<code>maven Integration for eclipse (juno and newer)</code>,点击<code>install</code>，我这已经安装了所以没显示install。</p>
+<p><img src="/static/images/maven/maven_01_03.png" alt="maven_01_03.png"></p>
+</li>
+<li><p>安装成功之后需要进行如下设置才能正常使用。</p>
+</li>
+</ol>
+<p>打开windows -&gt; Preference -&gt;installation，添加一个外置的maven服务，不用自带的。点击add，选择我们第一步设置的maven路径。如下图：<br><img src="/static/images/maven/maven_01_04.png" alt="maven_01_04.png"></p>
+<p>接着点击<code>user settings</code> 设置，选择之前修改的<code>setting.xml</code>文件。<br><img src="/static/images/maven/maven_01_05.png" alt="maven_01_05.png"></p>
+<h3 id="三、_在eclipse中的使用">三、 在eclipse中的使用</h3><ol>
+<li><p>在eclipse中点击file-&gt;new-&gt;other,在搜索栏中输入maven，找到maven project。如图所示：<br><img src="/static/images/maven/maven_01_06.png" alt="maven_01_06.png"></p>
+</li>
+<li><p>点击next,默认。</p>
+</li>
+<li><p>点击next，在如下界面执行1-2-3操作，新建一个maven web项目。<br><img src="/static/images/maven/maven_01_07.png" alt="maven_01_07.png"></p>
+</li>
+<li><p>如下图进行输入，Group Id一般是org，com开头。Artifact id是你的项目名字，随意填写。<br><img src="/static/images/maven/maven_01_08.png" alt="maven_01_08.png"></p>
+</li>
+</ol>
+<p><strong>注意</strong>：这里最后finish的时候可能会报错，创建不成功。原因是由内网访问时通过代理下载不了创建工程所需的jar包。</p>
+<ol>
+<li><strong>注意</strong>：此时该项目还不算是web项目，因为maven工程的文件路径不是标准的web路径。目录结构如图所示：<br><img src="/static/images/maven/maven_01_09.png" alt="maven_01_09.png"></li>
+</ol>
+<p>所以需要进行转换成标准的web路径。</p>
+<p>右键zhangyu_web。选择properities,如图点击project facets -&gt; convert to faceted from…<br><img src="/static/images/maven/maven_01_10.png" alt="maven_01_10.png"></p>
+<p>进入之后按图继续操作<br><img src="/static/images/maven/maven_01_11.png" alt="maven_01_11.png"></p>
+<p>继续如图操作，修改content directory，并勾选</p>
+<p>点击OK -&gt; APPLY -&gt; OK进行转换。项目转换之后结构如下:<br><img src="/static/images/maven/maven_01_12.png" alt="maven_01_12.png"></p>
+<ol>
+<li><p>Pom.xml文件可以自己查看maven文档进行编写，默认的是可以进行打包的。</p>
+</li>
+<li><p>进行项目打包成war包，pom文件是打包的指令文件，里面指定了打包的文件类型为war。<br><img src="/static/images/maven/maven_01_13.png" alt="maven_01_13.png"></p>
+</li>
+</ol>
+<p>选择maven build之后</p>
+<p><img src="/static/images/maven/maven_01_14.png" alt="maven_01_14.png"></p>
+<p> 之后应该执行打包命令。查看控制台如下图：<br><img src="/static/images/maven/maven_01_15.png" alt="maven_01_15.png"></p>
+<p><strong>注意</strong>：如果打包失败并且报错时处在下载jar包的时候connection time out，也就是连接超时，说明是网络的问题。</p>
+<ol>
+<li>测试war包是否可用。</li>
+</ol>
+<p>将war包从eclipse的目录下（上图红线的位置）拷贝出来，放入本地已有的tomcat文件夹的webapps下。<br><img src="/static/images/maven/maven_01_16.png" alt="maven_01_16.png"></p>
+<p>然后再bin文件夹下启动tomcat,点击<code>startup.bat</code><br><img src="/static/images/maven/maven_01_17.png" alt="maven_01_17.png"></p>
+<p>在浏览器中查看。输入localhost:8080/zhangyu_web。<br><img src="/static/images/maven/maven_01_18.png" alt="maven_01_18.png"></p>
+<p>至此，maven基本上安装完成，具体的使用细节还需参考maven相关文档进行深入学习。</p>
+<h3 id="三、参考指南">三、参考指南</h3><p><a href="http://blog.csdn.net/duaiwuyan/article/details/18663671" target="_blank" rel="external">原文</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-06-11-maven-setup-and-config/">Maven学习 —— Maven 环境搭建</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时35分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时35分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-06-11-maven-setup-and-config/" title="Maven学习 —— Maven 环境搭建">http://notes.seirhsiao.com/2016/01/26/2013-06-11-maven-setup-and-config/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-06-11-maven-setup-and-config/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-12-setup-jenkins-on-windows/">
+        Jenkins安装以及集成使用
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-10-eclipse-optimization/">
+        eclipse设置和优化
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、_Maven_安装"><span class="toc-number">1.</span> <span class="toc-text">一、 Maven 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、与eclipse集成"><span class="toc-number">2.</span> <span class="toc-text">二、与eclipse集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、_在eclipse中的使用"><span class="toc-number">3.</span> <span class="toc-text">三、 在eclipse中的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、参考指南"><span class="toc-number">4.</span> <span class="toc-text">三、参考指南</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-06-11-maven-setup-and-config/" data-title="Maven学习 —— Maven 环境搭建" data-url="http://notes.seirhsiao.com/2016/01/26/2013-06-11-maven-setup-and-config/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-06-12-setup-jenkins-on-windows/" title="上一篇: Jenkins安装以及集成使用">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-06-10-eclipse-optimization/" title="下一篇: eclipse设置和优化">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

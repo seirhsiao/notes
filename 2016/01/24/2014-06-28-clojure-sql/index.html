@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clojure 学习 —— 连接mysql | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Clojure的contrib包中实现了对现有JDBC的封装，在wiki上有连接，该页面上包含了对不同的数据库的连接方法和基本的操作，但是这个页面上没有提供足够的信息，足够一个初学者能够使用Clojure来完成一个SQL操作。本文中我们将利用Clojure和Lein工具，简介一下做开发的基础。当然网上也有非常多对Clojure的SQL操作进行封装的库，我们这里没有使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clojure 学习 —— 连接mysql">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-06-28-clojure-sql/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="Clojure的contrib包中实现了对现有JDBC的封装，在wiki上有连接，该页面上包含了对不同的数据库的连接方法和基本的操作，但是这个页面上没有提供足够的信息，足够一个初学者能够使用Clojure来完成一个SQL操作。本文中我们将利用Clojure和Lein工具，简介一下做开发的基础。当然网上也有非常多对Clojure的SQL操作进行封装的库，我们这里没有使用。">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/clojure/clojure_sql_table.png">
+<meta property="og:updated_time" content="2015-11-21T13:20:14.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clojure 学习 —— 连接mysql">
+<meta name="twitter:description" content="Clojure的contrib包中实现了对现有JDBC的封装，在wiki上有连接，该页面上包含了对不同的数据库的连接方法和基本的操作，但是这个页面上没有提供足够的信息，足够一个初学者能够使用Clojure来完成一个SQL操作。本文中我们将利用Clojure和Lein工具，简介一下做开发的基础。当然网上也有非常多对Clojure的SQL操作进行封装的库，我们这里没有使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-06-28-clojure-sql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-06-28-clojure-sql/" class="article-date">
+  	<time datetime="2016-01-24T02:06:29.111Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clojure 学习 —— 连接mysql
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>Clojure</code>的<code>contrib</code>包中实现了对现有<code>JDBC</code>的封装，在<code>wiki</code>上有连接，该页面上包含了对不同的数据库的连接方法和基本的操作，但是这个页面上没有提供足够的信息，足够一个初学者能够使用<code>Clojure</code>来完成一个SQL操作。本文中我们将利用<code>Clojure</code>和<code>Lein</code>工具，简介一下做开发的基础。当然网上也有非常多对<code>Clojure</code>的<code>SQL</code>操作进行封装的库，我们这里没有使用。<br><a id="more"></a><br>首先，配置你的MySQL数据库，创建数据库、表、数据。</p>
+<p>其次，在和MySQL的操作中，我们需要两个库，一个是<code>clojure.contrib</code>，另外一个是<code>mysql-connector-java-xxx.jar</code>。为了管理和配置这两个库，我们需要配置一下<code>project.clj</code>文件，在<code>depedencies</code>中加上两条：<code>org.clojure/clojure-contrib</code> “<code>1.2.0</code>” 和 <code>mysql/mysql-connector-java</code> “<code>5.1.6</code>”。这样运行 <code>lein deps</code>，就会自动下载并且安装到<code>Leiningen dependencies lib</code>目录下。</p>
+<p>接着，在需要使用<code>sql</code>库的地方要导入这些库</p>
+<p>在<code>ns</code>宏中加载如下内容：<code>(:use [clojure.contrib.sql :as sql :only ()])</code>，这样在本文件中就可以直接使用sql作为前缀。需要主意的是，虽然我们并没有直接使用到<code>mysql-connector-java</code>，但是如果在<code>lib</code>目录下没有该文件，就会报错没有<code>mysql</code>的d<code>river</code>。</p>
+<p>配置上两条之后，就可以进行sql连接了。</p>
+<p>首先要定义一个<code>database specification</code>，这是一个<code>map</code>，几个必须配置的<code>key</code>包括了：<code>classname</code>, <code>subprotocol</code>, <code>subname</code>, <code>user</code>, <code>password</code>。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> db <span class="collection">&#123;<span class="attribute">:classname</span> <span class="string">"com.mysql.jdbc.Driver"</span></span><br><span class="line">             <span class="attribute">:subprotocol</span> <span class="string">"mysql"</span></span><br><span class="line">             <span class="attribute">:subname</span> <span class="string">"//127.0.0.1:3306/test"</span></span><br><span class="line">             <span class="attribute">:user</span> <span class="string">"root"</span></span><br><span class="line">             <span class="attribute">:password</span> <span class="string">"pass"</span>&#125;</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>这个<code>db-spec</code>在后面几乎所有的sql操作都是需要的。</p>
+<p>接下来我们主要描述几个常用API的格式，具体的内容可以参考手册。</p>
+<p><strong>1. 新建表</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sql/create-table :table-name [:key :type “”] [:key :type “”])</span><br><span class="line">(defn create-users []</span><br><span class="line">    (sql/create-table</span><br><span class="line">     :user</span><br><span class="line">     [:id :integer "PRIMARY KEY" "AUTO_INCREMENT"]</span><br><span class="line">     [:fname "varchar(25)"]))</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. 插入数据</strong></p>
+<p>两个<code>api</code>，一个是<code>insert-rows</code>，一个是<code>insert-values</code>。<code>insert-rows</code>需要形成一个完整的行数据插入到表中，<code>insert-values</code>可以按照<code>key</code>来插入值。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> insert-user <span class="collection">[fname]</span></span><br><span class="line">    <span class="list">(<span class="keyword">sql/insert-values</span> <span class="attribute">:users</span> <span class="collection">[<span class="attribute">:fname</span>]</span> <span class="collection">[fname]</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>使用<code>insert-values</code>可以利用<code>primary-key</code>的<code>auto_increment</code>的属性<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> insert-rows</span><br><span class="line">   <span class="collection">[]</span></span><br><span class="line">   <span class="list">(<span class="keyword">sql/insert-rows</span> <span class="attribute">:user</span> <span class="collection">[<span class="number">1</span> <span class="string">"Tim"</span>]</span> <span class="collection">[<span class="number">2</span> <span class="string">"Tom"</span>]</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>3. 丢弃表</strong><br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> drop-user</span><br><span class="line">  <span class="collection">[]</span></span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">try</span></span></span><br><span class="line">    <span class="list">(<span class="keyword">sql/drop-table</span> <span class="attribute">:fruit</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">catch</span> Exception _)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><code>with-query-results</code> 选择查询的数据</li>
+</ol>
+<p><code>with-query-results</code> 类似于 <code>let</code> 语句，会将查询结果绑定到<code>rs</code>上，<code>rs</code>是一个<code>map</code>构成的<code>sequence</code>。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">sql/with-query-results</span> rs <span class="collection">[<span class="string">"select * from user"</span>]</span></span><br><span class="line">   <span class="list">(<span class="keyword"><span class="built_in">dorun</span></span> <span class="list">(<span class="keyword"><span class="built_in">map</span></span> #<span class="list">(<span class="keyword">println</span> %)</span> rs)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>5. 更新表</strong></p>
+<p><code>update-values</code> 用来更新表的内容，使用该函数需要指定查询条件，如下图所示<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> update-user <span class="collection">[id attribute-map]</span></span><br><span class="line">    <span class="list">(<span class="keyword">sql/update-values</span> <span class="attribute">:user</span> <span class="collection">[<span class="string">"id=?"</span> id]</span> attribute-map)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>6. 删除行</strong><br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">sql/delete-rows</span> <span class="attribute">:user</span> <span class="collection">[<span class="string">"id=?"</span> id]</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>7. <code>SQL</code>准备</strong></p>
+<p><code>clojure</code>支持由用户输入构造<code>sql</code>语句，利用的是<code>sql prepared</code>语句，略</p>
+<p><strong>8. 示例</strong></p>
+<p>创建表 <code>fruit</code>，并插入两条记录，然后条件查询和全部查询 </p>
+<p>1） 在<code>project.clj</code> 中，添加<code>sql</code>依赖：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">defproject</span> myClojure <span class="string">"0.1.0-SNAPSHOT"</span>  </span><br><span class="line">  <span class="attribute">:description</span> <span class="string">"FIXME: write description"</span>  </span><br><span class="line">  <span class="attribute">:url</span> <span class="string">"http://example.com/FIXME"</span>  </span><br><span class="line">  <span class="attribute">:license</span> <span class="collection">&#123;<span class="attribute">:name</span> <span class="string">"Eclipse Public License"</span>  </span><br><span class="line">            <span class="attribute">:url</span> <span class="string">"http://www.eclipse.org/legal/epl-v10.html"</span>&#125;</span>  </span><br><span class="line">  <span class="attribute">:dependencies</span> <span class="collection">[  </span><br><span class="line">                 <span class="collection">[org.clojure/clojure <span class="string">"1.5.1"</span>]</span>  </span><br><span class="line">                 <span class="collection">[org.clojure/java.jdbc <span class="string">"0.0.6"</span>]</span>  </span><br><span class="line">                 <span class="collection">[org.clojure/clojure-contrib <span class="string">"1.2.0"</span>]</span>  </span><br><span class="line">                 <span class="collection">[mysql/mysql-connector-java <span class="string">"5.1.26"</span>]</span>  </span><br><span class="line">                 ]</span>)</span></span><br></pre></td></tr></table></figure>
+<p>2） <code>mysql.cli</code> 代码</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; clojure connect to mysql  </span></span><br><span class="line"><span class="comment">; ithomer.net  </span></span><br><span class="line"><span class="comment">; 2013.12.10  </span></span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">ns</span></span> myClojure.mysql2  </span><br><span class="line">  <span class="list">(<span class="attribute">:require</span> <span class="collection">[clojure.java.jdbc <span class="attribute">:as</span> sql]</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 配置参数  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> mysql-db<span class="collection">&#123;  </span><br><span class="line">               <span class="attribute">:classname</span> <span class="string">"com.mysql.jdbc.Driver"</span>  </span><br><span class="line">               <span class="attribute">:subprotocol</span> <span class="string">"mysql"</span>  </span><br><span class="line">               <span class="attribute">:subname</span> <span class="string">"//172.27.9.104:3306/tmptest"</span>  </span><br><span class="line">               <span class="attribute">:user</span> <span class="string">"root"</span>  </span><br><span class="line">               <span class="attribute">:password</span> <span class="string">"server2011"</span>&#125;</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 创建表  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> create-fruit  </span><br><span class="line">  <span class="string">"Create a table"</span>   </span><br><span class="line">  <span class="collection">[]</span>  </span><br><span class="line">   <span class="list">(<span class="keyword">sql/create-table</span>  </span><br><span class="line">     <span class="attribute">:fruit</span>  </span><br><span class="line">     <span class="collection">[<span class="attribute">:name</span> <span class="string">"varchar(32)"</span> <span class="string">"PRIMARY KEY"</span>]</span>  </span><br><span class="line">     <span class="collection">[<span class="attribute">:appearance</span> <span class="string">"varchar(32)"</span>]</span>  </span><br><span class="line">     <span class="collection">[<span class="attribute">:cost</span> <span class="attribute">:int</span>]</span>  </span><br><span class="line">     <span class="collection">[<span class="attribute">:grade</span> <span class="attribute">:real</span>]</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 删除表  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> drop-fruit  </span><br><span class="line">  <span class="string">"Drop a table"</span>   </span><br><span class="line">  <span class="collection">[]</span>  </span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">try</span></span>  </span><br><span class="line">    <span class="list">(<span class="keyword">sql/drop-table</span> <span class="attribute">:fruit</span>)</span>  </span><br><span class="line">    <span class="list">(<span class="keyword">catch</span> Exception _)</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 连接数据库  </span></span><br><span class="line"><span class="list">(<span class="keyword">sql/with-connection</span>  </span><br><span class="line">  mysql-db  </span><br><span class="line">  <span class="list">(<span class="keyword">drop-fruit</span>)</span>  </span><br><span class="line">  <span class="list">(<span class="keyword">create-fruit</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 插入数据  </span></span><br><span class="line"><span class="list">(<span class="keyword">sql/with-connection</span> mysql-db  </span><br><span class="line">  <span class="list">(<span class="keyword">sql/insert-records</span> <span class="attribute">:fruit</span>  </span><br><span class="line">                      <span class="collection">&#123;<span class="attribute">:name</span> <span class="string">"Apple"</span> <span class="attribute">:appearance</span> <span class="string">"rosy"</span> <span class="attribute">:cost</span> <span class="number">24</span> <span class="attribute">:grade</span> <span class="number">1.2</span>&#125;</span>  </span><br><span class="line">                      <span class="collection">&#123;<span class="attribute">:name</span> <span class="string">"Orange"</span> <span class="attribute">:appearance</span> <span class="string">"round"</span> <span class="attribute">:cost</span> <span class="number">49</span>&#125;</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 条件查询  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">sql/with-connection</span> mysql-db  </span><br><span class="line">           <span class="list">(<span class="keyword">sql/with-query-results</span> rows  </span><br><span class="line">             <span class="collection">[<span class="string">"SELECT * FROM fruit WHERE appearance = ?"</span> <span class="string">"rosy"</span>]</span>  </span><br><span class="line">             <span class="list">(<span class="attribute">:cost</span> <span class="list">(<span class="keyword"><span class="built_in">first</span></span> rows)</span>)</span>)</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">; 全量查询  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">sql/with-connection</span> mysql-db  </span><br><span class="line">           <span class="list">(<span class="keyword">sql/with-query-results</span> rows  </span><br><span class="line">             <span class="collection">[<span class="string">"SELECT * FROM fruit"</span>]</span>  </span><br><span class="line">             <span class="list">(<span class="keyword"><span class="built_in">dorun</span></span> <span class="list">(<span class="keyword"><span class="built_in">map</span></span> #<span class="list">(<span class="keyword">println</span> %)</span> rows)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>24</code><br><code>{:name Apple, :appearance rosy, :cost 24, :grade 1.2}</code><br><code>{:name Orange, :appearance round, :cost 49, :grade nil}</code><br><code>nil</code></p>
+<p>创建的数据库表内容：<br><img src="/static/images/clojure/clojure_sql_table.png" alt="clojure_sql_table.png"></p>
+<p><strong>注：</strong> 所有的sql操作都需要在<code>with-connection</code>宏下包裹着</p>
+<p><strong>参考资料：</strong><br><a href="http://www.cnblogs.com/mmjx/archive/2011/10/28/2228253.html" target="_blank" rel="external">Clojure SQL 基础</a><br><a href="http://blog.csdn.net/baiyangfu_love/article/details/8478026" target="_blank" rel="external">Clojure 连接mysql</a><br><a href="http://corfield.org/blog/post.cfm/connecting-clojure-and-mysql" target="_blank" rel="external">Connecting Clojure and MySQL</a><br><a href="http://blog.csdn.net/sunboy_2050/article/details/17226665" target="_blank" rel="external">Clojure 学习入门（7）—— 连接mysql</a> </p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-06-28-clojure-sql/">Clojure 学习 —— 连接mysql</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时20分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-06-28-clojure-sql/" title="Clojure 学习 —— 连接mysql">http://notes.seirhsiao.com/2016/01/24/2014-06-28-clojure-sql/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-06-28-clojure-sql/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-07-02-clojure-httpkit/">
+        Clojure 学习 —— httpkit
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-25-clojure-introduction-and-Application/">
+        Clojure简介与应用
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-06-28-clojure-sql/" data-title="Clojure 学习 —— 连接mysql" data-url="http://notes.seirhsiao.com/2016/01/24/2014-06-28-clojure-sql/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-07-02-clojure-httpkit/" title="上一篇: Clojure 学习 —— httpkit">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-06-25-clojure-introduction-and-Application/" title="下一篇: Clojure简介与应用">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

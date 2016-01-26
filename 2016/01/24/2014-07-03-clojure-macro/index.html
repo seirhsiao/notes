@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clojure 学习 —— macro | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="clojure macro宏在运行之前机械展开，定义宏相当于给语言增加新特性，写宏的原则： 
+
+能写成函数就不要用宏（因为写宏没有写函数简单直观，容易写错，需要先在 REPL 中测试一番）只有不得不用时才用宏（性能要求高时比函数调用快，或者需要“代码&amp;lt;-&amp;gt;数据”相互转换）精心设计的宏调用比函数调用更 DSL（如实现控制结构、传递 Java方法）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clojure 学习 —— macro">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-07-03-clojure-macro/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="clojure macro宏在运行之前机械展开，定义宏相当于给语言增加新特性，写宏的原则： 
+
+能写成函数就不要用宏（因为写宏没有写函数简单直观，容易写错，需要先在 REPL 中测试一番）只有不得不用时才用宏（性能要求高时比函数调用快，或者需要“代码&amp;lt;-&amp;gt;数据”相互转换）精心设计的宏调用比函数调用更 DSL（如实现控制结构、传递 Java方法）">
+<meta property="og:updated_time" content="2015-11-21T13:20:52.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clojure 学习 —— macro">
+<meta name="twitter:description" content="clojure macro宏在运行之前机械展开，定义宏相当于给语言增加新特性，写宏的原则： 
+
+能写成函数就不要用宏（因为写宏没有写函数简单直观，容易写错，需要先在 REPL 中测试一番）只有不得不用时才用宏（性能要求高时比函数调用快，或者需要“代码&amp;lt;-&amp;gt;数据”相互转换）精心设计的宏调用比函数调用更 DSL（如实现控制结构、传递 Java方法）">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-07-03-clojure-macro" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-07-03-clojure-macro/" class="article-date">
+  	<time datetime="2016-01-24T02:06:29.314Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clojure 学习 —— macro
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macro/">macro</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>clojure macro宏在运行之前机械展开，定义宏相当于给语言增加新特性，写宏的<strong>原则</strong>： </p>
+<blockquote>
+<p>能写成函数就不要用宏（因为写宏没有写函数简单直观，容易写错，需要先在 REPL 中测试一番）<br>只有不得不用时才用宏（性能要求高时比函数调用快，或者需要“代码&lt;-&gt;数据”相互转换）<br>精心设计的宏调用比函数调用更 DSL（如实现控制结构、传递 Java方法） </p>
+</blockquote>
+<a id="more"></a>
+<p>在clojure的宏里我们主要会用到这么几个符号，<br><code>` </code>表示syntax quote（语法引述）– 防止宏内部的形式求值。形式：Literals，Composite Forms，Symbols，Special Forms。<br><code>&#39;</code>表示quote（引述）– 防止形式求值。<br><code>~</code>表示unquote（反引述）– 用于语法引述内部，关闭引述，对所指处的形式求值。<br><code>~@</code>表示splicing unquote（拼接反引述）– 与反引述类似，将多个形式（列表）最外面的括号去掉拼接到语法引述当中求值。</p>
+<p>Clojure <code>&#39;</code> <code>` </code>区别在于<strong>Syntax-quote</strong> (<code>` </code>)会进行symbol的解析。<br>详细说明下。如果某段代码前面加了’就表示这段代码被quote而不会去求值了，而<code>` </code>的syntax quote则表示会把相应的变量变成有namespace的形式。</p>
+<p><strong>示例1：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> '<span class="list">(<span class="keyword">foo</span> bar)</span></span></span><br><span class="line">(foo bar)</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> `<span class="list">(<span class="keyword">foo</span> bar)</span></span></span><br><span class="line">(user/foo user/bar)</span><br></pre></td></tr></table></figure></p>
+<p><code>~</code>必须在<code>` </code>的后面，并且<code>~</code>的数量不能超过<code>` </code>的数量，<code>~</code>是用来将变量的值替换到相应位置<br><strong>示例2：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">def</span></span> a <span class="number">123</span>)</span></span></span><br><span class="line">#'user/a</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> `<span class="list">(<span class="keyword"><span class="built_in">def</span></span> b ~a)</span></span></span><br><span class="line">(def user/b 123)</span><br></pre></td></tr></table></figure></p>
+<p>可以看到~a被替换为a的值123了，而<code>~@</code>的作用和<code>~</code>类似，不过<code>~@</code>不但会替换掉值并且会把括号去掉<br><strong>示例3：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">def</span></span> c <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span></span></span><br><span class="line">#'user/c</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> `<span class="list">(<span class="keyword"><span class="built_in">def</span></span> d <span class="collection">[~@c]</span>)</span></span></span><br><span class="line">(def user/d [1 2 3])</span><br></pre></td></tr></table></figure></p>
+<h3 id="宏与函数">宏与函数</h3><p>那么几个符号我们都说清楚了，再说defmacro的作用就是在代码编译的时候，会把defmacro当作是函数运行一次，并且把这个的返回结果替换到原有的位置上去，就像这样<br><strong>示例4：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> t1 <span class="collection">[]</span> <span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[a1 <span class="list">(<span class="keyword"><span class="built_in">+</span></span> <span class="number">1</span> <span class="number">1</span>)</span>]</span> `<span class="list">(<span class="keyword"><span class="built_in">defn</span></span> cc <span class="collection">[]</span> println ~a1)</span>)</span>)</span></span></span><br><span class="line">#'user/t1</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">t1</span>)</span></span></span><br><span class="line">#'user/cc</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">cc</span>)</span></span></span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数不求值</strong></p>
+<p>看上去宏和函数还是很相似的，为什么需要有宏这么个东西呢，首先我们需要注意的是，传给宏的代码是不会求值的，这点和函数非常不同，函数传的参数都是先求值再去做函数运算，看下面的例子<br><strong>示例5：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defn</span></span> aa <span class="collection">[]</span> <span class="list">(<span class="keyword">println</span> <span class="string">"aa"</span>)</span> <span class="number">1</span>)</span></span></span><br><span class="line">#'user/aa</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defn</span></span> bb <span class="collection">[]</span> <span class="list">(<span class="keyword">println</span> <span class="string">"bb"</span>)</span> <span class="number">2</span>)</span></span></span><br><span class="line">#'user/bb</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defn</span></span> cc <span class="collection">[c a b]</span> <span class="list">(<span class="keyword"><span class="built_in">if</span></span> c a b)</span>)</span></span></span><br><span class="line">#'user/cc</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> dd <span class="collection">[c a b]</span> <span class="list">(<span class="keyword"><span class="built_in">if</span></span> c a b)</span>)</span></span></span><br><span class="line">#'user/dd</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">cc</span> <span class="literal">true</span> <span class="list">(<span class="keyword">aa</span>)</span> <span class="list">(<span class="keyword">bb</span>)</span>)</span></span></span><br><span class="line">aa</span><br><span class="line">bb</span><br><span class="line">1</span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">dd</span> <span class="literal">true</span> <span class="list">(<span class="keyword">aa</span>)</span> <span class="list">(<span class="keyword">bb</span>)</span>)</span></span></span><br><span class="line">aa</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>因为函数的参数是先求值的，所以调用cc的时候bb也被运行，这不是我们所希望的，我们所希望的是像dd那样只去执行aa，而不去执行bb，所以这里就需要用宏了。</p>
+<p>还有一个宏和函数的重要的不同是宏是在编译代码的时候运行的，运行一次之后就会把宏的返回值替换到代码的相应位置了。所以宏的话其实更像是元编程一类的东西，用代码去生成代码。</p>
+<p><strong>示例6：</strong><br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">;; 宏正确写法  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> op <span class="collection">[x f1 y f2 z]</span>  </span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">list</span></span> f2 z <span class="list">(<span class="keyword"><span class="built_in">list</span></span> f1 x y)</span>)</span>)</span>        </span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">op</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>                   <span class="comment">;; 70  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand</span></span> '<span class="list">(<span class="keyword">op</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                     <span class="comment">;; (* 10 (+ 5 2))  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand-1</span></span> '<span class="list">(<span class="keyword">op</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                   <span class="comment">;; (* 10 (+ 5 2))  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">clojure.walk/macroexpand-all</span> '<span class="list">(<span class="keyword">op</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>    <span class="comment">;; (* 10 (+ 5 2))  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">;; 宏错误写法  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> op2 <span class="collection">[x f1 y f2 z]</span>  </span><br><span class="line">  <span class="list">( f2 z <span class="list">(<span class="keyword">f1</span> x y)</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">op2</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>                  <span class="comment">;; 2  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand</span></span> '<span class="list">(<span class="keyword">op2</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                    <span class="comment">;; 2  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand-1</span></span> '<span class="list">(<span class="keyword">op2</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                  <span class="comment">;; 2  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">clojure.walk/macroexpand-all</span> '<span class="list">(<span class="keyword">op2</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>   <span class="comment">;; 2  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">;; 不使用宏  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> op3 <span class="collection">[x f1 y f2 z]</span>  </span><br><span class="line">  <span class="list">( f2 z <span class="list">(<span class="keyword">f1</span> x y)</span>)</span>)</span>  </span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">op3</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>                  <span class="comment">;; 70  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand</span></span> '<span class="list">(<span class="keyword">op3</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                    <span class="comment">;; (op3 5 + 2 * 10)  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">macroexpand-1</span></span> '<span class="list">(<span class="keyword">op3</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>                  <span class="comment">;; (op3 5 + 2 * 10)  </span></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">clojure.walk/macroexpand-all</span> '<span class="list">(<span class="keyword">op3</span> <span class="number">5</span> + <span class="number">2</span> * <span class="number">10</span>)</span>)</span>)</span>   <span class="comment">;; (op3 5 + 2 * 10)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>说明： </strong></p>
+<p>正确的宏写法，需要添加 <code>lis</code>t，宏用<code>defmacro</code>定义，不用宏写法的函数用<code>defn</code>定义<br>调试宏，用<code>macroexpand</code>展开</p>
+<h3 id="宏符号">宏符号</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`</td>
+<td style="text-align:center">原原本本地直译过去，不用`，let语句不被翻译，例如: (let [datastr ‘{:a 1 :b 2}])</td>
+</tr>
+<tr>
+<td>~’</td>
+<td style="text-align:center">后面的变量被直接翻译过去，例如：<code>(let [~&#39;conn &quot;meta&quot;] (with-mongo ~&#39;conn))</code></td>
+</tr>
+<tr>
+<td>‘~</td>
+<td style="text-align:center">变量名本身而非值，例如：<code>(defn f1 [x] (println &#39;~x &quot;:&quot; ~x))  (let [a 10] (f1 a)) ;; a:10</code></td>
+</tr>
+<tr>
+<td>~@</td>
+<td style="text-align:center">表示多条语句</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例7：</strong></p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> debug <span class="collection">[x]</span> `<span class="list">(<span class="keyword">println</span> <span class="string">"---"</span> '~x <span class="string">":"</span> ~x)</span>)</span>  </span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[a <span class="number">10</span>]</span> <span class="list">(<span class="keyword">debug</span> a)</span>)</span>             <span class="comment">;; --- a : 10</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p><code>&#39;~x  显示变量名，即a</code></p>
+<p><code>~x 解析为变量值，即a的值 10</code></p>
+<p><strong>示例8：</strong></p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> make-connection <span class="collection">[x]</span> <span class="list">(<span class="keyword">println</span> <span class="string">"in make-connection = "</span> x)</span> x)</span>    <span class="comment">;; meta  </span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> with-mongo <span class="collection">[x]</span> <span class="list">(<span class="keyword">println</span> <span class="string">"in with-mongo = "</span> x)</span>)</span>   <span class="comment">;; meta  </span></span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> with-dict  </span><br><span class="line">  <span class="string">"连接到 meta库的 dict表进行操作"</span>  </span><br><span class="line">  <span class="collection">[&amp; body]</span>  </span><br><span class="line">  `<span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[~'dbname <span class="string">"meta"</span>  </span><br><span class="line">         ~'tbname <span class="attribute">:dict</span>  </span><br><span class="line">         ~'conn <span class="list">(<span class="keyword">make-connection</span> ~'dbname)</span>  </span><br><span class="line">         ]</span>  </span><br><span class="line">     <span class="list">(<span class="keyword">with-mongo</span> ~'conn)</span>  </span><br><span class="line">     <span class="list">(<span class="keyword">println</span> <span class="string">"~'conn = "</span> ~'conn)</span>   <span class="comment">;; meta  </span></span><br><span class="line">     <span class="list">(<span class="keyword">println</span> <span class="string">"~'tbname = "</span> ~'tbname)</span>   <span class="comment">;; :dict  </span></span><br><span class="line">     <span class="list">(<span class="keyword">println</span> <span class="string">"~@body = "</span> ~@body)</span>       <span class="comment">;; meta :dict db-test2' tbl-test2'  </span></span><br><span class="line">     ~@body)</span>)</span>  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[dbname 'db-test'   </span><br><span class="line">      tbname 'tbl-test'  </span><br><span class="line">      dbname2 'db-test2'   </span><br><span class="line">      tbname2 'tbl-test2'  </span><br><span class="line">      conn 'conn-sql'  </span><br><span class="line">      make-connection 'make-conn'  </span><br><span class="line">      body 'body1']</span>  </span><br><span class="line">  <span class="list">(<span class="keyword">with-dict</span> dbname tbname dbname2 tbname2)</span>)</span></span><br></pre></td></tr></table></figure>
+<p><strong>运行结果：</strong><br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> make-connection =  meta</span><br><span class="line"><span class="keyword">in</span> with-mongo =  meta</span><br><span class="line">~<span class="string">'conn =  meta</span><br><span class="line">~'</span>tbname =  <span class="symbol">:dict</span></span><br><span class="line">~<span class="variable">@body</span> =  meta <span class="symbol">:dict</span> db-test2<span class="string">' tbl-test2'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>说明：</strong></p>
+<p><code>make-connection</code> 和 <code>with-mongo</code> 是定义的函数，后面传递的是参数，使用 <code>~&#39;</code>修饰直接翻译过去，即字符串传字符串，<code>:dict</code> 键值也传键值</p>
+<p><code>with-dict</code> 传递多个参数给<code>body</code>，其中 <code>dbname tbname</code> 在<code>with-dict</code>中被重新赋值，因此打印出的结果也为赋值后的最新结果</p>
+<h3 id="macro的核心作用">macro的核心作用</h3><p>由于<code>macro</code>接收的参数可以很复杂，而且不求值，因此可以接收<code>list</code>，在内部转换，加工后执执行，也可以接收完全不是<code>lisp</code>的语法，在内部转换成<code>clojure</code>能执行的<code>list</code>。<br>这样可以创建自己的<code>DSL</code>，而把clojure宏实现为<code>DSL</code>解析器。</p>
+<p>特点是允许在Clojure <code>evaluate</code>你的<code>list</code>之前，你能够像处理函数一样的处理它, 但是不<code>evaluate</code>。</p>
+<p>如果你想把一个表达式作为参数传递给函数，并要求这个参数不求值，这是做不到的。比如下面的函数定义会报错：<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">def</span></span> ignore-last-operand</span></span></span><br><span class="line">  [function-call]</span><br><span class="line">  (butlast function-call))</span><br><span class="line"><span class="prompt">  #_=&gt;</span><span class="clojure"><span class="list">   #_=&gt; </span></span></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"><span class="list"> CompilerException java.lang.RuntimeException: Too many arguments to def, compiling:<span class="list">(/tmp/form-init3734404425586418360.clj:1:1)</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>本意是<code>ignore-last-operand</code>接收一个list参数，但是不求值，在<code>body</code>运行的时候才进行求值，而且要忽略list的最后一个<code>symbol</code>.</p>
+<p>这种情况需要使用宏了。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">defmacro</span></span> ignore-last-operand</span></span></span><br><span class="line">  [function-call]</span><br><span class="line">  (butlast function-call))</span><br><span class="line"><span class="prompt">  #_=&gt;</span><span class="clojure"><span class="list">   #_=&gt; #'user/ignore-last-operand</span></span></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"><span class="list"> <span class="list">(<span class="keyword">ignore-last-operand</span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">10</span>)</span>)</span></span></span></span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>和C的宏有点像，不过C的宏是在预编译阶段做文本替换，还是弱了点。不像lisp可以在运行时随意使用宏。</p>
+<h3 id="用macroexpand检查返回的list">用macroexpand检查返回的list</h3><p>上面的例子中，其实经过了去除最后一个symbol，然后再对余下的list求值的过程。</p>
+<p><code>(+ 1 2 10) -&gt; (+ 1 2) -&gt; 3</code></p>
+<p>要想知道最后求值结果出来前的<code>list</code>，可以使用<code>macroexpand</code>. 注意要配合使用’ 表示不要求值。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">macroexpand</span></span> '<span class="list">(<span class="keyword">ignore-last-operand</span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">10</span>)</span>)</span>)</span></span></span><br><span class="line">(+ 1 2)</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以显示宏返回的<code>list</code>，而不是求值。</p>
+<h3 id="宏的语法">宏的语法</h3><p><code>(defmacro 宏名 描述字符串 {版本说明} [参数列表] (body1) (body2) (bodyN))</code></p>
+<p>一个宏可以与多个<code>body</code>，这些<code>body</code>有点像C++里面的重载函数，根据参数数目的不同而决定运行哪一个<code>body</code></p>
+<p>比如0参数<code>body</code>可以写成这样<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">([] true)</span><br><span class="line">;;1个参数写成这样</span><br><span class="line">([x] x)</span><br><span class="line"></span><br><span class="line">;;多个参数这样</span><br><span class="line">([x &amp; next]</span><br><span class="line">   `(let [and# ~x]</span><br><span class="line">      (if and# (and ~@next) and#))))</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong> <code>&amp; next</code> 是获取余下的的参数, 因为<code>&amp;</code>左边出现了一个<code>x</code>, 所以<code>next</code>被绑定为余下的参数。</p>
+<h3 id="常用宏">常用宏</h3><p><strong> <code>-&gt;</code> </strong> 宏改变从右到左的阅读方式<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> read-resource</span><br><span class="line">  <span class="string">"Read a resource into a string"</span></span><br><span class="line">  <span class="collection">[path]</span></span><br><span class="line">  <span class="list">(<span class="keyword">read-string</span> <span class="list">(<span class="keyword"><span class="built_in">slurp</span></span> <span class="list">(<span class="keyword">clojure.java.io/resource</span> path)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>这个函数运算的时候会先从最右边的（因为也是最里面）的<code>list</code>开始求值，<code>path</code> -&gt; <code>(clojure...)</code> -&gt; <code>(slurp...)</code> -&gt; <code>(read-string ...)</code>, 然后往外层层求值。通过-&gt;宏可以将最先求值的放在最上面，写成这样。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> read-resource</span><br><span class="line">  <span class="collection">[path]</span></span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">-&gt;</span></span> path</span><br><span class="line">      clojure.java.io/resource</span><br><span class="line">      slurp</span><br><span class="line">      read-string)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>每个人有不同的偏好，有些人还是会这样用，为了减少括号的数目和符合自己从左到右或者从上到下的阅读习惯。</p>
+<p><strong><code>binding</code>宏</strong><br>binding宏用来创建线程专属的变量，在多线程中很常用。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">def</span></span> ^<span class="attribute">:dynamic</span> x <span class="number">1</span>)</span></span></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">def</span></span> ^<span class="attribute">:dynamic</span> y <span class="number">1</span>)</span></span></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> x y)</span></span></span><br><span class="line">2</span><br><span class="line"> </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">binding</span> <span class="collection">[x <span class="number">2</span> y <span class="number">3</span>]</span></span></span></span><br><span class="line">         (+ x y))</span><br><span class="line">5</span><br><span class="line"> </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"><span class="list"> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> x y)</span></span></span></span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p><strong><code>when</code>宏</strong><br>可以接受一堆参数，如果条件为真，这些参数都依次被求值，返回最后一个求值的结果。<code>when</code>的实现是用<code>if</code> 和 <code>do</code>。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">macroexpand</span></span> '<span class="list">(<span class="keyword"><span class="built_in">when</span></span> boolean-expression</span><br><span class="line">                expression-1</span><br><span class="line">                expression-2</span><br><span class="line">                expression-3)</span>)</span></span><br><span class="line"><span class="comment">; =&gt;</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">if</span></span> boolean-expression</span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">do</span></span> expression-1</span><br><span class="line">      expression-2</span><br><span class="line">      expression-3)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>参考资料：<br><a href="http://blog.csdn.net/moyan_min/article/details/11530751" target="_blank" rel="external">Clojure 学习入门（11）—— 宏 macro</a><br><a href="http://www.cnblogs.com/me-sa/archive/2013/03/18/clojure-macro.html" target="_blank" rel="external">Clojure 宏 上篇</a><br><a href="http://www.isnowfy.com/clojure-macro/" target="_blank" rel="external">Clojure的宏</a><br><a href="http://www.learningclojure.com/2010/09/clojure-macro-tutorial-part-ii-syntax.html" target="_blank" rel="external">http://www.learningclojure.com/2010/09/clojure-macro-tutorial-part-ii-syntax.html</a><br><a href="http://orbbyrp.com/2012/06/lisp_first_step_macro.html" target="_blank" rel="external">http://orbbyrp.com/2012/06/lisp_first_step_macro.html</a><br><a href="http://www.cnblogs.com/me-sa/archive/2013/03/18/clojure-macro.html" target="_blank" rel="external">http://www.cnblogs.com/me-sa/archive/2013/03/18/clojure-macro.html</a><br><a href="http://clojure.org/cheatsheet" target="_blank" rel="external">http://clojure.org/cheatsheet</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-07-03-clojure-macro/">Clojure 学习 —— macro</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时20分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-07-03-clojure-macro/" title="Clojure 学习 —— macro">http://notes.seirhsiao.com/2016/01/24/2014-07-03-clojure-macro/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-07-03-clojure-macro/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-07-05-learn-clojure-marco-in-minutes/">
+        几分钟内学习clojure宏
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-07-02-clojure-httpkit/">
+        Clojure 学习 —— httpkit
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#宏与函数"><span class="toc-number">1.</span> <span class="toc-text">宏与函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宏符号"><span class="toc-number">2.</span> <span class="toc-text">宏符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macro的核心作用"><span class="toc-number">3.</span> <span class="toc-text">macro的核心作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用macroexpand检查返回的list"><span class="toc-number">4.</span> <span class="toc-text">用macroexpand检查返回的list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宏的语法"><span class="toc-number">5.</span> <span class="toc-text">宏的语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用宏"><span class="toc-number">6.</span> <span class="toc-text">常用宏</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-07-03-clojure-macro/" data-title="Clojure 学习 —— macro" data-url="http://notes.seirhsiao.com/2016/01/24/2014-07-03-clojure-macro/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-07-05-learn-clojure-marco-in-minutes/" title="上一篇: 几分钟内学习clojure宏">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-07-02-clojure-httpkit/" title="下一篇: Clojure 学习 —— httpkit">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

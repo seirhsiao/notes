@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clojure简介与应用 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. OOP的本质？面向对象编程（OOP）中最终要的是什么？抽象、封装、集成、多态？实现模式？设计模式？还有更重要的么？
+下面引用两段业内名言：
+
+“如果我们现在回头看一下面向对象这个思想是从哪来的，如果以基于消息传递机制的Smalltalk-80的特性来衡量现在的状态继承和面向对象的使用方式，我们不禁要问，我们是不是已经走错路了？” ——2010伦敦QCon大会采访
+只关注状态，在类和基于映像的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clojure简介与应用">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-06-25-clojure-introduction-and-Application/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="1. OOP的本质？面向对象编程（OOP）中最终要的是什么？抽象、封装、集成、多态？实现模式？设计模式？还有更重要的么？
+下面引用两段业内名言：
+
+“如果我们现在回头看一下面向对象这个思想是从哪来的，如果以基于消息传递机制的Smalltalk-80的特性来衡量现在的状态继承和面向对象的使用方式，我们不禁要问，我们是不是已经走错路了？” ——2010伦敦QCon大会采访
+只关注状态，在类和基于映像的">
+<meta property="og:updated_time" content="2015-11-21T13:19:42.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clojure简介与应用">
+<meta name="twitter:description" content="1. OOP的本质？面向对象编程（OOP）中最终要的是什么？抽象、封装、集成、多态？实现模式？设计模式？还有更重要的么？
+下面引用两段业内名言：
+
+“如果我们现在回头看一下面向对象这个思想是从哪来的，如果以基于消息传递机制的Smalltalk-80的特性来衡量现在的状态继承和面向对象的使用方式，我们不禁要问，我们是不是已经走错路了？” ——2010伦敦QCon大会采访
+只关注状态，在类和基于映像的">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-06-25-clojure-introduction-and-Application" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-06-25-clojure-introduction-and-Application/" class="article-date">
+  	<time datetime="2016-01-24T02:06:28.986Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clojure简介与应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-_OOP的本质？">1. OOP的本质？</h3><p>面向对象编程（OOP）中最终要的是什么？抽象、封装、集成、多态？实现模式？设计模式？还有更重要的么？</p>
+<p>下面引用两段业内名言：</p>
+<blockquote>
+<p>“如果我们现在回头看一下面向对象这个思想是从哪来的，如果以基于消息传递机制的Smalltalk-80的特性来衡量现在的状态继承和面向对象的使用方式，我们不禁要问，我们是不是已经走错路了？” ——2010伦敦QCon大会采访</p>
+<p>只关注状态，在类和基于映像的语言里缺乏良好的并发模型和消息机制。 ——Dave Thomas博士</p>
+</blockquote>
+<a id="more"></a>
+<p>到底什么被忽视了？从这两段话中我们可以看出：是OOP的并发模型和消息机制被现代OO编程语言忽视了，尤其是Java。</p>
+<p>在当代OO语言中，可变状态让并发编程变得非常复杂，只能依靠悲观锁来进行并发的控制。</p>
+<p>至于消息传递机制，大都OO语言本身并没有提供有效的机制，而是运用设计模式来达到目的的，但这又会使编程的过程复杂化，也会在一定程度上影响代码的可读性。</p>
+<p>至今，业界已经承认OOP并不是万能的。而OOP的真正优势在于对现实世界的建模，而不是数据处理。我们应该辩证的看待不同范式的编程语言，死磕一个必然会使思想禁锢，甚至编程灵感尽失。</p>
+<h2 id="2-_FP是什么？">2. FP是什么？</h2><p>现在我们来看看在函数式编程（FP）中是怎样解决这些问题的。</p>
+<h3 id="2-1_函数式编程概览">2.1 函数式编程概览</h3><ul>
+<li>一种编程范式</li>
+<li>程序运算即为数学上的函数计算</li>
+<li>以λ演算（lambda calculus）为基础</li>
+<li>函数为first-class，可以很方便的运用闭包创造出高阶函数</li>
+<li>避免状态、变量和副作用</li>
+<li>支持懒惰计算（lazy evaluation）和引用透明性</li>
+</ul>
+<h2 id="2-2_函数式编程详解">2.2 函数式编程详解</h2><h3 id="2-2-1_不可变数据">2.2.1 不可变数据</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; Immutable data</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> a '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> b <span class="list">(<span class="keyword"><span class="built_in">cons</span></span> <span class="number">0</span> a)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; b -&gt; '(1 2 3)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="string">"The 'a' is "</span> a)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; b -&gt; 0 append a</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="string">"The 'b' is "</span> b)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>The &#39;a&#39; is (1 2 3)</code></p>
+<p><code>The &#39;b&#39; is (0 1 2 3)</code></p>
+<p>引用a和b在定义时被赋值，并且在之后的任何时刻都不可能被改变。并且，在底层，a和b的值会重用一部分数据存储的。如下图：</p>
+<p>从图中可以看出，a和b引用的其实是同一个序列，只是起点不同而已。</p>
+<p>Clojure使用的这种技术叫做PDS（Persistent Data Structures）。Clojure的数据结构是不可变的，也是持久的。持久数据结构的好处包括：</p>
+<p>1) 可以大幅提高程序效率。</p>
+<p>2) 为并发编程提供有力支持。</p>
+<p>3) 更容易进行数据版本控制。</p>
+<p>另外，与不可变数据相关的另一个函数式编程概念是——引用透明。引用透明意味着相同的输入一定会返回相同的输出，即：一个函数的计算过程不会因任何外部环境的改变而发生变化。相信我们真正理解不可变数据之后，引用透明这个概念也会非常好理解的。</p>
+<h3 id="2-2-2_一级类型——函数">2.2.2 一级类型——函数</h3><p>“把函数作为语言的一级类型”的意思是说，语言本身支持把一个函数作为另一个函数的输入和输出。</p>
+<p>首先，我们来看一个把函数作为另一个函数的输入的例子：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; the function as a 'first-class' 1</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> my-func1</span><br><span class="line"></span><br><span class="line">  <span class="string">"A demo of first-class"</span></span><br><span class="line"></span><br><span class="line">  <span class="collection">[d f]</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">f</span> d)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">my-func1</span> <span class="string">"It's first-class!"</span> println)</span></span><br></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><code>It&#39;s first-class!</code></p>
+<p>上面的代码做了这些事：</p>
+<ol>
+<li>定义了一个名字叫“my-func1”的函数。</li>
+<li>为这个函数写了一段内容为“A demo of first-class”的注释。</li>
+<li>声明了这个函数的两个形参：d和f。</li>
+<li>调用f，而d作为参数传给f。因此形参f必须代表一个需要传入一个参数的函数，这样才能被正确调用。</li>
+<li>我们调用了函数“my-func1”，并将内容为“It’s first-class”的字符串绑定到了形参d上、将println这个函数绑定到了形参f上。</li>
+<li>根据“my-func1”函数中的定义，它本质上执行了这段代码：<br><code>(println &quot;It&#39;s first-class!&quot;)`` ;; 还记得“my-func1”函数体中的</code>(f d)`么？</li>
+</ol>
+<p>初读Clojure的代码需要注意几点：</p>
+<ol>
+<li>Clojure是基于JVM的Lisp方言，所以会有很多的括号（但是与Lisp相比已经简化了很多），这一点需要习惯。</li>
+<li>读Lisp家族的代码需要从最里面的括号开始读，一直读到最外面的括号。这是一种嵌套结构。</li>
+<li>Clojure中的一对括号（即，“(”和“)”）叫一个form，每一个from中可以有一个或多个元素。并且，form中的第一个元素应该是一个函数的标识名（Symbol），后面的元素应该是传给这个函数的参数。所有的Clojure代码都会遵守form的这种格式。</li>
+<li>每一个form都是一个表达式，每一个表达式的返回值都是对这个表达式的求值结果。</li>
+<li>函数体的返回值不需要显示标明，而是在函数定义中最后一个form的求值结果。</li>
+</ol>
+<p>现在，我们来看看怎样把函数作为另一个函数的输出：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; the function as a 'first-class' 2</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> func-a <span class="collection">[s]</span> <span class="list">(<span class="keyword"><span class="built_in">str</span></span> <span class="string">"Func A: "</span> s)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> func-b <span class="collection">[s]</span> <span class="list">(<span class="keyword"><span class="built_in">str</span></span> <span class="string">"Func B: "</span> s)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> my-func2</span><br><span class="line"></span><br><span class="line">  <span class="string">"Another demo of first-class"</span></span><br><span class="line"></span><br><span class="line">  <span class="collection">[n]</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">cond</span></span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword"><span class="built_in">&gt;</span></span> n <span class="number">0</span>)</span> func-a</span><br><span class="line"></span><br><span class="line">    <span class="attribute">:else</span> func-b)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="list">(<span class="keyword">my-func2</span> <span class="number">0</span>)</span> <span class="string">"my-first-class"</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>Func B: my-first-class</code></p>
+<p>上面的代码做了这些事：</p>
+<ol>
+<li>定义了一个名字叫“func-a”的函数,这个函数有一个形参s，执行该函数之后会获得一个返回值，返回值的内容是‘“Func A: “ s’。</li>
+<li>定义了一个名字叫“func-b”的函数,这个函数有一个形参s，执行该函数之后会获得一个返回值，返回值的内容是‘“Func B: “ s’。</li>
+<li>定义了一个名字叫“my-func2”的函数。这个函数有一个形参n。函数体是一个cond的函数调用（cond函数相当于Java中的switch语句）。这个函数调用表示：当n大于0时，返回函数“func-a”，否则返回“func-b”。<br>4.之前已经提到过，一个函数的返回值即是其函数体中最后一个form的求值结果。在函数“my-func2”中，这最后一个form就是那个cond调用。也就是说，函数“my-func2”会根据n的值来返回函数“func-a”或“func-b”。</li>
+<li>在上面代码的最后一行，我们首先调用了函数“my-func2”，并传入了实参0。根据上面的代码说明我们可以知道这次函数调用的返回值——函数“func-b”。接着我们调用了这个被返回的函数，并得到了结果。</li>
+</ol>
+<p>上面这两段代码可以充分展现出了函数式编程的强大威力。函数可以当做代码块或算法单元传入其他函数或者被其他函数返回。这一特性极大的增强了代码的灵活性和扩展性。</p>
+<h3 id="2-2-3_懒惰计算">2.2.3 懒惰计算</h3><p>懒惰计算意味着对表达式的求值是按需进行的。当真正需要表达式的值（或值中的某部分）时，求值（或部分求值）的操作才会被执行。这种计算方式的意义在于最小化某一个时刻的计算量，从而达到最大化节省空间和时间的目的。</p>
+<p>下面我们来看一个例子：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; lazy and infinite sequences</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; (iterate inc 1) ;; Don't do that!!</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">take</span></span> <span class="number">10</span> <span class="list">(<span class="keyword"><span class="built_in">iterate</span></span> inc <span class="number">1</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><code>(1 2 3 4 5 6 7 8 9 10)</code></p>
+<p>上面的代码做了这些事：</p>
+<ol>
+<li>首先看一下第二行代码，这是一行注释。iterate函数会返回一个无限迭代的序列。我们调用这个函数，并传入了两个实参：inc和1。inc也是一个函数，在这里传入inc意味着返回的序列的每一个元素（整数）都是前一个元素加1的结果。第二个参数1表示返回序列的第一个元素为1。注意！iterate函数返回的序列是无限迭代的。直接调用iterate会使程序一直计算这个无穷序列的下一个元素，直到内存溢出。</li>
+<li>最后一行代码我们将调用iterate函数的form作为第二个参数传入了take函数中。这个take函数调用的第一个实参为10。这意味着我们只想获取这个无穷序列的前10个元素。对这个调用take函数的form求值并不会造成内存溢出，因为我们只需要前10个元素。程序会很快计算完成并返回结果。这个无穷序列的其余元素并不会被计算出来，直到真正有程序需要它们的时候。</li>
+</ol>
+<p>上面的例子虽然很简单，但是却展示出了懒惰计算的强大威力。懒惰计算可以大大提高程序的性能，并且使我们能够非常方便的按需取用数据。</p>
+<h3 id="2-2-4_闭包">2.2.4 闭包</h3><p>闭包其实是建立在将函数作为一级类型的这个特性之上的。闭包使我们根据需要可以动态的生成函数。我们可以先定义一个不完整的函数，也就是说函数体中的算法是有缺失的。而后，在其他代码中将缺失的部分算法传入，生成这个函数的一个完整版本并返回。这其中用到了前文提到的将函数作为另一个函数的输入和输出的特性。</p>
+<p>下面我们来看一个例子：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; closure</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> double-op</span><br><span class="line"></span><br><span class="line">  <span class="collection">[f]</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">fn</span></span> <span class="collection">[&amp; args]</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">2</span> <span class="list">(<span class="keyword"><span class="built_in">apply</span></span> f args)</span>)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> double-add <span class="list">(<span class="keyword">double-op</span> +)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword">double-add</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><code>12</code></p>
+<p>上面的代码做了这些事：</p>
+<ol>
+<li>我们定义了一个名为“double-op”的函数。这个函数用一个形参f。这个形参f应该是一个函数，因为我们的函数体是一个用fn（fn是一个宏，可以理解为宏也是一种能够动态生成函数的方式，且功能上强大很多）定义的匿名函数。这个匿名函数可以接受一或者多个参数（形参名字args前的“&amp;”表明了这一点）。这个匿名函数会通过传入的实参（也就是f的值）而完整化，并作为函数“double-op”的返回值。</li>
+<li>函数apply会将第一个实参（一般为一个函数）作用于其余的实参之上，也就是说调用第一个实参代表的函数，并将其余的实参作为其参数传入。使用apply的好处在于不必立刻在代码中填入传入“其余的实参”，而可以用引用名代替。这时，这些“其余的实参”可以被叫做预参数。</li>
+<li>倒数第二行代码定义了一个名为“double-add”的引用，这个引用返回一个函数。这个返回的函数是通过向函数“double-op”传入函数“+”而完整化后得出的。换句话说，我们在这里定义了一个名为“double-add”的函数。</li>
+<li>之后我们调用了函数“double-add”，并得到了预期的结果（把所有“其余的参数”相加并乘以2）。</li>
+</ol>
+<p>闭包是函数式编程中非常重要的特性，并且在一些非函数式语言中也有闭包的身影。另外，还有两个与闭包有关联的两个函数式编程概念：偏函数和柯里化。大家有兴趣的话可以去google一下。</p>
+<h2 id="2-3_函数式编程（Clojure）的优势">2.3 函数式编程（Clojure）的优势</h2><h3 id="2-3-1_处理数据？用管道的方式会更加简洁">2.3.1 处理数据？用管道的方式会更加简洁</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; Focus on results, not steps.</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">reduce</span></span> + <span class="list">(<span class="keyword"><span class="built_in">map</span></span> #<span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">2</span> %)</span> <span class="list">(<span class="keyword"><span class="built_in">filter</span></span> odd? <span class="list">(<span class="keyword"><span class="built_in">range</span></span> <span class="number">1</span> <span class="number">20</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>200</code></p>
+<p>我们从内向外读代码（从嵌套在最里面的括号开始读），可以清除的明白这段代码做了这些事：</p>
+<ol>
+<li>获取一个1到19的整数序列。（调用range函数后结果是“(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19)”）</li>
+<li>将这个序列的中的奇数提取出来形成另外一个序列。（调用filter函数后结果是“(1 3 5 7 9 11 13 15 17 19)”）</li>
+<li>将这个奇数序列中的每个元素乘以2。（调用map函数后结果是“(2 6 10 14 18 22 26 30 34 38)”）（其中，“#(* 2 %)”是用简化方式定义的一个匿名函数，也可以用fn来定义）</li>
+<li>将序列中的所有元素相加。（调用reduce函数后结果是“200”）</li>
+</ol>
+<p>这种管道流的代码变现方式使得我们读起来非常顺畅。我们几乎在读代码的同时就能明确代码的含义。这种管道流代码也非常只管，数据从内层开始经过中间函数的逐一处理，到了最外层时就生成了我们最终想要的结果。</p>
+<p>想象一下，如果用Java写的话需要多少行代码？需要多少次循环？需要声明多少个中间变量？</p>
+<h3 id="2-3-2_请描述一下我们要做的事情">2.3.2 请描述一下我们要做的事情</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; Focus more on what the code does rather than how it does it.</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">for</span></span> <span class="collection">[n <span class="list">(<span class="keyword"><span class="built_in">range</span></span> <span class="number">1</span> <span class="number">101</span>)</span> <span class="attribute">:when</span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> <span class="number">0</span> <span class="list">(<span class="keyword"><span class="built_in">rem</span></span> n <span class="number">3</span>)</span>)</span>]</span> n)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>(3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90 93 96 99)</code></p>
+<p>现在我们想找出1到100中能被3整除的数，组成序列并打印，看看上面这段代码是怎么做的：</p>
+<ol>
+<li>用一个for宏就能搞定！for宏在Clojure里并不是用来做循环和迭代，而是用来对序列进行过滤等复杂操作的。</li>
+<li>调用range函数返回一个1到100的序列。</li>
+<li>通过“:when”这个关键字和后跟的函数来对上述序列进行过滤。</li>
+<li>在Clojure中，用方括号包裹的代码块一般定时来声明形参的，并且如果形参名称的下一个形参位置上是一个函数或引用名的话，那么就把它的值赋给这个形参。在这段代码中我们将过滤后的序列赋给了形参n。</li>
+<li>我们调用for宏的最后一个表达式为n，这就意味这调用后的返回值为n所代表的那个序列。</li>
+<li>for宏很强大，详情请看Clojure的文档。</li>
+</ol>
+<p>Clojure里有很多的内建宏和函数。它们为语言使用者提供了很大的便利。它们使得我们在编程时可以更多的关注我们要做什么，而不是怎么去做。换句话说，这我们可以更多的去关注我们想要实现的功能和业务，而不是纠缠在那些不重要的处理细节上。</p>
+<h3 id="2-3-3_要亲自管理可变状态？敬而远之吧">2.3.3 要亲自管理可变状态？敬而远之吧</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; Allow the runtime to manage state.</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">def</span></span> counter</span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[tick <span class="list">(<span class="keyword"><span class="built_in">atom</span></span> <span class="number">0</span>)</span>]</span></span><br><span class="line"></span><br><span class="line">    #<span class="list">(<span class="keyword"><span class="built_in">swap!</span></span> tick inc)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">println</span> <span class="list">(<span class="keyword"><span class="built_in">take</span></span> <span class="number">10</span> <span class="list">(<span class="keyword">repeatedly</span> counter)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><code>(1 2 3 4 5 6 7 8 9 10)</code></p>
+<p>这段代码做了这些事：</p>
+<ol>
+<li>定义了函数“counter”。</li>
+<li>在函数体中调用了let函数。</li>
+<li>声明了一个支持原子操作的变量0，并将这个变量赋给了引用tick。tick作为这let函数的内部绑定。</li>
+<li>在let函数调用的主体中声明了一个匿名函数，这个匿名函数利用swap函数来改变tick多代表的值。</li>
+<li>无限调用函数“counter”并生成一个无穷序列（通过repeatedly函数），然后只取序列的前10个元素（注意，这里用到了懒惰计算）并返回。</li>
+</ol>
+<p>在Clojure中，用方括号包裹的代码块一般是来声明形参的。我们可以把用方括号包裹的语句块看成一个vector（实际上，在Clojure中数据结构vector的表示法就是用方括号包裹一到多个元素）。如果形参名称的下一个元素时一个form或者引用名或者字面量值，那么这下一个元素就是给这个形参的赋值。比如：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; sum of x and y</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">let</span></span> <span class="collection">[x <span class="number">1</span> y <span class="number">2</span>]</span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> x y)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面这段代码中，我们调用了let函数，将1赋值给形参x、将2赋值给了形参2，并以x和y的和作为这次let函数调用的返回值。</p>
+<p>从本节开始的代码可知，在Clojure中是可以有可变状态的。但是，对可变状态的管理和状态是完全的由语言来控制的。</p>
+<p>Clojure使用STM（Software Transactional Memory）技术来对可变状态及其并发操作进行控制。</p>
+<p>Clojure的STM使用了一种叫做多版本并发控制（MVCC）的技术。这一技术也在被一些主流数据库使用。</p>
+<p>STM的事务与数据库的事务类似，保证三点：更新是原子的（A）、更新是一致的（C）和更新是隔离的（I）。 数据库的事务还可以保证更新是牢固的。因为Clojure的事务是内存事务，所以并不能保证更新的牢固性（D）。</p>
+<p>下面我们用一张状态图来描绘STM的并发控制行为：</p>
+<p>图中左上角的代码做了这些事：</p>
+<ol>
+<li>用ref定义了一个支持并发的引用（这个引用指向了一个不可变的值“A”）。这个ref引用是可变的。然后，我们将这个ref引用赋给引用my-data。</li>
+<li>用dosync宏定义了一个事务。在这个事务中，我们使用ref-set函数将my-data所代表的ref引用的值由“A”改为了“B”。</li>
+<li>这个事务的执行过程是协作和并发的。“可协作的”意味着我们可以在dosync宏中执行一到多个并发操作。dosync宏保证这些操作永远是按顺序执行的。至于并发控制方面已在图中说明了。</li>
+</ol>
+<p>Clojure的STM有四种操作模式，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">协作的/独立的</th>
+<th style="text-align:right">同步/异步</th>
+<th style="text-align:right">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ref</td>
+<td style="text-align:center">协作的</td>
+<td style="text-align:right">同步</td>
+<td style="text-align:right">Ref会为一个不可变的对象创建一个可变的引用。</td>
+</tr>
+<tr>
+<td>Atomic</td>
+<td style="text-align:center">独立的</td>
+<td style="text-align:right">同步</td>
+<td style="text-align:right">Atom是一种比ref更轻量级的机制。多个ref更新操作能够在事务被协调的执行，而atom允许非协调的单一值的更新操作。</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td style="text-align:center">独立的</td>
+<td style="text-align:right">异步</td>
+<td style="text-align:right">send函数被调用后会立即返回，更新操作会稍后在另一个线程被执行。</td>
+</tr>
+<tr>
+<td>Vars</td>
+<td style="text-align:center">线程本地的</td>
+<td style="text-align:right">同步</td>
+<td style="text-align:right">Var是用defn或def定义，并用^:dynamic修饰的。它可以用binding在本地线程将某个引用重新绑定为其他值。</td>
+</tr>
+</tbody>
+</table>
+<p>注：</p>
+<p>1) 协作/独立：状态是否与其他状态共同作用。</p>
+<p>2) 同步/异步：状态的更新是同步还是异步。</p>
+<p>下面是Ref、Atom和Agent的更新模型：</p>
+<p>这个更新模型中描绘出了Clojure对并发更新的操作方式。更新机制包含了普通应用的、可交换的、非阻塞的和简易的。</p>
+<p>关于Clojure的STM方面的知识已经超出了本文的主题范围，故在此就不再赘述了。对此感兴趣的读者可以参看Clojure的官方文档和书籍。</p>
+<h3 id="2-3-4_更自然的使用“组合”来解耦代码">2.3.4 更自然的使用“组合”来解耦代码</h3><p>下面的这段代码来自于O’Relley出版的《Clojure Programming》一书的第2章的一个例子。这个例子很好的展示了函数式编程在组合/累加功能方面的独特优势。<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> print-logger</span><br><span class="line"></span><br><span class="line">  <span class="collection">[writer]</span></span><br><span class="line"></span><br><span class="line">  #<span class="list">(<span class="keyword">binding</span> <span class="collection">[*out* writer]</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword">println</span> %)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">print-logger</span> *out*)</span> <span class="string">"hello"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">require</span> 'clojure.java.io)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> file-logger</span><br><span class="line"></span><br><span class="line">  <span class="collection">[file]</span></span><br><span class="line"></span><br><span class="line">  #<span class="list">(<span class="keyword"><span class="built_in">with-open</span></span> <span class="collection">[f <span class="list">(<span class="keyword">clojure.java.io/writer</span> file <span class="attribute">:append</span> <span class="literal">true</span>)</span>]</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="list">(<span class="keyword">print-logger</span> f)</span> %)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">file-logger</span> <span class="string">"messages.log"</span>)</span> <span class="string">"hello, log file."</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> multi-logger</span><br><span class="line"></span><br><span class="line">  <span class="collection">[&amp; logger-fns]</span></span><br><span class="line"></span><br><span class="line">  #<span class="list">(<span class="keyword"><span class="built_in">doseq</span></span> <span class="collection">[f logger-fns]</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword">f</span> %)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">multi-logger</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">print-logger</span> *out*)</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">file-logger</span> <span class="string">"messages.log"</span>)</span>)</span> <span class="string">"hello again"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">defn</span></span> timestamped-logger</span><br><span class="line"></span><br><span class="line">  <span class="collection">[logger]</span></span><br><span class="line"></span><br><span class="line">  #<span class="list">(<span class="keyword">logger</span> <span class="list">(<span class="keyword"><span class="built_in">format</span></span> <span class="string">"[%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS] %2$s"</span> <span class="list">(<span class="keyword">java.util.Date.</span>)</span> %)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">timestamped-logger</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">multi-logger</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword">print-logger</span> *out*)</span></span><br><span class="line"></span><br><span class="line">    <span class="list">(<span class="keyword">file-logger</span> <span class="string">"messages.log"</span>)</span>)</span>)</span> <span class="string">"Hello, timestamped logger~"</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码做了这些事：</p>
+<ol>
+<li>首先，例子定义了print-logger函数。这个函数的函数体是一个匿名函数。这个匿名函数通过调用binding宏将标准输出（用“<em>out</em>”表示）重新绑定为形参writer所代表的值（也就是说重新定义了用println函数打印内容的输出目的地），而后打印出调用这个匿名函数时所传入的实参。最后，我们将这个匿名函数作为print-logger函数的返回值。这个注意，这里用到了 闭包，通过形参writer所代表的值的传入，我们完整化了这个匿名函数，使它真正可以工作。</li>
+<li>例子中定义的第二个函数是file-logger函数。这个函数有一个形参file，它的值应该是一个文件的路径。这个函数的函数体也是一个匿名函数。在这个匿名函数中，通过调用with-open宏打开了这个文件路径多代表的文件，并创建了一个相应的Writer实例并赋值给了内部绑定f。:append关键字是用来指定写入方式是否为追加的。在最后，通过调用之前写好的print-logger函数并传入f。这就意味着我们把标准输出与一个指定文件的Writer绑定了。这就意味着，我们调用file-logger函数并传入文件的路径，就会得到一个可以把内容打印到指定文件的log记录函数了。这里同样是一个闭包应用。我们通过将“messages.log”作为参数传给函数file-logger，完整化了file-logger函数体中多定义的匿名函数。待file-logger函数将这个匿名函数作为返回值返回之后我们就可以直接使用了。</li>
+<li><code>multi-logger</code>函数可以把<code>print-logger</code>函数和<code>file-logger</code>函数的功能合并起来。参数<code>vector</code>中的“<code>&amp; logger-fns</code>”表明我们可以传入多个函数。函数中的匿名函数会作为返回值返回。这个匿名函数会依次调用之前传入多个函数，并将调用这个匿名函数时传入的参数传递给这几个函数。我们调用multi-logger函数并将前面定义好的两个log记录函数传入，就可以得到一个可以同时将内容打印到屏幕和文件的多向日志记录函数了。我们得到的这个函数同样是通过闭包方式生成的。</li>
+<li>在理解了前面几个函数后，timestamped-logger函数就很好解释了。我们首先将时间戳字符串和要打印的内容拼接（通过调用format函数）并作为参数传给了形参logger代表的函数。</li>
+</ol>
+<p>这个例子稍显复杂一些，但是它是像搭积木一样一步步将功能堆叠起来的，读起来是非常直观的。当然这要在你理解了相关函数式编程概念之后。</p>
+<h3 id="2-4_一起来FP吧">2.4 一起来FP吧</h3><p>上面说了这么多，只希望能够激发起你对FP的兴趣。如果你已经对FP有了一丝兴趣，那就说明我的文章没白写。如果你会Java，那我强烈建议你看看Clojure这个函数式语言。怎么？你对Clojure一无所知？好吧，我在后面补上一些Clojure编程语言的基本信息。</p>
+<h2 id="3-_这就是Clojure">3. 这就是Clojure</h2><h3 id="3-1_Clojure是什么？">3.1 Clojure是什么？</h3><p>&gt;</p>
+<ul>
+<li>一种Lisp方言（最初只基于JVM构建，现在也有CLR和JS的版本）</li>
+<li>开源语言（使用Eclipse Public License v 1.0协议）</li>
+<li>动态类型语言（标识类型是可选操作）</li>
+<li>函数式语言（但提供了安全的可变状态操作方法）</li>
+</ul>
+<blockquote>
+<p>作者： Rich Hickey<br>2007年10月第一次发布<br>官方网站： <a href="http://www.clojure.org/" target="_blank" rel="external">http://www.clojure.org/</a></p>
+</blockquote>
+<h3 id="3-2_Clojure的亮点">3.2 Clojure的亮点</h3><p>&gt;</p>
+<ul>
+<li>Clojure里的每个操作都被实现成以下三种形式中的一种：<code>special form</code>, <code>function</code>, <code>macro</code>.</li>
+<li>Clojure仅提供了很少的数据结构（但操作它们的方法众多）：<code>regular expressions</code>, <code>list</code>, <code>maps</code>, <code>sets</code>, <code>vectors</code>, <code>metadata</code>.</li>
+<li>序列（<code>sequence</code>）——集合的统一逻辑视图</li>
+<li>数据默认不可修改，但提供了保证并发安全的修改方式</li>
+<li>大量使用了懒惰计算，大大提高程序效率</li>
+<li>核心数据结构可以扩展（Common Lisp和Scheme的核心数据结构可修改，但不可扩展）</li>
+<li>所有数据结构是不可修改的、持久的并且支持递归的（在传统Lisp里，只有list是结构可递归的）</li>
+<li>使用<code>PDS</code>（Persistent Data Structures）技术解决了不可变数据造成的内存空间浪费和数据创建低效率问题</li>
+<li><code>STM</code>（Software Transactional Memory）机制使得她内置的支持了并发编程</li>
+</ul>
+<h3 id="3-3_Clojure的开发环境">3.3 Clojure的开发环境</h3><p>&gt;</p>
+<ul>
+<li>构建工具——<code>Leiningen</code>，兼容<code>Maven</code>仓库。</li>
+<li>轻量级<code>IDE</code>——<code>Clooj</code>，集成了项目浏览器、支持语法高亮Clojure源码文件查看器、输出查看器和REPL。</li>
+<li>更高级的IDE——推荐 IDEA + La Clojure插件。</li>
+<li>手边的Clojure书籍。</li>
+<li>Clojure文档站点。</li>
+</ul>
+<h3 id="3-4_Clojure相关网站">3.4 Clojure相关网站</h3><p>&gt;</p>
+<ul>
+<li>官网：<a href="http://clojure.org" target="_blank" rel="external">http://clojure.org</a></li>
+<li>文档站点：<a href="http://clojuredocs.org" target="_blank" rel="external">http://clojuredocs.org</a></li>
+<li>题库站点：<a href="http://www.4clojure.com" target="_blank" rel="external">http://www.4clojure.com</a></li>
+<li>Clojure构件仓库： <a href="https://clojars.org" target="_blank" rel="external">https://clojars.org</a></li>
+<li>中文用户组：<a href="http://cnlojure.org" target="_blank" rel="external">http://cnlojure.org</a></li>
+</ul>
+<h3 id="3-5_Clojure相关书籍">3.5 Clojure相关书籍</h3><p>&gt;</p>
+<ul>
+<li>Programming Clojure, Second Edition （易入门，基于Clojure 1.3）</li>
+<li>Clojure Programming（O’Reilly出品，基于Clojure 1.3）</li>
+<li>Clojure in Action（实践手册）</li>
+<li>The Joy of Clojure（比较深入）</li>
+<li>Clojure – Functional Programming for the JVM（易入门，有中文版）</li>
+</ul>
+<h3 id="3-6_Clojure的一些应用场景">3.6 Clojure的一些应用场景</h3><p>&gt;</p>
+<ul>
+<li>Text Search：Clucy，Snowball Stemmer</li>
+<li>Asynchronous HTTP：Aleph</li>
+<li>HTTP Clients：clj-http，http.async.client</li>
+<li>GUI：Clarity，Seesaw</li>
+<li>Web Server：Ring</li>
+<li>Web Frameworks：Compojure，Conjure</li>
+<li>Databases：FleetDB，Jiraph，clj-record</li>
+<li>Redis Clients：clj-redis，redis-clojure</li>
+<li>Twitter Storm——开源实时Hadoop</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-06-25-clojure-introduction-and-Application/">Clojure简介与应用</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时19分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-06-25-clojure-introduction-and-Application/" title="Clojure简介与应用">http://notes.seirhsiao.com/2016/01/24/2014-06-25-clojure-introduction-and-Application/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-06-25-clojure-introduction-and-Application/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-28-clojure-sql/">
+        Clojure 学习 —— 连接mysql
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-24-clojure-set/">
+        Clojure 学习 —— 集合Set
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_OOP的本质？"><span class="toc-number">1.</span> <span class="toc-text">1. OOP的本质？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-_FP是什么？"><span class="toc-number"></span> <span class="toc-text">2. FP是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1_函数式编程概览"><span class="toc-number">1.</span> <span class="toc-text">2.1 函数式编程概览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2_函数式编程详解"><span class="toc-number"></span> <span class="toc-text">2.2 函数式编程详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1_不可变数据"><span class="toc-number">1.</span> <span class="toc-text">2.2.1 不可变数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2_一级类型——函数"><span class="toc-number">2.</span> <span class="toc-text">2.2.2 一级类型——函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3_懒惰计算"><span class="toc-number">3.</span> <span class="toc-text">2.2.3 懒惰计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4_闭包"><span class="toc-number">4.</span> <span class="toc-text">2.2.4 闭包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3_函数式编程（Clojure）的优势"><span class="toc-number"></span> <span class="toc-text">2.3 函数式编程（Clojure）的优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1_处理数据？用管道的方式会更加简洁"><span class="toc-number">1.</span> <span class="toc-text">2.3.1 处理数据？用管道的方式会更加简洁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2_请描述一下我们要做的事情"><span class="toc-number">2.</span> <span class="toc-text">2.3.2 请描述一下我们要做的事情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3_要亲自管理可变状态？敬而远之吧"><span class="toc-number">3.</span> <span class="toc-text">2.3.3 要亲自管理可变状态？敬而远之吧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4_更自然的使用“组合”来解耦代码"><span class="toc-number">4.</span> <span class="toc-text">2.3.4 更自然的使用“组合”来解耦代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4_一起来FP吧"><span class="toc-number">5.</span> <span class="toc-text">2.4 一起来FP吧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-_这就是Clojure"><span class="toc-number"></span> <span class="toc-text">3. 这就是Clojure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1_Clojure是什么？"><span class="toc-number">1.</span> <span class="toc-text">3.1 Clojure是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2_Clojure的亮点"><span class="toc-number">2.</span> <span class="toc-text">3.2 Clojure的亮点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3_Clojure的开发环境"><span class="toc-number">3.</span> <span class="toc-text">3.3 Clojure的开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4_Clojure相关网站"><span class="toc-number">4.</span> <span class="toc-text">3.4 Clojure相关网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5_Clojure相关书籍"><span class="toc-number">5.</span> <span class="toc-text">3.5 Clojure相关书籍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6_Clojure的一些应用场景"><span class="toc-number">6.</span> <span class="toc-text">3.6 Clojure的一些应用场景</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-06-25-clojure-introduction-and-Application/" data-title="Clojure简介与应用" data-url="http://notes.seirhsiao.com/2016/01/24/2014-06-25-clojure-introduction-and-Application/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-06-28-clojure-sql/" title="上一篇: Clojure 学习 —— 连接mysql">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-06-24-clojure-set/" title="下一篇: Clojure 学习 —— 集合Set">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

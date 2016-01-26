@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UML类图实例 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UML 类图简单介绍与及示例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML类图实例">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-05-12-uml-class-diagram-instance/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="UML 类图简单介绍与及示例">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_01.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_02.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_03.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_04.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_05.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_06.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_07.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_08.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_09.png">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/uml/uml_02_10.png">
+<meta property="og:updated_time" content="2016-01-26T12:32:47.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UML类图实例">
+<meta name="twitter:description" content="UML 类图简单介绍与及示例">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-05-12-uml-class-diagram-instance" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-05-12-uml-class-diagram-instance/" class="article-date">
+  	<time datetime="2016-01-26T12:32:47.833Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UML类图实例
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/UML/">UML</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/类图/">类图</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UML_类图简单介绍与及示例">UML 类图简单介绍与及示例</h3> <a id="more"></a>
+<p>首先是复习一下UML中九种图的理解：</p>
+<p><strong>用例图</strong>：用例图是用来描述用户需求的，从用户的角度来描述系统的功能，并指出各个执行者。强调谁在使用，系统的执行者是谁。</p>
+<p><strong>类图</strong>：用来定义系统中的类，包括描述类的结构和类之间的关系。类图的主要作用于描述系统的静态结构。</p>
+<p><strong>对象图</strong>：对象图是类图的一个实例，描述了系统在具体时间点上所包含的对象以及各个对象之间的关系。</p>
+<p><strong>状态图</strong>：状态图说明对象在它的生命周期中响应事件所经历的状态序列，以及它们对那些事件的响应。<br><strong>构件图</strong>：构件图用来描述代码构件的物理结构以及构件之间的依赖关系。一个构件可以是一个资源文件、一个二进制文件或者已给可执行文件。</p>
+<p><strong>实施图（部署图）</strong>：用来定义了系统中硬件的物理体系结构，用来描述实际的物理设备以及它们之间的连接关系。</p>
+<p><strong>顺序图（序列图）</strong>：描述对象之间的交互顺序，着重体现对象之间消息传递的时间顺序，强调了对象之间消息的发送顺序，同时也显示了对象之间的交互过程。</p>
+<p><strong>协作图</strong>：</p>
+<ul>
+<li>协作图是一种交互图，强调的是发送和接受消息的对象之间的组织结构。</li>
+<li>协作图主要描述协作对象的交互和链接。</li>
+<li>显示对象间的连接以及对象之间如何发送消息。</li>
+<li>协作图可以表示类操作的实现。</li>
+</ul>
+<p><strong>活动图</strong>：概述系统的动态行为，包括活动状态，活动状态是指业务用例的一个执行步骤或一个操作，不是普通对象的状态。活  动  图适合描述在没有外部事件触发的情况下，系统内部的逻辑执行过程，否则状态图更容易描述类似与传统意义上的流程图。业务建模时，用于详述业务用例，描述一项业务的执行过程设计时，描述操作的流程。<br> <img src="/static/images/uml/uml_02_01.png" alt="uml_02_01.png"></p>
+<p>下面是类图的实例（好像大话设计中有）：</p>
+<h3 id="UML中类图实例">UML中类图实例</h3><p> <img src="/static/images/uml/uml_02_02.png" alt="uml_02_02.png"></p>
+<ul>
+<li><strong>接口</strong>：空心圆+直线（唐老鸭类实现了‘讲人话’）；</li>
+<li><strong>依赖</strong>：虚线+箭头（动物和空气的关系）；</li>
+<li><strong>关联</strong>：实线+箭头（企鹅需要知道气候才迁移）；</li>
+<li><strong>聚合</strong>：空心四边形+实线+箭头（雁群和大雁的关系）；</li>
+<li><strong>合成/组合</strong>：实心四边形+实线+箭头（鸟和翅膀的关系）；</li>
+<li><strong>泛化/继承</strong>：空心三角形+实线（动物和鸟的继承关系）；</li>
+<li><strong>实现</strong>：空心三角形+虚线（实现大雁飞翔的接口）；</li>
+</ul>
+<h3 id="UML类图">UML类图</h3><h4 id="解释UML类图：">解释UML类图：</h4><ol>
+<li>首先看“动物”矩形框，它代表一个类。该类图分为三层，第一层显示类的名称，如果是抽象类就要用斜体显示。第二层是类的特性，通常就是字段和属性。第三层是类的操作，通常是方法和行为。</li>
+</ol>
+<p><strong>注意</strong>：前面的符号，‘+’表示<code>public</code>, ‘—’ 表示<code>private</code>, ‘#’表示<code>protected</code>.<br> <img src="/static/images/uml/uml_02_03.png" alt="uml_02_03.png"></p>
+<ol>
+<li>“飞翔”矩形框表示一个接口图，它与类图的区别主要是顶端有《interface》显示，第一行是接口名称，第二行是接口方法。接口还有另一种表示方法，俗称棒棒糖表示法，就是唐老鸭类实现了“讲人话”的接口。<br><img src="/static/images/uml/uml_02_04.png" alt="uml_02_04.png"></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IFly</span></span><br><span class="line"></span>&#123;                                            </span><br><span class="line">   voidFly();</span><br><span class="line">&#125;                                            </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Ilanguage</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Speak</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>动物，鸟，鸭，唐老鸭他们之间都是继承的关系，继承关系用空心三角形+实现来表示。<br><img src="/static/images/uml/uml_02_05.png" alt="uml_02_05.png"></li>
+</ol>
+<ol>
+<li><p>“大雁”实现了“飞翔”接口。实现接口用空心三角形+虚线来表示。（注：下面的图中应为空心三角形）<br><img src="/static/images/uml/uml_02_06.png" alt="uml_02_06.png"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">classBird:Animal</span><br><span class="line">&#123;                                       </span><br><span class="line">   //继承动物类                                 </span><br><span class="line">&#125;                                       </span><br><span class="line"></span><br><span class="line">class WideGoose:IFly&#123;</span><br><span class="line">//实现飞翔接口</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>企鹅与气候有很大的关系，企鹅需要“知道”气候的变化，需要“了解”气候规律。当一个类“知道”另一个类时，可以用关联(association)关系。关联关系用实线箭头来表示。<br><img src="/static/images/uml/uml_02_07.png" alt="uml_02_07.png"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Penguin :Bird</span><br><span class="line">&#123;</span><br><span class="line">   private Climateclimate;//在企鹅Penguin中，引用到气候Climate对象</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>“大雁”和“雁群”这两个类。大雁是群居动物，每只大雁都属于一个雁群，一个雁群可以有多只大雁。所以它们之间就满足聚合(Aggregation)关系。</p>
+</li>
+</ol>
+<p>聚合表示一种弱的“拥有”关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。聚合关系用空心的菱形+ 实线箭头表示。</p>
+<p> <img src="/static/images/uml/uml_02_08.png" alt="uml_02_08.png">  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">classWideGooseAggregate</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">private</span> WideGoose[]arrayWideGoose;</span><br><span class="line">   <span class="comment">//在雁群WideGooseAggregate类中，有大雁数组对象arrayWideGoose</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>鸟”和“翅膀”这两个类。鸟和翅膀似整体和部分的关系，并且翅膀和鸟的生命周期是相同的，在这里鸟和其翅膀就是合成关系。</li>
+</ol>
+<p>合成(composition)是一种强的“拥有”关系，体现了严格的部分和整体的关系，部分和整体的生命周期一样。合成关系用实心的的菱形+实线箭头来表示。另外，合成关系的连线两端还有一个数字“1”和数字“2”，，这被称为基数。表明这一端的类可以有几个实例，很显然，一个鸟应该有两支翅膀。如果一个类可能有无数个实例，则就用“n”来表示。关联关系，聚合关系也可以有基数的。<br> <img src="/static/images/uml/uml_02_09.png" alt="uml_02_09.png"><br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Wing wing;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Bird</span><span class="params">()</span></span><br><span class="line">   </span>&#123;</span><br><span class="line">      wing=<span class="keyword">new</span> Wing();</span><br><span class="line">    <span class="comment">//在鸟Bird类中，初始化时，实例化翅膀Wing,它们之间同时生成</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>“动物”、“氧气”与“水”之间。动物有几大特征，比如有新陈代谢，能繁殖。而动物要有生命，需要氧气，水以及食物等。也就是说动物依赖于氧气和水。它们之间是依赖关系(Dependency),用虚线箭头来表示。<br><img src="/static/images/uml/uml_02_10.png" alt="uml_02_10.png"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">bolism</span><span class="params">(Oxygenoxygen,Water water)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-05-12-uml-class-diagram-instance/">UML类图实例</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时32分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时32分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-05-12-uml-class-diagram-instance/" title="UML类图实例">http://notes.seirhsiao.com/2016/01/26/2013-05-12-uml-class-diagram-instance/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-05-12-uml-class-diagram-instance/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/">
+        Eclipse设置、调优、使用
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-23-clojure-map/">
+        Clojure 学习 —— 集合Map
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#UML_类图简单介绍与及示例"><span class="toc-number">1.</span> <span class="toc-text">UML 类图简单介绍与及示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UML中类图实例"><span class="toc-number">2.</span> <span class="toc-text">UML中类图实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UML类图"><span class="toc-number">3.</span> <span class="toc-text">UML类图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解释UML类图："><span class="toc-number">3.1.</span> <span class="toc-text">解释UML类图：</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-05-12-uml-class-diagram-instance/" data-title="UML类图实例" data-url="http://notes.seirhsiao.com/2016/01/26/2013-05-12-uml-class-diagram-instance/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/" title="上一篇: Eclipse设置、调优、使用">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-06-23-clojure-map/" title="下一篇: Clojure 学习 —— 集合Map">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

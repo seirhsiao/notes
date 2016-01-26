@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Maven+Nexus配置手册 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="maven–私服的搭建（Nexus的使用）私服是什么私服，私有服务器，是公司内部Maven项目经常需要的部件。Nexus是常用的私用Maven服务器，一般是公司内部使用。下载地址是http://www.sonatype.org/nexus/go。默认端口8081,这里我选择最新版nexus-2.11.1-01。
+使用Maven构建和管理项目是非常享受的一件事，我们可以从Maven中央仓库下载所需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven+Nexus配置手册">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-06-08-maven-and-nexus-configuration/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="maven–私服的搭建（Nexus的使用）私服是什么私服，私有服务器，是公司内部Maven项目经常需要的部件。Nexus是常用的私用Maven服务器，一般是公司内部使用。下载地址是http://www.sonatype.org/nexus/go。默认端口8081,这里我选择最新版nexus-2.11.1-01。
+使用Maven构建和管理项目是非常享受的一件事，我们可以从Maven中央仓库下载所需要">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_01.gif">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_02.gif">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_04.gif">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_01.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_02.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_03.gif">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_03.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_05.gif">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_04.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_05.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_06.jpg">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/nexus/nexus_01_07.jpg">
+<meta property="og:updated_time" content="2016-01-26T12:34:18.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven+Nexus配置手册">
+<meta name="twitter:description" content="maven–私服的搭建（Nexus的使用）私服是什么私服，私有服务器，是公司内部Maven项目经常需要的部件。Nexus是常用的私用Maven服务器，一般是公司内部使用。下载地址是http://www.sonatype.org/nexus/go。默认端口8081,这里我选择最新版nexus-2.11.1-01。
+使用Maven构建和管理项目是非常享受的一件事，我们可以从Maven中央仓库下载所需要">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-06-08-maven-and-nexus-configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-06-08-maven-and-nexus-configuration/" class="article-date">
+  	<time datetime="2016-01-26T12:34:18.875Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Maven+Nexus配置手册
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Maven/">Maven</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nexus/">nexus</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="maven–私服的搭建（Nexus的使用）">maven–私服的搭建（Nexus的使用）</h1><h2 id="私服是什么">私服是什么</h2><p>私服，私有服务器，是公司内部Maven项目经常需要的部件。Nexus是常用的私用Maven服务器，一般是公司内部使用。下载地址是<a href="http://www.sonatype.org/nexus/go。默认端口8081,这里我选择最新版nexus-2.11.1-01。" target="_blank" rel="external">http://www.sonatype.org/nexus/go。默认端口8081,这里我选择最新版nexus-2.11.1-01。</a></p>
+<p>使用Maven构建和管理项目是非常享受的一件事，我们可以从Maven中央仓库下载所需要的构件(artifact)，但实际开发中由于种种原因我们需要在架设一个Maven本地代理仓库，如：不方便访问公网、节省带宽和时间、管理自家的共用artifact等等。<br><img src="/static/images/nexus/nexus_01_01.gif" alt="nexus_01_01.gif"><br><a id="more"></a></p>
+<h2 id="获取构建的流程如下：">获取构建的流程如下：</h2><p>用户使用Maven构建项目时，</p>
+<ol>
+<li>首先是要直接从本地仓库获取的，如果本地仓库没有，它会根据<code>setting.xml</code>的设置去首先尝试从远程仓库下载构件至本地仓库。</li>
+<li>然后再使用本地仓库的构件。</li>
+<li>如果<code>setting.xml</code>设置的远程仓库是本地代理仓库，则本地代理仓库先尝试从自己的库中获取，如果没有再从远程仓库(比如中央仓库)下载构件至本地仓库。</li>
+</ol>
+<p>Nexus 是一个优秀的Maven仓库管理器，还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。本文就使用Nexus搭建一个本地代理仓库。</p>
+<h2 id="一、Nexus_下载和安装">一、Nexus 下载和安装</h2><p>访问<a href="http://www.sonatype.org/nexus/go/下载[Nexus](http://www.sonatype.org/nexus/go/)。" target="_blank" rel="external">http://www.sonatype.org/nexus/go/下载[Nexus](http://www.sonatype.org/nexus/go/)。</a></p>
+<p><strong>启动Nexus</strong>，就是启动一个web服务器，它的默认地址是<code>localhost:8081</code>。Nexus在一个名为<a href="http://www.eclipse.org/jetty/" target="_blank" rel="external">Jetty</a>的<code>servlet容器</code>中运行，它使用一个名为Tanuki Java Service Wrapper的本地服务包裹器启动。这个服务包裹器可以被配置成以Windows服务或Unix守护线程的形式运行Nexus。要启动Nexus，你需要为你的平台找到合适的启动脚本。要查看可用平台的列表，查看<code>${NEXUS_HOME}/bin/jsw</code>目录的内容。</p>
+<p>可执行文件在<code>%nexus</code>安装目录<code>%\nexus-webapp-1.0.0\binjsw\windows-x86-64</code>下： </p>
+<blockquote>
+<p><code>InstallNexus.bat/UninstallNexus.bat</code>是安装/卸载nexus为<code>windows service</code>。<br><code>Nexus.bat</code>是直接在命令行中启动Nexus，如果不想安装Nexus为<code>windows service</code>，可以用这个文件来手工控制Nexus的启动退出。</p>
+</blockquote>
+<p>它的使用方式：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Usage</span><span class="pseudo">:nexus</span><span class="class">.bat</span> &#123; <span class="attribute">console </span>: <span class="attribute">start </span>: <span class="attribute">stop </span>: <span class="attribute">restart </span>: <span class="attribute">install </span>: uninstall &#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中</p>
+<blockquote>
+<p><code>console</code>  – 是控制台方式运行。<br><code>install</code>  – 是以windows service寄存。<br><code>uninstall</code>– 是下载windows service。<br><code>start</code>  – 是运行windows service。<br><code>stop</code> – 是停止windows service。<br><code>restart</code> – 是重启windows service。</p>
+</blockquote>
+<p>Nexus默认端口是8081，可以在<code>nexus-2.11.1-01/conf/nexus.properties</code>中修改，启动后就可以通过地址：<a href="http://localhost/:8081/nexus" target="_blank" rel="external">http://localhost/:8081/nexus</a> 来访问了。界面如下：</p>
+<p><img src="/static/images/nexus/nexus_01_02.gif" alt="nexus_01_02.gif"></p>
+<h3 id="1-配置nexus">1.配置nexus</h3><p>首先登录，默认地址<a href="http://localhost:8081/nexus/，默认用户名密码为`admin/admin123`。" target="_blank" rel="external">http://localhost:8081/nexus/，默认用户名密码为`admin/admin123`。</a></p>
+<ol>
+<li>设置Nexus代理上公网<br>如果您的本地代理仓库服务器没有公网权限，Nexus为你留了使用代理的路子，点击右边菜单的“Server”，在右边找到：<br>如下图所示：<br><img src="/static/images/nexus/nexus_01_04.gif" alt="nexus_01_04.gif"><br>添加你的代理服务器即可。</li>
+<li>开启maven项目索引<br>nexus默认是关闭远程索引下载功能的。</li>
+</ol>
+<p><strong>开启的方式：</strong><br>点击<code>Administration</code>菜单下面的<code>Repositories，</code><br>将这三个仓库<code>Apache Snapshots</code>，<code>Codehaus Snapshots</code>，<code>Maven Central</code>的<br><code>Download Remote Indexes</code>修改为<code>true</code>。</p>
+<p>如下图所示：</p>
+<p><img src="/static/images/nexus/nexus_01_01.jpg" alt="nexus_01_01.jpg"></p>
+<p>保存后后台会运行一个任务，点击菜单栏的Scheduled Tasks选项即可看到有个任务在RUNNING。 </p>
+<p>如未找到可见的任务，在这三个仓库上分别右键，选择<code>Re-index</code>，这样Nexus就会去下载远程的索引文件。 下载完成后，Maven索引就可以使用了，在搜索栏输入要搜索的项，就可以查到相关的信息。例如spring-core</p>
+<p><img src="/static/images/nexus/nexus_01_02.jpg" alt="nexus_01_02.jpg"></p>
+<h3 id="2-管理仓库">2.管理仓库</h3><p>管理仓库需要先登录，默认登录用户名/密码是<code>admin/admin123</code>。以管理员用户登陆然后点击左边导航菜单Administration下面的Repositories。</p>
+<p>这里，可以管理仓库，配置Nexus系统，管理任务，管理用户，角色，权限，查看系统的RSS源，管理及查看系统日志，等等。</p>
+<p>点击左边导航栏的Repositories，界面的主面板会显示所有一个所有仓库及仓库组的列表，你会看到它们的Type字段的值有<code>group</code>，<code>hosted</code>，<code>proxy</code>，<code>virtual</code>。这里我们不关心<code>virtual</code>，<br>如下图所示：<br><img src="/static/images/nexus/nexus_01_03.gif" alt="nexus_01_03.gif"><br><img src="/static/images/nexus/nexus_01_03.jpg" alt="nexus_01_03.jpg"></p>
+<p>只介绍下另外三种类型：</p>
+<blockquote>
+<p><code>hosted</code> – 本地代理仓库，通常我们会部署自己的构件到这一类型的仓库。<br><code>proxy</code> – 代理的远程仓库，它们被用来代理远程的公共仓库，如maven中央仓库JBoss仓库等等。。<br><code>group</code> – 仓库组，用来合并多个hosted/proxy仓库，通常我们配置maven依赖仓库组。</p>
+</blockquote>
+<p>Nexus提供了三种不同的仓库。 </p>
+<ul>
+<li>(1)代理仓库<br>一个代理仓库是对远程仓库的一个代理。默认情况下，Nexus自带了如下配置的代理仓库：<br><strong>Apache Snapshots</strong> 这个仓库包含了来自于<a href="http://www.apache.org/" target="_blank" rel="external">Apache</a>软件基金会的快照版本。<br><a href="http://people.apache.org/repo/m2-snapshot-repository" target="_blank" rel="external">http://people.apache.org/repo/m2-snapshot-repository</a> </li>
+</ul>
+<p><strong>Codehaus Snapshots</strong> 这个仓库包含了来自于<a href="http://www.codehaus.org/" target="_blank" rel="external">Codehaus</a>的快照版本。<br><a href="http://snapshots.repository.codehaus.org/" target="_blank" rel="external">http://snapshots.repository.codehaus.org/</a> </p>
+<p><strong>Central Maven Repository</strong>   这是中央<a href="http://maven.apache.org/" target="_blank" rel="external">Maven</a>仓库（发布版本）。<br><a href="http://repo1.maven.org/maven2/" target="_blank" rel="external">http://repo1.maven.org/maven2/</a> </p>
+<ul>
+<li>(2)宿主仓库<br>一个宿主仓库是由Nexus托管的仓库。Maven自带了如下配置的宿主仓库。</li>
+</ul>
+<p><strong>3rd Party</strong><br>这个宿主仓库应该用来存储在公共Maven仓库中找不到的第三方依赖。这种依赖的样例有：你组织使用的，商业的，私有的类库如<code>Oracle JDBC</code>驱动。</p>
+<p><strong>Releases</strong><br>这个宿主仓库是你组织公布内部发布版本的地方。</p>
+<p><strong>Snapshots</strong><br>这个宿主仓库是你组织发布内部快照版本的地方。</p>
+<ul>
+<li>(3)虚拟仓库<br>一个虚拟仓库作为Maven 1的适配器存在。Nexus自带了一个central-m1虚拟仓库 </li>
+</ul>
+<h3 id="3-管理组">3.管理组</h3><p><strong>组</strong>是Nexus一个强大的特性，它允许你在一个单独的URL中组合多个仓库。Nexus自带了两个组：<code>public</code>和<code>public-snapshots</code>。</p>
+<p><code>public组</code>中组合了三个宿主仓库：<code>3rd Party</code>, <code>Releases</code>, 和<code>Snapshots</code>，还有中央Maven仓库。</p>
+<p>而<code>public-snapshots</code>组中组合了<code>Apache Snapshots</code>和<code>Codehaus Snapshots</code>仓库。 </p>
+<h3 id="4-配置maven">4.配置maven</h3><p>Maven安装后默认的是使用中央仓库，这是为了能让Maven开箱即用。而Maven缺省的本地仓库地址为<code>${user.home}/.m2/repository</code>。也就是说，一个用户会对应的拥有一个本地仓库。你也可以自定义本地仓库的位置，修改<code>${user.home}/.m2/settings.xml</code>。</p>
+<p>首先需要修改<code>Mirrors</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">mirrors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- mirror | Specifies a repository mirror site to use instead of a given </span><br><span class="line">        repository. The repository that | this mirror serves has an ID that matches </span><br><span class="line">        the mirrorOf element of this mirror. IDs are used | for inheritance and direct </span><br><span class="line">        lookup purposes, and must be unique across the set of mirrors. | --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexusc<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="title">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在执行 Maven 命令的时候， Maven 还需要安装一些插件包，这些插件包的下载地址也让其指向本地代理仓库的地址，修改如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">profiles</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">repositories</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="title">repository</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public<span class="tag">&lt;/<span class="title">url</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;/<span class="title">repository</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;/<span class="title">repositories</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;/<span class="title">profile</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">repositories</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="title">repository</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus snapshots<span class="tag">&lt;/<span class="title">name</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public-snapshots<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="title">repository</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;/<span class="title">repositories</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;/<span class="title">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">id</span>&gt;</span>jdk-1.4<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">jdk</span>&gt;</span>1.4<span class="tag">&lt;/<span class="title">jdk</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">releases</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">releases</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">pluginRepositories</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">pluginRepository</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">releases</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">releases</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">pluginRepositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">profile</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">profiles</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"> <span class="tag">&lt;<span class="title">activeProfiles</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">activeProfile</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">activeProfile</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">activeProfile</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="title">activeProfile</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="title">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>关于更多<code>setting.xml</code>字段解释请看<a href="http://www.oseye.net/user/kevin/blog/233" target="_blank" rel="external">这里</a>。</p>
+<p>现在你就可以使用本地仓库构建Maven项目了，踏上愉快的构建之旅！！</p>
+<h3 id="5-部署构件至Nexus">5.部署构件至Nexus</h3><ol>
+<li>通过Nexus UI部署</li>
+</ol>
+<p>有时候有个jar文件你无法从公共Maven仓库找到，但是你能从其它得到这个jar文件（甚至是POM），那么你完全可以将这个文件部署到Nexus中，使其成为标准流程的一部分。步骤如下：</p>
+<p>点击左边导航栏的”Repository”，在右边的仓库列表中选择一个仓库，如“3rd Party”，然后在页面下方的tab选择“Artifact Upload Artifact(s)”，你会看到构件上传界面。选择你要上传的构件，并指定POM，（或者手工编写GAV等信息），最后点击Upload，该构件就直接被部署到了Nexus的”3rd Party”仓库中。<br>如下图所示：<br><img src="/static/images/nexus/nexus_01_05.gif" alt="nexus_01_05.gif"></p>
+<ol>
+<li>通过Maven部署<br>更常见的用例是：<br>团队在开发一个项目的各个模块，为了让自己开发的模块能够快速让其他人使用，你会想要将snapshot版本的构件部署到Maven仓库中，其他人只需要在POM添加一个对于你开发模块的依赖，就能随时拿到最新的snapshot。<br>以下的pom.xml配置和settings.xml能让你通过Maven自动化部署构件：<br>要部署构件至Nexus，在<code>distributionManagement</code>中提供仓库URL，然后运行<code>mvn deploy</code>。Maven会通过一个简单的HTTP PUT将项目POM和构件推入至你Nexus安装。需要配置你项目POM中distributionManagement部分的repository。 </li>
+</ol>
+<p><code>pom.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">project</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">distributionManagement</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">snapshotRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">name</span>&gt;</span>Nexus Snapshot Repository<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">distributionManagement</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="title">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样还没完，这时如果部署会报错，还要在<code>～/.m2/settings.xml</code>中添加如下的服务器登录信息：</p>
+<p> <code>settings.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">settings</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">servers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="title">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="title">password</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="title">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="title">password</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">server</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="title">server</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus-thirdparty<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="title">username</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="title">password</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="title">server</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">servers</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="title">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里我们配置所有的snapshot版本构件部署到Nexus的Snapshots仓库中， 所有的release构件部署到Nexus的Releases仓库中。由于部署需要登陆，因为我们在<code>settings.xml</code>中配置对应Repository id的用户名和密码。</p>
+<p>然后，在项目目录中执行mvn deploy ，你会看到maven将项目构件部署到Nexus中，浏览Nexus对应的仓库，就可以看到刚才部署的构件。当其他人构建其项目时，Maven就会从Nexus寻找依赖并下载。<br>可进入到私服上的仓库中，看一下确实存在刚刚发布的项目。<br><img src="/static/images/nexus/nexus_01_04.jpg" alt="nexus_01_04.jpg"></p>
+<p><strong>部署第三方构件：</strong></p>
+<p><strong>构件</strong>可能是私有数据库的JDBC驱动如Oracle，或者你依赖于另一个JAR，它既不开源也无法免费获得。在这样的情况下，你就需要手动拿来这些构件然后发布到你自己的仓库中。<br>Nexus提供宿主的”<code>third-party</code>“仓库，就是为了这个目的。</p>
+<p>假如我们下载了Oracle的驱动程序jar包想给其他项目组使用，就需要上传该jar包。</p>
+<p>使用以下命令发布该文件至Nexus：<br><strong>使用命令行方式*：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc14  </span><br><span class="line">-Dversion=<span class="number">10.2</span>.<span class="number">0.3</span>.<span class="number">0</span> -Dpackaging=jar -Dfile=ojdbc.jar   </span><br><span class="line">-Durl=http://localhost:<span class="number">8081</span>/nexus/content/repositories/thirdparty   </span><br><span class="line">-DrepositoryId=thirdparty</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用Nexus UI方式：</strong><br>选中宿主库——3rd party，之后选择Artifact Upload上传至宿主空间。</p>
+<p><img src="/static/images/nexus/nexus_01_05.jpg" alt="nexus_01_05.jpg"></p>
+<p><img src="/static/images/nexus/nexus_01_06.jpg" alt="nexus_01_06.jpg"></p>
+<p>最后点击上传<br><img src="/static/images/nexus/nexus_01_07.jpg" alt="nexus_01_07.jpg"></p>
+<h3 id="6-Nexus监听端口">6.Nexus监听端口</h3><p>默认情况下，Nexus监听端口<code>8081</code>。你可以更改这个端口，通过更改<code>${NEXUS_HOME}/conf/plexus.properties</code>的值，为此，<code>停止Nexus</code>，更改文件中<code>applicationPort</code>的值，然后<code>重启Nexus</code>。</p>
+<h3 id="7-Maven_Profiles">7.Maven Profiles</h3><p>Maven中的<code>profile</code>是一组可选的配置，可以用来设置或者覆盖配置默认值。有了<code>profile</code>，你就可以为不同的环境定制构建。profile可以在<code>pom.xml</code>中配置，并给定一个id。然后你就可以在运行Maven的时候使用的命令行标记告诉Maven运行特定profile中的目标。以下pom.xml使用production profile覆盖了默认的Compiler插件设置。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">profiles</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">id</span>&gt;</span>production<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">build</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">             <span class="tag">&lt;<span class="title">debug</span>&gt;</span>false<span class="tag">&lt;/<span class="title">debug</span>&gt;</span>  </span><br><span class="line">             <span class="tag">&lt;<span class="title">optimize</span>&gt;</span>true<span class="tag">&lt;/<span class="title">optimize</span>&gt;</span>  </span><br><span class="line">           <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;/<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;/<span class="title">build</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;/<span class="title">profile</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="title">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>要使用production profile来运行<code>mvn install</code>，你需要在命令行传入-Pproduction参数。要验证production profile覆盖了默认的Compiler插件配置，可以像这样以开启调试输出<code>(-X)</code>的方式运行Maven。 </p>
+<p>如果你开始大量使用Maven profile，你会希望将profile从POM中分离，使用一个单独的文件如<code>profiles.xml</code>。你可以混合使用定义在<code>pom.xml</code>中和外部<code>profiles.xml</code>文件中的profile。只需要将profiles元素放到<code>${basedir}</code>目录下的<code>profiles.xml</code>文件中，然后照常运行Maven就可以。<code>profiles.xml</code>文件的大概内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">profiles</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="title">id</span>&gt;</span>development<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="title">build</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="title">debug</span>&gt;</span>true<span class="tag">&lt;/<span class="title">debug</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="title">optimize</span>&gt;</span>false<span class="tag">&lt;/<span class="title">optimize</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;/<span class="title">build</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">profile</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="title">id</span>&gt;</span>production<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="title">build</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="title">debug</span>&gt;</span>false<span class="tag">&lt;/<span class="title">debug</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="title">optimize</span>&gt;</span>true<span class="tag">&lt;/<span class="title">optimize</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="title">plugins</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;/<span class="title">build</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">profile</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="title">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>settings</strong>profile可以应用到所有你使用Maven构建的项目。<br>你可以在两个地方定义<code>settings profile</code>：<br>定义在<code>~/.m2/settings.xml</code>中的<code>用户特定settings profile</code>，<br>或者<br>定义在<code>${M2_HOME}/conf/settings.xml</code>中的<code>全局settings profile</code>。</p>
+<h2 id="二、在项目中使用Nexus">二、在项目中使用Nexus</h2><p>在对应项目的<code>pom.xml</code>文件中增加如下代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>修改Maven工程的端口及其他配置</strong><br>在对应项目的<code>pom.xml</code>文件中增加如下代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">encoding</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="title">encoding</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="title">version</span>&gt;</span>4.5<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.codehaus.mojo<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>tomcat-maven-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">version</span>&gt;</span>1.1<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">port</span>&gt;</span>8080<span class="tag">&lt;/<span class="title">port</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">outputDirectory</span>&gt;</span>E:/deploy/war<span class="tag">&lt;/<span class="title">outputDirectory</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">warName</span>&gt;</span>PowerDesk<span class="tag">&lt;/<span class="title">warName</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">build</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>部署第三方包到本地*</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14</span><br><span class="line">-Dversion=<span class="number">10.2</span>.<span class="number">0.3</span>.<span class="number">0</span> -Dpackaging=jar -Dfile=ojdbc.jar</span><br></pre></td></tr></table></figure>
+<p><strong>修改本地Meven库目录</strong><br>在<code>～/.m2/settings.xml</code>中添加如下代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">localRepository</span>&gt;</span>D:/repo<span class="tag">&lt;/<span class="title">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>Eclipse Maven插件</strong><br>1）m2eclipse-wtp<br>更新地址：<a href="http://download.jboss.org/jbosstools/updates/m2eclipse-wtp/" target="_blank" rel="external">http://download.jboss.org/jbosstools/updates/m2eclipse-wtp/</a><br>注意：如果你的eclipse使用的jdk是1.6及以下版本，需要打开<code>eclipse.ini</code> 增加配置<br><code>-vm C:\Program Files\Java\jdk1.6.0_33\bin\javaw.exe</code>，如果jdk是1.7及以上版本，无需设置该参数</p>
+<h2 id="三、Maven插件介绍">三、Maven插件介绍</h2><ul>
+<li>1、编译插件：<code>maven-compiler-plugin</code></li>
+<li>2、打包war插件：<code>maven-war-plugin</code></li>
+<li>3、测试插件：<code>maven-surefire-plugin</code></li>
+<li>4、生成源码插件：<code>maven-source-plugin</code></li>
+<li>5、生成编译日期时间插件：<code>buildnumber-maven-plugin</code></li>
+</ul>
+<p>以上插件使用代码示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">sourceDirectory</span>&gt;</span>src<span class="tag">&lt;/<span class="title">sourceDirectory</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">testSourceDirectory</span>&gt;</span>test<span class="tag">&lt;/<span class="title">testSourceDirectory</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">testOutputDirectory</span>&gt;</span>target/classes<span class="tag">&lt;/<span class="title">testOutputDirectory</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">resource</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">directory</span>&gt;</span>src<span class="tag">&lt;/<span class="title">directory</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">excludes</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">exclude</span>&gt;</span>**/*.java<span class="tag">&lt;/<span class="title">exclude</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">excludes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">source</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">source</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">target</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">target</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.12.4<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="title">encoding</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">skipTests</span>&gt;</span>false<span class="tag">&lt;/<span class="title">skipTests</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-source-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">executions</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">execution</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="title">id</span>&gt;</span>attach-sources<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="title">goals</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="title">goal</span>&gt;</span>jar<span class="tag">&lt;/<span class="title">goal</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="title">goals</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="title">execution</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">executions</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">warSourceDirectory</span>&gt;</span>$&#123;basedir&#125;\WebContent<span class="tag">&lt;/<span class="title">warSourceDirectory</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">outputDirectory</span>&gt;</span>$&#123;war.output&#125;<span class="tag">&lt;/<span class="title">outputDirectory</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">warName</span>&gt;</span>$&#123;project.artifactId&#125;$&#123;buildNumber&#125;<span class="tag">&lt;/<span class="title">warName</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.codehaus.mojo<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>buildnumber-maven-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">executions</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">execution</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="title">phase</span>&gt;</span>validate<span class="tag">&lt;/<span class="title">phase</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="title">goals</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="title">goal</span>&gt;</span>create<span class="tag">&lt;/<span class="title">goal</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="title">goals</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="title">execution</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">executions</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">format</span>&gt;</span>&#123;0,date,yy-MM-dd&#125;<span class="tag">&lt;/<span class="title">format</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">items</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="title">item</span>&gt;</span>timestamp<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="title">items</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">doCheck</span>&gt;</span>false<span class="tag">&lt;/<span class="title">doCheck</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">doUpdate</span>&gt;</span>fasle<span class="tag">&lt;/<span class="title">doUpdate</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、参考资料">四、参考资料</h2><p>1、<a href="http://maven.apache.org/guides/index.html" target="_blank" rel="external">Mave官网</a><br>2、<a href="http://www.sonatype.org/nexus/" target="_blank" rel="external">Nexus官网</a></p>
+<ol>
+<li><a href="http://blog.csdn.net/shenshen123jun/article/details/9084293" target="_blank" rel="external">maven–私服的搭建（Nexus的使用）</a></li>
+<li><a href="http://blog.csdn.net/henren555/article/details/29925603" target="_blank" rel="external">使用Nexus搭建Maven代理仓库 </a></li>
+</ol>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-06-08-maven-and-nexus-configuration/">Maven+Nexus配置手册</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时34分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时34分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-06-08-maven-and-nexus-configuration/" title="Maven+Nexus配置手册">http://notes.seirhsiao.com/2016/01/26/2013-06-08-maven-and-nexus-configuration/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-06-08-maven-and-nexus-configuration/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-09-7-tips-to-speed-up-eclipse/">
+        给Eclipse提速的7个技巧
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/">
+        Eclipse设置、调优、使用
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#maven–私服的搭建（Nexus的使用）"><span class="toc-number">1.</span> <span class="toc-text">maven–私服的搭建（Nexus的使用）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#私服是什么"><span class="toc-number">1.1.</span> <span class="toc-text">私服是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取构建的流程如下："><span class="toc-number">1.2.</span> <span class="toc-text">获取构建的流程如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Nexus_下载和安装"><span class="toc-number">1.3.</span> <span class="toc-text">一、Nexus 下载和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-配置nexus"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.配置nexus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-管理仓库"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.管理仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-管理组"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.管理组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-配置maven"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.配置maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-部署构件至Nexus"><span class="toc-number">1.3.5.</span> <span class="toc-text">5.部署构件至Nexus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Nexus监听端口"><span class="toc-number">1.3.6.</span> <span class="toc-text">6.Nexus监听端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Maven_Profiles"><span class="toc-number">1.3.7.</span> <span class="toc-text">7.Maven Profiles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、在项目中使用Nexus"><span class="toc-number">1.4.</span> <span class="toc-text">二、在项目中使用Nexus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Maven插件介绍"><span class="toc-number">1.5.</span> <span class="toc-text">三、Maven插件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、参考资料"><span class="toc-number">1.6.</span> <span class="toc-text">四、参考资料</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-06-08-maven-and-nexus-configuration/" data-title="Maven+Nexus配置手册" data-url="http://notes.seirhsiao.com/2016/01/26/2013-06-08-maven-and-nexus-configuration/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-06-09-7-tips-to-speed-up-eclipse/" title="上一篇: 给Eclipse提速的7个技巧">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-06-08-eclipse-setup-and-optimization/" title="下一篇: Eclipse设置、调优、使用">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>同时部署博客到github 与 gitcafe | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题描述：Github受到长城墙持续的DDoS攻击,主页访问很不稳定,考虑转移到国内的Gitcafe上,国外访客解析到GitHub，国内访客解析到GitCafe。禁不住GitCafe速度的诱惑，于是也动手在GitCafe 上创建了一个博客镜像，并通过修改 git 设置实现了同步提交。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="同时部署博客到github 与 gitcafe">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="问题描述：Github受到长城墙持续的DDoS攻击,主页访问很不稳定,考虑转移到国内的Gitcafe上,国外访客解析到GitHub，国内访客解析到GitCafe。禁不住GitCafe速度的诱惑，于是也动手在GitCafe 上创建了一个博客镜像，并通过修改 git 设置实现了同步提交。">
+<meta property="og:image" content="http://notes.seirhsiao.com/images/dnspod.png">
+<meta property="og:updated_time" content="2015-11-21T13:22:37.108Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="同时部署博客到github 与 gitcafe">
+<meta name="twitter:description" content="问题描述：Github受到长城墙持续的DDoS攻击,主页访问很不稳定,考虑转移到国内的Gitcafe上,国外访客解析到GitHub，国内访客解析到GitCafe。禁不住GitCafe速度的诱惑，于是也动手在GitCafe 上创建了一个博客镜像，并通过修改 git 设置实现了同步提交。">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-10-01-host-blog-github-and-gitcafe" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/" class="article-date">
+  	<time datetime="2016-01-24T02:06:29.938Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      同时部署博客到github 与 gitcafe
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Blog/">Blog</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitcafe/">gitcafe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题描述：<br><a href="https://github.com/" target="_blank" rel="external">Github</a>受到长城墙持续的DDoS攻击,主页访问很不稳定,考虑转移到国内的Gitcafe上,国外访客解析到GitHub，国内访客解析到<a href="https://gitcafe.com/" target="_blank" rel="external">GitCafe</a>。禁不住GitCafe速度的诱惑，于是也动手在GitCafe 上创建了一个博客镜像，并通过修改 git 设置实现了同步提交。<br><a id="more"></a></p>
+<p>同时在Github和GitCafe部署Hexo的主要优势如下：</p>
+<ol>
+<li>负载均衡，速度大增——由于两大Pages服务均可自定义域名，国内用户可选择走GitCafe，国外用户则走GitHub。</li>
+<li>自定义路由——配合DNSPod的『线路类型』可完美支持1中方案。</li>
+<li>国内用户访问不再需要CDN，因为GitCafe确实挺快！单个Repo的300MB空间对于技术博客是完全够用的。</li>
+<li>多机备份——两大Pages服务同时挂掉的可能微乎其微。</li>
+<li>你懂的… 不方便说太细。</li>
+</ol>
+<p>Github 和 Gitcafe 网页服务的不同之处：<br>1）前者的项目文件夹必须名为 username.github.io，后者则名为 username；<br>2）前者使用 master branch，后者使用 gitcafe-pages branch。</p>
+<p>PS：Github 除了支持 username.github.io 作为用户主页，也允许另外建立projectname 的网页项目，可通过用户主域名的子域名访问：<code>username.github.io/projectname</code>。注意，与用户主域名项目使用 master branch 不同，子域名项目必须把网页文件放在 gh-pages branch 下。类似的， Gitcafe 也支持 <code>username.gitcafe.io/projectname</code>，一律使用 gitcafe-pages branch。</p>
+<h3 id="一、将仓库拷贝到_GitCafe">一、将仓库拷贝到 GitCafe</h3><p>在 GitCafe 上创建一个和用户名相同的仓库，如我的是 hsiao。</p>
+<p>在账户设置中添加公钥，</p>
+<ol>
+<li>可以使用之前 GitHub 的公钥，只需要复制 ~/.ssh/id_rsa.pub 的内容。</li>
+<li>配置新的git账号，参考 另一篇博文：<a href="/2014-09-30-github-multiple-account-and-multiple-repository.html">如何同一台电脑配置多个git或github账号</a>。</li>
+</ol>
+<p>打开 .git/config，修改远程仓库，将 origin 改为 github，并添加 gitcafe：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[remote <span class="string">"github"</span>]</span><br><span class="line">    fetch = +refs/heads/*<span class="symbol">:refs/remotes/github/*</span></span><br><span class="line">    url = git<span class="variable">@github</span>.<span class="symbol">com:</span>seirhsiao/seirhsiao.github.io.git</span><br><span class="line">[remote <span class="string">"gitcafe"</span>]</span><br><span class="line">    fetch = +refs/heads/*<span class="symbol">:refs/remotes/gitcafe/*</span></span><br><span class="line">    url = git<span class="variable">@gitcafe</span>.<span class="symbol">com:</span>hsiao/hsiao.git</span><br></pre></td></tr></table></figure></p>
+<p>之后将仓库 push 到 GitCafe 上（必须使用 gitcafe-pages 分支）：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> <span class="keyword">push </span>-u gitcafe master:gitcafe-pages</span><br></pre></td></tr></table></figure></p>
+<p>GitCafe 上在“项目管理”中找到“自定义域名”，添加要绑定的域名，比如我是 seirhsiao.com。</p>
+<p>注：GitCafe 提供直接导入github上的项目。<a href="https://gitcafe.com/projects/import" target="_blank" rel="external">import入口</a></p>
+<h3 id="二、实现同步提交">二、实现同步提交</h3><p>因为 GitHub 和 GitCafe 的 Pages 使用不同的分支，所以无法在 remote 里添加两个 url：</p>
+<p>[remote “all”]<br>    url = git@github.com:seirhsiao/seirhsiao.github.io.git<br>    url = git@gitcafe.com:hsiao/hsiao.git<br>然后执行 <code>git push all master</code> 同时 push。</p>
+<p>可以在 .git/config 中添加一个 alias 来实现：<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[alias]</span></span><br><span class="line">  publish = !sh -c \<span class="string">"git push github master &amp;&amp; git push gitcafe master:gitcafe-pages\"</span></span><br></pre></td></tr></table></figure></p>
+<p>当需要 push 的时候，只需执行 git publish 就可以了。</p>
+<p>如果使用<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>生成和部署博客。</p>
+<p>所以现在如果你需要同时部署blog到Github和Gitcafe的话，只需要在博客根目录的_config.yml文件deploy处写上:<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="class"><span class="keyword">type</span>:</span> git</span><br><span class="line">  message: [message]</span><br><span class="line">  repo:</span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br><span class="line"></span><br><span class="line"># 以下是我的博客配置，仅供参考</span><br><span class="line">deploy:</span><br><span class="line">  <span class="class"><span class="keyword">type</span>:</span> git</span><br><span class="line">  message: <span class="string">""</span></span><br><span class="line">  repo:</span><br><span class="line">    github: git<span class="annotation">@github</span>.com:seirhsiao/blog.git,gh-pages</span><br><span class="line">    gitcafe: git<span class="annotation">@gitcafe</span>.com:hsiao/blog.git,gitcafe-pages</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、配置域名解析">三、配置域名解析</h3><p>如果你还注册了个人域名，则要使用域名解析服务，将你的域名指向 Github 和 Gitcafe。这里推荐使用 dnspod 的域名解析服务，免费，同时支持根据访问 IP<br>来源设定指向不同的 IP 地址。可设定如果访问来自国外则指向Github，来自国内则指向 Gitcafe，优化访问速度。比如我的设定：<br><img src="images/dnspod.png" alt="dnspod"></p>
+<p>第一条指向 Github，第二条指向 Gitcafe。</p>
+<p>最后在 Github 的项目目录下添加名为 CNAME 的文件，里面写上你的个人域名。这样当访问 <code>username.github.io</code> 的时候，Github 会自动跳转你的个人域名。Gitcafe 则直接在项目设置的 Pages 服务里添加个人域名即可。</p>
+<p>PS: 根据 Github 官方文档，在 DNS 解析设置时，要添加一个 A 记录，指向 Githgub 的 IP 地址<code>192.30.252.153</code>。实际上这种方法并不理想。因为大型网站的IP地址常常更换，虽然旧的 IP 可能也能用，但访问速度会非常慢。比如我在香港，现在ping上面的192.30.252.153，需要约200ms。所以更好的方法是像Gitcafe一样，设置一个CNAME记录，指向 <code>github.io</code>，如上面截图所示。这样访问的IP地址会根据Github服务的默认IP地址实时更新。目前 ping 一下 <code>github.io</code> 和 <code>gitcafe.io</code>，用时都在 5ms 左右。</p>
+<h3 id="四、参考文档">四、参考文档</h3><p><a href="http://www.jianshu.com/p/a96f60d20936" target="_blank" rel="external">Jekyll自建博客同时托管至 Github 与 Gitcafe</a><br><a href="http://liberize.me/tech/host-your-blog-on-both-github-and-gitcafe.html" target="_blank" rel="external">同时使用 GitHub 和 GitCafe 托管博客</a><br><a href="https://ruby-china.org/topics/18084" target="_blank" rel="external">Ruby China | 同时使用 GitHub 与 GitCafe 托管博客 » 社区</a><br><a href="http://2dxgujun.com/post/2015/01/12/Host-Blog-Github-and-GitCafe.html" target="_blank" rel="external">同时使用Github和GitCafe托管博客</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/">同时部署博客到github 与 gitcafe</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时22分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/" title="同时部署博客到github 与 gitcafe">http://notes.seirhsiao.com/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-23-clojure-map/">
+        Clojure 学习 —— 集合Map
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-09-30-github-multiple-account-and-multiple-repository/">
+        如何同一台电脑配置多个git或github账号
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、将仓库拷贝到_GitCafe"><span class="toc-number">1.</span> <span class="toc-text">一、将仓库拷贝到 GitCafe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、实现同步提交"><span class="toc-number">2.</span> <span class="toc-text">二、实现同步提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、配置域名解析"><span class="toc-number">3.</span> <span class="toc-text">三、配置域名解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、参考文档"><span class="toc-number">4.</span> <span class="toc-text">四、参考文档</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-10-01-host-blog-github-and-gitcafe/" data-title="同时部署博客到github 与 gitcafe" data-url="http://notes.seirhsiao.com/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-06-23-clojure-map/" title="上一篇: Clojure 学习 —— 集合Map">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-09-30-github-multiple-account-and-multiple-repository/" title="下一篇: 如何同一台电脑配置多个git或github账号">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

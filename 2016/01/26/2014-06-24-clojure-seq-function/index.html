@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clojure 学习 —— 序列函数 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="clojure seq常见函数(宏)示例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clojure 学习 —— 序列函数">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2014-06-24-clojure-seq-function/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="clojure seq常见函数(宏)示例">
+<meta property="og:updated_time" content="2016-01-26T12:46:32.339Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clojure 学习 —— 序列函数">
+<meta name="twitter:description" content="clojure seq常见函数(宏)示例">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-06-24-clojure-seq-function" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2014-06-24-clojure-seq-function/" class="article-date">
+  	<time datetime="2016-01-26T12:46:32.339Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clojure 学习 —— 序列函数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seq/">seq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/集合/">集合</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>clojure seq常见函数(宏)示例<br><a id="more"></a></p>
+<h3 id="操作集合的通用语句">操作集合的通用语句</h3><p><strong>1、<code>count</code>：</strong><br><code>count</code>函数返回集合中元素的个数，如果<code>count</code>参数为<code>nil</code>，则返回<code>0</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> <span class="literal">nil</span>)</span>  </span></span><br><span class="line">0  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> <span class="collection">[]</span>)</span>  </span></span><br><span class="line">0  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>  </span></span><br><span class="line">3  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> '<span class="list">(<span class="number">1</span> <span class="string">"a"</span>)</span>)</span>  </span></span><br><span class="line">2  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> <span class="collection">&#123;<span class="attribute">:one</span> <span class="number">1</span> <span class="attribute">:two</span> <span class="number">2</span>&#125;</span>)</span>  </span></span><br><span class="line">2  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">count</span></span> <span class="string">"string"</span>)</span>  </span></span><br><span class="line">6</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、<code>empty</code>：</strong><br>返回一个空的集合，集合类型不变，如果<code>empty</code>参数为<code>nil</code>，则返回<code>nil</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>  </span></span><br><span class="line">[]  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty</span></span> <span class="list">(<span class="keyword"><span class="built_in">list</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">()  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty</span></span> <span class="collection">&#123;<span class="attribute">:key1</span> <span class="number">1</span>&#125;</span>)</span>  </span></span><br><span class="line">&#123;&#125;  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty</span></span> <span class="literal">nil</span>)</span>  </span></span><br><span class="line">nil</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、<code>not-empty</code>：</strong><br>如果集合为空，返回<code>nil</code>，其它直接返回参数指向的集合<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">not-empty</span> <span class="collection">[]</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">not-empty</span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">(1 2 3)</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、<code>into</code>：</strong><br><code>into</code>接受两个集合参数，并且将第二个集合参数元素全部插入到第一个集合参数中，再返回。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">into</span></span> <span class="collection">&#123;&#125;</span> <span class="collection">[<span class="collection">[<span class="number">1</span> <span class="number">2</span>]</span> <span class="collection">[<span class="number">3</span> <span class="number">4</span>]</span>]</span>)</span>  </span></span><br><span class="line">&#123;1 2, 3 4&#125;  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">into</span></span> <span class="collection">[]</span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="number">1</span> <span class="attribute">:b</span> <span class="number">2</span>&#125;</span>)</span>  </span></span><br><span class="line">[[:a 1] [:b 2]]  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">into</span></span> <span class="list">()</span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">(3 2 1)  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">into</span></span> <span class="collection">[<span class="string">"a"</span> <span class="string">"b"</span>]</span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">["a" "b" 1 2 3]</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、<code>contains?</code>：</strong><br>如果当前给定的集合（第一个参数）存在<code>key</code>（第二个参数），则返回<code>true</code>，否则返回<code>false</code>。特别指出，对于数组、<code>vector</code>以索引标识的集合，如果<code>key</code>在索引返回内，则返回<code>true</code>，否则返回<code>false</code>，对于列表类型，总是返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="number">1</span>&#125;</span> <span class="attribute">:a</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="literal">nil</span>&#125;</span> <span class="attribute">:a</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="number">1</span>&#125;</span> <span class="attribute">:b</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="collection">[<span class="attribute">:a</span> <span class="attribute">:b</span> <span class="attribute">:c</span>]</span> <span class="attribute">:b</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="collection">[<span class="attribute">:a</span> <span class="attribute">:b</span> <span class="attribute">:c</span>]</span> <span class="number">2</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="string">"f"</span> <span class="number">0</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> <span class="string">"f"</span> <span class="number">2</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span> <span class="number">1</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> #<span class="collection">&#123;<span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"v"</span>&#125;</span> <span class="string">"a"</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">contains?</span></span> #<span class="collection">&#123;<span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"c"</span>&#125;</span> <span class="string">"z"</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、<code>distinct?</code>：</strong><br>如果传递的参数列表中有值相同的，返回<code>false</code>，否则返回<code>true</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">distinct?</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">distinct?</span></span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">distinct?</span></span> <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"a"</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>7、<code>empty?</code>：</strong><br>接受一个集合参数，如果该集合没有元素，则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty?</span></span> <span class="list">()</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty?</span></span> <span class="collection">[]</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty?</span></span> <span class="collection">&#123;&#125;</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">empty?</span></span> #<span class="collection">&#123;&#125;</span>)</span>  </span></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<p><strong>8、<code>every?</code>：</strong><br><code>every?</code>接受两个参数，第一个参数为检查函数，第二个参数为集合。如果该检查函数对集合所有元素都通过，则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">every?</span> even? '<span class="list">(<span class="number">2</span> <span class="number">4</span> <span class="number">6</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">every?</span> odd? '<span class="list">(<span class="number">1</span> <span class="number">3</span> <span class="number">9</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">every?</span> <span class="literal">true</span>? '<span class="list">()</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">every?</span> <span class="literal">false</span>? '<span class="list">()</span>)</span>  </span></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<p><strong>9、<code>not-every?</code>：</strong><br><code>not-every?</code>与<code>every</code>作用相反。参照<code>every</code>介绍。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">not-every?</span></span> odd? '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">not-every?</span></span> odd? '<span class="list">(<span class="number">1</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>10、<code>some</code>：</strong><br><code>some</code>与<code>every?</code>作用类似，区别是some要求集合中只要有一个元素检查为<code>true</code>，则返回<code>true</code>。所有检查都不通过，则返回<code>nil</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">some</span> even? '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">some</span> even? '<span class="list">(<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span>)</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">some</span> <span class="literal">true</span>? <span class="collection">[<span class="literal">false</span> <span class="literal">false</span> <span class="literal">false</span>]</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword">some</span> <span class="literal">true</span>? <span class="collection">[<span class="literal">false</span> <span class="literal">true</span> <span class="literal">false</span>]</span>)</span>  </span></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<p><strong>11、<code>not-any?</code>：</strong><br><code>not-any?</code>与<code>some</code>函数作用也相反（定义为<code>comp not some</code>），可参考<code>some</code>描述。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">not-any?</span></span> odd? '<span class="list">(<span class="number">2</span> <span class="number">4</span> <span class="number">6</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">not-any?</span></span> odd? '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>12、<code>sequential?</code>：</strong><br><code>sequential?</code>检查集合是否实现<code>Sequential</code>接口（不是排序，而是顺序存储），是则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user=&#62; (sequential? &#39;(2 1 3))  &#10;true  &#10;user=&#62; (sequential? &#123;:a 1 :d 2 :b 3&#125;)  &#10;false  &#10;user=&#62; (sequential? 1)  &#10;false</span><br></pre></td></tr></table></figure></p>
+<p><strong>13、<code>associative?</code>：</strong><br><code>associative?</code>检查集合是否实现<code>Associative</code>接口，是则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">associative?</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">associative?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>14、<code>sorted?</code>：</strong><br><code>sorted?</code>检查集合是否实现<code>Sorted</code>接口，是则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">sorted?</span></span> <span class="list">(<span class="keyword"><span class="built_in">sorted-set</span></span> <span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">4</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">sorted?</span></span> <span class="list">(<span class="keyword"><span class="built_in">sorted-map</span></span> <span class="attribute">:a</span> <span class="number">1</span> <span class="attribute">:c</span> <span class="number">3</span> <span class="attribute">:b</span> <span class="number">2</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">sorted?</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>15、<code>counted?</code>：</strong><br>如果集合参数以常量时间内返回元素总和时，返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">sorted?</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">counted?</span></span> <span class="collection">[<span class="attribute">:a</span> <span class="attribute">:b</span> <span class="attribute">:c</span>]</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">counted?</span></span> '<span class="list">(<span class="attribute">:a</span> <span class="attribute">:b</span> <span class="attribute">:c</span>)</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">counted?</span></span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="number">1</span> <span class="attribute">:b</span> <span class="number">2</span> <span class="attribute">:c</span> <span class="number">3</span>&#125;</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">counted?</span></span> <span class="string">"asdf"</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>16、<code>reversible?</code>：</strong><br><code>reversible?</code>检查集合参数是否实现<code>Reversible</code>接口，是则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">reversible?</span></span> <span class="collection">[]</span>)</span>  </span></span><br><span class="line">true  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">reversible?</span></span> '<span class="list">()</span>)</span>  </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">reversible?</span></span> #<span class="collection">&#123;&#125;</span>)</span>  </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<h4 id="类型检查">类型检查</h4><p><strong>1、<code>coll?</code>：</strong><br>如果给定的参数实现<code>IPersistentCollection</code>接口（集合都会实现该接口），则返回<code>true</code>，否则返回<code>false</code>。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="collection">&#123;&#125;</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> #<span class="collection">&#123;&#125;</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="collection">[]</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="list">()</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="number">4</span>)</span>   </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="string">"fred"</span>)</span>   </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="literal">true</span>)</span>   </span></span><br><span class="line">false  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">coll?</span></span> <span class="literal">nil</span>)</span>   </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、<code>seq?</code>：</strong><br>如果给定的参数实现<code>ISeq</code>接口（序列实现该接口，序列内容在下篇讲解），则返回<code>true</code>，否则返回<code>false</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">seq?</span></span> <span class="number">1</span>)</span>   </span></span><br><span class="line">false   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">seq?</span></span> <span class="collection">[<span class="number">1</span>]</span>)</span>   </span></span><br><span class="line">false   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">seq?</span></span> <span class="list">(<span class="keyword"><span class="built_in">seq</span></span> <span class="collection">[<span class="number">1</span>]</span>)</span>)</span>   </span></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<p><strong>3、<code>vector?</code>：</strong><br>如果给定的参数实现<code>IPersistentVector</code>接口（向量<code>Vector</code>实现该接口），则返回<code>true</code>，否则返回<code>false</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">vector?</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">vector?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>   </span></span><br><span class="line">false   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">vector?</span></span> <span class="list">(<span class="keyword"><span class="built_in">vec</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>)</span>   </span></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、<code>list?</code>：</strong><br>如果给定的参数实现<code>IPersistentList</code>接口（列表<code>List</code>实现该接口），则返回<code>true</code>，否则返回<code>false</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">list?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">list?</span></span> <span class="list">(<span class="keyword"><span class="built_in">list</span></span> <span class="number">1</span> <span class="number">2</span>)</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">list?</span></span> <span class="number">0</span>)</span>   </span></span><br><span class="line">false   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">list?</span></span> <span class="collection">&#123;&#125;</span>)</span>   </span></span><br><span class="line">false   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">list?</span></span> <span class="collection">[]</span>)</span>   </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>5、<code>map?</code>：</strong><br>如果给定的参数实现<code>IPersistentMap</code>接口（映射<code>Map</code>实现该接口），则返回<code>true</code>，否则返回<code>false</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">map?</span></span> <span class="collection">&#123;<span class="attribute">:a</span> <span class="number">1</span> <span class="attribute">:b</span> <span class="number">2</span> <span class="attribute">:c</span> <span class="number">3</span>&#125;</span>)</span>   </span></span><br><span class="line">true   </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">map?</span></span> '<span class="list">(<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)</span>)</span>   </span></span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p><strong>6、<code>set?</code>：</strong><br>如果给定的参数实现<code>IPersistentSet</code>接口（<code>set</code>集合实现该接口），则返回<code>true</code>，否则返回<code>false</code><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user&gt; (set? #&#123;1 2 3&#125;)   </span><br><span class="line">true   </span><br><span class="line">user&gt; (set? [1 2 3])   </span><br><span class="line">false   </span><br><span class="line">user&gt; (set? &#123;:a 1 :b 2&#125;)   </span><br><span class="line">false</span><br></pre></td></tr></table></figure></p>
+<p>实际上本篇介绍的各种检查语句，都是检查底层实现类所实现的接口（具有对应接口的功能），比如说列表<code>List</code>的实现类定义为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersistentList</span> <span class="keyword">extends</span> <span class="title">ASeq</span>  </span><br><span class="line">  <span class="keyword">implements</span> <span class="title">IPersistentList</span>, <span class="title">IReduce</span>, <span class="title">List</span>, <span class="title">Counted</span></span></span><br></pre></td></tr></table></figure></p>
+<p>二、参考资料<br><a href="http://dead-knight.iteye.com/blog/1831446" target="_blank" rel="external">clojure-基本语法-集合（三）</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2014-06-24-clojure-seq-function/">Clojure 学习 —— 序列函数</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时46分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时46分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2014-06-24-clojure-seq-function/" title="Clojure 学习 —— 序列函数">http://notes.seirhsiao.com/2016/01/26/2014-06-24-clojure-seq-function/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2014-06-24-clojure-seq-function/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2014-06-26-clojure-binding/">
+        Clojure 学习 —— binding
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2014-06-17-clojure-for-and-loop/">
+        Clojure 学习 —— 循环控制
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作集合的通用语句"><span class="toc-number">1.</span> <span class="toc-text">操作集合的通用语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类型检查"><span class="toc-number">1.1.</span> <span class="toc-text">类型检查</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2014-06-24-clojure-seq-function/" data-title="Clojure 学习 —— 序列函数" data-url="http://notes.seirhsiao.com/2016/01/26/2014-06-24-clojure-seq-function/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2014-06-26-clojure-binding/" title="上一篇: Clojure 学习 —— binding">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2014-06-17-clojure-for-and-loop/" title="下一篇: Clojure 学习 —— 循环控制">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

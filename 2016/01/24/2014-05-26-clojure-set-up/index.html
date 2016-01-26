@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clojure学习 —— 安装与配置 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clojure学习 —— 安装与配置">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-05-26-clojure-set-up/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数据">
+<meta property="og:updated_time" content="2015-11-21T13:04:11.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clojure学习 —— 安装与配置">
+<meta name="twitter:description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数据">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-05-26-clojure-set-up" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-05-26-clojure-set-up/" class="article-date">
+  	<time datetime="2016-01-24T02:06:28.284Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clojure学习 —— 安装与配置
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leigingen/">leigingen</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 上，即”全是括号，前缀表达式”的语言。</p>
+<p>Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数据，同时有复杂的宏系统。</p>
+<p>Clojure 是完全的，真正意义上的神圣的lisp语言的一个方言。Clojure高速、干净、具有优先能力和优雅的特征. 但是没有改变lisp中 “代码也是数据” 的哲学.<br><a id="more"></a></p>
+<h2 id="一、clojure下载及安装">一、clojure下载及安装</h2><ul>
+<li><strong>官方的入门指南：</strong><br><a href="http://clojure.org/getting_started" target="_blank" rel="external">http://clojure.org/getting_started</a></li>
+<li>下<strong>载clojure：</strong><br>（注：由于clojure运行在jvm之上，并且需要jdk1.5以上的版本）</li>
+</ul>
+<p>稳定版下载地址（1.5.1）：<br><a href="http://repo1.maven.org/maven2/org/clojure/clojure/1.5.1/clojure-1.5.1.zip" target="_blank" rel="external">http://repo1.maven.org/maven2/org/clojure/clojure/1.5.1/clojure-1.5.1.zip</a></p>
+<p>低版本下载地址：<br><a href="http://clojure.org/downloads_older" target="_blank" rel="external">http://clojure.org/downloads_older</a></p>
+<p>Cloure在Ubuntu下安装，只要简单的一条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clojure</span><br></pre></td></tr></table></figure></p>
+<p>Clojure启动： clojure 或 /usr/bin/clojure  （Ctrl + D 退出）</p>
+<ul>
+<li><strong>运行环境：</strong><br>将下载的zip文件解压，放到某个指定目录，如D:/work/clojure<br>cd进入这个目录，执行以下命令即可</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp clojure-<span class="number">1.5</span>.<span class="number">1</span>.jar clojure.main</span><br></pre></td></tr></table></figure>
+<p>如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\work\clojure&gt;java -cp clojure-<span class="number">1.5</span>.<span class="number">0</span>.jar clojure.main  </span><br><span class="line">Clojure <span class="number">1.5</span>.<span class="number">1</span> </span><br><span class="line">user=&gt; (+ <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>)  </span><br><span class="line"><span class="number">6</span>  </span><br><span class="line">user=&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、项目构建工具lein安装">二、项目构建工具lein安装</h2><p>Leiningen是一个用于自动化（构建）clojure项目的工具。<br>它可以做到：</p>
+<ul>
+<li>创建新项目</li>
+<li>管理你的项目的依赖关系</li>
+<li>运行测试</li>
+<li>运行一个REPL(读取-求值-打印循环:read-eval-print loop)</li>
+<li>编译java源码</li>
+<li>运行项目</li>
+<li>为项目产生一个Maven风格的POM文件</li>
+<li>为了部署，编译和打包项目</li>
+<li>发布类库到Maven仓库，例如Clojars</li>
+<li>运行Clojure编写的自定义的自动化任务（称为Leiningen插件）</li>
+</ul>
+<p>具体可以查看国内的大牛(killme2008)翻译的<a href="http://wiki.fnil.net/index.php?title=Leiningen_tutorial%E4%B8%AD%E6%96%87%E7%89%88" target="_blank" rel="external">Leiningen教程中文版</a>的详细介绍。  </p>
+<p>1.第一种方式，手工配置</p>
+<ul>
+<li><p>下载 <a href="http://leiningen.org/" target="_blank" rel="external">leiningen</a> 的 依赖jar<br>从 <a href="https://github.com/technomancy/leiningen/downloads" target="_blank" rel="external">https://github.com/technomancy/leiningen/downloads</a> 下载 leiningen-2.5.1-standalone.jar</p>
+</li>
+<li><p>下载windows下启动lein的脚本<br><a href="https://raw.github.com/technomancy/leiningen/preview/bin/lein.bat" target="_blank" rel="external">https://raw.github.com/technomancy/leiningen/preview/bin/lein.bat</a></p>
+</li>
+<li><p>更改配置信息<br>把前两步骤下载的文件分别放入：D:\work\leiningen目录，并修改lein的脚本，增加配置信息：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> LEIN_HOME=D:\work\leiningen</span><br><span class="line"><span class="built_in">set</span> LEIN_JAR=D:\work\leiningen\leiningen-<span class="number">2.5</span>.<span class="number">1</span>-standalone.jar</span><br></pre></td></tr></table></figure>
+<p>(或者在环境变量中配置这两个属性)</p>
+<ul>
+<li><p>执行脚本<br>打开cmd，进入到leiningen目录，执行lein.bat</p>
+</li>
+<li><p>环境变量配置</p>
+</li>
+</ul>
+<p>修改环境变量，把leiningen目录添加到path属性中。<br>重新开启cmd，执行lein version，如果能看到lein的版本号，表示安装成功。接着可以打开clojure的repl环境，执行命令：lein repl即可。</p>
+<p>验证下安装成果： 在命令窗口中输入lein repl ，会自动连上nREPL server，进入repl模式，如下所示：</p>
+<figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;lein repl</span><br><span class="line">nREPL server started on port 21515</span><br><span class="line">REPL-y 0.2.0</span><br><span class="line">Clojure 1.5.1</span><br><span class="line">    Docs: (doc function-name-here)</span><br><span class="line">          (find-doc "part-of-name-here")</span><br><span class="line">  Source: (source function-name-here)</span><br><span class="line"> Javadoc: (javadoc java-object-or-class-here)</span><br><span class="line">    Exit: Control+D or (exit) or (quit)</span><br><span class="line"></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"></span></span><br></pre></td></tr></table></figure>
+<p>2.第二种方式，self installs </p>
+<ul>
+<li>下载lein script (或Windows上 lein.bat)</li>
+<li>把lein加入下当前的$path下（eg. ~/bin）</li>
+<li>unix/linux下需赋可执行权限 （chmod 755 ~/bin/lein）</li>
+<li>接下来，打开命令窗口，输入命令：lein self-install。<br>它会自动去github项目中，下载lein依赖，并创建和放置到与lein script同级 self-install目录中。</li>
+</ul>
+<p>3.第三种方式，下载打包好的安装包<br>windows：</p>
+<ul>
+<li>可以直接下载打包好的文件，地址是：Leiningen for windows[<a href="http://leiningen-win-installer.djpowell.net/" target="_blank" rel="external">http://leiningen-win-installer.djpowell.net/</a>]</li>
+<li>点击下载好的*.exe文件进行安装</li>
+<li>安装好后，可以查看环境变量中会有相应的变量被设置好了：</li>
+</ul>
+<p>其他系统：<br>参考leiningen github上的<a href="https://github.com/technomancy/leiningen/wiki/Packaging" target="_blank" rel="external">wiki</a></p>
+<h2 id="三、相关开发工具">三、相关开发工具</h2><p>1.<a href="http://updatesite.ccw-ide.org/stable/" target="_blank" rel="external">CounterClockwise</a>（Eclipse插件）<br>下载地址：<a href="http://ccw.cgrand.net/updatesite/" target="_blank" rel="external">http://ccw.cgrand.net/updatesite/</a><br>2.<a href="https://github.com/arthuredelstein/clooj/" target="_blank" rel="external">Clooj</a><br>下载地址：<a href="https://github.com/arthuredelstein/clooj/downloads" target="_blank" rel="external">https://github.com/arthuredelstein/clooj/downloads</a><br>下载后，直接右键选择打开方式为java platform se binary即可<br>3.<a href="https://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a><br>下载地址：<a href="https://code.google.com/p/emacs-for-windows/updates/list" target="_blank" rel="external">https://code.google.com/p/emacs-for-windows/updates/list</a><br>压缩包解压到本地路径。<br>安装Clojure插件<a href="https://github.com/jochu/clojure-mode" target="_blank" rel="external">clojure-mode</a><br>下载地址：<a href="https://github.com/jochu/clojure-mode" target="_blank" rel="external">https://github.com/jochu/clojure-mode</a></p>
+<h2 id="四、参考指南">四、参考指南</h2><p><a href="http://clojure.org/getting_started" target="_blank" rel="external">Clojure Quick Start</a></p>
+<p><a href="http://clojure.org/" target="_blank" rel="external">Clojure 官方</a></p>
+<p><a href="https://github.com/clojure/clojure" target="_blank" rel="external">Clojure 源码（github）</a></p>
+<p><a href="http://leiningen.org/" target="_blank" rel="external">Leiningen 官方</a></p>
+<p><a href="https://github.com/technomancy/leiningen" target="_blank" rel="external">Leiningen 源码（github）</a></p>
+<p><a href="http://dead-knight.iteye.com/blog/1827059" target="_blank" rel="external">clojure-运行环境安装</a></p>
+<p><a href="http://www.blogjava.net/javalinjx/archive/2013/07/03/401170.html" target="_blank" rel="external">使用leiningen搭建clojure开发环境</a></p>
+<p><a href="http://www.cnblogs.com/darkluck99/archive/2012/02/20/2360216.html" target="_blank" rel="external">Window7下配置Clojure+Emacs</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-05-26-clojure-set-up/">Clojure学习 —— 安装与配置</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时04分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-05-26-clojure-set-up/" title="Clojure学习 —— 安装与配置">http://notes.seirhsiao.com/2016/01/24/2014-05-26-clojure-set-up/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-05-26-clojure-set-up/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-05-30-clojure-learning-materials/">
+        clojure学习 —— 学习资料汇总
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/">
+        几分钟内学习 Clojure
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、clojure下载及安装"><span class="toc-number">1.</span> <span class="toc-text">一、clojure下载及安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、项目构建工具lein安装"><span class="toc-number">2.</span> <span class="toc-text">二、项目构建工具lein安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、相关开发工具"><span class="toc-number">3.</span> <span class="toc-text">三、相关开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、参考指南"><span class="toc-number">4.</span> <span class="toc-text">四、参考指南</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-05-26-clojure-set-up/" data-title="Clojure学习 —— 安装与配置" data-url="http://notes.seirhsiao.com/2016/01/24/2014-05-26-clojure-set-up/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-05-30-clojure-learning-materials/" title="上一篇: clojure学习 —— 学习资料汇总">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-05-25-learn-clojure-in-minutes/" title="下一篇: 几分钟内学习 Clojure">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

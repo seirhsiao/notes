@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>clojure学习 —— 学习资料汇总 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 之上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clojure学习 —— 学习资料汇总">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2014-05-30-clojure-learning-materials/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 之上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数">
+<meta property="og:updated_time" content="2015-11-21T13:04:19.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="clojure学习 —— 学习资料汇总">
+<meta name="twitter:description" content="Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 之上，即”全是括号，前缀表达式”的语言。
+Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-05-30-clojure-learning-materials" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2014-05-30-clojure-learning-materials/" class="article-date">
+  	<time datetime="2016-01-24T02:06:28.347Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      clojure学习 —— 学习资料汇总
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Clojure/">Clojure</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clojure/">clojure</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Clojure（发音类似”closure”，[‘kləʊʒə(r)]）是一套现代的Lisp语言的动态语言版，它是一个函数式多用途的语言，其语法和其他的Lisp一样，都是建立在 S-expression 之上，即”全是括号，前缀表达式”的语言。</p>
+<p>Clojure可以执行于Java虚拟机（JVM）、通用语言运行时（CLR），以及JavaScript引擎之上。与其他Lisp一样，Clojure认为代码即数据，同时有复杂的宏系统。<br><a id="more"></a></p>
+<h3 id="Clojure_的理念和特性">Clojure 的理念和特性</h3><p>Clojure是什么，为什么有人要学这门语言? 总的来说，那些认为 Clojure会在现有的大多数编程语言中取得成功的人至少基于这样一个理由: 它是一门新的，支持并发的语言。而那些对lisp语言缺乏了解的人却往往会认为：这是一门相当奇怪的，充斥着令人困惑的圆括号和方括号的语言.</p>
+<p>但是，不争的事实是 Clojure 在市场上赢得比其他新诞生的编程语言更多的追捧和表现，更强的发展势头。它第一个对外的发行版是在2007年秋季的时候发布的，在2009年5月发行了第一个稳定版，到这个时候，它已经培育了一个活跃的、充满热情的社区，一个欣欣向荣的开发工具和类库的生态系统，它们被用在迅速增长的一系列专业的应用程序中。</p>
+<h3 id="下一代的语言">下一代的语言</h3><p>每一年，在世界范围内的众多机构中的都有很多有才华的计算机科学家通过发表成千上万的论文来阐发它们新的和有趣的想法。这些新的概念在经受了自然选择和沉淀后，其中那些优秀和有用的部分会被准许进入实际的应用环境中。</p>
+<p>Clojure 包括了众多尚未在其他(任何)编程语言的实现中出现的最新的想法和伟大的理念. 这其中最引人注目的就是涉及并发程序的部分：软件内存交互和基于代理的进程调度 (Software Transactional Memory and agent-based processing ) 被 “烧录进” (嵌入)到 Clojure编程语言的底层. 除此之外(例如持续不可更改 persistent immutability) 还拥有很多精妙的设计理念，这些设计理念是现代学术研究的成果，也是数十载实践的经验。</p>
+<p>抛开Clojure的学术背景，Clojure 是主要设计原则是坚持: 有用性(useful 有益处的) 高于可用性. 它的高级属性是被精心选择的,目的是向程序员提供健壮的、干净的代码，以便程序员容易理解和高效编程. Clojure虽然有很强的学术背景支持，但是绝不是一门只在象牙塔中的语言，每天都有众多开发者在各自的开发领域内使用它。</p>
+<h3 id="动态而强有力_(没错,它是lisp!)">动态而强有力 (没错,它是lisp!)</h3><p>对下面语句的意思的理解会因为读者编程经验的不同而有很大差异，它可能会让你非常兴奋，也可能让你产生一些轻微的不适. Clojure 是完全的，真正意义上的神圣的lisp语言的一个方言。</p>
+<p>lisp语言因为其无以伦比强大能力和几乎无穷的表达力而获得了盛誉，Clojure自然也不例外。它的功能和元编程的能力是建立在这样的基础之上的：异常驯服的C语言的”石头” 或 具有延展性的java语言的”木头” . 你可以用几百行甚至几十行Clojure代码取替代几千行静态语言的代码，伴随着这而来的是bug数量的减少和开发时间的缩短。</p>
+<p>样板代码(Boilerplate code )被完全删去. 域指定语言(Domain Specific Languages ) 不仅简单，而且更一般化–lisp程序往往是按照 “自下而上” 的开发方式写成的。展开式(演进式)的 结构和语法更适合特定的问题领域。你在程序运行的时候取修改程序，而不需要重新编译或重启程序。</p>
+<p>但是，历史上也有对lisp进行诋毁的人，或许称为抱怨更为合适. lisp发展过程中，没有完整的规范, 各种不兼容的实现,陈旧落伍的限制.cruft accumulate 在其存在的四五十年里一直存在. 对于 大多数人来说，它的语法过于诡异了。</p>
+<p>Clojure 修正上面的大多数这些问题. 它保留了 lisp 的思想和哲学,并同时清除了过去的很多限制. Clojure 高速、干净、具有优先能力和优雅的特征. 但是没有改变lisp中 “代码也是数据” 的哲学. Clojure 语言在直觉和观感上比历史上的lisp更易于阅读. 在后面开始学习的初级阶段,你就发现虽然 仍有各种括号,但是代码是难以置信的容易读和写。</p>
+<p>对于那些熟悉lisp语言的人来说,他们很快就会发现他们非常适应Clojure. 对于那些原先没有接触 过lisp的人来说，也没有必要担心， Clojure是简洁和无痛学习。</p>
+<h3 id="官方文档：">官方文档：</h3><p><a href="http://clojure.org/documentation" target="_blank" rel="external">http://clojure.org/documentation</a> </p>
+<h3 id="中文资料（强烈推荐）：">中文资料（强烈推荐）：</h3><ol>
+<li>clojure入门教程<br><a href="http://xumingming.sinaapp.com/302/clojure-functional-programming-for-the-jvm-clojure-tutorial/" target="_blank" rel="external">http://xumingming.sinaapp.com/302/clojure-functional-programming-for-the-jvm-clojure-tutorial/</a> </li>
+<li>clojure文档翻译<br><a href="http://code.google.com/p/clojure-doc-en2ch/w/list" target="_blank" rel="external">http://code.google.com/p/clojure-doc-en2ch/w/list</a> </li>
+<li>clojure手册（低版本）<br><a href="http://qiujj.com/static/clojure-handbook.html" target="_blank" rel="external">http://qiujj.com/static/clojure-handbook.html</a> </li>
+<li>clojure中文社区：<br><a href="http://blog.clojure.cn/" target="_blank" rel="external">http://blog.clojure.cn/</a> </li>
+<li>Lisp中文社区：<br><a href="http://www.lispchina.com/" target="_blank" rel="external">http://www.lispchina.com/</a></li>
+</ol>
+<h3 id="英文资料（强烈推荐）：">英文资料（强烈推荐）：</h3><p><a href="http://clojure-doc.org/articles/content.html" target="_blank" rel="external">http://clojure-doc.org/articles/content.html</a> </p>
+<h3 id="clojure_开源工具：">clojure 开源工具：</h3><p>&gt;<br><code>clojure工具箱汇总：</code><br><a href="http://www.clojure-toolbox.com/" target="_blank" rel="external">http://www.clojure-toolbox.com/</a><br><code>ring server：</code><br><a href="https://github.com/ring-clojure/ring/wiki" target="_blank" rel="external">https://github.com/ring-clojure/ring/wiki</a><br><code>compojure：</code><br><a href="https://github.com/weavejester/compojure/wiki" target="_blank" rel="external">https://github.com/weavejester/compojure/wiki</a><br><code>noir web框架：</code><br><a href="http://www.webnoir.org" target="_blank" rel="external">http://www.webnoir.org</a><br><code>sandbar session框架：</code><br><a href="https://github.com/brentonashworth/sandbar/wiki" target="_blank" rel="external">https://github.com/brentonashworth/sandbar/wiki</a><br><code>clojureQL连接数据库：</code><br><a href="http://www.clojureql.org/" target="_blank" rel="external">http://www.clojureql.org/</a><br><code>datomic数据库：</code><br><a href="http://www.datomic.com/" target="_blank" rel="external">http://www.datomic.com/</a><br><code>fleetdb数据库：</code><br><a href="http://fleetdb.org/" target="_blank" rel="external">http://fleetdb.org/</a><br><a href="https://github.com/mmcgrana/fleetdb-client" target="_blank" rel="external">https://github.com/mmcgrana/fleetdb-client</a><br><code>pdf处理：</code><br><a href="https://github.com/yogthos/clj-pdf" target="_blank" rel="external">https://github.com/yogthos/clj-pdf</a><br><code>csv处理：</code><br><a href="https://github.com/clojure/data.csv" target="_blank" rel="external">https://github.com/clojure/data.csv</a><br><code>json库：</code><br><a href="https://github.com/dakrone/cheshire" target="_blank" rel="external">https://github.com/dakrone/cheshire</a><br><a href="https://github.com/mmcgrana/clj-json" target="_blank" rel="external">https://github.com/mmcgrana/clj-json</a><br><code>mail库：</code><br><a href="https://github.com/clojurewerkz/mailer" target="_blank" rel="external">https://github.com/clojurewerkz/mailer</a><br><a href="https://github.com/MayDaniel/clj-mail" target="_blank" rel="external">https://github.com/MayDaniel/clj-mail</a><br><code>图形处理库：</code><br><a href="https://github.com/mikera/clisk" target="_blank" rel="external">https://github.com/mikera/clisk</a><br><a href="https://github.com/ztellman/penumbra/wiki/Applications" target="_blank" rel="external">https://github.com/ztellman/penumbra/wiki/Applications</a><br><a href="https://github.com/quil/quil" target="_blank" rel="external">https://github.com/quil/quil</a><br><code>音频处理库：</code><br><a href="https://github.com/overtone/overtone" target="_blank" rel="external">https://github.com/overtone/overtone</a><br><code>报表工具库：</code><br><a href="http://incanter.org/" target="_blank" rel="external">http://incanter.org/</a><br><code>定时任务框架：</code><br><a href="http://clojurequartz.info" target="_blank" rel="external">http://clojurequartz.info</a><br><code>webservices</code><br><a href="http://clojure-liberator.github.com" target="_blank" rel="external">http://clojure-liberator.github.com</a></p>
+<p>附：编程语言发展的编年史</p>
+<p>编程语言的历史早于真正意义的计算机的出现。19世纪就有“可编程的”织布机和钢琴弹奏装置出现，它们都是领域特定语言(DSL)的样例。</p>
+<ul>
+<li>1951 – Regional Assembly Language</li>
+<li>1952 – Autocode</li>
+<li>1954 – IPL (LISP语言的祖先)</li>
+<li>1955 – FLOW-MATIC (COBOL语言的祖先)</li>
+<li>1957 – FORTRAN (第一个编译型语言)</li>
+<li>1957 – COMTRAN (COBOL语言的祖先)</li>
+<li>1958 – LISP</li>
+<li>1958 – ALGOL 58</li>
+<li>1959 – FACT (COBOL语言的祖先)</li>
+<li>1959 – COBOL</li>
+<li>1959 – RPG</li>
+<li>1962 – APL</li>
+<li>1962 – Simula</li>
+<li>1962 – SNOBOL</li>
+<li>1963 – CPL (C语言的祖先)</li>
+<li>1964 – BASIC</li>
+<li>1964 – PL/I</li>
+<li>1966 – JOSS</li>
+<li>1967 – BCPL (C语言的祖先)</li>
+<li>1968 – Logo</li>
+<li>1969 – B (C语言的祖先)</li>
+<li>1970 – Pascal</li>
+<li>1970 – Forth</li>
+<li>1972 – C</li>
+<li>1972 – Smalltalk</li>
+<li>1972 – Prolog</li>
+<li>1973 – ML</li>
+<li>1975 – Scheme</li>
+<li>1978 – SQL</li>
+<li>1980 – C++ (既有类的C语言，更名于1983年7月)</li>
+<li>1983 – Ada</li>
+<li>1984 – Common Lisp</li>
+<li>1984 – MATLAB</li>
+<li>1985 – Eiffel</li>
+<li>1986 – Objective-C</li>
+<li>1986 – Erlang</li>
+<li>1987 – Perl</li>
+<li>1988 – Tcl</li>
+<li>1988 – Mathematica</li>
+<li>1989 – FL</li>
+<li>1990 – Haskell</li>
+<li>1991 – Python</li>
+<li>1991 – Visual Basic</li>
+<li>1993 – Ruby</li>
+<li>1993 – Lua</li>
+<li>1994 – CLOS (ANSI Common Lisp的一部分)</li>
+<li>1995 – Java</li>
+<li>1995 – Delphi (Object Pascal)</li>
+<li>1995 – JavaScript</li>
+<li>1995 – PHP</li>
+<li>1996 – WebDNA</li>
+<li>1997 – Rebol</li>
+<li>1999 – D</li>
+<li>2000 – ActionScript</li>
+<li>2001 – C#</li>
+<li>2001 – Visual Basic .NET</li>
+<li>2002 – F#</li>
+<li>2003 – Groovy</li>
+<li>2003 – Scala</li>
+<li>2007 – Clojure</li>
+<li>2009 – Go</li>
+<li>2011 – Dart<br>据统计已有256种编程语言，这么多的语言中只有一些是常用的或实用的。</li>
+</ul>
+<p>从1951年至今，人类一共发明了256种编程语言，每一种语言的出现都带有某些新特征。编程语言不断的在革新，很快就会有超出这个清单的新编程语言出现。更多参考 程序员必须知道的编程语言编年史</p>
+<p>参考文章<br><a href="http://blog.csdn.net/sunboy_2050/article/details/17225813" target="_blank" rel="external">Clojure 学习入门（1）—— 学习资料</a><br><a href="http://dead-knight.iteye.com/blog/1827196" target="_blank" rel="external">clojure-学习资料汇总</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2014-05-30-clojure-learning-materials/">clojure学习 —— 学习资料汇总</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月21日 - 21时04分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2014-05-30-clojure-learning-materials/" title="clojure学习 —— 学习资料汇总">http://notes.seirhsiao.com/2016/01/24/2014-05-30-clojure-learning-materials/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2014-05-30-clojure-learning-materials/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2014-06-08-awk-getting-start01/">
+        AWK入门指南
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/24/2014-05-26-clojure-set-up/">
+        Clojure学习 —— 安装与配置
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Clojure_的理念和特性"><span class="toc-number">1.</span> <span class="toc-text">Clojure 的理念和特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下一代的语言"><span class="toc-number">2.</span> <span class="toc-text">下一代的语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态而强有力_(没错,它是lisp!)"><span class="toc-number">3.</span> <span class="toc-text">动态而强有力 (没错,它是lisp!)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档："><span class="toc-number">4.</span> <span class="toc-text">官方文档：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文资料（强烈推荐）："><span class="toc-number">5.</span> <span class="toc-text">中文资料（强烈推荐）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#英文资料（强烈推荐）："><span class="toc-number">6.</span> <span class="toc-text">英文资料（强烈推荐）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clojure_开源工具："><span class="toc-number">7.</span> <span class="toc-text">clojure 开源工具：</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2014-05-30-clojure-learning-materials/" data-title="clojure学习 —— 学习资料汇总" data-url="http://notes.seirhsiao.com/2016/01/24/2014-05-30-clojure-learning-materials/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2014-06-08-awk-getting-start01/" title="上一篇: AWK入门指南">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/24/2014-05-26-clojure-set-up/" title="下一篇: Clojure学习 —— 安装与配置">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

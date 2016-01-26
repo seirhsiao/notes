@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Windows 上安装 Jekyll | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Windows 上安装 JekyllJekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.
+原文链接：Setup Jekyll on Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 上安装 Jekyll">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/24/2013-05-10-setup-jekyll-on-windows/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="Windows 上安装 JekyllJekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.
+原文链接：Setup Jekyll on Windows">
+<meta property="og:image" content="http://notes.seirhsiao.com/static/images/jekyll/2013-05-11-ruby-installer.png">
+<meta property="og:updated_time" content="2015-11-24T12:27:38.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 上安装 Jekyll">
+<meta name="twitter:description" content="Windows 上安装 JekyllJekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.
+原文链接：Setup Jekyll on Windows">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-05-10-setup-jekyll-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/2013-05-10-setup-jekyll-on-windows/" class="article-date">
+  	<time datetime="2016-01-24T02:06:27.551Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows 上安装 Jekyll
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Jekyll/">Jekyll</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jekyll/">jekyll</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows_上安装_Jekyll">Windows 上安装 Jekyll</h1><p>Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.</p>
+<p>原文链接：<a href="http://yizeng.me/2013/05/10/setup-jekyll-on-windows/" target="_blank" rel="external">Setup Jekyll on Windows</a><br><a id="more"></a><br>目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：</p>
+<p>共分为以下几个重要步骤</p>
+<ul>
+<li>安装 Ruby</li>
+<li>安装 DevKit</li>
+<li>安装 Jekyll</li>
+<li>安装 Pygments<ul>
+<li>安装 Python</li>
+<li>安装 ‘Easy Install’</li>
+<li>安装 Pygments</li>
+</ul>
+</li>
+<li>启动 Jekyll</li>
+<li>故障诊断</li>
+</ul>
+<h2 id="安装_Ruby">安装 Ruby</h2><ol>
+<li><p>前往 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a></p>
+</li>
+<li><p>在 “<code>RubyInstallers</code>” 部分，选择某个版本点击下载。<br> 例如， <code>Ruby 2.0.0-p451 (x64)</code> 是适于64位 Windows 机器上的 Ruby 2.0.0 x64 安装包。</p>
+</li>
+<li><p>通过安装包安装</p>
+<ul>
+<li>最好保持默认的路径 C:\Ruby200-x64， 因为安装包明确提出 “请不要使用带有空格的文件夹 (如： Program Files)”。</li>
+<li>勾选 “Add Ruby executables to your PATH”，这样执行程序会被自动添加至 PATH 而避免不必要的头疼。<br><img src="/static/images/jekyll/2013-05-11-ruby-installer.png" alt="2013-05-11-ruby-installer.png"><br>Windows Ruby 安装包</li>
+</ul>
+</li>
+<li><p>打开一个命令提示行并输入以下命令来检测 Ruby 是否成功安装。</p>
+<blockquote>
+<p>   <code>ruby -v</code></p>
+</blockquote>
+<p> 输出示例：</p>
+<blockquote>
+<p>   <code>ruby 2.0.0p451 (2014-02-24) [x64-mingw32]</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="安装DevKit">安装<code>DevKit</code></h2><p><strong>DevKit</strong>是一个在<code>Windows</code>上帮助简化安装及使用<code>Ruby C/C++</code>扩展如<code>RDiscount</code>和<code>RedCloth</code>的工具箱。 详细的安装指南可以在程序的<a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#installation-instructions" target="_blank" rel="external">wiki页面</a>阅读。</p>
+<ol>
+<li><p>再次前往 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a></p>
+</li>
+<li><p>下载同系统及<code>Ruby</code>版本相对应的<code>DevKit</code>安装包。 例如，<code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> 适用于64位<code>Windows</code>系统上的 <code>Ruby 2.0.0 x64</code>。</p>
+<p> 下面列出了如何选择正确的 DevKit 版本：</p>
+<blockquote>
+<p><strong>Ruby 1.8.6 to 1.9.3</strong>: DevKit tdm-32-4.5.2<br><strong>Ruby 2.0.0</strong>: DevKit mingw64-32-4.7.2<br><strong>Ruby 2.0.0 x64</strong>: DevKit mingw64-64-4.7.2</p>
+</blockquote>
+</li>
+<li><p>运行安装包并解压缩至某文件夹，如 <code>C:\DevKit</code></p>
+</li>
+<li><p>通过初始化来创建 <code>config.yml</code> 文件。在命令行窗口内，输入下列命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> “C:\DevKit”</span><br><span class="line">ruby dk.rb init</span><br><span class="line">notepad config.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在打开的记事本窗口中，于末尾添加新的一行 - C:\Ruby200-x64，保存文件并退出。</p>
+</li>
+<li><p>回到命令行窗口内，审查（非必须）并安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby dk.rb review</span><br><span class="line">ruby dk.rb install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装_Jekyll">安装 Jekyll</h2><ol>
+<li><p>确保 gem 已经正确安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem -v</span><br></pre></td></tr></table></figure>
+<p> 输出示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.0</span><span class="number">.14</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Jekyll gem</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装_Pygments">安装 Pygments</h2><p><strong>Jekyll</strong> 里默认的语法高亮插件是 <a href="http://pygments.org/" target="_blank" rel="external">Pygments</a>。 它需要安装<code>Python</code> 并在网站的配置文件_config.yml 里将<code>highlighter</code>的值设置为pygments。</p>
+<p>不久之前，Jekyll 还添加另一个高亮引擎名为<a href="https://github.com/jayferd/rouge" target="_blank" rel="external">Rouge</a>， 尽管暂时不如 Pygments 支持那么多的语言，但它是原生 Ruby 程序，而不需要使用 Python。 更多信息请<a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting" target="_blank" rel="external">点此</a>关注。</p>
+<h2 id="安装_Python">安装 Python</h2><ol>
+<li>前往 <a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></li>
+<li>下载合适的 Python windows 安装包，如 <code>Python 2.7.6 Windows Installer</code>。 <strong>请注意</strong>，Python 2 可能会更合适，因为暂时 Python 3 可能不会正常工作。</li>
+<li>安装</li>
+<li>添加安装路径 (如： <code>C:\Python27</code>) 至 PATH。(如何操作? 请参见<a href="#troubleshooting">故障诊断 #1</a>)</li>
+<li><p>检验 Python 安装是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python –V</span><br></pre></td></tr></table></figure>
+<p> 输出示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">2.7</span><span class="number">.6</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装_‘Easy_Install’">安装 ‘Easy Install’</h2><ol>
+<li>浏览 <a href="https://pypi.python.org/pypi/setuptools#installation-instructions" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools#installation-instructions</a> 来查看详细的安装指南。</li>
+<li>安装之前，最好先卸掉上一版本(参考<a href="https://pypi.python.org/pypi/setuptools#uninstalling" target="_blank" rel="external">卸载</a>)</li>
+<li><p>对于安装了<code>PowerShell 3</code>的windows机器，以管理员的身份启动<code>Powershell</code> 并输入如下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Invoke-WebRequest https://bootstrap.pypa.io/ez_setup.py).Content \| python -</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于没有安装<code>PowerShell 3</code>的windows机器，下载 <a href="https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py" target="_blank" rel="external">ez_setup.py</a> 并保存，例如，至 <code>C:\</code>。 然后从命令行使用 Python 运行此文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python “C:\ez_setup.py”</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加 ‘Python Scripts’ 路径 (如： <code>C:\Python27\Scripts</code>) 至 PATH。</p>
+</li>
+</ol>
+<h3 id="安装_Pygments-1">安装 Pygments</h3><ol>
+<li><p>确保 easy_install 已经正确安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easy_install --version</span><br></pre></td></tr></table></figure>
+<p> 输出示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setuptools <span class="number">3.1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 “easy_install” 来安装 Pygments</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easy_install Pygments</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="启动_Jekyll">启动 Jekyll</h2><p>按照官方的 <a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll 快速开始手册</a> 的步骤， 一个新的 Jekyll 博客可以被建立并在<a href="http://localhost:4000" target="_blank" rel="external">localhost:4000</a>浏览。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="故障诊断">故障诊断</h2><ol>
+<li>错误信息：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“<span class="keyword">python</span>” <span class="keyword">is</span> not recognized <span class="keyword">as</span> <span class="keyword">an</span> internal <span class="built_in">or</span> external <span class="keyword">command</span>, operable program <span class="built_in">or</span> batch <span class="keyword">file</span>.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code><span class="keyword">*</span><span class="keyword">*</span>其他情况<span class="keyword">*</span><span class="keyword">*</span>： 这里的 “python” 也可能是 “ruby”， “gem” 或是 “easy_install” 等。
+
+<span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： 该程序可能未被正确地安装或未在 PATH 里设置成功。
+
+<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 确保程序已被正确安装。然后手动将其添加至 PATH，请参考如下步骤[1]。
+</code></pre><blockquote>
+<ol>
+<li>按住 Win 键再按下 Pause</li>
+<li>点击 Advanced System Settings</li>
+<li>点击 Environment Variables</li>
+<li>将 <code>;C:\python27</code> 添加至 Path 变量的末尾</li>
+<li>重启命令行<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span> 错误信息：</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<pre><code><span class="constant">ERROR</span>:  <span class="constant">Error</span> installing <span class="symbol">jekyll:</span>
+<span class="constant">ERROR</span>: <span class="constant">Failed</span> to build gem native extension.
+<span class="string">"C:/Program Files/Ruby/Ruby200-x64/bin/ruby.exe"</span> extconf.rb
+creating <span class="constant">Makefile</span>
+make generating stemmer-x64-mingw32.<span class="keyword">def</span>
+compiling porter.c
+...
+make install
+/usr/bin/install -c -m <span class="number">0755</span> stemmer.so <span class="constant">C</span>:<span class="regexp">/Program Files/</span><span class="constant">Ruby</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">fast</span>-<span class="title">stemmer</span>-1.0.2/<span class="title">li</span></span>
+/usr/bin/<span class="symbol">install:</span> target <span class="string">`Files/Ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/fast-stemmer-1.0.2/lib' is not a directory
+make: *** [install-so] Error 1</span>
+</code></pre><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： Ruby 被安装在含有空格的路径里。</span><br><span class="line"></span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 重新安装 Ruby，这次请不要使用带有空格的路径，或者请直接选择使用默认路径。</span><br><span class="line"></span><br><span class="line">3. 错误信息：</span><br></pre></td></tr></table></figure>
+<pre><code><span class="constant">Generating</span>... <span class="constant">Liquid</span> <span class="constant">Exception</span>: <span class="constant">No</span> such file or directory - python <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">pygments</span>.<span class="title">rb</span>-0.4.2/<span class="title">lib</span>/<span class="title">pygments</span>/<span class="title">mentos</span>.<span class="title">py</span> <span class="title">in</span> 2013-04-22-<span class="title">yizeng</span>-<span class="title">hello</span>-<span class="title">world</span>.<span class="title">md</span></span>
+</code></pre><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： Pygments 未能被正确安装或是 PATH 设置尚未生效。</span><br><span class="line"></span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 首先请确保 Pygments 已成功安装且 Python 的 PATH 设置正确未包含空格和最后多余的斜杠。 然后重启命令行。如果依旧失败，请尝试注销并重新登录 Windows。 甚至使用终极解法，重启电脑。</span><br><span class="line"></span><br><span class="line">4. 错误信息：</span><br></pre></td></tr></table></figure>
+<pre><code>Generating... Liquid Exception: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span> - /bin/sh <span class="operator">in</span> <span class="title">_posts</span>/<span class="number">2013</span>-<span class="number">04</span>-<span class="number">22</span>-yizeng-hello-world.md
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    **可能原因**： 与 pygments.rb <span class="number">0.5</span><span class="number">.1</span>/<span class="number">0.5</span><span class="number">.2</span> 版本的兼容性问题。</span><br><span class="line"></span><br><span class="line">    **尝试解法**： 将 pygments.rb gem 的版本从 <span class="number">0.5</span><span class="number">.1</span>/<span class="number">0.5</span><span class="number">.2</span> 降至 <span class="number">0.5</span><span class="number">.0</span>。</span><br><span class="line">```bash</span><br><span class="line">        gem uninstall pygments.rb –version ‘=<span class="number">0.5</span><span class="number">.2</span>’</span><br><span class="line">        gem install pygments.rb –version <span class="number">0.5</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>错误信息：<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">dependency</span>.<span class="title">rb</span>:296:<span class="title">in</span> `<span class="title">to_specs</span>': <span class="title">Could</span> <span class="title">not</span> <span class="title">find</span> '<span class="title">pygments</span>.<span class="title">rb</span>' (~&gt; 0.4.2) - <span class="title">did</span> <span class="title">find</span>: [<span class="title">pygments</span>.<span class="title">rb</span>-0.5.0] (<span class="title">Gem::LoadError</span>)</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1196:<span class="title">in</span> `<span class="title">block</span> <span class="title">in</span> <span class="title">activate_dependencies</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1185:<span class="title">in</span> `<span class="title">each</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1185:<span class="title">in</span> `<span class="title">activate_dependencies</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1167:<span class="title">in</span> `<span class="title">activate</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_gem</span>.<span class="title">rb</span>:48:<span class="title">in</span>`<span class="title">gem</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/bin/<span class="symbol">jekyll:</span><span class="number">22</span>:in <span class="string">`&lt;main&gt;'`</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>**可能原因**：如错误信息所述，找不到 <span class="tag">pygments</span><span class="class">.rb</span> 0<span class="class">.4</span><span class="class">.2</span>，仅找到 <span class="tag">pygments</span><span class="class">.rb</span> 0<span class="class">.5</span><span class="class">.0</span>。 （此问题出现于此文初稿时的 <span class="tag">Jekyll</span> 版本，现版本应已修复）
+
+**尝试解法**： 将 <span class="tag">pygments</span><span class="class">.rb</span> <span class="tag">gem</span> 的版本降级至 0<span class="class">.4</span><span class="class">.2</span>
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem uninstall pygments.rb –version “=<span class="number">0.5</span>.<span class="number">0</span>”</span><br><span class="line">gem install pygments.rb –version “=<span class="number">0.4</span>.<span class="number">2</span>”</span><br></pre></td></tr></table></figure>
+<ol>
+<li>错误信息：<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Generating... You are missing a library required <span class="keyword">for</span> Markdown. Please <span class="command">run</span>:</span><br><span class="line">`$ [sudo] gem install rdiscount`</span><br><span class="line">Conversion <span class="keyword">error</span>: There was an <span class="keyword">error</span> converting '_posts/<span class="number">2013</span>-<span class="number">04</span>-<span class="number">22</span>-yizeng-hello-world.md/<span class="comment">#excerpt'.</span></span><br><span class="line"></span><br><span class="line">ERROR: YOUR SITE COULD NOT BE BUILT:</span><br><span class="line">   <span class="comment">------------------------------------</span></span><br><span class="line">   Missing dependency: rdiscount</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code><span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： 依赖包 rdiscount 未找到。 此问题最有可能的原因是，网站使用的是 rdiscount 作为 Markdown 引擎，而不是 Jekyll 默认的引擎，故需要手动自行安装。
+
+<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rdiscount</span><br></pre></td></tr></table></figure>
+<ol>
+<li>错误信息：<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">site_ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_require</span>.<span class="title">rb</span>:55:<span class="title">in</span> `<span class="title">require</span>': <span class="title">cannot</span> <span class="title">load</span> <span class="title">such</span> <span class="title">file</span> -- <span class="title">wdm</span> (<span class="title">LoadError</span>)</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">site_ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_require</span>.<span class="title">rb</span>:55:<span class="title">in</span> `<span class="title">require</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">listen</span>-1.3.1/<span class="title">lib</span>/<span class="title">listen</span>/<span class="title">adapter</span>.<span class="title">rb</span>:207:<span class="title">in</span> `<span class="title">load_dependent_adapter</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">listen</span>-1.3.1/<span class="title">lib</span>/<span class="title">listen</span>/<span class="title">adapters</span>/<span class="title">windows</span>.<span class="title">rb</span>:33:<span class="title">in</span> `<span class="title">load_dependent_a</span></span></span><br><span class="line">dapter<span class="string">'</span><br><span class="line">...</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code><span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： wdm gem 未被安装。因为 Jekyll 只官方地支持 <span class="keyword">*</span>nix 系统，所以 Windows Directory Monitor 并没有作为依赖包而被自动安装。
+
+<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install wdm</span><br></pre></td></tr></table></figure>
+<p>8.为了能够让这里网站正常运行，这里需要删除_post文件夹里的文件（应该有一个xxxx-xx-xx-welcome-to- jekyll.markdown字样的文件），因为这个文件内部使用了语法高亮插件（另外不删，则可以修改配置文件禁用该语法高亮插件，即修改根目录下 _config.yml中的pygments: true为false便可。），这个需要另外安装，不再本文范围内，不删会导致生成的静态页面有问题，因时间有限本文暂不提此问题。</p>
+<h2 id="参考推荐">参考推荐</h2><p>[1]: <a href="http://stackoverflow.com/a/6318188/1177636" target="_blank" rel="external">Adding Python Path on Windows 7</a> by melhosseiny.</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/24/2013-05-10-setup-jekyll-on-windows/">Windows 上安装 Jekyll</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月24日 - 10时06分</p>
+  <p><span>最后更新:</span>2015年11月24日 - 20时27分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/24/2013-05-10-setup-jekyll-on-windows/" title="Windows 上安装 Jekyll">http://notes.seirhsiao.com/2016/01/24/2013-05-10-setup-jekyll-on-windows/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/24/2013-05-10-setup-jekyll-on-windows/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/24/2013-05-11-uml-class-diagram/">
+        UML类图几种关系的总结
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2015/11/16/png-gif-transparency/">
+        制作透明背景 PNG 图片和 GIF 动图的几种方法
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows_上安装_Jekyll"><span class="toc-number">1.</span> <span class="toc-text">Windows 上安装 Jekyll</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Ruby"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Ruby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装DevKit"><span class="toc-number">1.2.</span> <span class="toc-text">安装DevKit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Jekyll"><span class="toc-number">1.3.</span> <span class="toc-text">安装 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Pygments"><span class="toc-number">1.4.</span> <span class="toc-text">安装 Pygments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Python"><span class="toc-number">1.5.</span> <span class="toc-text">安装 Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_‘Easy_Install’"><span class="toc-number">1.6.</span> <span class="toc-text">安装 ‘Easy Install’</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装_Pygments-1"><span class="toc-number">1.6.1.</span> <span class="toc-text">安装 Pygments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动_Jekyll"><span class="toc-number">1.7.</span> <span class="toc-text">启动 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#故障诊断"><span class="toc-number">1.8.</span> <span class="toc-text">故障诊断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考推荐"><span class="toc-number">1.9.</span> <span class="toc-text">参考推荐</span></a></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/24/2013-05-10-setup-jekyll-on-windows/" data-title="Windows 上安装 Jekyll" data-url="http://notes.seirhsiao.com/2016/01/24/2013-05-10-setup-jekyll-on-windows/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/24/2013-05-11-uml-class-diagram/" title="上一篇: UML类图几种关系的总结">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2015/11/16/png-gif-transparency/" title="下一篇: 制作透明背景 PNG 图片和 GIF 动图的几种方法">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

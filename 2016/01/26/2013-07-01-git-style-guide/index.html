@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git 风格指南 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git 风格指南原文这份风格指南受到 How to Get Your Change Into the Linux Kernel，git man pages 和大量社区通用实践的启发。
+目录
+分支
+提交
+消息
+
+
+合并
+杂项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 风格指南">
+<meta property="og:url" content="http://notes.seirhsiao.com/2016/01/26/2013-07-01-git-style-guide/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="Git 风格指南原文这份风格指南受到 How to Get Your Change Into the Linux Kernel，git man pages 和大量社区通用实践的启发。
+目录
+分支
+提交
+消息
+
+
+合并
+杂项">
+<meta property="og:image" content="http://i.creativecommons.org/l/by-nc/3.0/88x31.png">
+<meta property="og:updated_time" content="2016-01-26T12:39:06.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 风格指南">
+<meta name="twitter:description" content="Git 风格指南原文这份风格指南受到 How to Get Your Change Into the Linux Kernel，git man pages 和大量社区通用实践的启发。
+目录
+分支
+提交
+消息
+
+
+合并
+杂项">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2013-07-01-git-style-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/2013-07-01-git-style-guide/" class="article-date">
+  	<time datetime="2016-01-26T12:39:06.366Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git 风格指南
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Guide/">Guide</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/翻译/">翻译</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/风格/">风格</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git_风格指南">Git 风格指南</h1><p><a href="https://github.com/agis-/git-style-guide" target="_blank" rel="external">原文</a><br>这份风格指南受到 <a href="https://www.kernel.org/doc/Documentation/SubmittingPatches" target="_blank" rel="external"><em>How to Get Your Change Into the Linux Kernel</em></a>，<a href="http://git-scm.com/doc" target="_blank" rel="external">git man pages</a> 和大量社区通用实践的启发。</p>
+<h1 id="目录">目录</h1><ol>
+<li><a href="#branches">分支</a></li>
+<li><a href="#commits">提交</a><ol>
+<li><a href="#messages">消息</a></li>
+</ol>
+</li>
+<li><a href="#merging">合并</a></li>
+<li><a href="#misc">杂项</a><a id="more"></a>
+</li>
+</ol>
+<h2 id="Branches">Branches</h2><ul>
+<li><p>选择<em>简短</em>和<em>具有描述性</em>的名字来命名分支：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#22909;&#10;$ git checkout -b oauth-migration&#10;&#10;# &#19981;&#22909;&#65292;&#36807;&#20110;&#27169;&#31946;&#10;$ git checkout -b login_fix</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来自外部的标识符也适合用作分支的名字，例如来自 Github 的 Issue 序号。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># GitHub issue #15&#10;$ git checkout -b issue-15</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用破折号分割单词。</p>
+</li>
+<li><p>当不同的人围绕同一个特性开发时，维护整个团队的特性分支与每个人的独立分支是比较方便的做法。使用如下的命名方式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b feature-a/master # team-wide branch&#10;$ git checkout -b feature-a/maria # Maria&#39;s branch&#10;$ git checkout -b feature-a/nick # Nick&#39;s branch</span><br></pre></td></tr></table></figure>
+<p>合并时，由每个人的独立分支向全队的功能分支合并，最后合并到主分支。见<a href="#merging">合并</a> 。</p>
+</li>
+<li><p>合并之后，除非有特殊原因，从上游仓库中删除你的分支。使用如下命令查看已合并的分支：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch --merged | grep -v &#34;\*&#34;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Commits">Commits</h2><ul>
+<li>每个提交应当只包含一个简单的逻辑改动，不要在一个提交里包含多个逻辑改动。比如，如果一个补丁修复了一个 Bug，又优化了一个特性的性能，就将其拆分。</li>
+<li>不要将一个逻辑改动拆分提交。例如一个功能的实现及其对应的测试应当一并提交。</li>
+<li>尽早、尽快提交。出问题时，短小、完整的提交更容易发现并修正。</li>
+<li>提交应当依<em>逻辑</em>排序。例如，如果 X 提交依赖于 Y，那么 Y 提交应该在 X 前面。</li>
+</ul>
+<h3 id="Messages">Messages</h3><ul>
+<li><p>使用编辑器编写提交信息，而非命令行。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#22909;&#10;$ git commit&#10;&#10;# &#19981;&#22909;&#10;$ git commit -m &#34;Quick fix&#34;</span><br></pre></td></tr></table></figure>
+<p>使用命令行会鼓励试图用一行概括提交內容的风气，而这会令提交信息难以理解。</p>
+</li>
+<li><p>概要行（即第一行）应当简明扼要。它最好不超过 50 个字符，首字母大写，使用现在时祈使语气。不要以句号结尾, 因为它相当于<em>标题</em>。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#22909;&#10;Mark huge records as obsolete when clearing hinting faults&#10;&#10;# &#19981;&#22909;&#10;fixed ActiveModel::Errors deprecation messages failing when AR was used outside of Rails.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在那之后空一行，然后填写详细描述。每行不超过 <em>72 字符</em>，解释<em>为什么</em>需要改动, <em>如何</em>解决了这个 issue 以及它有什么<em>副作用</em>。</p>
+<p>最好提供相关资源的链接，例如 bug tracker 的 issue 编号：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Short (50 chars or fewer) summary of changes&#10;&#10;More detailed explanatory text, if necessary. Wrap it to&#10;72 characters. In some contexts, the first&#10;line is treated as the subject of an email and the rest of&#10;the text as the body.  The blank line separating the&#10;summary from the body is critical (unless you omit the body&#10;entirely); tools like rebase can get confused if you run&#10;the two together.&#10;&#10;Further paragraphs come after blank lines.&#10;&#10;- Bullet points are okay, too&#10;&#10;- Use a hyphen or an asterisk for the bullet,&#10;  followed by a single space, with blank lines in&#10;  between&#10;&#10;Source http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</span><br></pre></td></tr></table></figure>
+<p>最后，编写提交信息时，设想一下你一年以后再看这段提交信息时，希望获取什么信息。</p>
+</li>
+<li><p>如果 <em>提交 A</em> 依赖于另一个 <em>提交 B</em> ，在前者的 commit message 中应当指明。援引对应提交的 Hash。</p>
+<p>同理，如果 <em>提交 A</em> 解决了 <em>提交 B</em> 引入的 bug，这应当也被在 <em>提交 A</em> 提及。</p>
+</li>
+<li><p>如果将一个提交 squash 到另一个提交，分别使用 <code>--squash</code> 和 <code>--fixup</code> 来强调目的。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --squash f387cab2</span><br></pre></td></tr></table></figure>
+<p><em>（Rebase 时使用 <code>--autosquash</code> 参数，标记的提交就会自动 squash。）</em></p>
+</li>
+</ul>
+<h2 id="Merging">Merging</h2><ul>
+<li><strong>不要篡改提交历史。</strong>仓库的历史本身就很宝贵，重要的是它能够还原<em>实际发生了什么</em>。对任何参与项目的人来说，修改历史是万恶之源。</li>
+<li>尽管如此，有些时候还是可以重写历史，例如：<ul>
+<li>你一个人孤军奋战，而且你的代码不会被人看到。</li>
+<li>你希望整理分支（例如使用 squash），以便日后合并。<br>最重要的，<em>不要重写你的 master 分支历史</em> 或者任何有特殊意义的分支（例如发布分支或 CI 分支）。</li>
+</ul>
+</li>
+<li><p>保持你的提交历史<em>干净</em>、<em>简单</em>。<em>在你 merge</em> 你的分支之前：</p>
+<ol>
+<li>确保它符合风格指南，如果不符合就执行相应操作，比如 squash 或重写提交信息。</li>
+<li>将其 rebase 到目标分支：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[my-branch] $ git fetch&#10;[my-branch] $ git rebase origin/master&#10;# then merge</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样会在 master 后直接添加一个新版本，令提交历史更简洁。</p>
+<p><em>（这个策略更适合较短生命周期的分支，否则还是最好经常合并而不是 rebase。）</em></p>
+</li>
+<li><p>如果你的分支包含多个 commmit , 不要使用快进模式。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#22909;&#65307;&#27880;&#24847;&#28155;&#21152;&#21512;&#24182;&#20449;&#24687;&#10;$ git merge --no-ff my-branch&#10;&#10;# &#19981;&#22909;&#10;$ git merge my-branch</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Misc-">Misc.</h2><ul>
+<li><p>有许多工作流，每一个都有好有坏。一个工作流是否符合你的情况，取决于你的团队，项目，和你的开发规律。</p>
+<p>也就是说，重要的是认真 <em>选择</em> 合适的工作流并且坚持。</p>
+</li>
+<li><em>保持统一</em>， 这涉及到从工作流到你的提交信息，分支名还有标签。 在整个 Repository 中保持统一的命名风格有助于辨认工作进度。</li>
+<li><em>push 前测试</em>， 不要提交未完成的工作。</li>
+<li><p>使用 <a href="http://git-scm.com/book/en/v2/Git-Basics-Tagging#Annotated-Tags" target="_blank" rel="external">annotated tags</a> 标记发布版本或者其他重要的时间点。</p>
+<p>个人开发可以使用 <a href="http://git-scm.com/book/en/v2/Git-Basics-Tagging#Lightweight-Tags" target="_blank" rel="external">lightweight tags</a>，例如为以后参考做标记。</p>
+</li>
+<li><p>定期维护，保证你的仓库状态良好，包括本地还有远程的仓库。</p>
+<ul>
+<li><a href="http://git-scm.com/docs/git-gc" target="_blank" rel="external"><code>git-gc(1)</code></a></li>
+<li><a href="http://git-scm.com/docs/git-prune" target="_blank" rel="external"><code>git-prune(1)</code></a></li>
+<li><a href="http://git-scm.com/docs/git-fsck" target="_blank" rel="external"><code>git-fsck(1)</code></a></li>
+</ul>
+</li>
+</ul>
+<h1 id="License">License</h1><p><img src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="cc license"></p>
+<p>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0<br>International license.</p>
+<h1 id="Credits">Credits</h1><p>Agis Anastasopoulos / <a href="https://twitter.com/agisanast" target="_blank" rel="external">@agisanast</a> / <a href="http://agis.io" target="_blank" rel="external">http://agis.io</a></p>
+<h1 id="Translators">Translators</h1><ul>
+<li>Qi Chen / aseaday@gmail.com</li>
+<li>chadluo / i@yuki.rocks</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2016/01/26/2013-07-01-git-style-guide/">Git 风格指南</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2016年01月26日 - 20时39分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 20时39分</p>
+  <p>
+    <span>原始链接:</span><a href="/2016/01/26/2013-07-01-git-style-guide/" title="Git 风格指南">http://notes.seirhsiao.com/2016/01/26/2013-07-01-git-style-guide/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2016/01/26/2013-07-01-git-style-guide/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2016/01/26/2013-06-15-html-css-guide/">
+        HTML/CSS 开发规范指南
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2016/01/26/2013-07-02-ruby-style-guide/">
+        Ruby 风格指南
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git_风格指南"><span class="toc-number">1.</span> <span class="toc-text">Git 风格指南</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">2.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Branches"><span class="toc-number">2.1.</span> <span class="toc-text">Branches</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commits"><span class="toc-number">2.2.</span> <span class="toc-text">Commits</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Messages"><span class="toc-number">2.2.1.</span> <span class="toc-text">Messages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Merging"><span class="toc-number">2.3.</span> <span class="toc-text">Merging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Misc-"><span class="toc-number">2.4.</span> <span class="toc-text">Misc.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#License"><span class="toc-number">3.</span> <span class="toc-text">License</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Credits"><span class="toc-number">4.</span> <span class="toc-text">Credits</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Translators"><span class="toc-number">5.</span> <span class="toc-text">Translators</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/01/26/2013-07-01-git-style-guide/" data-title="Git 风格指南" data-url="http://notes.seirhsiao.com/2016/01/26/2013-07-01-git-style-guide/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2016/01/26/2013-06-15-html-css-guide/" title="上一篇: HTML/CSS 开发规范指南">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2016/01/26/2013-07-02-ruby-style-guide/" title="下一篇: Ruby 风格指南">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

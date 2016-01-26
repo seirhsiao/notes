@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>个人博客站点建设历程 | ——╅ 萧 ☯ ℡&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言本篇日志用于归纳记录自己在学习建设个人博客站点中的各种尝试和思考。为方便编辑和查看最新进展，更新以倒序方式呈现。
+
+改动和尝试中参考的主要资源都做了 链接跳转 并在文末列出；    
+[G]: 表示该项的具体修改已 commit 提交到 GitHub，点击即可查看；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客站点建设历程">
+<meta property="og:url" content="http://notes.seirhsiao.com/2015/08/20/blog-building/index.html">
+<meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog">
+<meta property="og:description" content="前言本篇日志用于归纳记录自己在学习建设个人博客站点中的各种尝试和思考。为方便编辑和查看最新进展，更新以倒序方式呈现。
+
+改动和尝试中参考的主要资源都做了 链接跳转 并在文末列出；    
+[G]: 表示该项的具体修改已 commit 提交到 GitHub，点击即可查看；">
+<meta property="og:updated_time" content="2016-01-26T13:19:42.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人博客站点建设历程">
+<meta name="twitter:description" content="前言本篇日志用于归纳记录自己在学习建设个人博客站点中的各种尝试和思考。为方便编辑和查看最新进展，更新以倒序方式呈现。
+
+改动和尝试中参考的主要资源都做了 链接跳转 并在文末列出；    
+[G]: 表示该项的具体修改已 commit 提交到 GitHub，点击即可查看；">
+  
+    <link rel="alternative" href="/atom.xml" title="——╅ 萧 ☯ ℡&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">萧影随行</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitCafe/" style="font-size: 10px;">GitCafe</a> <a href="/tags/GitHub/" style="font-size: 11.43px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 15.71px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14.29px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.86px;">Markdown</a> <a href="/tags/PNG/" style="font-size: 10px;">PNG</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/PowerPoint/" style="font-size: 10px;">PowerPoint</a> <a href="/tags/Reference/" style="font-size: 10px;">Reference</a> <a href="/tags/Software/" style="font-size: 10px;">Software</a> <a href="/tags/Table/" style="font-size: 10px;">Table</a> <a href="/tags/TagCloud/" style="font-size: 10px;">TagCloud</a> <a href="/tags/UA/" style="font-size: 10px;">UA</a> <a href="/tags/UML/" style="font-size: 11.43px;">UML</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/awk/" style="font-size: 11.43px;">awk</a> <a href="/tags/binding/" style="font-size: 10px;">binding</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 12.86px;">book</a> <a href="/tags/clojure/" style="font-size: 20px;">clojure</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 12.86px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/httpkit/" style="font-size: 10px;">httpkit</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/leigingen/" style="font-size: 10px;">leigingen</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/macro/" style="font-size: 10px;">macro</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/markdown/" style="font-size: 12.86px;">markdown</a> <a href="/tags/maven/" style="font-size: 12.86px;">maven</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nexus/" style="font-size: 11.43px;">nexus</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ruby/" style="font-size: 11.43px;">ruby</a> <a href="/tags/seq/" style="font-size: 10px;">seq</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tips/" style="font-size: 11.43px;">tips</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/书籍/" style="font-size: 11.43px;">书籍</a> <a href="/tags/优化/" style="font-size: 11.43px;">优化</a> <a href="/tags/入门/" style="font-size: 18.57px;">入门</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/指南/" style="font-size: 17.14px;">指南</a> <a href="/tags/环境搭建/" style="font-size: 12.86px;">环境搭建</a> <a href="/tags/类图/" style="font-size: 11.43px;">类图</a> <a href="/tags/翻译/" style="font-size: 15.71px;">翻译</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/资源/" style="font-size: 17.14px;">资源</a> <a href="/tags/集合/" style="font-size: 14.29px;">集合</a> <a href="/tags/风格/" style="font-size: 14.29px;">风格</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">萧影随行</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">萧影随行</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">闻道有先后，术业有专攻！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:309183912@qq.com" title="Email"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="//github.com/seirhsiao" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-blog-building" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/20/blog-building/" class="article-date">
+  	<time datetime="2015-08-19T16:00:00.000Z" itemprop="datePublished">2015-08-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      个人博客站点建设历程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h2 id="intro">前言</h2>本篇日志用于归纳记录自己在学习建设个人博客站点中的各种尝试和思考。为方便编辑和查看最新进展，更新以倒序方式呈现。<p></p>
+<ul>
+<li>改动和尝试中参考的主要资源都做了 <a href="">链接跳转</a> 并在文末列出；    </li>
+<li><a href="">[G]</a>: 表示该项的具体修改已 commit 提交到 <a href="https://github.com/seirhsiao" title="seirhsiao&#39;s GitHub" target="_blank" rel="external">GitHub</a>，点击即可查看；</li>
+</ul>
+<a id="more"></a>
+<h2 id="2015_年_11_月">2015 年 11 月</h2><h3 id="2015-11-19_样式调整">2015-11-19 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/a377a1d077323aa4102febbc783cd008b53fd546" title="style: page header 页面标题样式" target="_blank" rel="external">[G]</a> Page 页面中标题的默认样式改为居中，区别于 Post。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-18_目录显示">2015-11-18 目录显示</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/5b9cb4fd87a89934ce57913db3278a78c27326d6" title="style: remove toc and copyright info in pages 去除页面中的目录和版权信息" target="_blank" rel="external">[G]</a> 去除 Page 页面中的目录和版权信息，只在 Post 中显示。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-17_随机背景优化">2015-11-17 随机背景优化</h3><blockquote>
+<ul>
+<li>整合 <a href="https://github.com/seirhsiao/hexo-theme-yelee/pull/7" title="优化随机背景图代码" target="_blank" rel="external">Pull</a>，优化随机背景代码；</li>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/51645e6fb0265df87b1ddab35a86a403bc4d5ede" title="add: background_image setting 背景图片设置" target="_blank" rel="external">[G]</a> 改进背景参数设置，改写说明文档；</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-16_代码框样式">2015-11-16 代码框样式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/479ccbe1d36842608692ad8cf52590951ed92ad0" title="style: highlight 微调代码框样式" target="_blank" rel="external">[G]</a> 调整优化代码显示框相关样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-15_图片样式">2015-11-15 图片样式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/66aead7e798c6476ed162e6910d0357a4f70aba7" title="refactor: fancybox loading and setting" target="_blank" rel="external">[G]</a> 改进 fancybox 模块的加载和开关方式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-11_文章分类">2015-11-11 文章分类</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/59885f8026c01a37ae0af1d1a25f35044c060ade" title="fix: categories&#39; style in tag cloud page 文章含多分类时的样式问题" target="_blank" rel="external">[G]</a> 修复文章多分类显示问题。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-09_时间格式">2015-11-09 时间格式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/c732947298ca4f0340f7557c86daea6bd12aadbd" title="fix: date format 时间格式" target="_blank" rel="external">[G]</a> 修复时间格式错误。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-06_个人_Wiki">2015-11-06 个人 Wiki</h3><blockquote>
+<ul>
+<li>使用 <a href="http://tiddlywiki.com/" target="_blank" rel="external">TiddlyWiki</a> 为博客增加个人 Wiki。</li>
+</ul>
+</blockquote>
+<h3 id="2015-11-01_样式优化">2015-11-01 样式优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/0e48796f8480ab35cd2618579db8ab2d9d39ddaf" title="style: table of contents 目录样式" target="_blank" rel="external">[G]</a> 调整优化目录样式。</li>
+</ul>
+</blockquote>
+<h2 id="2015_年_10_月">2015 年 10 月</h2><h3 id="2015-10-26_Stylus">2015-10-26 Stylus</h3><blockquote>
+<ul>
+<li>原来我写的不是纯粹的 CSS, 而是 Stylus, 这个很称心，学起来。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-25_地址复制">2015-10-25 地址复制</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/8f656e29d2c83016c5a5fc019509f121d0f23fe2" title="feat: copy path 地址复制" target="_blank" rel="external">[G]</a> 增加复制地址等信息到剪贴板的功能。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-23_主题切换">2015-10-23 主题切换</h3><blockquote>
+<ul>
+<li>整合些个人代码，切换博客到自己的主题 Yelee。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-22_提交主题">2015-10-22 提交主题</h3><blockquote>
+<ul>
+<li><a href="https://github.com/hexojs/site/commit/cbfc171e6b7ca34a81d361918f319d5d63146d61" title="Add theme: Yelee" target="_blank" rel="external">[G]</a> 参考 <a href="https://hexo.io/docs/themes.html#Publishing" target="_blank" rel="external">相关文档</a>，顺利提交主题到 <a href="https://hexo.io/themes/" target="_blank" rel="external">官网</a>，415，挺不错;</li>
+<li>列出的参考资料越来越少，因为现在看着源码就可以开心地改这改那了。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-21_社交图标">2015-10-21 社交图标</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/94a8be436d3ef8bf43b641cac731c68c21b7375c" title="refactor: social icon with Font Awesome 重构优化社交图标显示" target="_blank" rel="external">[G]</a> 重构优化社交图标显示。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-20_背景图开关">2015-10-20 背景图开关</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/commit/f7ec8da43b5f7af91d834abc5a7f3b9cc5e9d423" title="https://github.com/seirhsiao/hexo-theme-yelee/commit/f7ec8da43b5f7af91d834abc5a7f3b9cc5e9d423" target="_blank" rel="external">[G]</a> 配置中添加关闭背景图的选项。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-19_完善主题">2015-10-19 完善主题</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee/issues/1" title="保留使用 Yilia 主题时的多说用户评论" target="_blank" rel="external">[G]</a> 保留原主题多说评论；</li>
+<li>完善主题说明文件；</li>
+<li>继续转移代码到新主题中。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-18_发布主题">2015-10-18 发布主题</h3><blockquote>
+<ul>
+<li>撰写说明文件，制作配图；</li>
+<li>分享主题到 <a href="https://www.v2ex.com/t/228990" title="[自改分享] 简而不减 Hexo 双栏静态博客主题" target="_blank" rel="external">V2EX</a>，见光。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-17_主题_Yelee">2015-10-17 主题 Yelee</h3><blockquote>
+<ul>
+<li>感谢 Git 的版本控制以及自己较详细的 <a href="https://github.com/seirhsiao/M-Hexo-Blog/commits/master" target="_blank" rel="external">commits</a> 记录，有了这些新主题构建顺畅多了。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-16_构建主题">2015-10-16 构建主题</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/hexo-theme-yelee" title="Hexo-Theme-Yelee" target="_blank" rel="external">[G]</a> 折腾许久，对原主题改动越来越多，应该可以发布个新主题了，在整理代码重新提交时也可以顺便复习巩固所学知识；</li>
+<li>等新主题弄好后就把个人博客公开，然后暂时减少折腾，好好看书打基础。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-15_文章导航">2015-10-15 文章导航</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/bf44e18aadd306393d380f187c67325fe6502190" title="feat: post-nav-button 文章跳转按钮" target="_blank" rel="external">[G]</a> 添加文章导航跳转按钮；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/17416173d27de75696eec5722258751decf82fbe" title="style: 不蒜子显示优化" target="_blank" rel="external">[G]</a> 优化不蒜子显示方式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-14_多说评论">2015-10-14 多说评论</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/ac003d9b37840fc4bd2520126fe1439bae3d04ea" title="style: site verification 站长认证" target="_blank" rel="external">[G]</a> 优化站长认证方式；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/issues/21" title="多说在 page 中评论重复" target="_blank" rel="external">[G]</a> 修复多说页面评论重复问题。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-12_标签云界面">2015-10-12 标签云界面</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/f1c3cfa48e7c3c0e10f3d1433a71d73999a6bc14" title="style: scrolling button" target="_blank" rel="external">[G]</a> 优化跳转按钮代码；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/02379890abbd6658a31367c860e2e00eccde5fcf" title="feat: tags cloud page 标签云页面" target="_blank" rel="external">[G]</a> 添加标签云界面。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-11_跳转按钮">2015-10-11 跳转按钮</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/b0cda2714d440a4ffa37af5fcbdda1acf6174485" title="refactor: scrolling button 改写优化跳转按钮" target="_blank" rel="external">[G]</a> 重构优化跳转按钮代码。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-10_样式调整">2015-10-10 样式调整</h3><blockquote>
+<ul>
+<li>修改 apple-touch-icon 底色；</li>
+<li>调整表格等样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-09_图片优化">2015-10-09 图片优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/d837030e2bc8afe9194c2c52204695aa33a435e9" title="seirhsiao/M-Hexo-Blog" target="_blank" rel="external">[G]</a> 添加 apple-touch-icon；</li>
+<li>随机背景图减少到5张，过犹不及；</li>
+<li>用 Photoshop 尽可能压缩页面图片；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/a4c4d4d65f96ceca1127ea1e051c505bea30d172" title="style: baidu search background" target="_blank" rel="external">[G]</a> 百度站内搜索JS本地化从而设置背景透明。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-08_Font_Awesome">2015-10-08 Font Awesome</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/62c1ff69f1e9260d5ee86be30de9a7a9226d81b9" title="refactor: FontAwesome CSS 图标" target="_blank" rel="external">[G]</a> 本地化 <a href="http://fontawesome.io/" target="_blank" rel="external">Font Awesome</a> CSS 图标库以提供页面加载速度，同时并优化相关代码；</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-07_订阅">2015-10-07 订阅</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/3cc64d02fc0f217239f3e7d71390b97675747fe6" title="style: duoshuo 多说样式" target="_blank" rel="external">[G]</a> 添加博客订阅功能;</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/b75e0e96917f152095fc6547c3b8c756838e7707" title="feat: rss atom feed 订阅" target="_blank" rel="external">[G]</a> 调整多说样式；</li>
+<li>调整页面样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-06_样式调整">2015-10-06 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/0e9c1bc63b6e914005ff13f8e2b22870ddbd574a" title="style: customize" target="_blank" rel="external">[G]</a> 优化配色主题，修改多说样式，背景透明化；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/086578b4bc2b8d57c2d729baf32c203380dc3c80" title="feat: random background image 随机背景图片" target="_blank" rel="external">[G]</a> 增加随机背景图功能，使用渐进式 jpg。</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/be92a30b99632fac9e0eab4d055539c8041e9522" title="fix: scrolling-button 页面跳转按钮" target="_blank" rel="external">[G]</a> 修复跳转按钮显示问题。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-05_新配色主题">2015-10-05 新配色主题</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/f1edc6496cde9214e95ffd2c7442e8e8952166a3" title="feat: new color schemes 新主题配色方案" target="_blank" rel="external">[G]</a> 添加背景图片，设置背景透明度，修改颜色，字体等样式；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/70b305e2c9313300d39def7dddf33f7e45b01c2e" title="feat: toc area 目录背景元素" target="_blank" rel="external">[G]</a> 透明目录背景，自动隐藏目录之后的元素；</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-04_SEO_&amp;_部署">2015-10-04 SEO &amp; 部署</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/7921ebdf0c3f2ae43c7c64e93291a65ae13922e4" title="feat: GitHub &amp; Gitcafe depoly" target="_blank" rel="external">[G]</a> 同时部署博客到 <a href="http://ppting.me/2015/02/08/gitcafe/" title="同时将博客部署在Github和Gitcafe上，并通过DNSPOD分流" target="_blank" rel="external">Gitcafe</a>，加速国内访问，便于百度索引；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/7c9c5dd8b60a072eb1d8392e4e7f61df3992b165" title="feat: Baidu search 百度站内搜索" target="_blank" rel="external">[G]</a> 添加百度站内搜索； </li>
+<li>网站提交到数十个搜索引擎供收录，设置robots.txt；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/35979232f11f4cdba4a9837f2b88d80549ae60c2" title="style: social icons 社交网站图标" target="_blank" rel="external">[G]</a> 添加、修改社交网站图标;</li>
+<li>样式、代码优化;</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-03_搜索_&amp;_页面样式">2015-10-03 搜索 &amp; 页面样式</h3><blockquote>
+<ul>
+<li>优化关于我页面;</li>
+<li>自定义404页面。</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/c3bd88d7579f8fd5ae7af787de08d7e648c255e0" title="feat: Swiftype search 改用 Swiftype" target="_blank" rel="external">[G]</a> 改用 <a href="https://swiftype.com/" title="Take control of your search with Swiftype" target="_blank" rel="external">Swiftype</a> 搜索；<blockquote>
+<p><strong>经验记录</strong>：<a href="/2015/10/16/hexo-404-page/"><strong>《在 Hexo 中创建匹配主题的404页面》</strong></a></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-02_网站统计">2015-10-02 网站统计</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/7636a7a933e0dd05fb109458cbc8cf2b4f2b4191" title="feat: Baidu Analytics 百度统计" target="_blank" rel="external">[G]</a> 添加 <a href="http://tongji.baidu.com/" title="百度统计" target="_blank" rel="external">百度统计</a> 模块;</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/c5f17d79708e0e5dd8383dc9d38098f1350529c4" title="style: search box" target="_blank" rel="external">[G]</a> 调整搜索框样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-10-01_搜索模块">2015-10-01 搜索模块</h3><blockquote>
+<ul>
+<li>添加网站 <a href="https://github.com/hexojs/hexo-generator-sitemap" title="hexo-generator-sitemap" target="_blank" rel="external">sitemap</a>;</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/aa9cf1b75f409690f0e9af5d259698a6b2e851a7" title="feat: tinysou search 微搜索" target="_blank" rel="external">[G]</a> 添加 <a href="http://tinysou.com/" title="微搜索-站内搜索引擎" target="_blank" rel="external">微搜索</a> 并设置好搜索框位置及样式。</li>
+</ul>
+</blockquote>
+<h2 id="2015_年_9_月">2015 年 9 月</h2><h3 id="2015-09-30_关于我页面">2015-09-30 关于我页面</h3><blockquote>
+<ul>
+<li>新建关于我页面;</li>
+<li>编写内容并个性化该页面样式</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-29_多说样式">2015-09-29 多说样式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/95dbdbacf628e531902f55714f4dae57f3bab070" title="feat: duoshuo style 个性化多说样式" target="_blank" rel="external">[G]</a> 个性化多说评论样式。<blockquote>
+<p><strong>经验记录</strong>：<a href="/2015/09/29/duoshuo-style"><strong>《多说样式折腾记录 — 添加 UA 浏览器标识、旋转头像等》</strong></a></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-28_社会化分享">2015-09-28 社会化分享</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/8421887e5d2ac5f94ebef2cf0cac67e1ba5b7144" title="feat: Baidu Share 百度分享" target="_blank" rel="external">[G]</a> 使用 <a href="http://share.baidu.com" title="百度分享" target="_blank" rel="external">百度分享</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-25_时间格式">2015-09-25 时间格式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/ee320917b1d85e56ef9e1f75a3ddd417ff8fc831" title="fix: time format 时间格式" target="_blank" rel="external">[G]</a> 修正时间格式；</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-23_网站计数">2015-09-23 网站计数</h3><blockquote>
+<ul>
+<li>更新网站图标 favicon;</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/bede128cc71f1667331d6dace7f600103df03459" title="feat: site counter 不蒜子网页计算" target="_blank" rel="external">[G]</a> 使用 <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子: 搞定你的网站计数" target="_blank" rel="external">不蒜子</a> 增加网页访问统计功能。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-22_模块化">2015-09-22 模块化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/4ad7d6a80c8684868f7306927bbc0253ba548193" title="style: word-break 长链接强制换行" target="_blank" rel="external">[G]</a> 长链接强制换行；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/2b20489a591796924df1d4025f68cef80d421307" title="fix: email link 邮件链接" target="_blank" rel="external">[G]</a> 修复和加密邮件链接；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/a0d8349b24390a83d23cea701cbee2f046352a0c" title="feat: share components 模块化代码" target="_blank" rel="external">[G]</a> 学习 <a href="https://hexo.io/docs/templates.html#Partials" target="_blank" rel="external">模块化</a> 管理代码；</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-21_版权设置">2015-09-21 版权设置</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/af1cb85fdb628ea3ccd88c9117c110f92b1544c5" title="style: date format 日期格式" target="_blank" rel="external">[G]</a> 自定义 <a href="http://momentjs.com/docs/#/displaying/format/" title="Documentation - Format" target="_blank" rel="external">日期格式</a>；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/79b0f4419adb908924f674b3626ad433aabf329a" title="feat: copyright info 文末添加版权等信息" target="_blank" rel="external">[G]</a> 增加文末版权信息。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-20_样式优化">2015-09-20 样式优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/9b4f63858773bdcf94820048b8bb39d4ad214857" title="feat: hidden introduction header 隐藏的文章前言标题" target="_blank" rel="external">[G]</a> 隐藏的文章前言标题；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/d9307e871cf40f78a9508861b5a1a6cc64ceeee8" title="style: default new post elements" target="_blank" rel="external">[G]</a> 修改新建文章模板；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/457bde1070f16e05ba0d15a2ec2571421895691f" title="style: table &amp; image" target="_blank" rel="external">[G]</a> 优化表格样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-16_Markdown_表格">2015-09-16 Markdown 表格</h3><blockquote>
+<ul>
+<li>研究如何写好和管理 Markdown 表格。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-15_样式调整">2015-09-15 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/bd3cc92f2591b285c023d98a4fbc29965ec14b43" title="style: mobile labels button" target="_blank" rel="external">[G]</a> 调整移动端标签按钮样式；</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-14_按钮优化">2015-09-14 按钮优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/ccd87b533076f149d9951656d044a5de58b22c29" title="feat: hide-labels button 隐藏标记" target="_blank" rel="external">[G]</a> 文章索引界面增加按钮用于隐藏标签，方便浏览；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/b63d062984badfff94acdb64a1cff506462cf79c" title="feat: button value 按钮文字切换" target="_blank" rel="external">[G]</a> 按钮文字 <a href="http://www.admin10000.com/document/725.html" title="去掉超链接或按钮点击时出现的虚线边框" target="_blank" rel="external">切换</a> 。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-13_样式优化">2015-09-13 样式优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/9957573bdfdfede3e2ad5666f28fda9f7ce0e1f0" title="fix: code block in iOS 代码不全问题" target="_blank" rel="external">[G]</a> 修复 iOS 下代码显示不全问题；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/c5985d730de67ac4c36cf7cacc64170799a11272" title="style: customize h2, li, a style" target="_blank" rel="external">[G]</a> 个性化标题等样式；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/2a373fdd21b25353aa107d73607d6aead9a01714" title="fix: remove iOS button style 移除iOS按钮样式" target="_blank" rel="external">[G]</a> 移除iOS按钮样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-12_样式调整">2015-09-12 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/f3ff0f76170415b5bde72471994edccf7de96c4f" title="list&#39;s background" target="_blank" rel="external">[G]</a> 列表背景色调整；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/83f8fb7be7e528bd127f491b349c7f43156abe91" title="style: back to homepage 回到主页" target="_blank" rel="external">[G]</a> 去掉主页按钮，设置通过点击名字或者头像回到主页； </li>
+</ul>
+</blockquote>
+<h3 id="2015-09-11_样式调整">2015-09-11 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/91321131b65eb62aa2dad0ddce6b09fd5e6afd02" title="fix: no wrap &quot;more&quot; link 阅读全文链接不换行" target="_blank" rel="external">[G]</a> 阅读全文链接避免换行；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/1d77a4e84819128dd98f58f49af908e3de91ebff" title="style: customize style" target="_blank" rel="external">[G]</a> 背景颜色，字体颜色，鼠标悬浮效果等。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-10_样式调整">2015-09-10 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/ac2e94f5bf969f7980d857caa7ef5d6c60c249f4" title="fix: mobile article-nav width 移动端文章导航宽度" target="_blank" rel="external">[G]</a> 使移动端导航与PC端效果一致。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-09_目录优化">2015-09-09 目录优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/af99373123bf869e1fa851195dfa0b6f256c703d" title="feat: fix toc&#39;s position 简洁有效地显示目录" target="_blank" rel="external">[G]</a> 目录固定到左下，“藏”在左边栏里；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/796ce0d185b0557313f6ec4978906de73ba5fe0a" title="fix: mobile toc style 移动端目录显示" target="_blank" rel="external">[G]</a> 调整移动端目录样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-08_样式调整">2015-09-08 样式调整</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/3e5f553018ac209f9eda4619024fe0523843b1c4" title="style: interlaced colour line 隔行变色" target="_blank" rel="external">[G]</a> 修复 reference 隔行变色样式；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/83b8e18c74608768e4de9f62afbec617637356f9" title="feat: random colour 随机背景色" target="_blank" rel="external">[G]</a> 随机背景色。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-07_样式修复">2015-09-07 样式修复</h3><blockquote>
+<ul>
+<li>在 Hexo 中 <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" title="hexo你的博客" target="_blank" rel="external">新建页面</a>；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/1f1eced47efdd266972a2505858f866ca3a716e6" title="fix: article-nav in mobile view" target="_blank" rel="external">[G]</a> 移动端文章导航垂直居中。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-06_垂直居中">2015-09-06 垂直居中</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/2bde796afc75cfa5d4e70f08fa340a656155cd6f" title="refactor: vertical centering 垂直居中" target="_blank" rel="external">[G]</a> 重构代码，用表格实现链接靠边 <a href="http://vanseodesign.com/css/vertical-centering" title="6 Methods For Vertical Centering With CSS" target="_blank" rel="external">垂直居中</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-05_样式优化">2015-09-05 样式优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/e1049e72f79c51ae63c8ef99bf7e85a1cb53e14a" title="style: labels&#39; order 标记排序" target="_blank" rel="external">[G]</a> 更顺眼的标记排序；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/620cd5eeca5ed35dba29000ffa625b6618136606" title="style: personalize style" target="_blank" rel="external">[G]</a> 配色，边距，字体等样式调整。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-04_样式优化">2015-09-04 样式优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/dfab951bd8f53ffdcc12e482a75c281fa630be6b" title="fix: title cover date 长标题盖住日期" target="_blank" rel="external">[G]</a> 修复长标题覆盖日期的问题；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/8d545d2fb0f6bf93e66932232edf837963e9bb33" title="fix: title padding 移动端标题边距" target="_blank" rel="external">[G]</a> 让移动端标题边距更合理;</li>
+<li>西文单词与汉字间加空格，便于阅读和分段。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-03_Github_使用">2015-09-03 Github 使用</h3><blockquote>
+<ul>
+<li>开始使用 issue 功能；</li>
+<li>学会在 commit 中 <a href="https://help.github.com/articles/closing-issues-via-commit-messages/Closing" title="Closing issues via commit messages" target="_blank" rel="external">关闭 issue</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-02_主页跳转">2015-09-02 主页跳转</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/06382fbb88891b461389766245424303fe133f6f" title="fix: avatar to homepage 头像连接主页" target="_blank" rel="external">[G]</a> 使移动端也能点击头像回到主页。</li>
+</ul>
+</blockquote>
+<h3 id="2015-09-01_目录优化">2015-09-01 目录优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/5649f379fab57fd819fcdb543fa11dcfc0a485cd" title="feat: add scroll bar to toc 目录滚动条" target="_blank" rel="external">[G]</a> 为目录添加 overflow 属性，超过设置高度显示滚动条。</li>
+<li>往后博文固定链接只用小写，便于输入，减少404。</li>
+</ul>
+</blockquote>
+<h2 id="2015_年_8_月">2015 年 8 月</h2><h3 id="2015-08-31_Markdown_样式">2015-08-31 Markdown 样式</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/68bdc0cd8e446a5763d6f25b81c02ca40ea62b9e#diff-e7ac7a9542279e54a2024b62f119c8b6" title="style: personalize Markdown style 个性化Markdown样式" target="_blank" rel="external">[G]</a> 参考各种主题个性化自己的 Markdown 样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-30_代码高亮">2015-08-30 代码高亮</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/a56ce593dc504afb145206cdeae43526ed2b657c" title="style: code highlight 代码高亮" target="_blank" rel="external">[G]</a> 替换默认代码高亮主题；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/68bdc0cd8e446a5763d6f25b81c02ca40ea62b9e#diff-a5b9beba6f906c3456248a03427f86cf" target="_blank" rel="external">[G]</a> 自定义代码高亮样式。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-29_Markdown_文章优化">2015-08-29 Markdown 文章优化</h3><blockquote>
+<ul>
+<li>改用<code>[文字][链接代码]</code>的语法写 Markdown 文章，减少书写干扰。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-28_跳转按钮优化">2015-08-28 跳转按钮优化</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/4221fd71c98a7975d510dcfab0384b9bd78f4aeb" title="style: clickable toTop button 可点击的跳转按钮" target="_blank" rel="external">[G]</a> 添加 span 标签使整个按钮区域都能响应点击；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/31a6b67808b5fcac067ef3efc12156bf1d8f7ad3" title="style: restructure scrolling button 跳转按钮代码去重" target="_blank" rel="external">[G]</a> 增加 class, 减少重复代码；</li>
+<li>使按钮 div 直属于 body，保证可用性。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-27_按钮移动适配">2015-08-27 按钮移动适配</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/5316be03cdfd600ba25a3006f5ab5e716e28f027" title="style: mobile toTop toBottom 跳转按钮移动端适配" target="_blank" rel="external">[G]</a> 添加跳转按钮 CSS 样式，为移动端做适配。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-26_跳转按钮">2015-08-26 跳转按钮</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/e147e307d32f0080afaec3ca94f57895abe94a3f" title="feat: add toBottom button 添加返回底部按钮" target="_blank" rel="external">[G]</a> 使用 <a href="http://jingyan.baidu.com/article/8275fc86b79e6446a13cf66b.html" title="什么是HTML锚点，锚点应该如何用？" target="_blank" rel="external">HTML锚点</a> 实现返回底部功能；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/121907e365dd4e14139dea6f96bed6f9d42ea46c" title="refactor: toTop button 简化返回顶部代码" target="_blank" rel="external">[G]</a> 返回顶部按钮也改用锚点<code>a href=&quot;#top&quot;</code>实现；</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-25_更新基本信息">2015-08-25 更新基本信息</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/3dd85385989b7f144daaf328f9f576c5677b256e" title="Personalize configuration" target="_blank" rel="external">[G]</a> 更新友情链接，关于我，边栏菜单等基本信息；</li>
+<li>给文章添加标签和分类。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-24_样式优化">2015-08-24    样式优化</h3><blockquote>
+<ul>
+<li>给正文跳转链接增加提示标题，便于明晰去向;</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/0bfb2f5aa47349e5537875c4405f0f78de930557" title="feat: style even row 单双行变色" target="_blank" rel="external">[G]</a> 设置参考资料列表 <a href="http://blog.phpok.com/archives/202/" title="奇偶行显示不同样式操作，CSS3 :nth-child()伪类选择器" target="_blank" rel="external">单双行</a> 为不同底色；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/d874b46497988491d8607ff9c2cc12d3825d8d27" title="style: cursor with pointer 鼠标指针设置" target="_blank" rel="external">[G]</a> 修改目录按钮鼠标指针样式便于区分。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-23_Markdown_文章优化">2015-08-23    Markdown 文章优化</h3><blockquote>
+<ul>
+<li>配置邮箱使代码 commit <a href="https://help.github.com/articles/setting-your-email-in-git/" title="Setting your email in Git" target="_blank" rel="external">确认身份</a> 后显示头像；</li>
+<li>链接前后加一个半角空格改善阅读体验；</li>
+<li>列出参考资料，并 Markdown 化 <a href="http://endnote.com/" target="_blank" rel="external">Endnote</a> Reference 的导出样式，方便添加到文末。<blockquote>
+<p><strong>经验记录</strong>：<a href="/2015/08/30/EndNote-Markdown/"><strong>《EndNote 与 Markdown 结合 — 为网文快速添加 Reference》</strong></a></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-22_返回顶部按钮">2015-08-22    返回顶部按钮</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/c1a3786556121f192a270f2a776b1adc1c30a5bb" title="feat: add toTop button 添加返回顶部按钮" target="_blank" rel="external">[G]</a> 给博客添加 <a href="http://www.cnblogs.com/jingangel/archive/2012/03/08/2385939.html" title="用JavaScript实现简单的点击返回顶部效果" target="_blank" rel="external">返回顶部</a> 按钮；</li>
+<li>学习书写 <a href="https://ruby-china.org/topics/15737" title="写出好的 Commit Message" target="_blank" rel="external">规范</a> 的 <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/" title="Git Commit message conventions" target="_blank" rel="external">Commit Message</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-21_目录按钮">2015-08-21    目录按钮</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/be8fb25df35ba2155fb081b8dbc6550d654a8720" title="Add TOC Button 添加目录按钮" target="_blank" rel="external">[G]</a> 文章页添加 <a href="http://is.gd/bD33Ya" title="关于点击按钮弹出DIV的相关代码" target="_blank" rel="external">按钮</a>，用于显示或者隐藏文章目录；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/be8fb25df35ba2155fb081b8dbc6550d654a8720" title="Add TOC Button 添加目录按钮" target="_blank" rel="external">[G]</a> 简单修改了按钮的 CSS 样式；</li>
+<li>发现 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 服务开启时也可以修改配置文件，刷新网页即生效，预览方便多了。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-20_TOC_&amp;_Markdown">2015-08-20    TOC &amp; Markdown</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/c3eba7ac2e27d5ab2109f8b15338f2df8a97a604" title="Add TOC 增加文章目录" target="_blank" rel="external">[G]</a> 给博客添加文章目录 <a href="http://kuangqi.me/tricks/enable-table-of-contents-on-hexo/" title="为Hexo博客添加目录" target="_blank" rel="external">Table of Contents</a>；</li>
+<li>接触很久了，今天开始正式学习使用 <a href="http://sspai.com/25137" title="认识与入门 Markdown" target="_blank" rel="external">Markdown</a> 写文章。编辑器选了 <a href="http://www.maxiang.info" target="_blank" rel="external">马克飞象</a>，其默认主题很赞，导出效果也与 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 相近，方便预览。<a href="http://25.io/mou/" title="Markdown editor for developers." target="_blank" rel="external">Mou</a> 也不错，备用。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-19_GitHub_Pages_配置">2015-08-19    GitHub Pages 配置</h3><blockquote>
+<ul>
+<li>开始在 <a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 上使用 <a href="https://www.v2ex.com/t/178642" title="使用 GitHub 和 Hexo 搭建免费静态 Blog" target="_blank" rel="external">Hexo</a> 搭建管理博客，这类静态博客比较简洁轻量，不用接触 PHP 和后台数据库，修改方便，更适合正在学习 HTML, CSS 和 JavaScript 的我；</li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/1bece7a7d6fdce7a313d59f3792c32aa0ca53ddf" title="Add Theme 添加主题" target="_blank" rel="external">[G]</a> 安装使用 Hexo 新主题：<a href="https://github.com/litten/hexo-theme-yilia" title="Yilia: 一个简洁优雅的hexo主题" target="_blank" rel="external">Yilia</a> ；</li>
+<li><a href="https://github.com/seirhsiao/seirhsiao.github.io/commit/8031026958c727ff74ffc6e0d220e3bc838a5f09" title="Custom Domain" target="_blank" rel="external">[G]</a> 绑定域名到 <a href="https://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">Pages</a>； </li>
+<li><a href="https://github.com/seirhsiao/M-Hexo-Blog/commit/dd31a5ccb235dd58eb8220a30ad65ec9e2b14aaf" title="Update Duoshuo 重新配置多说" target="_blank" rel="external">[G]</a> 绑定网页评论到自己的 <a href="http://duoshuo.com/" title="多说评论系统" target="_blank" rel="external">多说</a> 账户。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-18_GitHub,_Pages_&amp;_Hexo">2015-08-18    GitHub, Pages &amp; Hexo</h3><blockquote>
+<ul>
+<li>把主题代码托管到 <a href="https://github.com/seirhsiao/WP-Theme-2015" title="WP-Theme-2015" target="_blank" rel="external">GitHub</a>，方便版本管理，回顾修改历史；</li>
+<li>在 <a href="https://github.com/seirhsiao/M-Hexo-Blog" title="M-Hexo-Blog" target="_blank" rel="external">GitHub</a> 上搭建博客，采取 <a href="http://segmentfault.com/a/1190000000458953" title="使用Github搭建静态博客（Hexo）" target="_blank" rel="external">Hexo</a> 框架，在 Windows 下安装配置环境；</li>
+<li>搭建这个静态博客又折腾了一晚，主要因为:</li>
+</ul>
+<ol>
+<li>Mac 下安装意外出错，我又不熟悉 Mac 的文件管理和配置方式，转战 Windows；</li>
+<li>各种教程包括官方英文文档省略了不少基础步骤，比如我折腾好一会才知道<code>$ npm install -g hexo-cli</code>是要在 git 安装后打开 git bash 输入，而不是在系统命令提示符里输入；</li>
+<li>不知道”$”是表示这个是命令行代码，输代码时并不用输入；</li>
+<li>要以<strong>管理员身份</strong>打开 git bash，之后的代码才能正常运行；</li>
+<li>不重视官方文档，网友分享的不少教程命令已经过时了，翻看官方文档修正后才能使用。</li>
+</ol>
+</blockquote>
+<h3 id="2015-08-17_修改主题">2015-08-17    修改主题</h3><blockquote>
+<ul>
+<li><a href="https://github.com/seirhsiao/WP-Theme-2015/commit/a3f026deee08e4f9acabeb5762964f73dd95a3fe" title="Show Excerpt 显示摘要" target="_blank" rel="external">[G]</a> 修改代码，使首页默认显示摘要 <a href="https://developer.wordpress.org/reference/functions/the_excerpt/" title="Code Reference: the_excerpt ()" target="_blank" rel="external">the_excerpt</a>；</li>
+<li>自定义中关闭站点标题，左边栏显示稳定不少；</li>
+<li><a href="https://github.com/seirhsiao/WP-Theme-2015/commit/627a205e35fe2e4a903b22114312f6b0e98d695f" title="Widget Setting Back-Up 小工具配置信息备份" target="_blank" rel="external">[G]</a> 通过自带小工具 text 添加了个人头像和简介；</li>
+<li>尝试各种 <a href="http://www.uisdc.com/6-rules-webdesign-color" title="网页设计怎么都不会错的6条配色原则" target="_blank" rel="external">配色方案</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-16_搭建_WordPress_本地环境">2015-08-16    搭建 WordPress 本地环境</h3><blockquote>
+<ul>
+<li>为了方便修改主题和预览效果，参考 <a href="http://jingyan.baidu.com/article/90bc8fc82098def653640c88.html" title="WordPress本地环境搭建及安装图文教程" target="_blank" rel="external">教程</a> 利用 <a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">XAMPP</a> 在 Windows 10 下搭建了 <a href="http://cn.wordpress.org/" target="_blank" rel="external">WordPress</a> 本地环境；</li>
+<li>先试着在 Mac 上搭建，出错被迫放弃；在 Windows 上顺利搭建，配置也更为丰富，不足就是有时需要以<strong>管理员身份</strong>启动程序才能运行 <a href="http://stackoverflow.com/questions/24097498/error-running-apache-after-xampp-install" title="Error running apache after XAMPP install" target="_blank" rel="external">Apache</a>。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-15_试用_WordPress">2015-08-15    试用 WordPress</h3><blockquote>
+<ul>
+<li>试了多个主题，决定在官方默认主题 <a href="https://wordpress.org/themes/twentyfifteen/" target="_blank" rel="external">Twenty Fifteen</a> 的基础上，自行添加修改样式。喜欢默认的双栏布局，另外官方代码完善的注释和排版也便于学习和修改；</li>
+<li>安装插件 <a href="http://www.wpdaxue.com/wp-user-avatar.html" title="WordPress 自定义头像插件：WP User Avatar" target="_blank" rel="external">WP User Avatar</a> 解决自定义头像问题；</li>
+<li>安装插件 <a href="http://www.brunoxu.com/useso-take-over-google.html" title="WordPress使用Useso公共库和字体库：Useso take over Google" target="_blank" rel="external">Useso take over Google</a> 改善后台访问速度；</li>
+<li>安装插件 <a href="http://www.freehao123.com/wordpress-w3-total-cache/" title="WordPress缓存插件W3 Total Cache安装设置方法和缓存加速效果对比" target="_blank" rel="external">W3 Total Cache</a> 改善网站访问速度。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-14_安装&amp;修复_WordPress">2015-08-14    安装&amp;修复 WordPress</h3><blockquote>
+<ul>
+<li>在个人虚拟主机上安装了网站程序 <a href="http://cn.wordpress.org/" target="_blank" rel="external">WordPress</a>，但因为瞎折腾，把主机 FTP 文件清空，新安装的 <a href="http://cn.wordpress.org/" target="_blank" rel="external">WordPress</a> 不能在线安装主题插件及上传文件，各种搜索无果，把后台密码给了 <a href="http://www.fyzhuji.com" target="_blank" rel="external">枫叶主机</a> 的技术员，重新配置安装后得以修复。</li>
+</ul>
+</blockquote>
+<h3 id="2015-08-13_域名解析和绑定">2015-08-13    域名解析和绑定</h3><blockquote>
+<ul>
+<li>参考 <a href="http://www.admin5.com/article/20141021/567235.shtml" title="新手站长如何简单搭建一个织梦网站" target="_blank" rel="external">站长网</a> 的一篇文章做好建站准备；</li>
+<li>用主机商提供的配置信息绑定和解析了域名。</li>
+</ul>
+</blockquote>
+<h3 id="2015-02-26_购买虚拟主机">2015-02-26    购买虚拟主机</h3><blockquote>
+<ul>
+<li>在 <a href="http://www.fyzhuji.com" target="_blank" rel="external">枫叶主机</a> 购买 Shadowsoscks 代理时看到了推荐的虚拟主机优惠套餐，蒙生了为自己建个站点写东西的想法，之后买了域名和主机。</li>
+</ul>
+</blockquote>
+<h3 id="2015-02-25_注册域名">2015-02-25    注册域名</h3><blockquote>
+<ul>
+<li>在 <a href="https://domains.qcloud.com/" target="_blank" rel="external">腾讯云域名</a> 选了个便宜，不用备案且后缀顺眼的域名，</li>
+<li>个人站点 <a href="http://moxfive.xyz/" title="seirhsiao&#39;s Blog" target="_blank" rel="external">moxfive.xyz</a> 成功注册！</li>
+</ul>
+</blockquote>
+<h2 id="参考资料">参考资料</h2><ol>
+<li><strong>seirhsiao Blog</strong>: <a href="http://moxfive.xyz/" target="_blank" rel="external">http://moxfive.xyz/</a></li>
+<li><strong>腾讯云域名</strong>: <a href="https://domains.qcloud.com/" target="_blank" rel="external">https://domains.qcloud.com/</a></li>
+<li><strong>枫叶主机</strong>: <a href="http://www.fyzhuji.com/" target="_blank" rel="external">http://www.fyzhuji.com/</a></li>
+<li><strong><em>新手站长如何简单搭建一个织梦网站</em></strong> by <strong>梓轩博客</strong> on <code>2014/10/21</code>: <a href="http://www.admin5.com/article/20141021/567235.shtml" target="_blank" rel="external">http://www.admin5.com/article/20141021/567235.shtml</a></li>
+<li><strong>WordPress</strong>: <a href="http://cn.wordpress.org/" target="_blank" rel="external">http://cn.wordpress.org/</a></li>
+<li><strong><em>WordPress缓存插件W3 Total Cache安装设置方法和缓存加速效果对比</em></strong> by <strong>qi</strong> on <code>2012/10/04</code>: <a href="http://www.freehao123.com/wordpress-w3-total-cache/" target="_blank" rel="external">http://www.freehao123.com/wordpress-w3-total-cache/</a></li>
+<li><strong><em>WordPress 自定义头像插件：WP User Avatar</em></strong> by <strong>倡萌</strong> on <code>2013/03/26</code>: <a href="http://www.wpdaxue.com/wp-user-avatar.html" target="_blank" rel="external">http://www.wpdaxue.com/wp-user-avatar.html</a></li>
+<li><strong><em>WordPress使用Useso公共库和字体库：Useso take over Google</em></strong> by <strong>Bruno</strong> on <code>2014/08/22</code>: <a href="http://www.brunoxu.com/useso-take-over-google.html" target="_blank" rel="external">http://www.brunoxu.com/useso-take-over-google.html</a></li>
+<li><strong><em>Theme: Twenty Fifteen</em></strong> by <strong>WordPress.org</strong> on <code>2015/08/19</code>: <a href="https://wordpress.org/themes/twentyfifteen/" target="_blank" rel="external">https://wordpress.org/themes/twentyfifteen/</a></li>
+<li><strong><em>WordPress本地环境搭建及安装图文教程</em></strong> by <strong>fnxjkj</strong> on <code>2012/11/23</code>: <a href="http://jingyan.baidu.com/article/90bc8fc82098def653640c88.html" target="_blank" rel="external">http://jingyan.baidu.com/article/90bc8fc82098def653640c88.html</a></li>
+<li><strong>XAMPP</strong>: <a href="https://www.apachefriends.org/index.html" target="_blank" rel="external">https://www.apachefriends.org/index.html</a></li>
+<li><strong><em>Error running apache after XAMPP install</em></strong> by <strong>CMPS</strong> on <code>2014/01/07</code>: <a href="http://stackoverflow.com/questions/24097498/error-running-apache-after-xampp-install" target="_blank" rel="external">http://stackoverflow.com/questions/24097498/error-running-apache-after-xampp-install</a></li>
+<li><strong><em>网页设计怎么都不会错的6条配色原则</em></strong> by <strong>应酷设计</strong> on <code>2014/08/12</code>: <a href="http://www.uisdc.com/6-rules-webdesign-color" target="_blank" rel="external">http://www.uisdc.com/6-rules-webdesign-color</a></li>
+<li><strong><em>Code Reference: the_excerpt ()</em></strong> by <strong>bhlarsen</strong> on <code>2015/06/28</code>: <a href="https://developer.wordpress.org/reference/functions/the_excerpt/" target="_blank" rel="external">https://developer.wordpress.org/reference/functions/the_excerpt/</a></li>
+<li><strong>GitHub Pages</strong>: <a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a></li>
+<li><strong><em>Hexo Framework Homepage</em></strong> by <strong>Tommy Chen</strong> on <code>2015</code>: <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">https://hexo.io/zh-cn/</a></li>
+<li><strong><em>使用Github搭建静态博客（Hexo）</em></strong> by <strong>钟白兔</strong> on <code>2014/04/07</code>: <a href="http://segmentfault.com/a/1190000000458953" target="_blank" rel="external">http://segmentfault.com/a/1190000000458953</a></li>
+<li><strong><em>使用 GitHub 和 Hexo 搭建免费静态 Blog</em></strong> by <strong>wsgzao</strong> on <code>2015/03/23</code>: <a href="https://www.v2ex.com/t/178642" target="_blank" rel="external">https://www.v2ex.com/t/178642</a></li>
+<li><strong><em>Hexo-Theme-Yilia</em></strong> by <strong>litten</strong> on <code>2015/02/21</code>: <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/seirhsiao" target="_blank" rel="external">https://github.com/seirhsiao</a></li>
+<li><strong><em>M-Hexo-Blog</em></strong> by <strong>seirhsiao</strong> on <code>2015</code>: <a href="https://github.com/seirhsiao/M-Hexo-Blog" target="_blank" rel="external">https://github.com/seirhsiao/M-Hexo-Blog</a></li>
+<li><strong><em>WP-Theme-2015</em></strong> by <strong>seirhsiao</strong> on <code>2015/08/18</code>: <a href="https://github.com/seirhsiao/WP-Theme-2015" target="_blank" rel="external">https://github.com/seirhsiao/WP-Theme-2015</a></li>
+<li><strong>多说评论系统</strong>: <a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a></li>
+<li><strong>马克飞象</strong>: <a href="http://www.maxiang.info/" target="_blank" rel="external">http://www.maxiang.info/</a></li>
+<li><strong>Mou - Markdown editor for developers</strong>: <a href="http://25.io/mou/" target="_blank" rel="external">http://25.io/mou/</a></li>
+<li><strong><em>为Hexo博客添加目录</em></strong> by <strong>况小琪不卖萌</strong> on <code>2015/02/09</code>: <a href="http://kuangqi.me/tricks/enable-table-of-contents-on-hexo/" target="_blank" rel="external">http://kuangqi.me/tricks/enable-table-of-contents-on-hexo/</a></li>
+<li><strong><em>关于点击按钮弹出DIV的相关代码</em></strong> by <strong>逍遥狂儒</strong> on <code>2013/08/02</code>: <a href="http://is.gd/bD33Ya" target="_blank" rel="external">http://is.gd/bD33Ya</a></li>
+<li><strong><em>用JavaScript实现简单的点击返回顶部效果</em></strong> by <strong>jingangel</strong> on <code>2012/03/08</code>: <a href="http://www.cnblogs.com/jingangel/archive/2012/03/08/2385939.html" target="_blank" rel="external">http://www.cnblogs.com/jingangel/archive/2012/03/08/2385939.html</a></li>
+<li><strong><em>写出好的 Commit Message</em></strong> by <strong>victor</strong> on <code>2014</code>: <a href="https://ruby-china.org/topics/15737" target="_blank" rel="external">https://ruby-china.org/topics/15737</a></li>
+<li><strong><em>Git Commit message conventions</em></strong> by <strong>AngularJS</strong> on <code>2015</code>: <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/" target="_blank" rel="external">https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/</a></li>
+<li><strong><em>Setting your email in Git</em></strong> by <strong>GitHub</strong> on <code>2015</code>: <a href="https://help.github.com/articles/setting-your-email-in-git/" target="_blank" rel="external">https://help.github.com/articles/setting-your-email-in-git/</a></li>
+<li><strong>Endnote</strong>: <a href="http://endnote.com/" target="_blank" rel="external">http://endnote.com/</a></li>
+<li><strong><em>Markdown 语法说明</em></strong> by <strong>riku</strong> on <code>2012</code>: <a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">http://wowubuntu.com/markdown/</a></li>
+<li><strong><em>认识与入门 Markdown</em></strong> by <strong>Te_Lee</strong> on <code>2014/04/17</code>: <a href="http://sspai.com/25137" target="_blank" rel="external">http://sspai.com/25137</a></li>
+<li><strong><em>奇偶行显示不同样式操作，CSS3 :nth-child()伪类选择器</em></strong> by <strong>phpok</strong> on <code>2013/03/08</code>: <a href="http://blog.phpok.com/archives/202/" target="_blank" rel="external">http://blog.phpok.com/archives/202/</a></li>
+<li><strong><em>什么是HTML锚点，锚点应该如何用？</em></strong> by <strong>houniaoxiapu</strong> on <code>2014/08/23</code>: <a href="http://jingyan.baidu.com/article/8275fc86b79e6446a13cf66b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/8275fc86b79e6446a13cf66b.html</a></li>
+<li><strong><em>JS点击按钮到页面最底部/返回页面顶部代码</em></strong> by <strong>科e互联</strong> on <code>2014/12/12</code>: <a href="http://www.internetke.com/tutorial/js/2014/1212/1005.html" target="_blank" rel="external">http://www.internetke.com/tutorial/js/2014/1212/1005.html</a></li>
+<li><strong><em>Hexo的私人订制</em></strong> by <strong>Sunny</strong> on <code>2014/03/07</code>: <a href="http://blog.sunnyxx.com/2014/03/07/hexo_customize/#定制代码样式" target="_blank" rel="external">http://blog.sunnyxx.com/2014/03/07/hexo_customize/#定制代码样式</a></li>
+<li><strong><em>Closing issues via commit messages</em></strong> by <strong>GitHub</strong> on <code>2015</code>: <a href="https://help.github.com/articles/closing-issues-via-commit-messages/" target="_blank" rel="external">https://help.github.com/articles/closing-issues-via-commit-messages/</a></li>
+<li><strong><em>6 Methods For Vertical Centering With CSS</em></strong> by <strong>S. Bradley</strong> on <code>2011/07/14</code>: <a href="http://vanseodesign.com/css/vertical-centering" target="_blank" rel="external">http://vanseodesign.com/css/vertical-centering</a></li>
+<li><strong><em>hexo你的博客</em></strong> by <strong>不如</strong> on <code>2013/11/22</code>: <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">http://ibruce.info/2013/11/22/hexo-your-blog/</a></li>
+<li><strong><em>你所不知的 CSS ::before 和 ::after 伪元素用法</em></strong> by <strong>Dimpurr Cheny</strong> on <code>2013/10/18</code>: <a href="http://justcoding.iteye.com/blog/2032627" target="_blank" rel="external">http://justcoding.iteye.com/blog/2032627</a></li>
+<li><strong><em>去掉超链接或按钮点击时出现的虚线边框</em></strong> by <strong>WEB开发者</strong> on <code>2012/08/10</code>: <a href="http://www.admin10000.com/document/725.html" target="_blank" rel="external">http://www.admin10000.com/document/725.html</a></li>
+<li><strong><em>Documentation: Format</em></strong> by <strong>Moment.js</strong> on <code>2015</code>: <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank" rel="external">http://momentjs.com/docs/#/displaying/format/</a></li>
+<li><strong><em>不蒜子: 搞定你的网站计数</em></strong> by <strong>不如</strong> on <code>2015/4/4</code>: <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">http://ibruce.info/2015/04/04/busuanzi/</a></li>
+<li><strong>百度分享</strong>: <a href="http://share.baidu.com" target="_blank" rel="external">http://share.baidu.com</a></li>
+<li><strong>微搜索</strong>: <a href="http://tinysou.com/" target="_blank" rel="external">http://tinysou.com/</a></li>
+<li><strong>百度统计</strong>: <a href="http://tongji.baidu.com/" target="_blank" rel="external">http://tongji.baidu.com/</a></li>
+<li><strong>Swiftype</strong>: <a href="https://swiftype.com/" target="_blank" rel="external">https://swiftype.com/</a></li>
+<li><strong><em>同时将博客部署在Github和Gitcafe上，并通过DNSPOD分流</em></strong> by <strong>PPTing</strong> on <code>2015/02/08</code>: <a href="http://ppting.me/2015/02/08/gitcafe/" target="_blank" rel="external">http://ppting.me/2015/02/08/gitcafe/</a></li>
+<li><strong>百度站内搜索</strong>: <a href="http://zn.baidu.com" target="_blank" rel="external">http://zn.baidu.com</a></li>
+<li><strong>Gitcafe</strong>: <a href="https://gitcafe.com/" target="_blank" rel="external">https://gitcafe.com/</a></li>
+<li><strong><em>国内外各大免费搜索引擎、导航网址提交入口</em></strong> by <strong>卢松松</strong> on <code>2015/09/22</code>: <a href="http://tool.lusongsong.com/addurl.html" target="_blank" rel="external">http://tool.lusongsong.com/addurl.html</a></li>
+<li><strong>TiddlyWiki</strong>: <a href="http://tiddlywiki.com/" target="_blank" rel="external">http://tiddlywiki.com/</a></li>
+</ol>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2015/08/20/blog-building/">个人博客站点建设历程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 萧影随行 的个人博客">萧影随行</a></p>
+  <p><span>发布时间:</span>2015年08月20日 - 00时00分</p>
+  <p><span>最后更新:</span>2016年01月26日 - 21时19分</p>
+  <p>
+    <span>原始链接:</span><a href="/2015/08/20/blog-building/" title="个人博客站点建设历程">http://notes.seirhsiao.com/2015/08/20/blog-building/</a>
+    <span class="btn" data-clipboard-text="原文: http://notes.seirhsiao.com/2015/08/20/blog-building/　　作者: 萧影随行" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2015/08/28/Front-End-Study/">
+        个人 Web 前端学习路线
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2015/08/19/hello-world/">
+        Hello World
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015_年_11_月"><span class="toc-number">2.</span> <span class="toc-text">2015 年 11 月</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-19_样式调整"><span class="toc-number">2.1.</span> <span class="toc-text">2015-11-19 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-18_目录显示"><span class="toc-number">2.2.</span> <span class="toc-text">2015-11-18 目录显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-17_随机背景优化"><span class="toc-number">2.3.</span> <span class="toc-text">2015-11-17 随机背景优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-16_代码框样式"><span class="toc-number">2.4.</span> <span class="toc-text">2015-11-16 代码框样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-15_图片样式"><span class="toc-number">2.5.</span> <span class="toc-text">2015-11-15 图片样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-11_文章分类"><span class="toc-number">2.6.</span> <span class="toc-text">2015-11-11 文章分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-09_时间格式"><span class="toc-number">2.7.</span> <span class="toc-text">2015-11-09 时间格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-06_个人_Wiki"><span class="toc-number">2.8.</span> <span class="toc-text">2015-11-06 个人 Wiki</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-11-01_样式优化"><span class="toc-number">2.9.</span> <span class="toc-text">2015-11-01 样式优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015_年_10_月"><span class="toc-number">3.</span> <span class="toc-text">2015 年 10 月</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-26_Stylus"><span class="toc-number">3.1.</span> <span class="toc-text">2015-10-26 Stylus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-25_地址复制"><span class="toc-number">3.2.</span> <span class="toc-text">2015-10-25 地址复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-23_主题切换"><span class="toc-number">3.3.</span> <span class="toc-text">2015-10-23 主题切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-22_提交主题"><span class="toc-number">3.4.</span> <span class="toc-text">2015-10-22 提交主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-21_社交图标"><span class="toc-number">3.5.</span> <span class="toc-text">2015-10-21 社交图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-20_背景图开关"><span class="toc-number">3.6.</span> <span class="toc-text">2015-10-20 背景图开关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-19_完善主题"><span class="toc-number">3.7.</span> <span class="toc-text">2015-10-19 完善主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-18_发布主题"><span class="toc-number">3.8.</span> <span class="toc-text">2015-10-18 发布主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-17_主题_Yelee"><span class="toc-number">3.9.</span> <span class="toc-text">2015-10-17 主题 Yelee</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-16_构建主题"><span class="toc-number">3.10.</span> <span class="toc-text">2015-10-16 构建主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-15_文章导航"><span class="toc-number">3.11.</span> <span class="toc-text">2015-10-15 文章导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-14_多说评论"><span class="toc-number">3.12.</span> <span class="toc-text">2015-10-14 多说评论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-12_标签云界面"><span class="toc-number">3.13.</span> <span class="toc-text">2015-10-12 标签云界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-11_跳转按钮"><span class="toc-number">3.14.</span> <span class="toc-text">2015-10-11 跳转按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-10_样式调整"><span class="toc-number">3.15.</span> <span class="toc-text">2015-10-10 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-09_图片优化"><span class="toc-number">3.16.</span> <span class="toc-text">2015-10-09 图片优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-08_Font_Awesome"><span class="toc-number">3.17.</span> <span class="toc-text">2015-10-08 Font Awesome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-07_订阅"><span class="toc-number">3.18.</span> <span class="toc-text">2015-10-07 订阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-06_样式调整"><span class="toc-number">3.19.</span> <span class="toc-text">2015-10-06 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-05_新配色主题"><span class="toc-number">3.20.</span> <span class="toc-text">2015-10-05 新配色主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-04_SEO_&_部署"><span class="toc-number">3.21.</span> <span class="toc-text">2015-10-04 SEO & 部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-03_搜索_&_页面样式"><span class="toc-number">3.22.</span> <span class="toc-text">2015-10-03 搜索 & 页面样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-02_网站统计"><span class="toc-number">3.23.</span> <span class="toc-text">2015-10-02 网站统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-01_搜索模块"><span class="toc-number">3.24.</span> <span class="toc-text">2015-10-01 搜索模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015_年_9_月"><span class="toc-number">4.</span> <span class="toc-text">2015 年 9 月</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-30_关于我页面"><span class="toc-number">4.1.</span> <span class="toc-text">2015-09-30 关于我页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-29_多说样式"><span class="toc-number">4.2.</span> <span class="toc-text">2015-09-29 多说样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-28_社会化分享"><span class="toc-number">4.3.</span> <span class="toc-text">2015-09-28 社会化分享</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-25_时间格式"><span class="toc-number">4.4.</span> <span class="toc-text">2015-09-25 时间格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-23_网站计数"><span class="toc-number">4.5.</span> <span class="toc-text">2015-09-23 网站计数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-22_模块化"><span class="toc-number">4.6.</span> <span class="toc-text">2015-09-22 模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-21_版权设置"><span class="toc-number">4.7.</span> <span class="toc-text">2015-09-21 版权设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-20_样式优化"><span class="toc-number">4.8.</span> <span class="toc-text">2015-09-20 样式优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-16_Markdown_表格"><span class="toc-number">4.9.</span> <span class="toc-text">2015-09-16 Markdown 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-15_样式调整"><span class="toc-number">4.10.</span> <span class="toc-text">2015-09-15 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-14_按钮优化"><span class="toc-number">4.11.</span> <span class="toc-text">2015-09-14 按钮优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-13_样式优化"><span class="toc-number">4.12.</span> <span class="toc-text">2015-09-13 样式优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-12_样式调整"><span class="toc-number">4.13.</span> <span class="toc-text">2015-09-12 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-11_样式调整"><span class="toc-number">4.14.</span> <span class="toc-text">2015-09-11 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-10_样式调整"><span class="toc-number">4.15.</span> <span class="toc-text">2015-09-10 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-09_目录优化"><span class="toc-number">4.16.</span> <span class="toc-text">2015-09-09 目录优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-08_样式调整"><span class="toc-number">4.17.</span> <span class="toc-text">2015-09-08 样式调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-07_样式修复"><span class="toc-number">4.18.</span> <span class="toc-text">2015-09-07 样式修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-06_垂直居中"><span class="toc-number">4.19.</span> <span class="toc-text">2015-09-06 垂直居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-05_样式优化"><span class="toc-number">4.20.</span> <span class="toc-text">2015-09-05 样式优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-04_样式优化"><span class="toc-number">4.21.</span> <span class="toc-text">2015-09-04 样式优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-03_Github_使用"><span class="toc-number">4.22.</span> <span class="toc-text">2015-09-03 Github 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-02_主页跳转"><span class="toc-number">4.23.</span> <span class="toc-text">2015-09-02 主页跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-09-01_目录优化"><span class="toc-number">4.24.</span> <span class="toc-text">2015-09-01 目录优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015_年_8_月"><span class="toc-number">5.</span> <span class="toc-text">2015 年 8 月</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-31_Markdown_样式"><span class="toc-number">5.1.</span> <span class="toc-text">2015-08-31 Markdown 样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-30_代码高亮"><span class="toc-number">5.2.</span> <span class="toc-text">2015-08-30 代码高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-29_Markdown_文章优化"><span class="toc-number">5.3.</span> <span class="toc-text">2015-08-29 Markdown 文章优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-28_跳转按钮优化"><span class="toc-number">5.4.</span> <span class="toc-text">2015-08-28 跳转按钮优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-27_按钮移动适配"><span class="toc-number">5.5.</span> <span class="toc-text">2015-08-27 按钮移动适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-26_跳转按钮"><span class="toc-number">5.6.</span> <span class="toc-text">2015-08-26 跳转按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-25_更新基本信息"><span class="toc-number">5.7.</span> <span class="toc-text">2015-08-25 更新基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-24_样式优化"><span class="toc-number">5.8.</span> <span class="toc-text">2015-08-24    样式优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-23_Markdown_文章优化"><span class="toc-number">5.9.</span> <span class="toc-text">2015-08-23    Markdown 文章优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-22_返回顶部按钮"><span class="toc-number">5.10.</span> <span class="toc-text">2015-08-22    返回顶部按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-21_目录按钮"><span class="toc-number">5.11.</span> <span class="toc-text">2015-08-21    目录按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-20_TOC_&_Markdown"><span class="toc-number">5.12.</span> <span class="toc-text">2015-08-20    TOC & Markdown</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-19_GitHub_Pages_配置"><span class="toc-number">5.13.</span> <span class="toc-text">2015-08-19    GitHub Pages 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-18_GitHub,_Pages_&_Hexo"><span class="toc-number">5.14.</span> <span class="toc-text">2015-08-18    GitHub, Pages & Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-17_修改主题"><span class="toc-number">5.15.</span> <span class="toc-text">2015-08-17    修改主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-16_搭建_WordPress_本地环境"><span class="toc-number">5.16.</span> <span class="toc-text">2015-08-16    搭建 WordPress 本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-15_试用_WordPress"><span class="toc-number">5.17.</span> <span class="toc-text">2015-08-15    试用 WordPress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-14_安装&修复_WordPress"><span class="toc-number">5.18.</span> <span class="toc-text">2015-08-14    安装&修复 WordPress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-08-13_域名解析和绑定"><span class="toc-number">5.19.</span> <span class="toc-text">2015-08-13    域名解析和绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-02-26_购买虚拟主机"><span class="toc-number">5.20.</span> <span class="toc-text">2015-02-26    购买虚拟主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-02-25_注册域名"><span class="toc-number">5.21.</span> <span class="toc-text">2015-02-25    注册域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/08/20/blog-building/" data-title="个人博客站点建设历程" data-url="http://notes.seirhsiao.com/2015/08/20/blog-building/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hsiao-tech"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2015/08/28/Front-End-Study/" title="上一篇: 个人 Web 前端学习路线">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2015/08/19/hello-world/" title="下一篇: Hello World">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+        var yiliaConfig = {
+        fancybox: true,
+        mathjax: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false
+        }
+        </script>
+        
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 萧影随行
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/seirhsiao/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by 萧
+        </div>
+    </div>
+    <div class="visit">
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        <span id="site-visit" >本站到访数: 
+        <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script>
+  var backgroundnum = 5;
+  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+
+  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
