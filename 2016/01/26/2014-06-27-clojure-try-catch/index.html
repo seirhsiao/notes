@@ -239,34 +239,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>clojure 异常处理简单介绍及示常见函数(宏)示例<br><a id="more"></a></p>
-<h3 id="一、异常处理">一、异常处理</h3><p>Clojure代码里面抛出来的异常都是运行时异常。当然从Clojure代码里面调用的java代码还是可能抛出那种需要检查的异常的。</p>
+<h3 id="u4E00_u3001_u5F02_u5E38_u5904_u7406"><a href="#u4E00_u3001_u5F02_u5E38_u5904_u7406" class="headerlink" title="一、异常处理"></a>一、异常处理</h3><p>Clojure代码里面抛出来的异常都是运行时异常。当然从Clojure代码里面调用的java代码还是可能抛出那种需要检查的异常的。</p>
 <p><code>try - catch - finally</code> 以及<code>throw</code> 提供了和<code>java</code>里面类似的功能。</p>
 <p><strong><code>try</code>、<code>catch</code>、<code>throw</code>、<code>finally</code>：</strong><br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">try</span></span> <span class="list">(<span class="keyword"><span class="built_in">throw</span></span> <span class="list">(<span class="keyword">Exception.</span> <span class="string">"error"</span>)</span>)</span> <span class="list">(<span class="keyword">finally</span> <span class="list">(<span class="keyword">println</span> <span class="string">"final"</span>)</span>)</span>)</span>  </span></span><br><span class="line">final  </span><br><span class="line">Exception error  user/eval310 (NO_SOURCE_FILE:1)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">try</span></span> <span class="list">(/ <span class="number">3</span> <span class="number">0</span>)</span> <span class="list">(<span class="keyword">catch</span> Exception e <span class="list">(<span class="keyword">println</span> e)</span>)</span>)</span>  </span></span><br><span class="line">#&lt;ArithmeticException java.lang.ArithmeticException: Divide by zero&gt;  </span><br><span class="line">nil</span><br></pre></td></tr></table></figure></p>
 <p><strong><code>assert</code>：</strong><br>它测试一个表达式， 如果这个表达式的值为false的话，它会抛出异常。<br><figure class="highlight clojure-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="literal">true</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="literal">false</span>)</span>  </span></span><br><span class="line">AssertionError Assert failed: false  user/eval317 (NO_SOURCE_FILE:1)  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="literal">nil</span>)</span>  </span></span><br><span class="line">AssertionError Assert failed: nil  user/eval319 (NO_SOURCE_FILE:1)  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="number">0</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>  </span></span><br><span class="line">nil  </span><br><span class="line"><span class="prompt">user=&gt;</span><span class="clojure"> <span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="string">"foo"</span>)</span>  </span></span><br><span class="line">nil</span><br></pre></td></tr></table></figure></p>
 <p><strong><code>clojure</code> 完整示例：</strong></p>
-<pre><code class="clojure"><span class="list">(<span class="keyword"><span class="built_in">ns</span></span> helloclojure.myexception)</span>  
+<pre><code class="clojure">(<span class="name"><span class="builtin-name">ns</span></span> helloclojure.myexception)  
 
-<span class="list">(<span class="keyword"><span class="built_in">defn</span></span> exception_test1 <span class="collection">[]</span>  
-  <span class="list">(<span class="keyword"><span class="built_in">try</span></span> <span class="list">(<span class="keyword"><span class="built_in">throw</span></span> <span class="list">(<span class="keyword">Exception.</span> <span class="string">"--error--"</span>)</span>)</span>  
-    <span class="list">(<span class="keyword">finally</span> <span class="list">(<span class="keyword">println</span> <span class="string">"final"</span>)</span>)</span>  
-    )</span>)</span>  
+(<span class="name"><span class="builtin-name">defn</span></span> exception_test1 []  
+  (<span class="name"><span class="builtin-name">try</span></span> (<span class="name"><span class="builtin-name">throw</span></span> (<span class="name">Exception.</span> <span class="string">"--error--"</span>))  
+    (<span class="name">finally</span> (<span class="name">println</span> <span class="string">"final"</span>))  
+    ))  
 
-<span class="list">(<span class="keyword"><span class="built_in">defn</span></span> exception_test2 <span class="collection">[]</span>  
-  <span class="list">(<span class="keyword"><span class="built_in">try</span></span> <span class="list">(/ <span class="number">3</span> <span class="number">0</span>)</span>   
-    <span class="list">(<span class="keyword">catch</span> Exception e <span class="list">(<span class="keyword">println</span> <span class="string">"error: "</span> e)</span>)</span>  
-    )</span>)</span>  
+(<span class="name"><span class="builtin-name">defn</span></span> exception_test2 []  
+  (<span class="name"><span class="builtin-name">try</span></span> (/ <span class="number">3</span> <span class="number">0</span>)   
+    (<span class="name">catch</span> Exception e (<span class="name">println</span> <span class="string">"error: "</span> e))  
+    ))  
 
-<span class="list">(<span class="keyword"><span class="built_in">defn</span></span> exception_test3 <span class="collection">[cls]</span>  
-  <span class="list">(<span class="keyword"><span class="built_in">try</span></span> <span class="list">(<span class="keyword">Class/forName</span> cls)</span> <span class="literal">true</span>  
-    <span class="list">(<span class="keyword">catch</span> ClassNotFoundException e <span class="literal">false</span>)</span>)</span>  
-  )</span>  
+(<span class="name"><span class="builtin-name">defn</span></span> exception_test3 [cls]  
+  (<span class="name"><span class="builtin-name">try</span></span> (<span class="name">Class/forName</span> cls) <span class="literal">true</span>  
+    (<span class="name">catch</span> ClassNotFoundException e <span class="literal">false</span>))  
+  )  
 
 <span class="comment">;(exception_test1)  </span>
-<span class="list">(<span class="keyword">exception_test2</span>)</span>   <span class="comment">; error:  #&lt;ArithmeticException java.lang.ArithmeticException: Divide by zero&gt;  </span>
+(<span class="name">exception_test2</span>)   <span class="comment">; error:  #&lt;ArithmeticException java.lang.ArithmeticException: Divide by zero&gt;  </span>
 <span class="comment">;(exception_test3 helloclojure.myexception)  </span>
 
 
-<span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="literal">true</span>)</span>          
+(<span class="name"><span class="builtin-name">assert</span></span> <span class="literal">true</span>)          
 
 <span class="comment">;(assert false)  </span>
 <span class="comment">;(try (assert false)  </span>
@@ -275,13 +275,13 @@
 
 <span class="comment">;(assert nil)  </span>
 
-<span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="collection">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span>)</span>  
+(<span class="name"><span class="builtin-name">assert</span></span> [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>])  
 
-<span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="string">"foo"</span>)</span>  
+(<span class="name"><span class="builtin-name">assert</span></span> <span class="string">"foo"</span>)  
 
-<span class="list">(<span class="keyword"><span class="built_in">assert</span></span> <span class="number">0</span>)</span>  
+(<span class="name"><span class="builtin-name">assert</span></span> <span class="number">0</span>)  
 
-<span class="list">(<span class="keyword">print</span> 'end)</span>
+(<span class="name">print</span> 'end)
 </code></pre>
 <p>二、参考资料<br><a href="http://blog.csdn.net/sunboy_2050/article/details/17226585" target="_blank" rel="external">Clojure 学习入门（17）—— 异常处理</a><br><a href="http://dead-knight.iteye.com/blog/1829618" target="_blank" rel="external">clojure-基本语法-流程控制（二）</a></p>
 
@@ -346,7 +346,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、异常处理"><span class="toc-number">1.</span> <span class="toc-text">一、异常处理</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001_u5F02_u5E38_u5904_u7406"><span class="toc-number">1.</span> <span class="toc-text">一、异常处理</span></a></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {

@@ -260,7 +260,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文档用于帮助您安装Sonar和Eclipse的Sonar插件,并利用Sonar分析您的项目，动态地清理代码中的问题，提高代码质量。<br><a id="more"></a></p>
-<h3 id="一、Sonar安装">一、Sonar安装</h3><ol>
+<h3 id="u4E00_u3001Sonar_u5B89_u88C5"><a href="#u4E00_u3001Sonar_u5B89_u88C5" class="headerlink" title="一、Sonar安装"></a>一、Sonar安装</h3><ol>
 <li>下载Sonar</li>
 </ol>
 <p>点击下面网址：<br><a href="http://dist.sonar.codehaus.org/sonar-3.5.1.zip" target="_blank" rel="external">下载Sonar</a> </p>
@@ -281,7 +281,7 @@
 <li>访问Sonar</li>
 </ol>
 <p>现在你可以通过<a href="http://localhost:9000访问你的Sonar" target="_blank" rel="external">http://localhost:9000访问你的Sonar</a></p>
-<h3 id="二、生成Sonar报告">二、生成Sonar报告</h3><ul>
+<h3 id="u4E8C_u3001_u751F_u6210Sonar_u62A5_u544A"><a href="#u4E8C_u3001_u751F_u6210Sonar_u62A5_u544A" class="headerlink" title="二、生成Sonar报告"></a>二、生成Sonar报告</h3><ul>
 <li>POM中增加Sonar配置</li>
 </ul>
 <p>Sonar安装完成后，为了可以生成maven项目的报告，我们需要在项目的pom.xml文件中添加下图所示的行（在properties section中增加Sonar主机地址）<br><img src="/static/images/sonar/sonar_01_04.png" alt="sonar_01_04.png"><br>图 4 POM XML中添加Sonar配置</p>
@@ -308,8 +308,8 @@
 <p><img src="/static/images/sonar/sonar_01_06.png" alt="sonar_01_06.png"><br>图 6 生成Sonar报告-2</p>
 <p>最后看到如下信息时，表明sonar报告已经完成。</p>
 <p><img src="/static/images/sonar/sonar_01_07.png" alt="sonar_01_07.png"><br>图 7 Sonar报告生成成功</p>
-<h3 id="三、Sonar中访问您的项目">三、Sonar中访问您的项目</h3><p>现在登陆 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> ，你将看到生成的项目报告<br><img src="/static/images/sonar/sonar_01_08.png" alt="sonar_01_08.png"><br>图8 本地生成的Sonar报告</p>
-<h3 id="四、Eclipse中集成Sonar">四、Eclipse中集成Sonar</h3><ul>
+<h3 id="u4E09_u3001Sonar_u4E2D_u8BBF_u95EE_u60A8_u7684_u9879_u76EE"><a href="#u4E09_u3001Sonar_u4E2D_u8BBF_u95EE_u60A8_u7684_u9879_u76EE" class="headerlink" title="三、Sonar中访问您的项目"></a>三、Sonar中访问您的项目</h3><p>现在登陆 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> ，你将看到生成的项目报告<br><img src="/static/images/sonar/sonar_01_08.png" alt="sonar_01_08.png"><br>图8 本地生成的Sonar报告</p>
+<h3 id="u56DB_u3001Eclipse_u4E2D_u96C6_u6210Sonar"><a href="#u56DB_u3001Eclipse_u4E2D_u96C6_u6210Sonar" class="headerlink" title="四、Eclipse中集成Sonar"></a>四、Eclipse中集成Sonar</h3><ul>
 <li><p>安装Eclipse的Sonar插件<br>通过Eclipse Market Place安装<br><img src="/static/images/sonar/sonar_01_09.png" alt="sonar_01_09.png"><br>图 9 Sonar的Eclipse插件安装（Market Place）1<br><img src="/static/images/sonar/sonar_01_10.png" alt="sonar_01_10.png"><br>图 10 Sonar的Eclipse插件安装（Market Place）2</p>
 </li>
 <li><p>通过Eclipse Software Update安装</p>
@@ -337,7 +337,7 @@
 <li><p>点击Finsh。您的项目现在关联到您的Sonar服务器上进行分析</p>
 </li>
 </ul>
-<h3 id="五、分析和清理代码">五、分析和清理代码</h3><ul>
+<h3 id="u4E94_u3001_u5206_u6790_u548C_u6E05_u7406_u4EE3_u7801"><a href="#u4E94_u3001_u5206_u6790_u548C_u6E05_u7406_u4EE3_u7801" class="headerlink" title="五、分析和清理代码"></a>五、分析和清理代码</h3><ul>
 <li>执行本地分析，清理代码<br><img src="/static/images/sonar/sonar_01_15.png" alt="sonar_01_15.png"><br>图 15 配置模块<br><img src="/static/images/sonar/sonar_01_16.png" alt="sonar_01_16.png"><br>图 16 在Eclipse中配置Sonar模块</li>
 </ul>
 <p><strong>注意</strong>：请确保你的本地Sonar服务器已经启动（在运行Sonar一节描述），否则您无法看到您打算配置的Sonar项目</p>
@@ -346,7 +346,7 @@
 </ul>
 <p><img src="/static/images/sonar/sonar_01_17.png" alt="sonar_01_17_a.png"><br>图 17.a 设置Sonar分析为本地模式</p>
 <p><img src="/static/images/sonar/sonar_01_17_b.png" alt="sonar_01_17_b.png"><br>图 17.b 本地运行Sonar分析<br><img src="/static/images/sonar/sonar_01_18.png" alt="sonar_01_18.png"><br>图 18 Sonar问题分析控制台<br><img src="/static/images/sonar/sonar_01_19.png" alt="sonar_01_19.png"><br>图 19 Sonar问题分析控制台2<br><img src="/static/images/sonar/sonar_01_20.png" alt="sonar_01_20.png"><br>图 20 Sonar问题标记</p>
-<h3 id="六、参考推荐">六、参考推荐</h3><p>原文链接： dzone 翻译： ImportNew.com - norwind<br>译文链接： <a href="http://www.importnew.com/10017.html" target="_blank" rel="external">http://www.importnew.com/10017.html</a></p>
+<h3 id="u516D_u3001_u53C2_u8003_u63A8_u8350"><a href="#u516D_u3001_u53C2_u8003_u63A8_u8350" class="headerlink" title="六、参考推荐"></a>六、参考推荐</h3><p>原文链接： dzone 翻译： ImportNew.com - norwind<br>译文链接： <a href="http://www.importnew.com/10017.html" target="_blank" rel="external">http://www.importnew.com/10017.html</a></p>
 
       
       
@@ -409,7 +409,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Sonar安装"><span class="toc-number">1.</span> <span class="toc-text">一、Sonar安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、生成Sonar报告"><span class="toc-number">2.</span> <span class="toc-text">二、生成Sonar报告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Sonar中访问您的项目"><span class="toc-number">3.</span> <span class="toc-text">三、Sonar中访问您的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Eclipse中集成Sonar"><span class="toc-number">4.</span> <span class="toc-text">四、Eclipse中集成Sonar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、分析和清理代码"><span class="toc-number">5.</span> <span class="toc-text">五、分析和清理代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、参考推荐"><span class="toc-number">6.</span> <span class="toc-text">六、参考推荐</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001Sonar_u5B89_u88C5"><span class="toc-number">1.</span> <span class="toc-text">一、Sonar安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8C_u3001_u751F_u6210Sonar_u62A5_u544A"><span class="toc-number">2.</span> <span class="toc-text">二、生成Sonar报告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E09_u3001Sonar_u4E2D_u8BBF_u95EE_u60A8_u7684_u9879_u76EE"><span class="toc-number">3.</span> <span class="toc-text">三、Sonar中访问您的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u56DB_u3001Eclipse_u4E2D_u96C6_u6210Sonar"><span class="toc-number">4.</span> <span class="toc-text">四、Eclipse中集成Sonar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E94_u3001_u5206_u6790_u548C_u6E05_u7406_u4EE3_u7801"><span class="toc-number">5.</span> <span class="toc-text">五、分析和清理代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u516D_u3001_u53C2_u8003_u63A8_u8350"><span class="toc-number">6.</span> <span class="toc-text">六、参考推荐</span></a></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {

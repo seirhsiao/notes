@@ -241,11 +241,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Unix编辑器概述">一、Unix编辑器概述</h2><p>编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。</p>
+        <h2 id="u4E00_u3001Unix_u7F16_u8F91_u5668_u6982_u8FF0"><a href="#u4E00_u3001Unix_u7F16_u8F91_u5668_u6982_u8FF0" class="headerlink" title="一、Unix编辑器概述"></a>一、Unix编辑器概述</h2><p>编辑器是使用计算机的重要工具之一，在各种操作系统中，编辑器都是必不可少的部件。Unix及其相似的ix操作系统系列中，为方便各种用户在各个不同的环境中使用，提供了一系列的ex编辑器，包括 ex, edit,ed 和vi.其中ex,edit,ed都是行编辑器，现在已很少有人使用，Unix提供他们的原因是考虑到满足各种用户特别是某些终端用户的需要。</p>
 <p>值得庆幸的是，Unix提供了全屏幕的Vi编辑器，这使我们的工作轻松不少。不少DOS用户抱怨Vi编辑器不象DOS下的编辑器如edit那么好用，这是因为Vi考虑到各种用户的需要，没有使用某些通用的编辑键（在各个不同的终端机上他们的定义是不同的，在某些终端机上甚至没有这些键）。而是采用状态切换的方法，但这只是习惯的问题，一旦你熟练的使用上了vi你就会觉得它其实也很好用。虽然 Vi采用了状态切换的方法，但电脑的硬件及操作系统多种多样，某些电脑的键盘上没有特定的几个功能键！那麽不就有某些功能不能用了？这个问题在 Unix 系统上也一样，几乎各大电脑厂商都有自己的Unix 系统，而 vi 的操作方法也会随之有点出入。这里我们采用 PC 的键盘来说明 vi 的操作，但在具体的环境中还要参考相应的资料，这一点是值得注意的。</p>
 <a id="more"></a>
-<h2 id="二、Vi入门">二、Vi入门</h2><h3 id="（一）、进入vi">（一）、进入vi</h3><p>在系统提示字符(如$、#)下敲入vi ＜档案名称＞，vi 可以自动帮你载入所要编辑的文件或是开启一个新文件（如果该文件不存在或缺少文件名）。进入 vi 后萤幕左方会出现波浪符号，凡是列首有该符号就代表此列目前是空的。</p>
-<h3 id="（二）、两种模式">（二）、两种模式</h3><p>如上所述，vi存在两种模式：指令模式和输入模式。在指令模式下输入的按键将做为指令来处理：如输入a，vi即认为是在当前位置插入字符。而在输入模式下，vi则把输入的按键当作插入的字符来处理。指令模式切换到输入模式只需键入相应的输入命令即可（如a,A），而要从输入模式切换到指令模式，则需在输入模式下键入ESC键，如果不晓得现在是处於什麽模式，可以多按几次 [ESC]，系统如发出哔哔声就表示已处于指令模式下了。</p>
+<h2 id="u4E8C_u3001Vi_u5165_u95E8"><a href="#u4E8C_u3001Vi_u5165_u95E8" class="headerlink" title="二、Vi入门"></a>二、Vi入门</h2><h3 id="uFF08_u4E00_uFF09_u3001_u8FDB_u5165vi"><a href="#uFF08_u4E00_uFF09_u3001_u8FDB_u5165vi" class="headerlink" title="（一）、进入vi"></a>（一）、进入vi</h3><p>在系统提示字符(如$、#)下敲入vi ＜档案名称＞，vi 可以自动帮你载入所要编辑的文件或是开启一个新文件（如果该文件不存在或缺少文件名）。进入 vi 后萤幕左方会出现波浪符号，凡是列首有该符号就代表此列目前是空的。</p>
+<h3 id="uFF08_u4E8C_uFF09_u3001_u4E24_u79CD_u6A21_u5F0F"><a href="#uFF08_u4E8C_uFF09_u3001_u4E24_u79CD_u6A21_u5F0F" class="headerlink" title="（二）、两种模式"></a>（二）、两种模式</h3><p>如上所述，vi存在两种模式：指令模式和输入模式。在指令模式下输入的按键将做为指令来处理：如输入a，vi即认为是在当前位置插入字符。而在输入模式下，vi则把输入的按键当作插入的字符来处理。指令模式切换到输入模式只需键入相应的输入命令即可（如a,A），而要从输入模式切换到指令模式，则需在输入模式下键入ESC键，如果不晓得现在是处於什麽模式，可以多按几次 [ESC]，系统如发出哔哔声就表示已处于指令模式下了。</p>
 <p>付：有指令模式进入输入模式的指令：</p>
 <ul>
 <li>新增 (append)</li>
@@ -262,8 +262,8 @@
 </ul>
 <p><code>o</code>：在光标所在列下新增一列并进入输入模式。</p>
 <p><code>O</code>: 在光标所在列上方新增一列并进入输入模式。</p>
-<h3 id="（三）、退出vi">（三）、退出vi</h3><p>在指令模式下键入:q,:q!,:wq或:x(注意:号），就会退出vi。其中:wq和:x是存盘退出，而:q是直接退出，如果文件已有新的变化，vi会提示你保存文件而:q命令也会失效，这时你可以用:w命令保存文件后再用:q退出，或用:wq或:x命令退出，如果你不想保存改变后的文件，你就需要用:q!命令，这个命令将不保存文件而直接退出vi。</p>
-<h3 id="（四）、基本编辑">（四）、基本编辑</h3><p>配合一般键盘上的功能键，像是方向键、[Insert] 、[Delete] 等等，现在你应该已经可以利用 vi 来编辑文件了。当然 vi 还提供其他许许多多功能让文字的处理更为方便。</p>
+<h3 id="uFF08_u4E09_uFF09_u3001_u9000_u51FAvi"><a href="#uFF08_u4E09_uFF09_u3001_u9000_u51FAvi" class="headerlink" title="（三）、退出vi"></a>（三）、退出vi</h3><p>在指令模式下键入:q,:q!,:wq或:x(注意:号），就会退出vi。其中:wq和:x是存盘退出，而:q是直接退出，如果文件已有新的变化，vi会提示你保存文件而:q命令也会失效，这时你可以用:w命令保存文件后再用:q退出，或用:wq或:x命令退出，如果你不想保存改变后的文件，你就需要用:q!命令，这个命令将不保存文件而直接退出vi。</p>
+<h3 id="uFF08_u56DB_uFF09_u3001_u57FA_u672C_u7F16_u8F91"><a href="#uFF08_u56DB_uFF09_u3001_u57FA_u672C_u7F16_u8F91" class="headerlink" title="（四）、基本编辑"></a>（四）、基本编辑</h3><p>配合一般键盘上的功能键，像是方向键、[Insert] 、[Delete] 等等，现在你应该已经可以利用 vi 来编辑文件了。当然 vi 还提供其他许许多多功能让文字的处理更为方便。</p>
 <p>何谓编辑？一般认为是文字的新增、修改以及删除，甚至包括文字区块的搬移、复制等等。先这里介绍 vi的如何做删除与修改。（注意：在 vi 的原始观念里，输入跟编辑是两码子事。编辑是在指令模式下操作的，先利用指令移动光标来定位要进行编辑的地方，然後才下指令做编辑。）</p>
 <p>删除与修改文件的命令：</p>
 <p><code>x</code>： 删除光标所在字符。</p>
@@ -273,7 +273,7 @@
 <p><code>s</code>： 删除光标所在字元，并进入输入模式。</p>
 <p><code>S</code>： 删除光标所在的列，并进入输入模式。</p>
 <p>其实呢，在PC上根本没有这麽麻烦！输入跟编辑都可以在输入模式下完成。例如要删除字元，直接按[Delete] 不就得了。而插入状态与取代状态可以直接用 [Insert] 切换，犯不著用什麽指令模式的编辑指令。不过就如前面所提到的，这些指令几乎是每台终端机都能用，而不是仅仅在 PC 上。<br>在指令模式下移动光标的基本指令是 h, j, k, l 。想来各位现在也应该能猜到只要直接用 PC 的方向键就可以了，而且无论在指令模式或输入模式下都可以。多容易不是。<br>当然 PC 键盘也有不足之处。有个很好用的指令 u 可以恢复被删除的文字，而 U 指令则可以恢复光标所在列的所有改变。这与某些电脑上的 [Undo] 按键功能相同。  </p>
-<h2 id="三、附件：vi详细指令表">三、附件：vi详细指令表</h2><h3 id="（一）、基本编辑指令：">（一）、基本编辑指令：</h3><ul>
+<h2 id="u4E09_u3001_u9644_u4EF6_uFF1Avi_u8BE6_u7EC6_u6307_u4EE4_u8868"><a href="#u4E09_u3001_u9644_u4EF6_uFF1Avi_u8BE6_u7EC6_u6307_u4EE4_u8868" class="headerlink" title="三、附件：vi详细指令表"></a>三、附件：vi详细指令表</h2><h3 id="uFF08_u4E00_uFF09_u3001_u57FA_u672C_u7F16_u8F91_u6307_u4EE4_uFF1A"><a href="#uFF08_u4E00_uFF09_u3001_u57FA_u672C_u7F16_u8F91_u6307_u4EE4_uFF1A" class="headerlink" title="（一）、基本编辑指令："></a>（一）、基本编辑指令：</h3><ul>
 <li>新增 (append)</li>
 </ul>
 <p><code>a</code>：从光标所在位置後面开始新增资料，光标後的资料随新增资料向後移动。</p>
@@ -294,7 +294,7 @@
 <p><code>R</code>： 进入取替换状态，新增文字会覆盖原先文字，直到按 [ESC] 回到指令模式下为止。</p>
 <p><code>s</code>： 删除光标所在字元，并进入输入模式。</p>
 <p><code>S</code>： 删除光标所在的列，并进入输入模式。</p>
-<h3 id="（二）、光标移动指令：">（二）、光标移动指令：</h3><p>由於许多编辑工作是藉由光标来定位，所以 vi 提供许多移动光标的方式，这个我们列<br>几张简表来说明（这些当然是指令模式下的指令）：</p>
+<h3 id="uFF08_u4E8C_uFF09_u3001_u5149_u6807_u79FB_u52A8_u6307_u4EE4_uFF1A"><a href="#uFF08_u4E8C_uFF09_u3001_u5149_u6807_u79FB_u52A8_u6307_u4EE4_uFF1A" class="headerlink" title="（二）、光标移动指令："></a>（二）、光标移动指令：</h3><p>由於许多编辑工作是藉由光标来定位，所以 vi 提供许多移动光标的方式，这个我们列<br>几张简表来说明（这些当然是指令模式下的指令）：</p>
 <table>
 <thead>
 <tr>
@@ -487,8 +487,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="（三）、更多的编辑指令">（三）、更多的编辑指令</h3><p>这些编辑指令非常有弹性，基本上可以说是由指令与范围所构成。例如 dw 怯缮境噶?nbsp;d 与范围 w 所组成，代表删除一个字 d(elete) w(ord) 。<br>指令列表如下：<br><code>d</code> 删除(delete)<br><code>y</code> 复制(yank)<br><code>p</code> 放置(put)<br><code>c</code> 修改(change)<br>范围可以是下列几个：<br><code>e</code> 光标所在位置到下一个单词的结尾<br><code>w</code> 光标所在位置到下个字的第一个字母<br><code>b</code> 光标所在位置到上个字的第一个字母<br><code>$</code> 光标所在位置到该列的最後一个字母<br><code>0</code> 光标所在位置到该列的第一个字母<br><code>)</code> 光标所在位置到下个句子的第一个字母<br><code>(</code> 光标所在位置到该句子的第一个字母<br><code>}</code> 光标所在位置到该段落的最後一个字母<br><code>{</code> 光标所在位置到该段落的第一个字母<br>说实在的，组合这些指令来编辑文件有一点点艺术气息。不管怎麽样，它们提供更多编辑文字的能力。值得注意的一点是删除与复制都会将指定范围的内容放到暂存区里，然後就可以用指令 p 贴到其它地方去，这是 vi 用来处理区段拷贝与搬移的办法。<br>某些 vi 版本，例如 Linux 所用的 elvis 可以大幅简化这一坨指令。如果稍微观察一下这些编辑指令就会发现问题其实是定范围的方式有点杂，实际上只有四个指令罢了。指令 v 非常好用，只要按下 v 键，光标所在的位置就会反白，然後就可以移动光标来设定范围，接著再直接下指令进行编辑即可。对於整列操作， vi 另外提供了更方便的编辑指令。前面曾经提到过删除整列文字的指令 dd 就是其中一个；cc 可以修改整列文字；而 yy 则是复制整列文字；指令 D 则可以删除光标到该列结束为止所有的文字。  </p>
-<h3 id="（四）、文件操作指令">（四）、文件操作指令</h3><p>文件操作指令多以 : 开头，这跟编辑指令有点区别。<br><code>:q</code> 结束编辑(quit)<br><code>:q!</code> 不存档而要放弃编辑过的文件。<br><code>:w</code> 保存文件(write)其後可加所要存档的档名。<br><code>:wq</code> 即存档後离开。<br><code>zz</code> 功能与 :wq 相同。<br><code>:x</code> 与:wq相同</p>
+<h3 id="uFF08_u4E09_uFF09_u3001_u66F4_u591A_u7684_u7F16_u8F91_u6307_u4EE4"><a href="#uFF08_u4E09_uFF09_u3001_u66F4_u591A_u7684_u7F16_u8F91_u6307_u4EE4" class="headerlink" title="（三）、更多的编辑指令"></a>（三）、更多的编辑指令</h3><p>这些编辑指令非常有弹性，基本上可以说是由指令与范围所构成。例如 dw 怯缮境噶?nbsp;d 与范围 w 所组成，代表删除一个字 d(elete) w(ord) 。<br>指令列表如下：<br><code>d</code> 删除(delete)<br><code>y</code> 复制(yank)<br><code>p</code> 放置(put)<br><code>c</code> 修改(change)<br>范围可以是下列几个：<br><code>e</code> 光标所在位置到下一个单词的结尾<br><code>w</code> 光标所在位置到下个字的第一个字母<br><code>b</code> 光标所在位置到上个字的第一个字母<br><code>$</code> 光标所在位置到该列的最後一个字母<br><code>0</code> 光标所在位置到该列的第一个字母<br><code>)</code> 光标所在位置到下个句子的第一个字母<br><code>(</code> 光标所在位置到该句子的第一个字母<br><code>}</code> 光标所在位置到该段落的最後一个字母<br><code>{</code> 光标所在位置到该段落的第一个字母<br>说实在的，组合这些指令来编辑文件有一点点艺术气息。不管怎麽样，它们提供更多编辑文字的能力。值得注意的一点是删除与复制都会将指定范围的内容放到暂存区里，然後就可以用指令 p 贴到其它地方去，这是 vi 用来处理区段拷贝与搬移的办法。<br>某些 vi 版本，例如 Linux 所用的 elvis 可以大幅简化这一坨指令。如果稍微观察一下这些编辑指令就会发现问题其实是定范围的方式有点杂，实际上只有四个指令罢了。指令 v 非常好用，只要按下 v 键，光标所在的位置就会反白，然後就可以移动光标来设定范围，接著再直接下指令进行编辑即可。对於整列操作， vi 另外提供了更方便的编辑指令。前面曾经提到过删除整列文字的指令 dd 就是其中一个；cc 可以修改整列文字；而 yy 则是复制整列文字；指令 D 则可以删除光标到该列结束为止所有的文字。  </p>
+<h3 id="uFF08_u56DB_uFF09_u3001_u6587_u4EF6_u64CD_u4F5C_u6307_u4EE4"><a href="#uFF08_u56DB_uFF09_u3001_u6587_u4EF6_u64CD_u4F5C_u6307_u4EE4" class="headerlink" title="（四）、文件操作指令"></a>（四）、文件操作指令</h3><p>文件操作指令多以 : 开头，这跟编辑指令有点区别。<br><code>:q</code> 结束编辑(quit)<br><code>:q!</code> 不存档而要放弃编辑过的文件。<br><code>:w</code> 保存文件(write)其後可加所要存档的档名。<br><code>:wq</code> 即存档後离开。<br><code>zz</code> 功能与 :wq 相同。<br><code>:x</code> 与:wq相同</p>
 
       
       
@@ -551,7 +551,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Unix编辑器概述"><span class="toc-number">1.</span> <span class="toc-text">一、Unix编辑器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Vi入门"><span class="toc-number">2.</span> <span class="toc-text">二、Vi入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）、进入vi"><span class="toc-number">2.1.</span> <span class="toc-text">（一）、进入vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）、两种模式"><span class="toc-number">2.2.</span> <span class="toc-text">（二）、两种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）、退出vi"><span class="toc-number">2.3.</span> <span class="toc-text">（三）、退出vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（四）、基本编辑"><span class="toc-number">2.4.</span> <span class="toc-text">（四）、基本编辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、附件：vi详细指令表"><span class="toc-number">3.</span> <span class="toc-text">三、附件：vi详细指令表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）、基本编辑指令："><span class="toc-number">3.1.</span> <span class="toc-text">（一）、基本编辑指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）、光标移动指令："><span class="toc-number">3.2.</span> <span class="toc-text">（二）、光标移动指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）、更多的编辑指令"><span class="toc-number">3.3.</span> <span class="toc-text">（三）、更多的编辑指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（四）、文件操作指令"><span class="toc-number">3.4.</span> <span class="toc-text">（四）、文件操作指令</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001Unix_u7F16_u8F91_u5668_u6982_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">一、Unix编辑器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E8C_u3001Vi_u5165_u95E8"><span class="toc-number">2.</span> <span class="toc-text">二、Vi入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E00_uFF09_u3001_u8FDB_u5165vi"><span class="toc-number">2.1.</span> <span class="toc-text">（一）、进入vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E8C_uFF09_u3001_u4E24_u79CD_u6A21_u5F0F"><span class="toc-number">2.2.</span> <span class="toc-text">（二）、两种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E09_uFF09_u3001_u9000_u51FAvi"><span class="toc-number">2.3.</span> <span class="toc-text">（三）、退出vi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u56DB_uFF09_u3001_u57FA_u672C_u7F16_u8F91"><span class="toc-number">2.4.</span> <span class="toc-text">（四）、基本编辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E09_u3001_u9644_u4EF6_uFF1Avi_u8BE6_u7EC6_u6307_u4EE4_u8868"><span class="toc-number">3.</span> <span class="toc-text">三、附件：vi详细指令表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E00_uFF09_u3001_u57FA_u672C_u7F16_u8F91_u6307_u4EE4_uFF1A"><span class="toc-number">3.1.</span> <span class="toc-text">（一）、基本编辑指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E8C_uFF09_u3001_u5149_u6807_u79FB_u52A8_u6307_u4EE4_uFF1A"><span class="toc-number">3.2.</span> <span class="toc-text">（二）、光标移动指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u4E09_uFF09_u3001_u66F4_u591A_u7684_u7F16_u8F91_u6307_u4EE4"><span class="toc-number">3.3.</span> <span class="toc-text">（三）、更多的编辑指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uFF08_u56DB_uFF09_u3001_u6587_u4EF6_u64CD_u4F5C_u6307_u4EE4"><span class="toc-number">3.4.</span> <span class="toc-text">（四）、文件操作指令</span></a></li></ol></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {

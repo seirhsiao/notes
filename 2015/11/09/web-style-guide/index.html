@@ -240,7 +240,7 @@
       
         <p>　　<strong>自用笔记：</strong>本文属于自用笔记，不做详解，仅供参考。<br>　　在此记录自己已理解并开始遵循的前端代码规范。What How Why</p>
 <a id="more"></a>
-<h2 id="General_style_rules">General style rules</h2><h3 id="Filename">Filename</h3><ul>
+<h2 id="General_style_rules"><a href="#General_style_rules" class="headerlink" title="General style rules"></a>General style rules</h2><h3 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h3><ul>
 <li>Start a file name with a letter and avoid numbers:<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thousand-<span class="operator">and</span>-<span class="constant">one</span>-scripts.js</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -253,7 +253,7 @@
 <blockquote>
 <p>Some operating systems support case sensitive file names and we should not mix the cases to minimize confusion and possible sources for human errors.</p>
 </blockquote>
-<h3 id="Separator">Separator</h3><ul>
+<h3 id="Separator"><a href="#Separator" class="headerlink" title="Separator"></a>Separator</h3><ul>
 <li>Use minus (-) sign as separating parts:<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">my</span>-<span class="keyword">script</span>.js</span><br><span class="line"><span class="keyword">my</span>-camel-case-<span class="property">name</span>.css</span><br><span class="line">i-love-underscores.html</span><br><span class="line"><span class="keyword">my</span>-<span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -267,7 +267,7 @@
 <li>Use dot’s to separate the clear purpose of this additional meta-data in a filename:</li>
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my-file<span class="class">.min</span><span class="class">.css</span></span><br></pre></td></tr></table></figure>
-<h3 id="Protocol">Protocol</h3><ul>
+<h3 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h3><ul>
 <li>Omit the protocol portion (http:, https:):</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.com/foundation.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">background: url(//static.example.com/images/bg.jpg)</span><br></pre></td></tr></table></figure>
@@ -277,7 +277,7 @@
 <li>Saves file size.</li>
 </ol>
 </blockquote>
-<h3 id="Text_indentation">Text indentation</h3><ul>
+<h3 id="Text_indentation"><a href="#Text_indentation" class="headerlink" title="Text indentation"></a>Text indentation</h3><ul>
 <li>Indent by 4 spaces at a time. Hitting the Tab key in your text editor should generate four space characters rather than one tab character:</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>Fantastic<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>Great<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>Test<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -287,21 +287,21 @@
 <li>Developers can make adjustments to their editing environments a single time.</li>
 </ol>
 </blockquote>
-<h3 id="Comments">Comments</h3><ul>
+<h3 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h3><ul>
 <li>Comment why it was coded this way and comment the thinking behind. Also include links in your comments to open issues, specifications etc.</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var offset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(includeLabels) &#123;</span><br><span class="line">  <span class="comment">// If the labels are included we need to have a minimum offset of 20 pixels</span></span><br><span class="line">  <span class="comment">// We need to set it explicitly because of the following <span class="doctag">bug:</span> http://somebrowservendor.com/issue-tracker/ISSUE-1</span></span><br><span class="line">  offset = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Use tools to generates API documentation from comments. <a href="http://usejsdoc.org/" target="_blank" rel="external">JSDoc</a> or <a href="http://yui.github.io/yuidoc/" target="_blank" rel="external">YUIDoc</a></li>
 </ul>
-<h3 id="Code_linting">Code linting</h3><ul>
+<h3 id="Code_linting"><a href="#Code_linting" class="headerlink" title="Code linting"></a>Code linting</h3><ul>
 <li>Writing and following a style guide is a good practice but having an automated process that is enforcing it is even better. </li>
 </ul>
-<h2 id="HTML_style_rules">HTML style rules</h2><h3 id="Document_type">Document type</h3><ul>
+<h2 id="HTML_style_rules"><a href="#HTML_style_rules" class="headerlink" title="HTML style rules"></a>HTML style rules</h2><h3 id="Document_type"><a href="#Document_type" class="headerlink" title="Document type"></a>Document type</h3><ul>
 <li>HTML5 (HTML syntax) is preferred for all HTML documents:</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span>.</span><br></pre></td></tr></table></figure>
-<h3 id="Script_loading">Script loading</h3><ul>
+<h3 id="Script_loading"><a href="#Script_loading" class="headerlink" title="Script loading"></a>Script loading</h3><ul>
 <li>Add your script element just before the body close tag and add them with a async attribute:</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"main.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- body goes here --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"main.js"</span> <span class="attribute">async</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -311,14 +311,14 @@
 <li>On older browsers (IE9-), prevent DOM parser blocking, not affecting the user experience too much.</li>
 </ol>
 </blockquote>
-<h3 id="Type_attributes">Type attributes</h3><ul>
+<h3 id="Type_attributes"><a href="#Type_attributes" class="headerlink" title="Type attributes"></a>Type attributes</h3><ul>
 <li>Omit type attributes for style sheets and scripts:</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"main.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>HTML5 implies text/css and text/javascript as defaults;<br>This can be safely done even for older browsers.</p>
 </blockquote>
-<h3 id="ID_in_Headings">ID in Headings</h3><ul>
+<h3 id="ID_in_Headings"><a href="#ID_in_Headings" class="headerlink" title="ID in Headings"></a>ID in Headings</h3><ul>
 <li>Give all headings a ID:</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h3</span> <span class="attribute">id</span>=<span class="value">"best-practices"</span>&gt;</span>Best practices<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -327,15 +327,15 @@
 <li>IDs for anchors, enter the URL to scroll to the position this element.</li>
 </ol>
 </blockquote>
-<h3 id="Quotation_marks">Quotation marks</h3><ul>
+<h3 id="Quotation_marks"><a href="#Quotation_marks" class="headerlink" title="Quotation marks"></a>Quotation marks</h3><ul>
 <li>Use double quotation marks (“”) to quote attributes values:</li>
 </ul>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"news-article"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="0_values">0 values</h3><ul>
+<h3 id="0_values"><a href="#0_values" class="headerlink" title="0 values"></a>0 values</h3><ul>
 <li>Do not use units after 0 values unless they are required:</li>
 </ul>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">padding-bottom</span>: <span class="string">0;</span></span><br><span class="line"><span class="attribute">margin</span>: <span class="string">0;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Shorthand_Properties">Shorthand Properties</h3><ul>
+<h3 id="Shorthand_Properties"><a href="#Shorthand_Properties" class="headerlink" title="Shorthand Properties"></a>Shorthand Properties</h3><ul>
 <li>Should be used whenever possible, even in cases where only one value is explicitly set.</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-top: <span class="number">0</span>;</span><br><span class="line">font: <span class="number">100</span>%/<span class="number">1.6</span> palatino, georgia, serif;</span><br><span class="line">padding: <span class="number">0</span> <span class="number">1</span>em <span class="number">2</span>em;</span><br></pre></td></tr></table></figure>
@@ -344,11 +344,11 @@
 <li>Useful for code efficiency and understandability.</li>
 </ol>
 </blockquote>
-<h3 id="Hexadecimal_Notation">Hexadecimal Notation</h3><ul>
+<h3 id="Hexadecimal_Notation"><a href="#Hexadecimal_Notation" class="headerlink" title="Hexadecimal Notation"></a>Hexadecimal Notation</h3><ul>
 <li>Use 3 character hexadecimal notation where possible and lower case hex digits:</li>
 </ul>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">color</span>: <span class="hexcolor">#f3a</span>;</span><br><span class="line"><span class="attribute">color</span>: <span class="hexcolor">#d4ddef</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="To_be_continued">To be continued</h2><h2 id="参考资料">参考资料</h2><ol>
+<h2 id="To_be_continued"><a href="#To_be_continued" class="headerlink" title="To be continued"></a>To be continued</h2><h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li><strong><em>Web Styleguide - Style guide to harmonize HTML, Javascript and CSS / Sass coding style</em></strong> by <strong>Gion Kunz</strong> on <code>2014/10/8</code>: <a href="https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md" target="_blank" rel="external">https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md</a></li>
 <li><strong><em>Isobar Front-end Code Standards</em></strong> by <strong>Isobar</strong> on <code>2015/8/25</code>: <a href="http://isobar-idev.github.io/code-standards/" target="_blank" rel="external">http://isobar-idev.github.io/code-standards/</a></li>
 <li><strong><em>[译文] Isobar 前端代码规范 及 最佳实践</em></strong> by <strong>老码农</strong> on <code>2015/8/25</code>: <a href="http://coderlmn.github.io/code-standards/" target="_blank" rel="external">http://coderlmn.github.io/code-standards/</a></li>
@@ -415,7 +415,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General_style_rules"><span class="toc-number">1.</span> <span class="toc-text">General style rules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Filename"><span class="toc-number">1.1.</span> <span class="toc-text">Filename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Separator"><span class="toc-number">1.2.</span> <span class="toc-text">Separator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol"><span class="toc-number">1.3.</span> <span class="toc-text">Protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text_indentation"><span class="toc-number">1.4.</span> <span class="toc-text">Text indentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comments"><span class="toc-number">1.5.</span> <span class="toc-text">Comments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code_linting"><span class="toc-number">1.6.</span> <span class="toc-text">Code linting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML_style_rules"><span class="toc-number">2.</span> <span class="toc-text">HTML style rules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Document_type"><span class="toc-number">2.1.</span> <span class="toc-text">Document type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Script_loading"><span class="toc-number">2.2.</span> <span class="toc-text">Script loading</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Type_attributes"><span class="toc-number">2.3.</span> <span class="toc-text">Type attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID_in_Headings"><span class="toc-number">2.4.</span> <span class="toc-text">ID in Headings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotation_marks"><span class="toc-number">2.5.</span> <span class="toc-text">Quotation marks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0_values"><span class="toc-number">2.6.</span> <span class="toc-text">0 values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shorthand_Properties"><span class="toc-number">2.7.</span> <span class="toc-text">Shorthand Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexadecimal_Notation"><span class="toc-number">2.8.</span> <span class="toc-text">Hexadecimal Notation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_be_continued"><span class="toc-number">3.</span> <span class="toc-text">To be continued</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General_style_rules"><span class="toc-number">1.</span> <span class="toc-text">General style rules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Filename"><span class="toc-number">1.1.</span> <span class="toc-text">Filename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Separator"><span class="toc-number">1.2.</span> <span class="toc-text">Separator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol"><span class="toc-number">1.3.</span> <span class="toc-text">Protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text_indentation"><span class="toc-number">1.4.</span> <span class="toc-text">Text indentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comments"><span class="toc-number">1.5.</span> <span class="toc-text">Comments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code_linting"><span class="toc-number">1.6.</span> <span class="toc-text">Code linting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML_style_rules"><span class="toc-number">2.</span> <span class="toc-text">HTML style rules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Document_type"><span class="toc-number">2.1.</span> <span class="toc-text">Document type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Script_loading"><span class="toc-number">2.2.</span> <span class="toc-text">Script loading</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Type_attributes"><span class="toc-number">2.3.</span> <span class="toc-text">Type attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID_in_Headings"><span class="toc-number">2.4.</span> <span class="toc-text">ID in Headings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotation_marks"><span class="toc-number">2.5.</span> <span class="toc-text">Quotation marks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0_values"><span class="toc-number">2.6.</span> <span class="toc-text">0 values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shorthand_Properties"><span class="toc-number">2.7.</span> <span class="toc-text">Shorthand Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexadecimal_Notation"><span class="toc-number">2.8.</span> <span class="toc-text">Hexadecimal Notation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_be_continued"><span class="toc-number">3.</span> <span class="toc-text">To be continued</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53C2_u8003_u8D44_u6599"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {

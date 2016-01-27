@@ -242,7 +242,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Windows_上安装_Jekyll">Windows 上安装 Jekyll</h1><p>Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.</p>
+        <h1 id="Windows__u4E0A_u5B89_u88C5_Jekyll"><a href="#Windows__u4E0A_u5B89_u88C5_Jekyll" class="headerlink" title="Windows 上安装 Jekyll"></a>Windows 上安装 Jekyll</h1><p>Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.</p>
 <p>原文链接：<a href="http://yizeng.me/2013/05/10/setup-jekyll-on-windows/" target="_blank" rel="external">Setup Jekyll on Windows</a><br><a id="more"></a><br>目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：</p>
 <p>共分为以下几个重要步骤</p>
 <ul>
@@ -258,7 +258,7 @@
 <li>启动 Jekyll</li>
 <li>故障诊断</li>
 </ul>
-<h2 id="安装_Ruby">安装 Ruby</h2><ol>
+<h2 id="u5B89_u88C5_Ruby"><a href="#u5B89_u88C5_Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h2><ol>
 <li><p>前往 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a></p>
 </li>
 <li><p>在 “<code>RubyInstallers</code>” 部分，选择某个版本点击下载。<br> 例如， <code>Ruby 2.0.0-p451 (x64)</code> 是适于64位 Windows 机器上的 Ruby 2.0.0 x64 安装包。</p>
@@ -279,7 +279,7 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="安装DevKit">安装<code>DevKit</code></h2><p><strong>DevKit</strong>是一个在<code>Windows</code>上帮助简化安装及使用<code>Ruby C/C++</code>扩展如<code>RDiscount</code>和<code>RedCloth</code>的工具箱。 详细的安装指南可以在程序的<a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#installation-instructions" target="_blank" rel="external">wiki页面</a>阅读。</p>
+<h2 id="u5B89_u88C5DevKit"><a href="#u5B89_u88C5DevKit" class="headerlink" title="安装DevKit"></a>安装<code>DevKit</code></h2><p><strong>DevKit</strong>是一个在<code>Windows</code>上帮助简化安装及使用<code>Ruby C/C++</code>扩展如<code>RDiscount</code>和<code>RedCloth</code>的工具箱。 详细的安装指南可以在程序的<a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#installation-instructions" target="_blank" rel="external">wiki页面</a>阅读。</p>
 <ol>
 <li><p>再次前往 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a></p>
 </li>
@@ -300,7 +300,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby dk.rb review</span><br><span class="line">ruby dk.rb install</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="安装_Jekyll">安装 Jekyll</h2><ol>
+<h2 id="u5B89_u88C5_Jekyll"><a href="#u5B89_u88C5_Jekyll" class="headerlink" title="安装 Jekyll"></a>安装 Jekyll</h2><ol>
 <li><p>确保 gem 已经正确安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem -v</span><br></pre></td></tr></table></figure>
 <p> 输出示例：</p>
@@ -310,20 +310,20 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="安装_Pygments">安装 Pygments</h2><p><strong>Jekyll</strong> 里默认的语法高亮插件是 <a href="http://pygments.org/" target="_blank" rel="external">Pygments</a>。 它需要安装<code>Python</code> 并在网站的配置文件_config.yml 里将<code>highlighter</code>的值设置为pygments。</p>
+<h2 id="u5B89_u88C5_Pygments"><a href="#u5B89_u88C5_Pygments" class="headerlink" title="安装 Pygments"></a>安装 Pygments</h2><p><strong>Jekyll</strong> 里默认的语法高亮插件是 <a href="http://pygments.org/" target="_blank" rel="external">Pygments</a>。 它需要安装<code>Python</code> 并在网站的配置文件_config.yml 里将<code>highlighter</code>的值设置为pygments。</p>
 <p>不久之前，Jekyll 还添加另一个高亮引擎名为<a href="https://github.com/jayferd/rouge" target="_blank" rel="external">Rouge</a>， 尽管暂时不如 Pygments 支持那么多的语言，但它是原生 Ruby 程序，而不需要使用 Python。 更多信息请<a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting" target="_blank" rel="external">点此</a>关注。</p>
-<h2 id="安装_Python">安装 Python</h2><ol>
+<h2 id="u5B89_u88C5_Python"><a href="#u5B89_u88C5_Python" class="headerlink" title="安装 Python"></a>安装 Python</h2><ol>
 <li>前往 <a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></li>
 <li>下载合适的 Python windows 安装包，如 <code>Python 2.7.6 Windows Installer</code>。 <strong>请注意</strong>，Python 2 可能会更合适，因为暂时 Python 3 可能不会正常工作。</li>
 <li>安装</li>
-<li>添加安装路径 (如： <code>C:\Python27</code>) 至 PATH。(如何操作? 请参见<a href="#troubleshooting">故障诊断 #1</a>)</li>
+<li>添加安装路径 (如： <code>C:\Python27</code>) 至 PATH。(如何操作? 请参见<a href="/#troubleshooting">故障诊断 #1</a>)</li>
 <li><p>检验 Python 安装是否成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python –V</span><br></pre></td></tr></table></figure>
 <p> 输出示例：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">2.7</span><span class="number">.6</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="安装_‘Easy_Install’">安装 ‘Easy Install’</h2><ol>
+<h2 id="u5B89_u88C5__u2018Easy_Install_u2019"><a href="#u5B89_u88C5__u2018Easy_Install_u2019" class="headerlink" title="安装 ‘Easy Install’"></a>安装 ‘Easy Install’</h2><ol>
 <li>浏览 <a href="https://pypi.python.org/pypi/setuptools#installation-instructions" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools#installation-instructions</a> 来查看详细的安装指南。</li>
 <li>安装之前，最好先卸掉上一版本(参考<a href="https://pypi.python.org/pypi/setuptools#uninstalling" target="_blank" rel="external">卸载</a>)</li>
 <li><p>对于安装了<code>PowerShell 3</code>的windows机器，以管理员的身份启动<code>Powershell</code> 并输入如下命令:</p>
@@ -335,7 +335,7 @@
 <li><p>添加 ‘Python Scripts’ 路径 (如： <code>C:\Python27\Scripts</code>) 至 PATH。</p>
 </li>
 </ol>
-<h3 id="安装_Pygments-1">安装 Pygments</h3><ol>
+<h3 id="u5B89_u88C5_Pygments-1"><a href="#u5B89_u88C5_Pygments-1" class="headerlink" title="安装 Pygments"></a>安装 Pygments</h3><ol>
 <li><p>确保 easy_install 已经正确安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easy_install --version</span><br></pre></td></tr></table></figure>
 <p> 输出示例：</p>
@@ -345,16 +345,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easy_install Pygments</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="启动_Jekyll">启动 Jekyll</h2><p>按照官方的 <a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll 快速开始手册</a> 的步骤， 一个新的 Jekyll 博客可以被建立并在<a href="http://localhost:4000" target="_blank" rel="external">localhost:4000</a>浏览。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
-<h2 id="故障诊断">故障诊断</h2><ol>
+<h2 id="u542F_u52A8_Jekyll"><a href="#u542F_u52A8_Jekyll" class="headerlink" title="启动 Jekyll"></a>启动 Jekyll</h2><p>按照官方的 <a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll 快速开始手册</a> 的步骤， 一个新的 Jekyll 博客可以被建立并在<a href="http://localhost:4000" target="_blank" rel="external">localhost:4000</a>浏览。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="u6545_u969C_u8BCA_u65AD"><a href="#u6545_u969C_u8BCA_u65AD" class="headerlink" title="故障诊断"></a>故障诊断</h2><ol>
 <li>错误信息：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“<span class="keyword">python</span>” <span class="keyword">is</span> not recognized <span class="keyword">as</span> <span class="keyword">an</span> internal <span class="built_in">or</span> external <span class="keyword">command</span>, operable program <span class="built_in">or</span> batch <span class="keyword">file</span>.</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code><span class="keyword">*</span><span class="keyword">*</span>其他情况<span class="keyword">*</span><span class="keyword">*</span>： 这里的 “python” 也可能是 “ruby”， “gem” 或是 “easy_install” 等。
+<pre><code>**其他情况**： 这里的 “python” 也可能是 “ruby”， “gem” 或是 “easy_install” 等。
 
-<span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： 该程序可能未被正确地安装或未在 PATH 里设置成功。
+**可能原因**： 该程序可能未被正确地安装或未在 PATH 里设置成功。
 
-<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 确保程序已被正确安装。然后手动将其添加至 PATH，请参考如下步骤[1]。
+**尝试解法**： 确保程序已被正确安装。然后手动将其添加至 PATH，请参考如下步骤[1]。
 </code></pre><blockquote>
 <ol>
 <li>按住 Win 键再按下 Pause</li>
@@ -365,48 +365,48 @@
 </li>
 </ol>
 </blockquote>
-<pre><code><span class="constant">ERROR</span>:  <span class="constant">Error</span> installing <span class="symbol">jekyll:</span>
-<span class="constant">ERROR</span>: <span class="constant">Failed</span> to build gem native extension.
-<span class="string">"C:/Program Files/Ruby/Ruby200-x64/bin/ruby.exe"</span> extconf.rb
-creating <span class="constant">Makefile</span>
-make generating stemmer-x64-mingw32.<span class="keyword">def</span>
+<pre><code>ERROR:  Error installing jekyll:
+ERROR: Failed to build gem native extension.
+&quot;C:/Program Files/Ruby/Ruby200-x64/bin/ruby.exe&quot; extconf.rb
+creating Makefile
+make generating stemmer-x64-mingw32.def
 compiling porter.c
 ...
 make install
-/usr/bin/install -c -m <span class="number">0755</span> stemmer.so <span class="constant">C</span>:<span class="regexp">/Program Files/</span><span class="constant">Ruby</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">fast</span>-<span class="title">stemmer</span>-1.0.2/<span class="title">li</span></span>
-/usr/bin/<span class="symbol">install:</span> target <span class="string">`Files/Ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/fast-stemmer-1.0.2/lib' is not a directory
-make: *** [install-so] Error 1</span>
+/usr/bin/install -c -m 0755 stemmer.so C:/Program Files/Ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/fast-stemmer-1.0.2/li
+/usr/bin/install: target `Files/Ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/fast-stemmer-1.0.2/lib&apos; is not a directory
+make: *** [install-so] Error 1
 </code></pre><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： Ruby 被安装在含有空格的路径里。</span><br><span class="line"></span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 重新安装 Ruby，这次请不要使用带有空格的路径，或者请直接选择使用默认路径。</span><br><span class="line"></span><br><span class="line">3. 错误信息：</span><br></pre></td></tr></table></figure>
-<pre><code><span class="constant">Generating</span>... <span class="constant">Liquid</span> <span class="constant">Exception</span>: <span class="constant">No</span> such file or directory - python <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">pygments</span>.<span class="title">rb</span>-0.4.2/<span class="title">lib</span>/<span class="title">pygments</span>/<span class="title">mentos</span>.<span class="title">py</span> <span class="title">in</span> 2013-04-22-<span class="title">yizeng</span>-<span class="title">hello</span>-<span class="title">world</span>.<span class="title">md</span></span>
+<pre><code>Generating... Liquid Exception: No such file or directory - python c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/pygments.rb-0.4.2/lib/pygments/mentos.py in 2013-04-22-yizeng-hello-world.md
 </code></pre><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： Pygments 未能被正确安装或是 PATH 设置尚未生效。</span><br><span class="line"></span><br><span class="line">    <span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>： 首先请确保 Pygments 已成功安装且 Python 的 PATH 设置正确未包含空格和最后多余的斜杠。 然后重启命令行。如果依旧失败，请尝试注销并重新登录 Windows。 甚至使用终极解法，重启电脑。</span><br><span class="line"></span><br><span class="line">4. 错误信息：</span><br></pre></td></tr></table></figure>
-<pre><code>Generating... Liquid Exception: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span> - /bin/sh <span class="operator">in</span> <span class="title">_posts</span>/<span class="number">2013</span>-<span class="number">04</span>-<span class="number">22</span>-yizeng-hello-world.md
+<pre><code>Generating... Liquid Exception: No such file or directory - /bin/sh in _posts/2013-04-22-yizeng-hello-world.md
 </code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    **可能原因**： 与 pygments.rb <span class="number">0.5</span><span class="number">.1</span>/<span class="number">0.5</span><span class="number">.2</span> 版本的兼容性问题。</span><br><span class="line"></span><br><span class="line">    **尝试解法**： 将 pygments.rb gem 的版本从 <span class="number">0.5</span><span class="number">.1</span>/<span class="number">0.5</span><span class="number">.2</span> 降至 <span class="number">0.5</span><span class="number">.0</span>。</span><br><span class="line">```bash</span><br><span class="line">        gem uninstall pygments.rb –version ‘=<span class="number">0.5</span><span class="number">.2</span>’</span><br><span class="line">        gem install pygments.rb –version <span class="number">0.5</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>错误信息：<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">dependency</span>.<span class="title">rb</span>:296:<span class="title">in</span> `<span class="title">to_specs</span>': <span class="title">Could</span> <span class="title">not</span> <span class="title">find</span> '<span class="title">pygments</span>.<span class="title">rb</span>' (~&gt; 0.4.2) - <span class="title">did</span> <span class="title">find</span>: [<span class="title">pygments</span>.<span class="title">rb</span>-0.5.0] (<span class="title">Gem::LoadError</span>)</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1196:<span class="title">in</span> `<span class="title">block</span> <span class="title">in</span> <span class="title">activate_dependencies</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1185:<span class="title">in</span> `<span class="title">each</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1185:<span class="title">in</span> `<span class="title">activate_dependencies</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">specification</span>.<span class="title">rb</span>:1167:<span class="title">in</span> `<span class="title">activate</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_gem</span>.<span class="title">rb</span>:48:<span class="title">in</span>`<span class="title">gem</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/bin/<span class="symbol">jekyll:</span><span class="number">22</span>:in <span class="string">`&lt;main&gt;'`</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>**可能原因**：如错误信息所述，找不到 <span class="tag">pygments</span><span class="class">.rb</span> 0<span class="class">.4</span><span class="class">.2</span>，仅找到 <span class="tag">pygments</span><span class="class">.rb</span> 0<span class="class">.5</span><span class="class">.0</span>。 （此问题出现于此文初稿时的 <span class="tag">Jekyll</span> 版本，现版本应已修复）
+<pre><code>**可能原因**：如错误信息所述，找不到 pygments.rb 0.4.2，仅找到 pygments.rb 0.5.0。 （此问题出现于此文初稿时的 Jekyll 版本，现版本应已修复）
 
-**尝试解法**： 将 <span class="tag">pygments</span><span class="class">.rb</span> <span class="tag">gem</span> 的版本降级至 0<span class="class">.4</span><span class="class">.2</span>
+**尝试解法**： 将 pygments.rb gem 的版本降级至 0.4.2
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem uninstall pygments.rb –version “=<span class="number">0.5</span>.<span class="number">0</span>”</span><br><span class="line">gem install pygments.rb –version “=<span class="number">0.4</span>.<span class="number">2</span>”</span><br></pre></td></tr></table></figure>
 <ol>
 <li>错误信息：<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Generating... You are missing a library required <span class="keyword">for</span> Markdown. Please <span class="command">run</span>:</span><br><span class="line">`$ [sudo] gem install rdiscount`</span><br><span class="line">Conversion <span class="keyword">error</span>: There was an <span class="keyword">error</span> converting '_posts/<span class="number">2013</span>-<span class="number">04</span>-<span class="number">22</span>-yizeng-hello-world.md/<span class="comment">#excerpt'.</span></span><br><span class="line"></span><br><span class="line">ERROR: YOUR SITE COULD NOT BE BUILT:</span><br><span class="line">   <span class="comment">------------------------------------</span></span><br><span class="line">   Missing dependency: rdiscount</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code><span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： 依赖包 rdiscount 未找到。 此问题最有可能的原因是，网站使用的是 rdiscount 作为 Markdown 引擎，而不是 Jekyll 默认的引擎，故需要手动自行安装。
+<pre><code>**可能原因**： 依赖包 rdiscount 未找到。 此问题最有可能的原因是，网站使用的是 rdiscount 作为 Markdown 引擎，而不是 Jekyll 默认的引擎，故需要手动自行安装。
 
-<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>：
+**尝试解法**：
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rdiscount</span><br></pre></td></tr></table></figure>
 <ol>
 <li>错误信息：<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">site_ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_require</span>.<span class="title">rb</span>:55:<span class="title">in</span> `<span class="title">require</span>': <span class="title">cannot</span> <span class="title">load</span> <span class="title">such</span> <span class="title">file</span> -- <span class="title">wdm</span> (<span class="title">LoadError</span>)</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">site_ruby</span>/2.0.0/<span class="title">rubygems</span>/<span class="title">core_ext</span>/<span class="title">kernel_require</span>.<span class="title">rb</span>:55:<span class="title">in</span> `<span class="title">require</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">listen</span>-1.3.1/<span class="title">lib</span>/<span class="title">listen</span>/<span class="title">adapter</span>.<span class="title">rb</span>:207:<span class="title">in</span> `<span class="title">load_dependent_adapter</span>'</span></span><br><span class="line">from <span class="symbol">c:</span>/<span class="constant">Ruby200</span>-x64/<span class="class"><span class="keyword">lib</span>/<span class="title">ruby</span>/<span class="title">gems</span>/2.0.0/<span class="title">gems</span>/<span class="title">listen</span>-1.3.1/<span class="title">lib</span>/<span class="title">listen</span>/<span class="title">adapters</span>/<span class="title">windows</span>.<span class="title">rb</span>:33:<span class="title">in</span> `<span class="title">load_dependent_a</span></span></span><br><span class="line">dapter<span class="string">'</span><br><span class="line">...</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code><span class="keyword">*</span><span class="keyword">*</span>可能原因<span class="keyword">*</span><span class="keyword">*</span>： wdm gem 未被安装。因为 Jekyll 只官方地支持 <span class="keyword">*</span>nix 系统，所以 Windows Directory Monitor 并没有作为依赖包而被自动安装。
+<pre><code>**可能原因**： wdm gem 未被安装。因为 Jekyll 只官方地支持 *nix 系统，所以 Windows Directory Monitor 并没有作为依赖包而被自动安装。
 
-<span class="keyword">*</span><span class="keyword">*</span>尝试解法<span class="keyword">*</span><span class="keyword">*</span>：
+**尝试解法**：
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install wdm</span><br></pre></td></tr></table></figure>
 <p>8.为了能够让这里网站正常运行，这里需要删除_post文件夹里的文件（应该有一个xxxx-xx-xx-welcome-to- jekyll.markdown字样的文件），因为这个文件内部使用了语法高亮插件（另外不删，则可以修改配置文件禁用该语法高亮插件，即修改根目录下 _config.yml中的pygments: true为false便可。），这个需要另外安装，不再本文范围内，不删会导致生成的静态页面有问题，因时间有限本文暂不提此问题。</p>
-<h2 id="参考推荐">参考推荐</h2><p>[1]: <a href="http://stackoverflow.com/a/6318188/1177636" target="_blank" rel="external">Adding Python Path on Windows 7</a> by melhosseiny.</p>
+<h2 id="u53C2_u8003_u63A8_u8350"><a href="#u53C2_u8003_u63A8_u8350" class="headerlink" title="参考推荐"></a>参考推荐</h2><p>[1]: <a href="http://stackoverflow.com/a/6318188/1177636" target="_blank" rel="external">Adding Python Path on Windows 7</a> by melhosseiny.</p>
 
       
       
@@ -469,7 +469,7 @@ make: *** [install-so] Error 1</span>
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows_上安装_Jekyll"><span class="toc-number">1.</span> <span class="toc-text">Windows 上安装 Jekyll</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Ruby"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Ruby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装DevKit"><span class="toc-number">1.2.</span> <span class="toc-text">安装DevKit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Jekyll"><span class="toc-number">1.3.</span> <span class="toc-text">安装 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Pygments"><span class="toc-number">1.4.</span> <span class="toc-text">安装 Pygments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_Python"><span class="toc-number">1.5.</span> <span class="toc-text">安装 Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装_‘Easy_Install’"><span class="toc-number">1.6.</span> <span class="toc-text">安装 ‘Easy Install’</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装_Pygments-1"><span class="toc-number">1.6.1.</span> <span class="toc-text">安装 Pygments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动_Jekyll"><span class="toc-number">1.7.</span> <span class="toc-text">启动 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#故障诊断"><span class="toc-number">1.8.</span> <span class="toc-text">故障诊断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考推荐"><span class="toc-number">1.9.</span> <span class="toc-text">参考推荐</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows__u4E0A_u5B89_u88C5_Jekyll"><span class="toc-number">1.</span> <span class="toc-text">Windows 上安装 Jekyll</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Ruby"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Ruby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5DevKit"><span class="toc-number">1.2.</span> <span class="toc-text">安装DevKit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Jekyll"><span class="toc-number">1.3.</span> <span class="toc-text">安装 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Pygments"><span class="toc-number">1.4.</span> <span class="toc-text">安装 Pygments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Python"><span class="toc-number">1.5.</span> <span class="toc-text">安装 Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5__u2018Easy_Install_u2019"><span class="toc-number">1.6.</span> <span class="toc-text">安装 ‘Easy Install’</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_Pygments-1"><span class="toc-number">1.6.1.</span> <span class="toc-text">安装 Pygments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u542F_u52A8_Jekyll"><span class="toc-number">1.7.</span> <span class="toc-text">启动 Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6545_u969C_u8BCA_u65AD"><span class="toc-number">1.8.</span> <span class="toc-text">故障诊断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53C2_u8003_u63A8_u8350"><span class="toc-number">1.9.</span> <span class="toc-text">参考推荐</span></a></li></ol></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {

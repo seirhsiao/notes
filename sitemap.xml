@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/README.html</loc>
+    <lastmod>2016-01-27T12:52:33.367Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/about/index.html</loc>
+    <lastmod>2016-01-26T14:01:27.572Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/08/20/blog-building/</loc>
+    <lastmod>2016-01-26T13:19:42.765Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com//404.html</loc>
+    <lastmod>2016-01-26T13:17:28.110Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-08-08-practical-clojure-chapter2/</loc>
+    <lastmod>2016-01-26T12:49:48.363Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-07-28-clojure-related-tips/</loc>
+    <lastmod>2016-01-26T12:49:25.610Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-07-01-clojure-redis/</loc>
+    <lastmod>2016-01-26T12:48:47.194Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-29-clojure-mongodb/</loc>
+    <lastmod>2016-01-26T12:48:24.827Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-27-clojure-try-catch/</loc>
+    <lastmod>2016-01-26T12:47:24.427Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-26-clojure-binding/</loc>
+    <lastmod>2016-01-26T12:47:07.643Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-24-clojure-seq-function/</loc>
+    <lastmod>2016-01-26T12:46:32.339Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-17-clojure-for-and-loop/</loc>
+    <lastmod>2016-01-26T12:46:01.379Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-15-clojure-regex/</loc>
+    <lastmod>2016-01-26T12:45:38.012Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-15-clojure-cond-and-if/</loc>
+    <lastmod>2016-01-26T12:45:19.987Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-13-clojure-symbol-and-keyword/</loc>
+    <lastmod>2016-01-26T12:45:01.044Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-10-clojure-function/</loc>
+    <lastmod>2016-01-26T12:44:38.429Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-08-clojure-string/</loc>
+    <lastmod>2016-01-26T12:44:14.228Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-06-clojure-operation/</loc>
+    <lastmod>2016-01-26T12:43:39.140Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-06-01-clojure-code-style/</loc>
+    <lastmod>2016-01-26T12:43:14.357Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2014-05-08-ssh-password-free-login/</loc>
+    <lastmod>2016-01-26T12:42:24.763Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-12-github-cheat-sheet/</loc>
+    <lastmod>2016-01-26T12:42:00.262Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-11-markdown-sources/</loc>
+    <lastmod>2016-01-26T12:41:44.285Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-07-front-end-collect/</loc>
+    <lastmod>2016-01-26T12:40:16.934Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-06-books-collection/</loc>
+    <lastmod>2016-01-26T12:40:00.822Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-15-html-css-guide/</loc>
+    <lastmod>2016-01-26T12:39:23.734Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-01-git-style-guide/</loc>
+    <lastmod>2016-01-26T12:39:06.366Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-02-ruby-style-guide/</loc>
+    <lastmod>2016-01-26T12:38:51.663Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-07-03-rails-style-guide/</loc>
+    <lastmod>2016-01-26T12:38:15.272Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-14-setup-sonar/</loc>
+    <lastmod>2016-01-26T12:37:06.631Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-12-setup-jenkins-on-windows/</loc>
+    <lastmod>2016-01-26T12:36:45.848Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-11-maven-setup-and-config/</loc>
+    <lastmod>2016-01-26T12:35:42.984Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-10-eclipse-optimization/</loc>
+    <lastmod>2016-01-26T12:35:14.256Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-09-7-tips-to-speed-up-eclipse/</loc>
+    <lastmod>2016-01-26T12:34:46.848Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-08-maven-and-nexus-configuration/</loc>
+    <lastmod>2016-01-26T12:34:18.875Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-06-08-eclipse-setup-and-optimization/</loc>
+    <lastmod>2016-01-26T12:33:35.969Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/26/2013-05-12-uml-class-diagram-instance/</loc>
+    <lastmod>2016-01-26T12:32:47.833Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2014-08-08-clojure.html</loc>
+    <lastmod>2015-11-28T09:22:17.260Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2014-08-08-scala.html</loc>
+    <lastmod>2015-11-28T09:19:11.912Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2013-07-13-git.html</loc>
+    <lastmod>2015-11-28T09:15:57.079Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2013-07-14-git-flow.html</loc>
+    <lastmod>2015-11-28T08:57:21.739Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/css/git/style.css</loc>
+    <lastmod>2015-11-28T08:52:20.728Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/git/visual-git-guide.js</loc>
+    <lastmod>2015-11-28T08:30:30.712Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/git/ga.js</loc>
+    <lastmod>2015-11-28T08:30:30.662Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/css/git/visual-git-guide.css</loc>
+    <lastmod>2015-11-28T08:30:30.572Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-07-10-frontend-knowledge-structure/</loc>
+    <lastmod>2015-11-28T07:34:32.703Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-07-08-free-programming-books/</loc>
+    <lastmod>2015-11-28T07:30:06.071Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-07-09-free-programming-books-cn/</loc>
+    <lastmod>2015-11-28T07:29:54.111Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-07-05-markdown-syntax-guide/</loc>
+    <lastmod>2015-11-28T06:14:57.244Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-07-04-markdown-basic-syntax/</loc>
+    <lastmod>2015-11-28T06:14:55.154Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-05-11-uml-class-diagram/</loc>
+    <lastmod>2015-11-26T12:54:59.024Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-05-10-setup-jekyll-on-windows/</loc>
+    <lastmod>2015-11-24T12:27:38.378Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-07-05-learn-clojure-marco-in-minutes/</loc>
+    <lastmod>2015-11-22T06:49:30.429Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/resources/embed.js</loc>
+    <lastmod>2015-11-22T01:32:12.725Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/resources/duosuo.css</loc>
+    <lastmod>2015-11-22T01:32:12.725Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com//search.html</loc>
+    <lastmod>2015-11-21T14:02:02.557Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/tags/index.html</loc>
+    <lastmod>2015-11-21T14:02:02.557Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/08/19/hello-world/</loc>
+    <lastmod>2015-11-21T14:02:02.527Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/11/16/png-gif-transparency/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/09/20/windows-mac-software/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/09/29/duoshuo-style/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/10/16/hexo-404-page/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/10/25/hexo-tag-cloud/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/10/31/excel-markdown-table/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/11/04/hexo-deployment/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/11/09/web-style-guide/</loc>
+    <lastmod>2015-11-21T14:02:02.517Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/08/30/EndNote-Markdown/</loc>
+    <lastmod>2015-11-21T14:02:02.487Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2015/08/28/Front-End-Study/</loc>
+    <lastmod>2015-11-21T14:02:02.487Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-10-01-host-blog-github-and-gitcafe/</loc>
+    <lastmod>2015-11-21T13:22:37.108Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-09-30-github-multiple-account-and-multiple-repository/</loc>
+    <lastmod>2015-11-21T13:22:24.764Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-07-03-clojure-macro/</loc>
+    <lastmod>2015-11-21T13:20:52.552Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-07-02-clojure-httpkit/</loc>
+    <lastmod>2015-11-21T13:20:43.932Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-28-clojure-sql/</loc>
+    <lastmod>2015-11-21T13:20:14.613Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-25-clojure-introduction-and-Application/</loc>
+    <lastmod>2015-11-21T13:19:42.126Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-24-clojure-set/</loc>
+    <lastmod>2015-11-21T13:19:32.420Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-23-clojure-map/</loc>
+    <lastmod>2015-11-21T13:19:10.173Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-22-clojure-list/</loc>
+    <lastmod>2015-11-21T13:18:59.349Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-08-awk-getting-start02/</loc>
+    <lastmod>2015-11-21T13:04:46.954Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-06-08-awk-getting-start01/</loc>
+    <lastmod>2015-11-21T13:04:38.347Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-05-30-clojure-learning-materials/</loc>
+    <lastmod>2015-11-21T13:04:19.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-05-26-clojure-set-up/</loc>
+    <lastmod>2015-11-21T13:04:11.123Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2014/09/28/2014-09-27-sublime-text-complete-guide/</loc>
+    <lastmod>2015-11-21T13:03:44.124Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2014-05-25-learn-clojure-in-minutes/</loc>
+    <lastmod>2015-11-21T13:02:34.923Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/2016/01/24/2013-08-08-vi-hand-book/</loc>
+    <lastmod>2015-11-21T13:02:20.364Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/tweenjs-0.6.0.min.js</loc>
+    <lastmod>2015-11-15T10:33:48.365Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/jquery.min.js</loc>
+    <lastmod>2015-11-15T10:33:44.335Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/jazy19.min.js</loc>
+    <lastmod>2015-11-15T10:33:40.745Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/easeljs-0.7.1.min(1).js</loc>
+    <lastmod>2015-11-15T10:33:34.275Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/js/easeljs-0.7.1.min.js</loc>
+    <lastmod>2015-11-15T10:33:30.055Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://notes.seirhsiao.com/static/css/git/normalize.css</loc>
+    <lastmod>2015-11-04T17:14:02.000Z</lastmod>
+  </url>
+  
+</urlset>
