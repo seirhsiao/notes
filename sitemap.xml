@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://notes.seirhsiao.com//search.html</loc>
+    <lastmod>2016-01-29T11:45:06.886Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://notes.seirhsiao.com/about/index.html</loc>
-    <lastmod>2016-01-28T13:42:14.550Z</lastmod>
+    <lastmod>2016-01-29T11:42:41.200Z</lastmod>
   </url>
   
   <url>
@@ -177,26 +182,6 @@
   </url>
   
   <url>
-    <loc>http://notes.seirhsiao.com/2014-08-08-clojure.html</loc>
-    <lastmod>2015-11-28T09:22:17.260Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://notes.seirhsiao.com/2014-08-08-scala.html</loc>
-    <lastmod>2015-11-28T09:19:11.912Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://notes.seirhsiao.com/2013-07-13-git.html</loc>
-    <lastmod>2015-11-28T09:15:57.079Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://notes.seirhsiao.com/2013-07-14-git-flow.html</loc>
-    <lastmod>2015-11-28T08:57:21.739Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://notes.seirhsiao.com/static/css/git/style.css</loc>
     <lastmod>2015-11-28T08:52:20.728Z</lastmod>
   </url>
@@ -264,11 +249,6 @@
   <url>
     <loc>http://notes.seirhsiao.com/resources/embed.js</loc>
     <lastmod>2015-11-22T01:32:12.725Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://notes.seirhsiao.com//search.html</loc>
-    <lastmod>2015-11-21T14:02:02.557Z</lastmod>
   </url>
   
   <url>
