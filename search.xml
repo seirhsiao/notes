@@ -688,11 +688,11 @@
       
         <tags>
             
+            <tag> 翻译 </tag>
+            
             <tag> java </tag>
             
             <tag> 资源 </tag>
-            
-            <tag> 翻译 </tag>
             
         </tags>
       
@@ -900,31 +900,6 @@
     
     
     <entry>
-      <title>AWK入门指南</title>
-      <link href="/posts/69de0ee2/"/>
-      <url>/posts/69de0ee2/</url>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> linux </tag>
-            
-            <tag> awk </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>AWK语言详解</title>
       <link href="/posts/d5b3edf3/"/>
       <url>/posts/d5b3edf3/</url>
@@ -950,29 +925,23 @@
     
     
     <entry>
-      <title>Clojure 代码规范（中文）</title>
-      <link href="/posts/9285c344/"/>
-      <url>/posts/9285c344/</url>
+      <title>AWK入门指南</title>
+      <link href="/posts/69de0ee2/"/>
+      <url>/posts/69de0ee2/</url>
       
       
       <categories>
           
-          <category> Guide </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 指南 </tag>
+            <tag> linux </tag>
             
-            <tag> 翻译 </tag>
-            
-            <tag> 风格 </tag>
-            
-            <tag> clojure </tag>
-            
-            <tag> 代码规范 </tag>
+            <tag> awk </tag>
             
         </tags>
       
@@ -1056,6 +1025,31 @@
     
     
     <entry>
+      <title>Clojure 学习 —— 条件判断</title>
+      <link href="/posts/203e8a64/"/>
+      <url>/posts/203e8a64/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clojure 学习 —— 函数定义</title>
       <link href="/posts/f45f9581/"/>
       <url>/posts/f45f9581/</url>
@@ -1084,31 +1078,6 @@
       <title>Clojure 学习 —— 正则表达式</title>
       <link href="/posts/2cfc7ba0/"/>
       <url>/posts/2cfc7ba0/</url>
-      
-      
-      <categories>
-          
-          <category> Clojure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> clojure </tag>
-            
-            <tag> 入门 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Clojure 学习 —— 条件判断</title>
-      <link href="/posts/203e8a64/"/>
-      <url>/posts/203e8a64/</url>
       
       
       <categories>
@@ -1214,9 +1183,9 @@
     
     
     <entry>
-      <title>Clojure 学习 —— 序列函数</title>
-      <link href="/posts/3b0a3388/"/>
-      <url>/posts/3b0a3388/</url>
+      <title>Clojure 学习 —— 集合Set</title>
+      <link href="/posts/e2f1d18d/"/>
+      <url>/posts/e2f1d18d/</url>
       
       
       <categories>
@@ -1234,7 +1203,7 @@
             
             <tag> 集合 </tag>
             
-            <tag> seq </tag>
+            <tag> set </tag>
             
         </tags>
       
@@ -1262,35 +1231,6 @@
             <tag> 入门 </tag>
             
             <tag> binding </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Clojure 学习 —— 集合Set</title>
-      <link href="/posts/e2f1d18d/"/>
-      <url>/posts/e2f1d18d/</url>
-      
-      
-      <categories>
-          
-          <category> Clojure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> clojure </tag>
-            
-            <tag> 入门 </tag>
-            
-            <tag> 集合 </tag>
-            
-            <tag> set </tag>
             
         </tags>
       
@@ -1349,33 +1289,6 @@
     
     
     <entry>
-      <title>Clojure 学习 —— 连接mongodb</title>
-      <link href="/posts/fa8d6b84/"/>
-      <url>/posts/fa8d6b84/</url>
-      
-      
-      <categories>
-          
-          <category> Clojure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> clojure </tag>
-            
-            <tag> 入门 </tag>
-            
-            <tag> mongodb </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Clojure 学习 —— 连接mysql</title>
       <link href="/posts/dfed0350/"/>
       <url>/posts/dfed0350/</url>
@@ -1395,6 +1308,33 @@
             <tag> 入门 </tag>
             
             <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 连接mongodb</title>
+      <link href="/posts/fa8d6b84/"/>
+      <url>/posts/fa8d6b84/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> mongodb </tag>
             
         </tags>
       
@@ -1430,56 +1370,6 @@
     
     
     <entry>
-      <title>几分钟内学习clojure宏</title>
-      <link href="/posts/8b27109d/"/>
-      <url>/posts/8b27109d/</url>
-      
-      
-      <categories>
-          
-          <category> Clojure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> clojure </tag>
-            
-            <tag> 入门 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>clojure 相关的一些小贴士</title>
-      <link href="/posts/678ce1cb/"/>
-      <url>/posts/678ce1cb/</url>
-      
-      
-      <categories>
-          
-          <category> Clojure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> clojure </tag>
-            
-            <tag> tips </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Clojure 学习 —— httpkit</title>
       <link href="/posts/8dda23a1/"/>
       <url>/posts/8dda23a1/</url>
@@ -1497,6 +1387,31 @@
             <tag> clojure </tag>
             
             <tag> httpkit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>几分钟内学习clojure宏</title>
+      <link href="/posts/8b27109d/"/>
+      <url>/posts/8b27109d/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
             
         </tags>
       
@@ -1530,23 +1445,23 @@
     
     
     <entry>
-      <title>同时部署博客到github 与 gitcafe</title>
-      <link href="/posts/18a27be/"/>
-      <url>/posts/18a27be/</url>
+      <title>clojure 相关的一些小贴士</title>
+      <link href="/posts/678ce1cb/"/>
+      <url>/posts/678ce1cb/</url>
       
       
       <categories>
           
-          <category> Blog </category>
+          <category> Clojure </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> github </tag>
+            <tag> clojure </tag>
             
-            <tag> gitcafe </tag>
+            <tag> tips </tag>
             
         </tags>
       
@@ -1605,6 +1520,91 @@
     
     
     <entry>
+      <title>同时部署博客到github 与 gitcafe</title>
+      <link href="/posts/18a27be/"/>
+      <url>/posts/18a27be/</url>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> gitcafe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 代码规范（中文）</title>
+      <link href="/posts/9285c344/"/>
+      <url>/posts/9285c344/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> clojure </tag>
+            
+            <tag> 代码规范 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 序列函数</title>
+      <link href="/posts/3b0a3388/"/>
+      <url>/posts/3b0a3388/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> 集合 </tag>
+            
+            <tag> seq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows 上安装 Jekyll</title>
       <link href="/posts/a883aa98/"/>
       <url>/posts/a883aa98/</url>
@@ -1655,6 +1655,31 @@
     
     
     <entry>
+      <title>UML类图实例</title>
+      <link href="/posts/67600903/"/>
+      <url>/posts/67600903/</url>
+      
+      
+      <categories>
+          
+          <category> UML </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UML </tag>
+            
+            <tag> 类图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse设置、调优、使用</title>
       <link href="/posts/39e61ab3/"/>
       <url>/posts/39e61ab3/</url>
@@ -1680,23 +1705,23 @@
     
     
     <entry>
-      <title>UML类图实例</title>
-      <link href="/posts/67600903/"/>
-      <url>/posts/67600903/</url>
+      <title>Maven+Nexus配置手册</title>
+      <link href="/posts/674ab227/"/>
+      <url>/posts/674ab227/</url>
       
       
       <categories>
           
-          <category> UML </category>
+          <category> Maven </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> UML </tag>
+            <tag> maven </tag>
             
-            <tag> 类图 </tag>
+            <tag> nexus </tag>
             
         </tags>
       
@@ -1755,6 +1780,31 @@
     
     
     <entry>
+      <title>Maven学习 —— Maven 环境搭建</title>
+      <link href="/posts/1bc69444/"/>
+      <url>/posts/1bc69444/</url>
+      
+      
+      <categories>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> maven </tag>
+            
+            <tag> 环境搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jenkins安装以及集成使用</title>
       <link href="/posts/e6fee501/"/>
       <url>/posts/e6fee501/</url>
@@ -1769,11 +1819,11 @@
       
         <tags>
             
+            <tag> 环境搭建 </tag>
+            
             <tag> jenkins </tag>
             
             <tag> tools </tag>
-            
-            <tag> 环境搭建 </tag>
             
         </tags>
       
@@ -1782,9 +1832,9 @@
     
     
     <entry>
-      <title>Maven+Nexus配置手册</title>
-      <link href="/posts/674ab227/"/>
-      <url>/posts/674ab227/</url>
+      <title>Sonar及其eclipse插件的安装</title>
+      <link href="/posts/7fb9dba/"/>
+      <url>/posts/7fb9dba/</url>
       
       
       <categories>
@@ -1800,30 +1850,9 @@
             
             <tag> nexus </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Maven学习 —— Maven 环境搭建</title>
-      <link href="/posts/1bc69444/"/>
-      <url>/posts/1bc69444/</url>
-      
-      
-      <categories>
-          
-          <category> Maven </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
             <tag> 环境搭建 </tag>
             
-            <tag> maven </tag>
+            <tag> tools </tag>
             
         </tags>
       
@@ -1859,35 +1888,6 @@
     
     
     <entry>
-      <title>Sonar及其eclipse插件的安装</title>
-      <link href="/posts/7fb9dba/"/>
-      <url>/posts/7fb9dba/</url>
-      
-      
-      <categories>
-          
-          <category> Maven </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> tools </tag>
-            
-            <tag> 环境搭建 </tag>
-            
-            <tag> maven </tag>
-            
-            <tag> nexus </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Git 风格指南</title>
       <link href="/posts/81fc5f62/"/>
       <url>/posts/81fc5f62/</url>
@@ -1904,11 +1904,11 @@
             
             <tag> 指南 </tag>
             
-            <tag> 翻译 </tag>
-            
             <tag> git </tag>
             
             <tag> 风格 </tag>
+            
+            <tag> 翻译 </tag>
             
         </tags>
       
@@ -1942,35 +1942,6 @@
     
     
     <entry>
-      <title>Markdown 语法指南</title>
-      <link href="/posts/c8e71c7e/"/>
-      <url>/posts/c8e71c7e/</url>
-      
-      
-      <categories>
-          
-          <category> Guide </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-            <tag> 翻译 </tag>
-            
-            <tag> 风格 </tag>
-            
-            <tag> markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>给程序员的开源、免费图书集合</title>
       <link href="/posts/83e9c285/"/>
       <url>/posts/83e9c285/</url>
@@ -1996,9 +1967,9 @@
     
     
     <entry>
-      <title>Rails 风格指南</title>
-      <link href="/posts/e129951/"/>
-      <url>/posts/e129951/</url>
+      <title>Markdown 语法指南</title>
+      <link href="/posts/c8e71c7e/"/>
+      <url>/posts/c8e71c7e/</url>
       
       
       <categories>
@@ -2012,13 +1983,11 @@
             
             <tag> 指南 </tag>
             
-            <tag> 翻译 </tag>
-            
             <tag> 风格 </tag>
             
-            <tag> ruby </tag>
+            <tag> 翻译 </tag>
             
-            <tag> rails </tag>
+            <tag> markdown </tag>
             
         </tags>
       
@@ -2042,6 +2011,87 @@
         <tags>
             
             <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Rails 风格指南</title>
+      <link href="/posts/e129951/"/>
+      <url>/posts/e129951/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> ruby </tag>
+            
+            <tag> rails </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown学习资料汇总</title>
+      <link href="/posts/1f302c16/"/>
+      <url>/posts/1f302c16/</url>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+            <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端知识结构</title>
+      <link href="/posts/ad32fa10/"/>
+      <url>/posts/ad32fa10/</url>
+      
+      
+      <categories>
+          
+          <category> Structure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> frontend </tag>
             
         </tags>
       
@@ -2104,85 +2154,6 @@
     
     
     <entry>
-      <title>前端知识结构</title>
-      <link href="/posts/ad32fa10/"/>
-      <url>/posts/ad32fa10/</url>
-      
-      
-      <categories>
-          
-          <category> Structure </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 资源 </tag>
-            
-            <tag> frontend </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>markdown学习资料汇总</title>
-      <link href="/posts/1f302c16/"/>
-      <url>/posts/1f302c16/</url>
-      
-      
-      <categories>
-          
-          <category> Markdown </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 资源 </tag>
-            
-            <tag> markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>GitHub 秘籍</title>
-      <link href="/posts/2d68febb/"/>
-      <url>/posts/2d68febb/</url>
-      
-      
-      <categories>
-          
-          <category> GitHub </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-            <tag> 翻译 </tag>
-            
-            <tag> git </tag>
-            
-            <tag> github </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vi编辑器使用指南</title>
       <link href="/posts/4672282/"/>
       <url>/posts/4672282/</url>
@@ -2208,23 +2179,27 @@
     
     
     <entry>
-      <title>SSH 学习</title>
-      <link href="/posts/24b791e0/"/>
-      <url>/posts/24b791e0/</url>
+      <title>GitHub 秘籍</title>
+      <link href="/posts/2d68febb/"/>
+      <url>/posts/2d68febb/</url>
       
       
       <categories>
           
-          <category> Linux </category>
+          <category> GitHub </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> 指南 </tag>
             
-            <tag> ssh </tag>
+            <tag> git </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> github </tag>
             
         </tags>
       
@@ -2250,6 +2225,31 @@
             <tag> clojure </tag>
             
             <tag> leigingen </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSH 学习</title>
+      <link href="/posts/24b791e0/"/>
+      <url>/posts/24b791e0/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> ssh </tag>
             
         </tags>
       
@@ -2299,9 +2299,9 @@
             
             <tag> 指南 </tag>
             
-            <tag> 翻译 </tag>
-            
             <tag> 风格 </tag>
+            
+            <tag> 翻译 </tag>
             
             <tag> ruby </tag>
             
@@ -3018,9 +3018,9 @@
       
         <tags>
             
-            <tag> github </tag>
-            
             <tag> linux </tag>
+            
+            <tag> github </tag>
             
             <tag> ssh </tag>
             
