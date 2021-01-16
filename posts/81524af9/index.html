@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Java 基本开发之环境搭建 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="Java 基本开发之环境搭建"><meta name="keywords" content="环境搭建,java,language"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Java 基本开发之环境搭建"><meta name="twitter:description" content="Java 基本开发之环境搭建"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/java.png"><meta property="og:type" content="article"><meta property="og:title" content="Java 基本开发之环境搭建"><meta property="og:url" content="http://notes.seirhsiao.com/posts/81524af9/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="Java 基本开发之环境搭建"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/java.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/81524af9/"><link rel="prev" title="javaSE 基础笔记之环境变量的配置" href="/http:/notes.seirhsiao.com/posts/c1947bf9/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/81524af9/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Java-基本开发之环境搭建"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Java 基本开发之环境搭建</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#一、开发工具获取"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">一、开发工具获取</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#1、开发工具包JDK"><span class="toc_mobile_items-number">1.1.1.</span> <span class="toc_mobile_items-text">1、开发工具包JDK</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2、Java-Web应用的Web服务器——Tomcat"><span class="toc_mobile_items-number">1.1.2.</span> <span class="toc_mobile_items-text">2、Java Web应用的Web服务器——Tomcat</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#3、Java开发IDE——Eclipse"><span class="toc_mobile_items-number">1.1.3.</span> <span class="toc_mobile_items-text">3、Java开发IDE——Eclipse</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#二、开发工具的安装与环境配置"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">二、开发工具的安装与环境配置</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#1、JDK安装与配置"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">1、JDK安装与配置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2、Tomcat安装与目录说明"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">2、Tomcat安装与目录说明</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#3、Eclipse安装与配置"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">3、Eclipse安装与配置</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#三、小结"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">三、小结</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-基本开发之环境搭建"><span class="toc-number">1.</span> <span class="toc-text">Java 基本开发之环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、开发工具获取"><span class="toc-number">1.1.</span> <span class="toc-text">一、开发工具获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、开发工具包JDK"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、开发工具包JDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Java-Web应用的Web服务器——Tomcat"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、Java Web应用的Web服务器——Tomcat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Java开发IDE——Eclipse"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、Java开发IDE——Eclipse</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、开发工具的安装与环境配置"><span class="toc-number">1.2.</span> <span class="toc-text">二、开发工具的安装与环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、JDK安装与配置"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、JDK安装与配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Tomcat安装与目录说明"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、Tomcat安装与目录说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Eclipse安装与配置"><span class="toc-number">1.3.</span> <span class="toc-text">3、Eclipse安装与配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、小结"><span class="toc-number">2.</span> <span class="toc-text">三、小结</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/11874.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">Java 基本开发之环境搭建</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2014-03-21<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-08</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Java/">Java</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">2.4k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 8 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h2 id="Java-基本开发之环境搭建"><a href="#Java-基本开发之环境搭建" class="headerlink" title="Java 基本开发之环境搭建"></a>Java 基本开发之环境搭建</h2><h3 id="一、开发工具获取"><a href="#一、开发工具获取" class="headerlink" title="一、开发工具获取"></a>一、开发工具获取</h3><h4 id="1、开发工具包JDK"><a href="#1、开发工具包JDK" class="headerlink" title="1、开发工具包JDK"></a>1、开发工具包<code>JDK</code></h4><ul>
+<li>下载地址：</li>
+</ul>
+<p>到<a href="http://www.oracle.com/" target="_blank" rel="external nofollow noreferrer noopener">ORACLE公司官方网站</a>下载。</p>
+<ul>
+<li>下载文件的选择：</li>
+</ul>
+<p>对于windows操作系统，最后下载的文件的文件名格式为：jdk-6uX-windows-i586.exe，其中“6uX”代表版本号，其中包含了JDK和JRE，文件大小大概70M； 例如</p>
+<p>笔者下载最新的JDK为Java SE Development Kit 6 Update 25，相应的文件名为jdk-6u25-windows-i586.exe，文件大小为76.66M。相关网页如图所示：<br><img alt="jdk01" data-src="/images/java/jdk01.jpg" class="lazyload"><br><img alt="jdk02" data-src="/images/java/jdk02.jpg" class="lazyload"><br><img alt="jdk03" data-src="/images/java/jdk03.jpg" class="lazyload"></p>
+<h4 id="2、Java-Web应用的Web服务器——Tomcat"><a href="#2、Java-Web应用的Web服务器——Tomcat" class="headerlink" title="2、Java Web应用的Web服务器——Tomcat"></a>2、Java Web应用的Web服务器——Tomcat</h4><ul>
+<li><p>下载地址：<br>下载地址：Tomcat官网(<a href="http://tomcat.apache.org/" target="_blank" rel="external nofollow noreferrer noopener">http://tomcat.apache.org</a>)</p>
+</li>
+<li><p>下载文件的选择：</p>
+</li>
+</ul>
+<p>官网左侧Download给出了Tomcat的各种版本，选择一种版本转入下载页面；在Quick Navigation区域中点击最新的版本超级链接定位到最下端的针对各操作系统和平</p>
+<p>台的Tomcat下载列表，其中ZIP对应的是Windows系统下的版本。Tar.gz为Linux平台下的开发包。相关的页面参考指引图如下：</p>
+<p><img alt="tomcat01" data-src="/images/java/tomcat001.jpg" class="lazyload"><br><img alt="tomcat02" data-src="/images/java/tomcat002.jpg" class="lazyload"><br><img alt="tomcat03" data-src="/images/java/tomcat003.jpg" class="lazyload"></p>
+<h4 id="3、Java开发IDE——Eclipse"><a href="#3、Java开发IDE——Eclipse" class="headerlink" title="3、Java开发IDE——Eclipse"></a>3、Java开发IDE——Eclipse</h4><ul>
+<li>下载地址：<br>Eclipse官方网站(<a href="http://www.eclipse.org/" target="_blank" rel="external nofollow noreferrer noopener">http://www.eclipse.org</a>)，选择Download进入下载列表页面；</li>
+</ul>
+<ul>
+<li><p>下载文件的选择：<br>下载选择：找到Eclipse IDE for Java EE Developers(206M)，进入下载页面，下载；笔者下载的最终文件是eclipse-jee-helios-SR2-win32.zip，相关页面截图如下：<br><img alt="eclipse01" data-src="/images/java/eclipse01.jpg" class="lazyload"></p>
+</li>
+<li><p>Eclipse中文包下载：</p>
+</li>
+</ul>
+<p><a href="http://www.eclipse.org/babel" target="_blank" rel="external nofollow noreferrer noopener">下载地址</a> ， 在Babel项目首页的左侧，点击“Download”进入下载列表页面；在此根据下载的Eclipse选择对应的版本的语言包，如helios版本的，点击进入多</p>
+<p>国语言包下载页面；找到Language: Chinese (Simplified)子标题，它下面包含了简体中文包，这些包适用于不同的Eclipse插件，其中BabelLanguagePack-eclipse-zh_3.6.0.v***.zip 文件</p>
+<p>是Eclipse的核心语言包，点击进入具体的下载页面进行下载。下载完成后覆盖Eclipse相应的文件夹即可成功添加中文语言包。相关指引图如下：<br><img alt="eclipse02" data-src="/images/java/eclipse02.jpg" class="lazyload"><br><img alt="eclipse03" data-src="/images/java/eclipse03.jpg" class="lazyload"><br><img alt="eclipse04" data-src="/images/java/eclipse04.jpg" class="lazyload"><br><img alt="eclipse05" data-src="/images/java/eclipse05.jpg" class="lazyload"></p>
+<h3 id="二、开发工具的安装与环境配置"><a href="#二、开发工具的安装与环境配置" class="headerlink" title="二、开发工具的安装与环境配置"></a>二、开发工具的安装与环境配置</h3><h4 id="1、JDK安装与配置"><a href="#1、JDK安装与配置" class="headerlink" title="1、JDK安装与配置"></a>1、JDK安装与配置</h4><ul>
+<li>安装：</li>
+</ul>
+<p>直接运行下载的JDK安装文件jdk-6u25-windows-i586.exe，按照提示指引进行安装。其中中途有选择JRE的安装，也一并安装了。</p>
+<p><strong>补充说明</strong>：JDK与JRE的关系</p>
+<p>JDK是Java的开发平台，在编写Java程序时，需要JDK进行编译处理；JRE是Java程序的运行环境，包含了JVM的实现 及Java核心类库，编译后的Java程序必须使用JRE执行。在下载的JDK安装包中集成了JDK与JRE，所以在安装JDK过程中会提示安装JRE。</p>
+<ul>
+<li>环境配置：</li>
+</ul>
+<p>在”我的电脑”的环境变量中，添加JAVA系统变量；具体操作是在“系统变量”区域新建变量名为“JAVA_HOME”的变量，变量值为JDK的安装路径，</p>
+<p>如“C：/Java/jdk1.6.0_25”；接着将JAVA_HOME添加到系统变量Path之中，方法是编辑打开系统变量Path，在原有的变量值前添加双引号内的代码“%JAVA_HOME %/bin;”，其中的分号起分隔作用，不可缺少。</p>
+<ul>
+<li>测试：</li>
+</ul>
+<p>安装配置好JDK后，在CMD命令行窗口中运行JDK命令：javac。其成功的效果如图：<br><img alt="javac" data-src="/images/java/javac.jpg" class="lazyload"></p>
+<p>JDK测试结果</p>
+<h4 id="2、Tomcat安装与目录说明"><a href="#2、Tomcat安装与目录说明" class="headerlink" title="2、Tomcat安装与目录说明"></a>2、Tomcat安装与目录说明</h4><ul>
+<li>安装：</li>
+</ul>
+<p>下载Tomcat后，直接解压缩就可以使用了；<br><img alt="eclipse01" data-src="/images/java/tomcat01.jpg" class="lazyload"></p>
+<ul>
+<li>Tomcat关键目录及文件作用：</li>
+</ul>
+<p><img alt="Tomcat关键目录" data-src="https://images0.cnblogs.com/blog/565116/201403/212353589598219.jpg" class="lazyload"></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">--| bin：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">用于存放各种平台下启动和关闭Tomcat的脚本文件。在该目录中有两个非常关键的文件——startup.bat、shutdown.bat，前者是Windows下启动Tomcat的文件，后者是对应的关闭文件；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">--| conf：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Tomcat的各种配置文件，其中server.xml为服务器的主配置文件，web.xml为所有Web应用的配置文件，tomcat-users.xml用于定义Tomcat的用户信息、配置用户的权限与安全。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">--| lib：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">此目录存放Tomcat服务器和所有Web应用都能访问的JAR。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">--| logs：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">用于存放Tomcat的日志文件，Tomcat的所有日志都存放在此目录中。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">--| temp：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">临时文件夹，Tomcat运行时候如果有临时文件将保存于此目录。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">--| webapps目录：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">Web应用的发布目录，把Java Web站点或war文件放入这个目录下，就可以通过Tomcat服务器访问了。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">--| work：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">Tomcat解析JSP生成的Servlet文件放在这个目录中。</span></pre></td></tr></tbody></table></figure>
+<ul>
+<li>测试： </li>
+</ul>
+<p>在bin目录下双击starup.bat文件运行Tomcat，在浏览器输入：<a href="http://localhost:8080" target="_blank" rel="external nofollow noreferrer noopener">http://localhost:8080</a> ，访问Tomcat。显示如下图所示页面，证明Tomcat运行成功。<br><img alt="tomcat02" data-src="/images/java/tomcat02.jpg" class="lazyload"><br><img alt="tomcat03" data-src="/images/java/tomcat03.jpg" class="lazyload"><br><img alt="Tomcat启动信息01" data-src="https://images0.cnblogs.com/blog/565116/201403/212353594591133.jpg" class="lazyload"> <img alt="Tomcat启动成功页面" data-src="https://images0.cnblogs.com/blog/565116/201403/212353598186089.jpg" class="lazyload"></p>
+<h3 id="3、Eclipse安装与配置"><a href="#3、Eclipse安装与配置" class="headerlink" title="3、Eclipse安装与配置"></a>3、Eclipse安装与配置</h3><ul>
+<li><p>安装：</p>
+<p>下载Eclipse后，将得到的eclipse-jee-helios-SR2-win32.zip文件直接解压缩就完成了Eclipse的安装；</p>
+</li>
+<li><p>汉化：</p>
+</li>
+</ul>
+<p>将之前下载的中文包BabelLanguagePack-eclipse-zh_3.6.0.v***.zip直接解压缩，得到一个名称为eclipse的目录，里面包含两个文件夹：features和plugins，将它们选</p>
+<p>中并复制到Eclipse安装目录中覆盖其中的<code>features</code>和<code>plugins</code>就完成汉化；</p>
+<ul>
+<li>集成Eclipse和Tomcat：</li>
+</ul>
+<p>在开发过程中，手动的部署和运行Web项目，过程繁琐，效率低下。所以需要将Tomcat服务器配置到Eclipse中，为Web项目指定一个Web应用服务器。这样就可以</p>
+<p>在Eclipse中操作Tomcat，并自动部署和运行Web项目。配置步骤如下：</p>
+<p>在Eclipse中，窗口——首选项——服务器(Server)——运行时环境(Runtime Environments) ——添加(Add)，添加Tomcat服务器。对应安装的Tomcat版本选择Apache</p>
+<p>Tomcat v6.0。下一步通过“浏览(Brower)”按钮选择之前Tomcat的安装目录，指定后点击“完成”完成配置。指引参考图如下：<br><img alt="tomcat04" data-src="/images/java/tomcat04.jpg" class="lazyload"><br><img alt="tomcat05" data-src="/images/java/tomcat05.jpg" class="lazyload"><br><img alt="tomcat06" data-src="/images/java/tomcat06.jpg" class="lazyload"></p>
+<p>集成eclipse与tomcat03</p>
+<ul>
+<li>为Eclipse指定Web浏览器</li>
+</ul>
+<p>打开Eclipse，窗口——首选项——常规——Web浏览器——选中使用外部Web浏览器——勾选Internet Explorer——确定。</p>
+<ul>
+<li>指定Eclipse中JSP页面的编码格式</li>
+</ul>
+<p>默认情况下，在Eclipse中创建JSP页面是“ISO-8859-1”编码格式。该格式不支持中文字符集，编写中会出现乱码，所以需要为其指定一个支持中文的字符集。指定方法如下：</p>
+<p>打开Eclipse，窗口——首选项——Web——JSP文件——编码(Encoding)——下拉选择ISO 10646/Unicode(UTF-8)<br><img alt="tomcat07" data-src="/images/java/tomcat07.jpg" class="lazyload"><br><img alt="eclipse JSP页面编码格式" data-src="https://images0.cnblogs.com/blog/565116/201403/212354015218003.jpg" class="lazyload"><br>eclipse JSP页面编码格式</p>
+<ul>
+<li>测试Java Web项目Hello World</li>
+</ul>
+<ul>
+<li>1）、文件——新建——动态Web项目——输入项目名(如1.1)——完成，项目创建成功；</li>
+<li>2）、项目资源管理器——选中项目(如1.1)——WebContent节点——右键——新建——JSP文件——输入文件名(如index.jsp)——完成，成功新建JSP文件；</li>
+<li>3）、打开index.jsp页面的代码窗口，编写输出“Hello World !”的代码，如下所示：<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span>  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">pageEncoding=<span class="string">"UTF-8"</span>%&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;html&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;head&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&lt;title&gt;Hello World&lt;/title&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;/head&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&lt;body&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&lt;center&gt;Hello World !&lt;/center&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&lt;/html&gt;</span></pre></td></tr></tbody></table></figure>
+<ul>
+<li>4）、编写完成后，保存，在工具栏单击“<a href="http://hi.csdn.net/attachment/201105/7/0_13047664616CuX.gif”的黑三角，在弹出的快捷菜单中选择“运行方式?在服务器上运行”，在打开的对话框中，勾选“将服务器设置为项目默" target="_blank" rel="external nofollow noreferrer noopener">http://hi.csdn.net/attachment/201105/7/0_13047664616CuX.gif”的黑三角，在弹出的快捷菜单中选择“运行方式?在服务器上运行”，在打开的对话框中，勾选“将服务器设置为项目默</a></li>
+</ul>
+</li>
+</ul>
+<p>认值”复选框，单击“完成”按钮，即可通过Tomcat运行该项目，弹出的浏览器显示“Hello World !”字样，well done。相关步骤操作截图如下：</p>
+<p>新建Java Web项目01</p>
+<p><img alt="project01" data-src="/images/java/project01.jpg" class="lazyload"></p>
+<p>添加JSP文件</p>
+<p><img alt="project02" data-src="/images/java/project02.jpg" class="lazyload"></p>
+<p>JSP文件命名<br><img alt="project03" data-src="/images/java/project03.jpg" class="lazyload"><br><img alt="project04" data-src="/images/java/project04.jpg" class="lazyload"></p>
+<p>hello world</p>
+<h2 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h2><p>通过以上的操作后，基本掌握开发JavaEE开发所需的环境的搭建，对JavaEE开发有了一个基础的了解。</p>
+<ul>
+<li>(1)jdk的配置<ul>
+<li>1、在系统变量中创建变量JAVA_HOME,值为jdk的安装目录。如：C:\Program Files\Java\jdk1.6.0_25</li>
+<li>2、然后修改CLASS_PATH，若没有则创建变量CLASS_PATH,值为：.;%JAVA_HOME%\lib</li>
+<li>3、修改path，在最前面加上：%JAVA_HOME%\bin;</li>
+<li>4、验证是否安装成功：打开cmd命令，输入java\javac\java -version,若显示正确结果，则安装成功</li>
+</ul>
+</li>
+<li>(2)Eclipse的安装<ul>
+<li>1、根据实际情况安装Eclipse、及汉化包</li>
+<li>2、可以创建多个workspace，避免以后project多了，Eclipse的启动会变慢</li>
+<li>3、切换workspace可以在启动时进行选择，也可以等启动后在“File”–”Switch Workapsce”中进行切换。</li>
+</ul>
+</li>
+<li>(3)在Eclipse中配置tomcat和jdk<ul>
+<li>1、配置JRE：“Window”–”Preferences”–”Java”–”Installed JREs”–“Add”–”Standard VM”–选择()(3)jdk安装目录。</li>
+<li>2、配置tomcat：“Window”–”Preferences””–”Servers”–”选择你安装的tomcat版本”–“在   右边窗体中选择tomcat安装路径”–”Tomcat server选项选“enable””</li>
+<li>3、验证是否配置正确，在Eclipse中的server窗口中看有没有安装的tomcat版本，有的话看是否可以正常启动</li>
+<li>4、为tomcat配置jdk，“Window”–”Preferences”–”Servers”–”选择你安装的tomcat版本”–”JDK”–”add”–”选择你安装的jdk”<ul>
+<li>(4)为workspace选择编码<br>“Window”–”Preferences”–”General”–”woekspace”–”utf-8”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(4)tomcat的安装</li>
+</ul>
+<ul>
+<li>1、只有安装了jdk，tomcat才能用，tomcat的安装和平常软件安装一样</li>
+<li>2、安装好后验证是否安装成功：启动startup.bat，然后再浏览器中输入<a href="http://localhost:8080，若显示正确页面，表明安装成功" target="_blank" rel="external nofollow noreferrer noopener">http://localhost:8080，若显示正确页面，表明安装成功</a></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/81524af9/">http://notes.seirhsiao.com/posts/81524af9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建    </a><a class="post-meta__tags" href="/tags/java/">java    </a><a class="post-meta__tags" href="/tags/language/">language    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-full"><a href="/posts/c1947bf9/"><img class="prev_cover lazyload" data-src="/static/cover/java.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>javaSE 基础笔记之环境变量的配置</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/c1947bf9/" title="javaSE 基础笔记之环境变量的配置"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">javaSE 基础笔记之环境变量的配置</div></a></div><div class="relatedPosts_item"><a href="/posts/58a40d16/" title="Java 提高篇(六) --- 泛型（Generics）"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">Java 提高篇(六) --- 泛型（Generics）</div></a></div><div class="relatedPosts_item"><a href="/posts/58a40d15/" title="Java 提高篇(五) --- 集合类"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">Java 提高篇(五) --- 集合类</div></a></div><div class="relatedPosts_item"><a href="/posts/58a40e10/" title="Java 提高篇(一) --- Java 关键字"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">Java 提高篇(一) --- Java 关键字</div></a></div><div class="relatedPosts_item"><a href="/posts/58a40d12/" title="Java 提高篇(三) --- 多态"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">Java 提高篇(三) --- 多态</div></a></div><div class="relatedPosts_item"><a href="/posts/58a40d13/" title="Java 提高篇(四) --- 异常处理"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">Java 提高篇(四) --- 异常处理</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/11874.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

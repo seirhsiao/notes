@@ -1,0 +1,1216 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>前端资源收集 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="前端资源收集"><meta name="keywords" content="资源"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="前端资源收集"><meta name="twitter:description" content="前端资源收集"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/front.webp"><meta property="og:type" content="article"><meta property="og:title" content="前端资源收集"><meta property="og:url" content="http://notes.seirhsiao.com/posts/649971dd/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="前端资源收集"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/front.webp"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/649971dd/"><link rel="prev" title="Rails 风格指南" href="/http:/notes.seirhsiao.com/posts/e129951/"><link rel="next" title="免费编程书籍" href="/http:/notes.seirhsiao.com/posts/31d41407/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/649971dd/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#前端收集"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">前端收集</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#前端收集图谱"><span class="toc_mobile_items-number">1.0.0.1.</span> <span class="toc_mobile_items-text">前端收集图谱</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#聚合-amp-amp-周报订阅"><span class="toc_mobile_items-number">1.0.0.2.</span> <span class="toc_mobile_items-text">聚合&amp;&amp;周报订阅</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#专业博客"><span class="toc_mobile_items-number">1.0.0.3.</span> <span class="toc_mobile_items-text">专业博客</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-6"><a class="toc_mobile_items-link" href="#中文博客"><span class="toc_mobile_items-number">1.0.0.3.0.1.</span> <span class="toc_mobile_items-text">中文博客</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#活跃微博"><span class="toc_mobile_items-number">1.0.0.3.1.</span> <span class="toc_mobile_items-text">活跃微博</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#开发者博客"><span class="toc_mobile_items-number">1.0.0.4.</span> <span class="toc_mobile_items-text">开发者博客</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-6"><a class="toc_mobile_items-link" href="#国内开发者"><span class="toc_mobile_items-number">1.0.0.4.0.1.</span> <span class="toc_mobile_items-text">国内开发者</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#企业官方博客"><span class="toc_mobile_items-number">1.0.0.4.1.</span> <span class="toc_mobile_items-text">企业官方博客</span></a></li></ol></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#书籍"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">书籍</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#关于"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">##关于</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端收集"><span class="toc-number">1.</span> <span class="toc-text">前端收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前端收集图谱"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">前端收集图谱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚合-amp-amp-周报订阅"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">聚合&amp;&amp;周报订阅</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#专业博客"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">专业博客</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#中文博客"><span class="toc-number">1.0.0.3.0.1.</span> <span class="toc-text">中文博客</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#活跃微博"><span class="toc-number">1.0.0.3.1.</span> <span class="toc-text">活跃微博</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开发者博客"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">开发者博客</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#国内开发者"><span class="toc-number">1.0.0.4.0.1.</span> <span class="toc-text">国内开发者</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#企业官方博客"><span class="toc-number">1.0.0.4.1.</span> <span class="toc-text">企业官方博客</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书籍"><span class="toc-number">1.1.</span> <span class="toc-text">书籍</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于"><span class="toc-number">2.</span> <span class="toc-text">##关于</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/11820.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">前端资源收集</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-02-03<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-05</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Books/">Books</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">2.9k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 10 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="前端收集"><a href="#前端收集" class="headerlink" title="前端收集"></a>前端收集</h1><p>在前端路上摸索前行，在这里分享自己长期关注的前端开发相关的优秀网站、博客、以及活跃开发者。欢迎更新，以下各排名不分先后顺序。</p>
+<p>自己 RSS 长期订阅了一些IT 和技术相关博客，这里是我Feedly 输出的opml，可直接导入一些RSS 阅读器:<br><a href="https://github.com/foru17/luolei-dotfiles/blob/master/feedly.opml" target="_blank" rel="external nofollow noreferrer noopener">https://github.com/foru17/luolei-dotfiles/blob/master/feedly.opml</a></p>
+<p>====</p>
+<h4 id="前端收集图谱"><a href="#前端收集图谱" class="headerlink" title="前端收集图谱"></a><a href="http://get-set.cn/front-end-collect/" target="_blank" rel="external nofollow noreferrer noopener">前端收集图谱</a></h4><p>此部分为<a href="https://github.com/jikeytang" target="_blank" rel="external nofollow noreferrer noopener">@jikeytang </a>贡献</p>
+<ul>
+<li>clone <a href="https://github.com/hjzheng/front-end-collect" target="_blank" rel="external nofollow noreferrer noopener">https://github.com/hjzheng/front-end-collect</a></li>
+<li>cd front-end-collect</li>
+<li>bower install</li>
+<li>放入你喜欢的web容器,访问index.html即可</li>
+<li>你也直接可以访问: <a href="http://get-set.cn/front-end-collect/" target="_blank" rel="external nofollow noreferrer noopener">http://get-set.cn/front-end-collect/</a></li>
+<li>支持Chrome, Firefox and IE10&amp;11以上浏览器</li>
+</ul>
+<p><img alt="image" data-src="https://raw.githubusercontent.com/hjzheng/front-end-collect/master/img/front-end-chart.png" class="lazyload"></p>
+<a id="more"></a>
+<h4 id="聚合-amp-amp-周报订阅"><a href="#聚合-amp-amp-周报订阅" class="headerlink" title="聚合&amp;&amp;周报订阅"></a>聚合&amp;&amp;周报订阅</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>订阅地址</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文推送</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Html5 Weekly</td>
+<td><a href="http://html5weekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://html5weekly.com/</a></td>
+<td>Html 技术类</td>
+</tr>
+<tr>
+<td>CSS Weekly</td>
+<td><a href="http://css-weekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://css-weekly.com/</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Javascript Weekly</td>
+<td><a href="http://javascriptweekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://javascriptweekly.com/</a></td>
+<td>JS相关，同样有 html,css 和工具相关</td>
+</tr>
+<tr>
+<td>Web Design Weekly</td>
+<td><a href="http://web-design-weekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://web-design-weekly.com/</a></td>
+<td>设计、技术、技巧、工具聚合</td>
+</tr>
+<tr>
+<td>UX Weekly</td>
+<td><a href="http://uxwkly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://uxwkly.com/</a></td>
+<td>用户体验、网页设计推送</td>
+</tr>
+<tr>
+<td>Web Tools Weekly</td>
+<td><a href="http://webtoolsweekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://webtoolsweekly.com/</a></td>
+<td>Js，工具推送</td>
+</tr>
+<tr>
+<td>RESPONSIVE DESIGN NEWSLETTER</td>
+<td><a href="http://responsivedesignweekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://responsivedesignweekly.com/</a></td>
+<td>每周推送一次响应式设计相关</td>
+</tr>
+<tr>
+<td>Tutorialzine</td>
+<td><a href="http://tutorialzine.com/" target="_blank" rel="external nofollow noreferrer noopener">http://tutorialzine.com/</a></td>
+<td>精品教程和资源推送</td>
+</tr>
+<tr>
+<td>Sidebar</td>
+<td><a href="http://sidebar.io/" target="_blank" rel="external nofollow noreferrer noopener">http://sidebar.io/</a></td>
+<td>每天、每半周、每周推送5条设计相关</td>
+</tr>
+<tr>
+<td>The Hacker News Newsletter</td>
+<td><a href="http://www.hackernewsletter.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.hackernewsletter.com/</a></td>
+<td>HN 每周精选</td>
+</tr>
+<tr>
+<td>Design News</td>
+<td><a href="https://news.layervault.com/" target="_blank" rel="external nofollow noreferrer noopener">https://news.layervault.com/</a></td>
+<td>F2类资讯聚合</td>
+</tr>
+<tr>
+<td>Css Animations</td>
+<td><a href="http://cssanimation.rocks/" target="_blank" rel="external nofollow noreferrer noopener">http://cssanimation.rocks/</a></td>
+<td>关于CSS动画的订阅</td>
+</tr>
+<tr>
+<td>HACKDESIGN</td>
+<td><a href="http://hackdesign.org/" target="_blank" rel="external nofollow noreferrer noopener">http://hackdesign.org/</a></td>
+<td>每周发布一个设计类课程</td>
+</tr>
+<tr>
+<td><strong>中文推送</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>稀土:掘金</td>
+<td><a href="http://gold.xitu.io/" target="_blank" rel="external nofollow noreferrer noopener">http://gold.xitu.io/</a></td>
+<td>国内十分用心的开发者技术分享、交流平台</td>
+</tr>
+<tr>
+<td>SegmentFault精选</td>
+<td><a href="http://segmentfault.com/" target="_blank" rel="external nofollow noreferrer noopener">http://segmentfault.com/</a></td>
+<td>国内开发者技术问答社区每周精选问答</td>
+</tr>
+<tr>
+<td>FE Weekly</td>
+<td><a href="http://www.feweekly.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.feweekly.com/</a></td>
+<td>每周一次，内容主要是英文的，不过有中文导读</td>
+</tr>
+<tr>
+<td>EchoJs_News</td>
+<td><a href="http://www.echojs.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.echojs.com/</a></td>
+<td>每天推送若干好文，都是英文的，JS技术类</td>
+</tr>
+<tr>
+<td>碼天狗週刊</td>
+<td><a href="http://weekly.codetengu.com/" target="_blank" rel="external nofollow noreferrer noopener">http://weekly.codetengu.com/</a></td>
+<td>台湾的，一份開發者導向的IT 技術週刊，適合所有患有資訊焦慮症、氣血循環不順以及性受挫的軟體工程師們。</td>
+</tr>
+<tr>
+<td>前端资源分享 半月刊</td>
+<td><a href="http://www.hacke2.cn/monthly/" target="_blank" rel="external nofollow noreferrer noopener">http://www.hacke2.cn/monthly/</a></td>
+<td>每半月发布最新高质量的前端资源</td>
+</tr>
+</tbody></table>
+<h4 id="专业博客"><a href="#专业博客" class="headerlink" title="专业博客"></a>专业博客</h4><p>注:此处<code>活跃度</code>为博客更新频率，<code>原创度</code>指的是作者原创或者翻译的文章所占博文比例。请尊重原创，大量转载其他网站资讯的网站和聚合类网站不做推荐。</p>
+<h6 id="中文博客"><a href="#中文博客" class="headerlink" title="中文博客"></a>中文博客</h6><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>活跃度</th>
+<th>原创度</th>
+<th>维护者</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://www.w3cplus.com/" target="_blank" rel="external nofollow noreferrer noopener">W3Cplus</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>携程 @大漠</td>
+<td>国内最优秀的前端博客，原创居多</td>
+</tr>
+<tr>
+<td><a href="http://www.w3cfuns.com/" target="_blank" rel="external nofollow noreferrer noopener">W3Cfuns</a></td>
+<td>★★★★★</td>
+<td>★★★★☆</td>
+<td><a href="http://www.w3cfuns.com/misc.php?mod=faq&amp;action=faq&amp;id=1" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>专注于web前端开发行业的综合性门户网站</td>
+</tr>
+<tr>
+<td><a href="http://www.qianduan.net/" target="_blank" rel="external nofollow noreferrer noopener">前端观察</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td>腾讯 ISUX @神飞</td>
+<td>曾经最优秀，最近更新不频繁了</td>
+</tr>
+<tr>
+<td><a href="http://www.alloyteam.com/" target="_blank" rel="external nofollow noreferrer noopener">腾讯web前端 AlloyTeam 团队</a></td>
+<td>★★★★</td>
+<td>★★★★</td>
+<td><a href="http://t.qq.com/AlloyTeam" target="_blank" rel="external nofollow noreferrer noopener">@腾讯AlloyTeam</a></td>
+<td>来自于腾讯SNG(社交网络事业群)</td>
+</tr>
+<tr>
+<td><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" rel="external nofollow noreferrer noopener">张鑫旭-鑫空间-鑫生活</a></td>
+<td>★★★★☆</td>
+<td>★★★★★</td>
+<td>张鑫旭</td>
+<td>重构很厉害，不少经典文章经验</td>
+</tr>
+<tr>
+<td><a href="http://www.36ria.com/" target="_blank" rel="external nofollow noreferrer noopener">ria之家</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td>淘宝 @明河</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://www.daqianduan.com/" target="_blank" rel="external nofollow noreferrer noopener">大前端</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a href="http://www.cssforest.org/blog/index.php?s=about" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://www.cssforest.org/blog/" target="_blank" rel="external nofollow noreferrer noopener">CSS森林</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a href="http://www.cssforest.org/blog/index.php?s=about" target="_blank" rel="external nofollow noreferrer noopener">关于</a></td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://www.shejidaren.com/" target="_blank" rel="external nofollow noreferrer noopener">设计达人</a></td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td><a href="http://www.cssforest.org/blog/index.php?s=about" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>更新较频繁，但转载也较多</td>
+</tr>
+<tr>
+<td><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external nofollow noreferrer noopener">阮一峰博客</a></td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td><a href="http://www.ruanyifeng.com/about.html" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>牛人一个</td>
+</tr>
+<tr>
+<td><a href="http://beforweb.com/" target="_blank" rel="external nofollow noreferrer noopener">Be For Web - 为网而生 - 原创译文博客</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a href="http://weibo.com/c7210" target="_blank" rel="external nofollow noreferrer noopener">@C7210</a></td>
+<td>关注移动应用及互联网产品、用户体验设计、前端开发</td>
+</tr>
+</tbody></table>
+<p>######国外博客<br>|名称 |活跃度 | 原创度 | 维护者|其他|<br>| —– | —– | —— |—– |——|<br>|<a href="http://www.smashingmagazine.com/" target="_blank" rel="external nofollow noreferrer noopener">Smashing Magazine</a>|★★★★★|★★★★★| # |业界权威，web 设计很赞|<br>|<a href="http://hub.tutsplus.com/" target="_blank" rel="external nofollow noreferrer noopener">Tuts</a>|★★★★★|★★★★★| - |国外知名开发者网站|<br>|<a href="http://www.developerdrive.com/" target="_blank" rel="external nofollow noreferrer noopener">DeveloperDrive</a>|★★★★★|★★★★★| - |优质前端技术信息|<br>|<a href="http://css-tricks.com/" target="_blank" rel="external nofollow noreferrer noopener">CSS-TRICKS</a>|★★★★★|★★★★★| Chris Coyier |左边这位是大神|<br>|<a href="http://webdesignerwall.com/" target="_blank" rel="external nofollow noreferrer noopener">Web Designer Wall</a>|★★★★★|★★★★★| Nick La.|优质 Html5,CSS3等教程|<br>|<a href="http://tutorialzine.com/" target="_blank" rel="external nofollow noreferrer noopener">Tutorialzine</a>|★★★★★|★★★★★| #|大量 web 教程和资源|<br>|<a href="http://inspectelement.com/" target="_blank" rel="external nofollow noreferrer noopener">Inspect Element</a>|★★★★★|★★★★★| #|CSS,wordpress 相关教程挺多|<br>|<a href="http://tympanus.net/codrops/" target="_blank" rel="external nofollow noreferrer noopener">Codrops</a>|★★★★★|★★★★★| #|设计、交互、CSS|<br>|<a href="http://www.onerutter.com/" target="_blank" rel="external nofollow noreferrer noopener">Jake Rutter</a>|★★★★★|★★★★★| Jake Rutter|Jquery 作者，不解释了|<br>|<a href="http://www.paulirish.com/" target="_blank" rel="external nofollow noreferrer noopener">Paul Irish</a>|★★★★★|★★★★★| Paul Irish|大神,Google Chrome团队,Yeoman|<br>|<a href="http://krasimirtsonev.com/blog" target="_blank" rel="external nofollow noreferrer noopener">Krasimir Tsonev</a>|★★★★★|★★★★★| Krasimir Tsonev|html5,ccs3,javascript|<br>|<a href="http://www.nczonline.net/" target="_blank" rel="external nofollow noreferrer noopener">NCZOnline</a>|★★★★★|★★★★★| Nicholas C. Zakas |html5,ccs3,javascript|<br>|<a href="http://www.html5rocks.com/en/" target="_blank" rel="external nofollow noreferrer noopener">HTML5 Rocks</a>|★★★★★|★★★★★| # |html5权威网站|<br>|<a href="http://alistapart.com/" target="_blank" rel="external nofollow noreferrer noopener">A List Apart</a>|★★★★★|★★★★★| # |可以改变世界的文章|<br>|<a href="http://hakim.se/" target="_blank" rel="external nofollow noreferrer noopener">hakim</a>|★★★★★|★★★★★| HAKIM EL HATTAB|ccs3,javascript|<br>|<a href="http://dailyjs.com/" target="_blank" rel="external nofollow noreferrer noopener">DailyJS</a> | ★★★★★ | ★★★★★ | # | javascript |</p>
+<h5 id="活跃微博"><a href="#活跃微博" class="headerlink" title="活跃微博"></a>活跃微博</h5><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>公司</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://weibo.com/xitucircle" target="_blank" rel="external nofollow noreferrer noopener">@稀土圈</a></td>
+<td>#</td>
+<td>强烈推荐，分享一些技术文章和Github项目</td>
+</tr>
+<tr>
+<td><a href="http://weibo.com/w3cchina" target="_blank" rel="external nofollow noreferrer noopener">@w3c中国</a></td>
+<td>#</td>
+<td>万维网联盟中国办事处官方微博</td>
+</tr>
+<tr>
+<td><a href="http://weibo.com/javascriptdev" target="_blank" rel="external nofollow noreferrer noopener">@TheFrontEnd</a></td>
+<td>#</td>
+<td>JavaScript技术资讯、新闻、教程、深度文章。</td>
+</tr>
+<tr>
+<td><a href="http://weibo.com/fekb" target="_blank" rel="external nofollow noreferrer noopener">@前端快爆</a></td>
+<td>阿里巴巴</td>
+<td>有HTML5、CSS3、JS</td>
+</tr>
+<tr>
+<td><a href="http://e.weibo.com/html5cn" target="_blank" rel="external nofollow noreferrer noopener">@HTML5中国</a></td>
+<td>#</td>
+<td>中国<a href="http://www.html5cn.org官方微博" target="_blank" rel="external nofollow noreferrer noopener">www.html5cn.org官方微博</a></td>
+</tr>
+</tbody></table>
+<h4 id="开发者博客"><a href="#开发者博客" class="headerlink" title="开发者博客"></a>开发者博客</h4><p>微博微信流行后，明显感觉到写博客的人还是越来越少了，下面推荐的这些开发者属于在网上比较活跃的，或者博客积累了大量优质资源的。</p>
+<h6 id="国内开发者"><a href="#国内开发者" class="headerlink" title="国内开发者"></a>国内开发者</h6><p>国内开发者一块欢迎大家 <code>Fork</code>提交推荐，最好能推荐一些在前端界较活跃的的开发者。</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>博客</th>
+<th>微博</th>
+<th>Github</th>
+<th>Twitter</th>
+<th>公司</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>阮一峰</td>
+<td><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external nofollow noreferrer noopener">阮一峰博客</a></td>
+<td><a href="http://weibo.com/ruanyf" target="_blank" rel="external nofollow noreferrer noopener">@ruanyf</a></td>
+<td>#</td>
+<td><a href="https://twitter.com/ruanyf" target="_blank" rel="external nofollow noreferrer noopener">@ruanyf</a></td>
+<td>上海金融学院国际金融学院</td>
+<td>教师，博客写作人，翻译人，《黑客与画家》的译者</td>
+</tr>
+<tr>
+<td>老赵</td>
+<td><a href="http://blog.zhaojie.me/" target="_blank" rel="external nofollow noreferrer noopener">http://blog.zhaojie.me/</a></td>
+<td><a href="http://weibo.com/jeffz" target="_blank" rel="external nofollow noreferrer noopener">@老赵</a></td>
+<td>#</td>
+<td><a href>#</a></td>
+<td>摩根大通（香港）</td>
+<td>资深码农</td>
+</tr>
+<tr>
+<td>玉伯</td>
+<td><a href="http://lifesinger.wordpress.com/" target="_blank" rel="external nofollow noreferrer noopener">岁月如歌</a></td>
+<td><a href="http://weibo.com/lifesinger" target="_blank" rel="external nofollow noreferrer noopener">@玉伯也叫射雕</a></td>
+<td><a href="https://github.com/lifesinger" target="_blank" rel="external nofollow noreferrer noopener">@lifesinger</a></td>
+<td><a href="https://twitter.com/lifesinger" target="_blank" rel="external nofollow noreferrer noopener">@lifesinger</a></td>
+<td>支付宝</td>
+<td>大牛</td>
+</tr>
+<tr>
+<td>kejun</td>
+<td><a href="http://hikejun.com/" target="_blank" rel="external nofollow noreferrer noopener">http://hikejun.com/</a></td>
+<td><a href="http://weibo.com/kejunz" target="_blank" rel="external nofollow noreferrer noopener">@kejunz</a></td>
+<td><a href="https://github.com/kejun" target="_blank" rel="external nofollow noreferrer noopener">@kejunz</a></td>
+<td>#</td>
+<td>豆瓣</td>
+<td>前端大神</td>
+</tr>
+<tr>
+<td>寒冬winter</td>
+<td><a href="http://winter-cn.cnblogs.com/" target="_blank" rel="external nofollow noreferrer noopener">winter-cn</a></td>
+<td><a href="http://weibo.com/wintercn" target="_blank" rel="external nofollow noreferrer noopener">@寒冬winter</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+</tr>
+<tr>
+<td>左耳朵耗子</td>
+<td><a href="http://coolshell.cn/" target="_blank" rel="external nofollow noreferrer noopener">酷壳</a></td>
+<td><a href="http://weibo.com/haoel" target="_blank" rel="external nofollow noreferrer noopener">@左耳朵耗子</a></td>
+<td>#</td>
+<td><a href="https://twitter.com/haoel" target="_blank" rel="external nofollow noreferrer noopener">@haoel</a></td>
+<td>淘宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>fool2fish</td>
+<td>#</td>
+<td><a href="http://weibo.com/fool2fish" target="_blank" rel="external nofollow noreferrer noopener">@fool2fish</a></td>
+<td>#</td>
+<td>#</td>
+<td>支付宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>朴灵</td>
+<td><a href="http://html5ify.com/" target="_blank" rel="external nofollow noreferrer noopener">Html5fiy</a></td>
+<td><a href="http://weibo.com/shyvo" target="_blank" rel="external nofollow noreferrer noopener">@朴灵</a></td>
+<td><a href="https://github.com/JacksonTian" target="_blank" rel="external nofollow noreferrer noopener">JacksonTian</a></td>
+<td>#</td>
+<td>阿里巴巴</td>
+<td>《深入浅出Node.js》作者,大牛</td>
+</tr>
+<tr>
+<td>Cat Chen</td>
+<td><a href="http://catchen.biz/home.zh-CN.html" target="_blank" rel="external nofollow noreferrer noopener">陈广琛</a></td>
+<td><a href="http://weibo.com/u/1640352230" target="_blank" rel="external nofollow noreferrer noopener">@CatChen</a></td>
+<td><a href="https://github.com/CatChen" target="_blank" rel="external nofollow noreferrer noopener">@CatChen</a></td>
+<td><a href="https://twitter.com/CatChen" target="_blank" rel="external nofollow noreferrer noopener">@CatChen</a></td>
+<td>Facebook</td>
+<td>大牛</td>
+</tr>
+<tr>
+<td>BYVod</td>
+<td><a href="https://www.byvoid.com/" target="_blank" rel="external nofollow noreferrer noopener">Beyond the Void</a></td>
+<td><a href="http://weibo.com/byvoid" target="_blank" rel="external nofollow noreferrer noopener">@BYVoid</a></td>
+<td><a href="https://github.com/BYVoid" target="_blank" rel="external nofollow noreferrer noopener">@byvoid</a></td>
+<td><a href="https://twitter.com/byvoid" target="_blank" rel="external nofollow noreferrer noopener">@BYVoid</a></td>
+<td>Facebook 英国</td>
+<td>《Node.js 开发指南》作者,大牛</td>
+</tr>
+<tr>
+<td>郭宇</td>
+<td><a href="http://blog.guoyu.me/" target="_blank" rel="external nofollow noreferrer noopener">Einmal ist keinmal</a></td>
+<td><a href="http://weibo.com/137601206" target="_blank" rel="external nofollow noreferrer noopener">@郭宇</a></td>
+<td><a href="https://github.com/turingou" target="_blank" rel="external nofollow noreferrer noopener">@turingou</a></td>
+<td><a href="https://twitter.com/turingou" target="_blank" rel="external nofollow noreferrer noopener">@turingou</a></td>
+<td>糗事百科,原支付宝</td>
+<td>Node.js</td>
+</tr>
+<tr>
+<td>勾三股四</td>
+<td>#</td>
+<td><a href="http://weibo.com/mx006" target="_blank" rel="external nofollow noreferrer noopener">@勾三股四</a></td>
+<td>#</td>
+<td>#</td>
+<td>淘宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>cnberg</td>
+<td><a href="http://cnberg.com" target="_blank" rel="external nofollow noreferrer noopener">冰山一角</a></td>
+<td><a href="http://weibo.com/berg" target="_blank" rel="external nofollow noreferrer noopener">@berg</a></td>
+<td>@cnberg</td>
+<td><a href>@cnberg</a></td>
+<td>百度</td>
+<td>骑行</td>
+</tr>
+<tr>
+<td>大猫</td>
+<td><a href="http://bigc.at" target="_blank" rel="external nofollow noreferrer noopener">意淫笔记</a></td>
+<td><a href="http://weibo.com/daemao" target="_blank" rel="external nofollow noreferrer noopener">@daemao</a></td>
+<td><a href="https://github.com/Damao" target="_blank" rel="external nofollow noreferrer noopener">@Damao</a></td>
+<td><a href="https://twitter.com/13igcat" target="_blank" rel="external nofollow noreferrer noopener">@13igcat</a></td>
+<td>腾讯</td>
+<td><a href="http://www.zhihu.com/people/13igcat" target="_blank" rel="external nofollow noreferrer noopener">知乎</a></td>
+</tr>
+<tr>
+<td>hzlzh</td>
+<td><a href="https://zlz.im" target="_blank" rel="external nofollow noreferrer noopener">自力博客</a></td>
+<td><a href="http://weibo.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">@hzlzh</a></td>
+<td><a href="http://github.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">@hzlzh</a></td>
+<td><a href="http://twitter.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">@hzlzh</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>C7210</td>
+<td>beforweb.com/</td>
+<td><a href="http://weibo.com/c7210" target="_blank" rel="external nofollow noreferrer noopener">@C7210</a></td>
+<td><a href="http://twittercom/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">@C7210</a></td>
+<td><a href="http://github.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">@C7210</a></td>
+<td>#</td>
+<td>UX、交互设计师、视觉与前端</td>
+</tr>
+<tr>
+<td>kejun</td>
+<td><a href="http://hikejun.com/" target="_blank" rel="external nofollow noreferrer noopener">http://hikejun.com/</a></td>
+<td><a href="http://weibo.com/kejun" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td><a href="http://twittercom/kejun" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td><a href="http://github.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>张鑫旭</td>
+<td><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" rel="external nofollow noreferrer noopener">张鑫旭博客</a></td>
+<td><a href="http://weibo.com/zhangxinxu" target="_blank" rel="external nofollow noreferrer noopener">@张鑫旭</a></td>
+<td><a href="https://github.com/zhangxinxu" target="_blank" rel="external nofollow noreferrer noopener">@zhangxinxu</a></td>
+<td><a href="https://twitter.com/zhangxinxu" target="_blank" rel="external nofollow noreferrer noopener">@zhangxinxu</a></td>
+<td>腾讯 上海 ISUX</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>lucifr</td>
+<td><a href="http://lucifr.com/" target="_blank" rel="external nofollow noreferrer noopener">http://lucifr.com/</a></td>
+<td><a href="http://weibo.com/lucifr" target="_blank" rel="external nofollow noreferrer noopener">@lucifr</a></td>
+<td><a href="http://twittercom/lucifr" target="_blank" rel="external nofollow noreferrer noopener">@lucifr</a></td>
+<td><a href="http://github.com/lucifr" target="_blank" rel="external nofollow noreferrer noopener">@lucifr</a></td>
+<td>#</td>
+<td>Mac,ios</td>
+</tr>
+<tr>
+<td>smallni</td>
+<td><a href="http://www.smallni.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.smallni.com/</a></td>
+<td><a href="http://weibo.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td><a href="https://twitter.com/smallniding/" target="_blank" rel="external nofollow noreferrer noopener">@Smallni</a></td>
+<td><a href="http://github.com/hzlzh" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>TQ</td>
+<td><a href="http://targetkiller.net/" target="_blank" rel="external nofollow noreferrer noopener">http://targetkiller.net/</a></td>
+<td><a href="http://weibo.com/targetkiller" target="_blank" rel="external nofollow noreferrer noopener">@Piser-TQ</a></td>
+<td><a href="https://twitter.com/tqtan/" target="_blank" rel="external nofollow noreferrer noopener">@tqtan</a></td>
+<td><a href="https://github.com/targetkiller" target="_blank" rel="external nofollow noreferrer noopener">@targetkiller</a></td>
+<td>腾讯 ISUX</td>
+<td>网页重构</td>
+</tr>
+<tr>
+<td>LOO2K</td>
+<td><a href="http://loo2k.com/blog/" target="_blank" rel="external nofollow noreferrer noopener">LOO2K</a></td>
+<td><a href="http://weibo.com/loo2k" target="_blank" rel="external nofollow noreferrer noopener">@LOO2K</a></td>
+<td><a href="https://github.com/loo2k" target="_blank" rel="external nofollow noreferrer noopener">LOO2K</a></td>
+<td><a href="https://twitter.com/loo2k/" target="_blank" rel="external nofollow noreferrer noopener">LOO2K</a></td>
+<td>墨筹网</td>
+<td>少年才俊</td>
+</tr>
+<tr>
+<td>qiqiboy</td>
+<td><a href="http://www.qiqiboy.com/" target="_blank" rel="external nofollow noreferrer noopener">qiqiboy</a></td>
+<td><a href="http://weibo.com/qiqiboy" target="_blank" rel="external nofollow noreferrer noopener">@qiqiboy</a></td>
+<td>#</td>
+<td>#</td>
+<td>金山网络 UX</td>
+<td>吐槽清理大师开发者</td>
+</tr>
+<tr>
+<td>foru17</td>
+<td><a href="http://luolei.org" target="_blank" rel="external nofollow noreferrer noopener">罗磊的独立博客</a></td>
+<td><a href="http://weibo.com/foru17" target="_blank" rel="external nofollow noreferrer noopener">@罗罗磊磊</a></td>
+<td><a href="https://github.com/foru17" target="_blank" rel="external nofollow noreferrer noopener">@foru17</a></td>
+<td><a href="https://twitter.com/foru17" target="_blank" rel="external nofollow noreferrer noopener">@foru17</a></td>
+<td></td>
+<td>打酱油的</td>
+</tr>
+<tr>
+<td>周爱民</td>
+<td><a href="http://blog.csdn.net/aimingoo/" target="_blank" rel="external nofollow noreferrer noopener">aimingoo专栏</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>支付宝</td>
+<td>JavaScript语言精髓与编程实践作者</td>
+</tr>
+<tr>
+<td>hax</td>
+<td><a href="http://hax.iteye.com/" target="_blank" rel="external nofollow noreferrer noopener">hax的技术部落格</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>前端大牛</td>
+</tr>
+<tr>
+<td>三生石上</td>
+<td><a href="http://www.cnblogs.com/sanshi" target="_blank" rel="external nofollow noreferrer noopener">三生石上</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>js秘密花园译者</td>
+</tr>
+<tr>
+<td>司徒正美</td>
+<td><a href="http://www.cnblogs.com/rubylouvre" target="_blank" rel="external nofollow noreferrer noopener">Ruby’s Louvre</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>叶小钗</td>
+<td><a href="http://www.cnblogs.com/yexiaochai" target="_blank" rel="external nofollow noreferrer noopener">叶小钗</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>聂微东</td>
+<td><a href="http://www.cnblogs.com/Darren_code/" target="_blank" rel="external nofollow noreferrer noopener">Darren</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>百度移动云</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>当耐特</td>
+<td><a href="http://www.cnblogs.com/iamzhanglei/" target="_blank" rel="external nofollow noreferrer noopener">iamzhanglei</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>HTML5实验室作者</td>
+</tr>
+<tr>
+<td>教主</td>
+<td><a href="http://www.cnblogs.com/_franky" target="_blank" rel="external nofollow noreferrer noopener">_frank</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>又一牛</td>
+</tr>
+<tr>
+<td>typeof</td>
+<td><a href="http://typeof.net/" target="_blank" rel="external nofollow noreferrer noopener">typeof</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>又一牛</td>
+</tr>
+<tr>
+<td>Gray Zhang</td>
+<td><a href="http://www.cnblogs.com/GrayZhang" target="_blank" rel="external nofollow noreferrer noopener">Gray Zhang</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>百度一牛</td>
+</tr>
+<tr>
+<td>李松峰</td>
+<td><a href="http://www.cn-cuckoo.com" target="_blank" rel="external nofollow noreferrer noopener">为之漫笔</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>高程2等书的译者</td>
+</tr>
+<tr>
+<td>小鱼</td>
+<td><a href="http://sofish.de/" target="_blank" rel="external nofollow noreferrer noopener">sofish</a></td>
+<td><a href="http://weibo.com/sofish" target="_blank" rel="external nofollow noreferrer noopener">@sofish</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>饿了么前端Leader</td>
+</tr>
+<tr>
+<td>vilic</td>
+<td><a href="http://vilic.info/" target="_blank" rel="external nofollow noreferrer noopener">vilic</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>年轻一牛</td>
+</tr>
+<tr>
+<td>彬Go</td>
+<td><a href="http://blog.bingo929.com/" target="_blank" rel="external nofollow noreferrer noopener">彬Go</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>人人网一牛</td>
+</tr>
+<tr>
+<td>PuterJam</td>
+<td><a href="http://www.pjhome.net" target="_blank" rel="external nofollow noreferrer noopener">PuterJam’s Blog</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>腾讯一牛</td>
+</tr>
+<tr>
+<td>css森林</td>
+<td><a href="http://www.cssforest.org" target="_blank" rel="external nofollow noreferrer noopener">cssforest</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>前端博客</td>
+</tr>
+<tr>
+<td>99css</td>
+<td><a href="http://www.99css.com/" target="_blank" rel="external nofollow noreferrer noopener">99css</a></td>
+<td><a href="http://weibo.com/ytzong" target="_blank" rel="external nofollow noreferrer noopener">@ytzong</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>腾讯一牛</td>
+</tr>
+<tr>
+<td>秦歌</td>
+<td><a href="http://dancewithnet.com/" target="_blank" rel="external nofollow noreferrer noopener">Kaven</a></td>
+<td>#</td>
+<td><a href="http://twitter.com/kavenyan" target="_blank" rel="external nofollow noreferrer noopener">@kavenyan</a></td>
+<td>#</td>
+<td>#</td>
+<td>js语言精粹译者</td>
+</tr>
+<tr>
+<td>linxz</td>
+<td><a href="http://www.linxz.de/" target="_blank" rel="external nofollow noreferrer noopener">linxz</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>css那些事儿的作者</td>
+</tr>
+<tr>
+<td>米随随</td>
+<td><a href="http://s5s5.me/" target="_blank" rel="external nofollow noreferrer noopener">米随随</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>腾讯ISUX 一牛</td>
+</tr>
+<tr>
+<td>飘飘</td>
+<td><a href="http://pufen.net/" target="_blank" rel="external nofollow noreferrer noopener">飘飘</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>腾讯一牛</td>
+</tr>
+<tr>
+<td>Along</td>
+<td><a href="http://jinlong.github.io/" target="_blank" rel="external nofollow noreferrer noopener">Along’s Blog</a></td>
+<td><a href="http://weibo.com/newwave" target="_blank" rel="external nofollow noreferrer noopener">@newwave</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>Opera 欧朋一牛</td>
+</tr>
+<tr>
+<td>安记</td>
+<td><a href="http://www.cssha.com/" target="_blank" rel="external nofollow noreferrer noopener">cssha</a></td>
+<td><a href="http://weibo.com/hanan321" target="_blank" rel="external nofollow noreferrer noopener">@hanan321</a></td>
+<td><a href="https://github.com/hanan198501" target="_blank" rel="external nofollow noreferrer noopener">hanan198501</a></td>
+<td>#</td>
+<td>#</td>
+<td>去哪网一牛</td>
+</tr>
+<tr>
+<td>余弦</td>
+<td><a href="http://evilcos.me/" target="_blank" rel="external nofollow noreferrer noopener">EVILCOS</a></td>
+<td><a href="http://weibo.com/evilcos" target="_blank" rel="external nofollow noreferrer noopener">余弦</a></td>
+<td><a href="https://github.com/evilcos" target="_blank" rel="external nofollow noreferrer noopener">evilcos</a></td>
+<td>#</td>
+<td><a href="http://www.knownsec.com/" target="_blank" rel="external nofollow noreferrer noopener">知道创宇</a></td>
+<td>安全（黑客）、架构、团队的各种观点与分享</td>
+</tr>
+<tr>
+<td>汤姆大叔</td>
+<td><a href="http://www.cnblogs.com/TomXu/" target="_blank" rel="external nofollow noreferrer noopener">汤姆大叔的博客</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>《深入理解Bootstrap》、《JavaScript启示录》、《JavaScript设计模式》等多本前端书籍翻译作者</td>
+</tr>
+<tr>
+<td>屈光宇</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://imququ.com/" target="_blank" rel="external nofollow noreferrer noopener">Jerry Qu的小站</a></td>
+<td>[屈光宇</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>](<a href="http://weibo.com/jerryqu" target="_blank" rel="external nofollow noreferrer noopener">http://weibo.com/jerryqu</a>)</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>奇虎360前端，对WEB性能研究很深入</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>####一些社区</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2EX</td>
+<td><a href="http://v2ex.com/" target="_blank" rel="external nofollow noreferrer noopener">http://v2ex.com/</a></td>
+<td>小众活跃社区</td>
+</tr>
+<tr>
+<td>知乎</td>
+<td><a href="http://www.zhihu.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.zhihu.com/</a></td>
+<td>综合问答社区</td>
+</tr>
+<tr>
+<td>前端乱炖</td>
+<td><a href="http://www.html-js.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.html-js.com/</a></td>
+<td>专业的前端知识平台</td>
+</tr>
+<tr>
+<td>segmentfault</td>
+<td><a href="http://segmentfault.com/" target="_blank" rel="external nofollow noreferrer noopener">http://segmentfault.com/</a></td>
+<td>综合问答社区</td>
+</tr>
+<tr>
+<td>果壳问答</td>
+<td><a href="http://www.guokr.com/ask/pending/" target="_blank" rel="external nofollow noreferrer noopener">http://www.guokr.com/ask/pending/</a></td>
+<td>综合问答社区</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><a href="http://ruby-china.org/" target="_blank" rel="external nofollow noreferrer noopener">http://ruby-china.org/</a></td>
+<td>同 V2EX 氛围类似，不局限于Ruby</td>
+</tr>
+<tr>
+<td>Node.js 中文社区</td>
+<td><a href="http://cnodejs.org/" target="_blank" rel="external nofollow noreferrer noopener">http://cnodejs.org/</a></td>
+<td>Node.js 国内最活跃的社区</td>
+</tr>
+<tr>
+<td>Code Wall</td>
+<td><a href="https://coderwall.com/" target="_blank" rel="external nofollow noreferrer noopener">https://coderwall.com/</a></td>
+<td>国外技术社区</td>
+</tr>
+<tr>
+<td>前端乱炖</td>
+<td><a href="http://www.html-js.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.html-js.com/</a></td>
+<td>国内前端技术社区</td>
+</tr>
+<tr>
+<td>DIV.IO</td>
+<td><a href="http://div.io/" target="_blank" rel="external nofollow noreferrer noopener">http://div.io/</a></td>
+<td>国内前端技术社区</td>
+</tr>
+<tr>
+<td>w3ctech</td>
+<td><a href="http://www.w3ctech.com/" target="_blank" rel="external nofollow noreferrer noopener">http://www.w3ctech.com/</a></td>
+<td>国内前端技术社区，常有一些线下活动发布</td>
+</tr>
+</tbody></table>
+<h5 id="企业官方博客"><a href="#企业官方博客" class="headerlink" title="企业官方博客"></a>企业官方博客</h5><p>在开头我的 Feedly 订阅 opml 文件里比较全面。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>公司</th>
+<th>部门</th>
+<th>活跃度</th>
+<th>简介</th>
+<th>微博</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://isux.tencent.com/" target="_blank" rel="external nofollow noreferrer noopener">ISUX 社交用户体验设计</a></td>
+<td>腾讯</td>
+<td>ISUX</td>
+<td>★★★★☆</td>
+<td>负责腾讯的社交网络相关产品的用户体验设计与研究。</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://cdc.tencent.com/" target="_blank" rel="external nofollow noreferrer noopener">腾讯 CDC</a></td>
+<td>腾讯</td>
+<td>CDC</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://www.alloyteam.com/" target="_blank" rel="external nofollow noreferrer noopener">腾讯Web前端 Alloy 团队 Blog</a></td>
+<td>腾讯</td>
+<td>SNG</td>
+<td>★★★★☆</td>
+<td>主要负责手机QQ、QQ互联、腾讯Q+、WebQQ项目的团队。</td>
+<td><a href="http://weibo.com/alloyteam" target="_blank" rel="external nofollow noreferrer noopener">alloyteam</a></td>
+</tr>
+<tr>
+<td><a href="http://tid.tenpay.com/" target="_blank" rel="external nofollow noreferrer noopener">TID-财付通设计中心</a></td>
+<td>腾讯</td>
+<td>TID</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://mxd.tencent.com/" target="_blank" rel="external nofollow noreferrer noopener">腾讯MXD移动互联网设计中心</a></td>
+<td>腾讯</td>
+<td>MXD</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a href="http://e.t.qq.com/tencent_mxd" target="_blank" rel="external nofollow noreferrer noopener">@腾讯MXD</a></td>
+</tr>
+<tr>
+<td><a href="http://fed.renren.com/" target="_blank" rel="external nofollow noreferrer noopener">人人网FED Team</a></td>
+<td>人人网</td>
+<td>FED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://udc.weibo.com/" target="_blank" rel="external nofollow noreferrer noopener">微博UDC</a></td>
+<td>新浪</td>
+<td>UDC</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a href="http://weibo.com/sudc" target="_blank" rel="external nofollow noreferrer noopener">@微博UDC设计中心</a></td>
+</tr>
+<tr>
+<td><a href="http://ued.sina.com.cn/" target="_blank" rel="external nofollow noreferrer noopener">新浪UED</a></td>
+<td>新浪</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a href="http://weibo.com/sudc" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+</tr>
+<tr>
+<td><a href="http://uedc.163.com/" target="_blank" rel="external nofollow noreferrer noopener">网易用户体验设计中心</a></td>
+<td>网易</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a href="http://weibo.com/sudc" target="_blank" rel="external nofollow noreferrer noopener">#</a></td>
+</tr>
+<tr>
+<td><a href="http://www.aliued.cn/" target="_blank" rel="external nofollow noreferrer noopener">阿里巴巴（中国站）用户体验设计部博客</a></td>
+<td>阿里巴巴</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a href="http://weibo.com/aliued" target="_blank" rel="external nofollow noreferrer noopener">@Alibaba-UED</a></td>
+</tr>
+<tr>
+<td><a href="http://ued.ctrip.com/blog/" target="_blank" rel="external nofollow noreferrer noopener">携程UED-携程旅行前端开发团队</a></td>
+<td>携程网</td>
+<td>UED</td>
+<td>★★★☆☆</td>
+<td>携程UED,携程前端开发团队,UED,Javascript,重构,ux</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://fex.baidu.com/" target="_blank" rel="external nofollow noreferrer noopener">百度FEX</a></td>
+<td>百度</td>
+<td>FEX</td>
+<td>★★★★☆</td>
+<td>百度前端团队Blog,关注前端技术，还更重视全端及全栈的能力。</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://ued.taobao.org/blog/" target="_blank" rel="external nofollow noreferrer noopener">淘宝UED</a></td>
+<td>淘宝网</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>用户体验、交互设计、视觉设计、前端技术博客</td>
+<td><a href="http://weibo.com/taobaoued" target="_blank" rel="external nofollow noreferrer noopener">@淘宝UED</a></td>
+</tr>
+</tbody></table>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作者</th>
+<th>价格</th>
+<th>出版社</th>
+<th>简评</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://book.douban.com/subject/3327829/" target="_blank" rel="external nofollow noreferrer noopener">Web标准设计</a></td>
+<td>刘杰（嗷嗷）</td>
+<td>RMB 60.00</td>
+<td>清华大学出版社</td>
+<td>基础入门</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/4914146/" target="_blank" rel="external nofollow noreferrer noopener">大巧不工 : Web前端设计修炼之道</a></td>
+<td>赖定清 / 林坚</td>
+<td>RMB 59.00</td>
+<td>机械工业出版社</td>
+<td>适合入门，了解前端全局</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/3132277/" target="_blank" rel="external nofollow noreferrer noopener">高性能网站建设指南:前端工程师技能精髓</a></td>
+<td>Steve Souders</td>
+<td>RMB 35.00</td>
+<td>电子工业出版社</td>
+<td>能从原理层理解各种方法</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/4719162/" target="_blank" rel="external nofollow noreferrer noopener">高性能网站建设指南:Web开发者性能优化最佳实践</a></td>
+<td>Steve Souders</td>
+<td>RMB 49.80</td>
+<td>电子工业出版社</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/4124141/" target="_blank" rel="external nofollow noreferrer noopener">Web站点优化 : Web站点优化</a></td>
+<td>金</td>
+<td>RMB 55.00</td>
+<td>#</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/10789820/" target="_blank" rel="external nofollow noreferrer noopener">Node.js开发指南</a></td>
+<td>郭家寶</td>
+<td>RMB 45.00</td>
+<td>#</td>
+<td>作者很牛</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/10546125/" target="_blank" rel="external nofollow noreferrer noopener">JavaScript高级程序设计</a></td>
+<td>Nicholas C. Zakas</td>
+<td>RMB 99.00</td>
+<td>人民邮电出版社</td>
+<td>适合没事就翻翻</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/2228378/" target="_blank" rel="external nofollow noreferrer noopener">JavaScript权威指南</a></td>
+<td>弗拉纳根</td>
+<td>RMB 109.00</td>
+<td>机械工业出版社</td>
+<td>犀牛书</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/3590768/" target="_blank" rel="external nofollow noreferrer noopener">JavaScript语言精粹</a></td>
+<td>Douglas Crockford</td>
+<td>RMB 35.00</td>
+<td>电子工业出版社</td>
+<td>绝对经典，相信看完后，对Javascript这门语言有了重新认识，原来这个语言是这么的美丽！</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/25768396/" target="_blank" rel="external nofollow noreferrer noopener">深入浅出node.js</a></td>
+<td>朴灵</td>
+<td>RMB 69.00</td>
+<td>人民邮电出版社</td>
+<td>一本从前端通往全端的好书</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/3137282/" target="_blank" rel="external nofollow noreferrer noopener">CSS开发王</a></td>
+<td>张亚飞</td>
+<td>RMB 49.00</td>
+<td>电子工业出版社</td>
+<td>适合有一定基础后CSS进阶用</td>
+</tr>
+<tr>
+<td><a href="http://book.douban.com/subject/6038371/" target="_blank" rel="external nofollow noreferrer noopener">JavaScript DOM编程艺术</a></td>
+<td>Jeremy Keith /Jeffrey Sambells</td>
+<td>RMB 49.00</td>
+<td>人民邮电出版社</td>
+<td>适合Javascript入门看</td>
+</tr>
+</tbody></table>
+<p>=======</p>
+<p>####线上的一些翻译版好书</p>
+<table>
+<thead>
+<tr>
+<th>书名</th>
+<th>地址</th>
+<th>作者</th>
+<th>译者</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JavaScript秘密花园</td>
+<td><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/" target="_blank" rel="external nofollow noreferrer noopener">http://bonsaiden.github.io/JavaScript-Garden/zh/</a></td>
+<td>伊沃·韦特泽尔&amp;张易江</td>
+<td><a href="http://sanshi.me/" target="_blank" rel="external nofollow noreferrer noopener">三生石上</a></td>
+<td>完整书籍，界面美观，有详细demo</td>
+</tr>
+<tr>
+<td>Material Design 中文版</td>
+<td><a href="http://design.1sters.com/" target="_blank" rel="external nofollow noreferrer noopener">http://design.1sters.com/</a></td>
+<td>Google设计手册</td>
+<td>协同翻译</td>
+<td>Google I/O 2014 发布的 Material Design 官方手册的中文翻译</td>
+</tr>
+</tbody></table>
+<h1 id="关于"><a href="#关于" class="headerlink" title="##关于"></a>##关于</h1><p>本 repo 会 不断更新，感谢推荐和分享新资源的朋友。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/649971dd/">http://notes.seirhsiao.com/posts/649971dd/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%B5%84%E6%BA%90/">资源    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/front.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/posts/e129951/"><img class="prev_cover lazyload" data-src="/static/cover/rails.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>Rails 风格指南</span></div></a></div><div class="next-post pull_right"><a href="/posts/31d41407/"><img class="next_cover lazyload" data-src="/static/cover/book.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>免费编程书籍</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/58a40d08/" title="java 开源资源"><img class="relatedPosts_cover lazyload"data-src="/static/cover/java.png"><div class="relatedPosts_title">java 开源资源</div></a></div><div class="relatedPosts_item"><a href="/posts/83e9c285/" title="给程序员的开源、免费图书集合"><img class="relatedPosts_cover lazyload"data-src="/static/cover/book.png"><div class="relatedPosts_title">给程序员的开源、免费图书集合</div></a></div><div class="relatedPosts_item"><a href="/posts/31d41407/" title="免费编程书籍"><img class="relatedPosts_cover lazyload"data-src="/static/cover/book.png"><div class="relatedPosts_title">免费编程书籍</div></a></div><div class="relatedPosts_item"><a href="/posts/62b712b2/" title="免费的编程中文书籍索引"><img class="relatedPosts_cover lazyload"data-src="/static/cover/book.png"><div class="relatedPosts_title">免费的编程中文书籍索引</div></a></div><div class="relatedPosts_item"><a href="/posts/ad32fa10/" title="前端知识结构"><img class="relatedPosts_cover lazyload"data-src="/static/cover/front.jpg"><div class="relatedPosts_title">前端知识结构</div></a></div><div class="relatedPosts_item"><a href="/posts/1f302c16/" title="markdown学习资料汇总"><img class="relatedPosts_cover lazyload"data-src="/static/cover/markdown.png"><div class="relatedPosts_title">markdown学习资料汇总</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/11820.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

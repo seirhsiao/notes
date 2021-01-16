@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Gitbook简易教程 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="Gitbook简易教程"><meta name="keywords" content="gitbook,教程"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Gitbook简易教程"><meta name="twitter:description" content="Gitbook简易教程"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/gitbook.png"><meta property="og:type" content="article"><meta property="og:title" content="Gitbook简易教程"><meta property="og:url" content="http://notes.seirhsiao.com/posts/f5aefaa4/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="Gitbook简易教程"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/gitbook.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/f5aefaa4/"><link rel="prev" title="SmartSpring框架 -- 06.升级计划" href="/http:/notes.seirhsiao.com/posts/521b8a35/"><link rel="next" title="将 Hexo 博客部署到 GitHub 和 GitCafe" href="/http:/notes.seirhsiao.com/posts/7ad7806c/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/f5aefaa4/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Gitbook简易教程"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Gitbook简易教程</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#简介"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">简介</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#准备安装"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">准备安装</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Node-js"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">Node.js</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#GitBook"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">GitBook</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Git"><span class="toc_mobile_items-number">1.2.3.</span> <span class="toc_mobile_items-text">Git</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#GitBookEditor"><span class="toc_mobile_items-number">1.2.4.</span> <span class="toc_mobile_items-text">GitBookEditor</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#基本使用"><span class="toc_mobile_items-number">1.2.5.</span> <span class="toc_mobile_items-text">基本使用</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#gitBookEditor"><span class="toc_mobile_items-number">1.2.6.</span> <span class="toc_mobile_items-text">gitBookEditor</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#GitBook-创建以及预览"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">GitBook 创建以及预览</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#1-初始化"><span class="toc_mobile_items-number">1.3.1.</span> <span class="toc_mobile_items-text">1.初始化</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-预览"><span class="toc_mobile_items-number">1.3.2.</span> <span class="toc_mobile_items-text">2.预览</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#高级扩展"><span class="toc_mobile_items-number">1.4.</span> <span class="toc_mobile_items-text">高级扩展</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Book-json配置"><span class="toc_mobile_items-number">1.5.</span> <span class="toc_mobile_items-text">Book.json配置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#自定义插件扩展"><span class="toc_mobile_items-number">1.6.</span> <span class="toc_mobile_items-text">自定义插件扩展</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#一、搜索、安装插件方式"><span class="toc_mobile_items-number">1.6.1.</span> <span class="toc_mobile_items-text">一、搜索、安装插件方式</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#二、通过Book-json配置插件"><span class="toc_mobile_items-number">1.6.2.</span> <span class="toc_mobile_items-text">二、通过Book.json配置插件</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#参考链接"><span class="toc_mobile_items-number">1.7.</span> <span class="toc_mobile_items-text">参考链接</span></a></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitbook简易教程"><span class="toc-number">1.</span> <span class="toc-text">Gitbook简易教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备安装"><span class="toc-number">1.2.</span> <span class="toc-text">准备安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js"><span class="toc-number">1.2.1.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitBook"><span class="toc-number">1.2.2.</span> <span class="toc-text">GitBook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git"><span class="toc-number">1.2.3.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitBookEditor"><span class="toc-number">1.2.4.</span> <span class="toc-text">GitBookEditor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本使用"><span class="toc-number">1.2.5.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gitBookEditor"><span class="toc-number">1.2.6.</span> <span class="toc-text">gitBookEditor</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitBook-创建以及预览"><span class="toc-number">1.3.</span> <span class="toc-text">GitBook 创建以及预览</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-初始化"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-预览"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.预览</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级扩展"><span class="toc-number">1.4.</span> <span class="toc-text">高级扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Book-json配置"><span class="toc-number">1.5.</span> <span class="toc-text">Book.json配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义插件扩展"><span class="toc-number">1.6.</span> <span class="toc-text">自定义插件扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、搜索、安装插件方式"><span class="toc-number">1.6.1.</span> <span class="toc-text">一、搜索、安装插件方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、通过Book-json配置插件"><span class="toc-number">1.6.2.</span> <span class="toc-text">二、通过Book.json配置插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">1.7.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/11871.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">Gitbook简易教程</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2018-01-01<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-08</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Books/">Books</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">2.1k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 7 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h2 id="Gitbook简易教程"><a href="#Gitbook简易教程" class="headerlink" title="Gitbook简易教程"></a>Gitbook简易教程</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>GitBook 是目前最流行的开源书籍写作方案，下面记录一下初次集成使用过程。</p>
+<p>GitBook 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书。</p>
+<p>GitBook支持输出以下几种文档格式</p>
+<ul>
+<li>静态站点：GitBook默认输出该种格式</li>
+<li>PDF：需要安装gitbook-pdf依赖</li>
+<li>eBook：需要安装ebook-convert</li>
+</ul>
+<p><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVyKyI" class="lazyload"></p>
+<h3 id="准备安装"><a href="#准备安装" class="headerlink" title="准备安装"></a>准备安装</h3><blockquote>
+<p>在使用GitBook 之前, 我们需要先安装一些必须的工具，Node.js、GitBook、GitBook Editor、Git版本控制器。</p>
+</blockquote>
+<h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h4><p>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台， 用来方便地搭建快速的， 易于扩展的网络应用· Node.js 借助事件驱动， 非阻塞 I/O 模型变得轻量和高效， 非常适合 run across distributed devices 的 data-intensive 的实时应用。</p>
+<ul>
+<li><p>1、win下安装Node.js<br>直接到nodejs官网下载，简单安装即可，此处不再细述。</p>
+</li>
+<li><p>2、检测是否安装成功</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">node -v //显示v4.1.1</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h4 id="GitBook"><a href="#GitBook" class="headerlink" title="GitBook"></a>GitBook</h4><p>GitBook 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书。</p>
+<p>通过Node.js命令安装GitBook</p>
+<ul>
+<li><p>1、NMP安装Gitbook</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm install gitbook -g</span></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>2、安装gitbook CLI<br>gitbook-cli 是 gitbook 的一个命令行工具, 通过它可以在电脑上安装和管理 gitbook 的多个版本.<br>想在系统上的任何地方的gitbook命令，需要安装“gitbook CLI”，执行以下命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装命令</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">npm install -g gitbook-cli</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载命令</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">npm uninstall -g gitbook</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<p>终端报错：<br>  </p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm WARN  checkPermissions Missing write access to /usr/<span class="built_in">local</span>/lib/node_modules</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">npm ERR! path /usr/<span class="built_in">local</span>/lib/node_modules</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">npm ERR! code EACCES</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">npm ERR! errno -13</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">npm ERR! syscall access</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">npm ERR! Error: EACCES: permission denied, access <span class="string">'/usr/local/lib/node_modules'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">npm ERR!  { Error: EACCES: permission denied, access <span class="string">'/usr/local/lib/node_modules'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">npm ERR!   stack: <span class="string">'Error: EACCES: permission denied, access \'</span>/usr/<span class="built_in">local</span>/lib/node_modules\<span class="string">''</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">npm ERR!   errno: -13,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">npm ERR!   code: <span class="string">'EACCES'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">npm ERR!   syscall: <span class="string">'access'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">npm ERR!   path: <span class="string">'/usr/local/lib/node_modules'</span> }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">npm ERR! </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">npm ERR! Please try running this <span class="built_in">command</span> again as root/Administrator.</span></pre></td></tr></tbody></table></figure><p></p>
+<p>报错原因是：Mac 安装 npm 的全局包，报错没有权限。</p>
+<p>解决方法：在安装命令前加上sudo,输入用户的登陆密码，提升权限进行安装。<br>  </p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ sudo npm install gitbook-cli -g</span></pre></td></tr></tbody></table></figure><p></p>
+<ul>
+<li>3、检验下是否安装成功<br>安装成功后，执行<code>gitbook -V</code>查看版本信息。此命令会默认同时安装 GitBook。<br>至此，安装成功。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">gitbook -V //显示0.4.2</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。基本安装请点击安装教程。如果不需要从GitHub更新书到本地再编译，则可以不安装Git。</p>
+<h4 id="GitBookEditor"><a href="#GitBookEditor" class="headerlink" title="GitBookEditor"></a>GitBookEditor</h4><p>GitBook官方客户端编辑器，支持Win、Linux、Mac系统。请点击下载GitBookEditor。使用该编辑器可以快速的创建、编辑GitBook。安装具有以下步骤：</p>
+<ul>
+<li>解压下载包 gitbook-editor-4.2.1-windows-ia32.zip</li>
+<li>运行GitBook Editor Setup.exe进行默认安装</li>
+</ul>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p>GitBook 大致分为两种使用方式，即离线和在线。最简单的使用方式是使用GitBook Editor编辑GitBook ，然后使用相关命令编译成功HTML。当然还有以下几种方式</p>
+<ul>
+<li>使用命令创建基本GitBook</li>
+<li>使用网页在线编辑器创建、编辑GitBook。</li>
+<li>使用itBookEditor客户端创建、编辑GitBook。</li>
+</ul>
+<h4 id="gitBookEditor"><a href="#gitBookEditor" class="headerlink" title="gitBookEditor"></a>gitBookEditor</h4><p>使用客户端方式，支持在线和本地两种方式创建、编辑GitBook，再执行相关命令编译成HTML，这种方式比较方便，推荐使用。以本地创建书籍为例</p>
+<ul>
+<li><p>1、gitBookEditor客户端基本使用<br><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVyKz5" class="lazyload"><br><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVyKz9" class="lazyload"></p>
+</li>
+<li><p>2、使用命令对已经创建的Book进行编译<br>找到需要编译的书籍所在目录，执行gitbook serve 命令,在本电脑的默认路径为<code>C:UsersQGYGitBookLibraryImportgitbooksimpletutorial</code>，如图所示<br><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVyKAb" class="lazyload"></p>
+</li>
+</ul>
+<h3 id="GitBook-创建以及预览"><a href="#GitBook-创建以及预览" class="headerlink" title="GitBook 创建以及预览"></a>GitBook 创建以及预览</h3><h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h4><ol>
+<li>打开一个文件夹 MyGitBook，使用 <code>gitbook init</code> 初始化文件夹，会自动生成两个必要的文件 README.md 和 SUMMARY.md。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ gitbook init</span></pre></td></tr></tbody></table></figure></li>
+</ol>
+<ul>
+<li><strong>README.md</strong>:  书的介绍文字，如前言、简介，在章节中也可做为章节的简介。</li>
+<li><strong>SUMMARY.md</strong>: 定制书籍的章节结构和顺序。</li>
+</ul>
+<p><code>README.md</code> 和 <code>SUMMARY.md</code> 是 <code>GitBook</code> 制作电子书的必要文件，可用 <code>gitbook init</code> 命令自动生成。</p>
+<ol>
+<li>在 MyGitBook 文件夹下面增加其他章节下的文件，文件目录如下：</li>
+</ol>
+<p><img alt="img" data-src="https:////upload-images.jianshu.io/upload_images/2423912-b5d71c6b3f56a937.png" class="lazyload"></p>
+<p>文件目录</p>
+<ol>
+<li>GitBook 使用 SUMMARY.md 文件作为书籍的目录结构，可以用来制作书籍目录。<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">// SUMMARY.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="section"># Summary</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>[<span class="string">Introduction</span>](<span class="link">README.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>Part I</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">从命令行进行测试</span>](<span class="link">Chapter1/CommandLine.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">Monkey</span>](<span class="link">Chapter1/Monkey.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">monkeyrunner 参考</span>](<span class="link">Chapter1/MonkeyrunnerReference.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">        * </span>[<span class="string">概览</span>](<span class="link">Chapter1/MonkeyrunnerSummary.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">        * </span>[<span class="string">MonkeyDevice</span>](<span class="link">Chapter1/MonkeyDevice.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">        * </span>[<span class="string">MonkeyImage</span>](<span class="link">Chapter1/MonkeyImage.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">        * </span>[<span class="string">MonkeyRunner</span>](<span class="link">Chapter1/MonkeyRunner.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>Part II</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">Introduction</span>](<span class="link">Chapter2/c1.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">Introduction</span>](<span class="link">Chapter2/c2.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">Introduction</span>](<span class="link">Chapter2/c3.md</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">    * </span>[<span class="string">Introduction</span>](<span class="link">Chapter2/c4.md</span>)</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h4 id="2-预览"><a href="#2-预览" class="headerlink" title="2.预览"></a>2.预览</h4><ol>
+<li>执行命令 <code>gitbook serve</code> ，<code>gitbook</code> 会启动一个 <code>4000</code> 端口用于预览。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ gitbook serve</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<p>你可以你的浏览器中打开这个网址： <a href="http://localhost:4000/" target="_blank" rel="external nofollow noreferrer noopener">http://localhost:4000</a>  预览电子书效果。</p>
+<p><img alt="img" data-src="https:////upload-images.jianshu.io/upload_images/2423912-6eb524fef2ea83e6.png" class="lazyload"></p>
+<p>预览效果</p>
+<ol>
+<li><p>第二种预览方式，运行 <code>gitbook build</code> 命令后会在书籍的文件夹中生成一个<code>_book</code> 文件夹, 里面的内容即为生成的 <code>html</code> 文件. 我们可以使用下面命令来生成网页而不开启服务器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ gitbook build</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<p>另外，如果想发布在 <a href="http://GitBook.com" target="_blank" rel="external nofollow noreferrer noopener">GitBook.com</a> ,可以参考：<a href="https://segmentfault.com/a/1190000015012209" target="_blank" rel="external nofollow noreferrer noopener">https://segmentfault.com/a/1190000015012209</a></p>
+<p><strong>注意⚠️</strong></p>
+<blockquote>
+<p> 当出现执行 <code>gitbook serve</code> 后报错找不到 <code>fontsettings.js</code> ，谷歌了一下，有 <a href="https://github.com/GitbookIO/gitbook-cli/issues/55" target="_blank" rel="external nofollow noreferrer noopener">issue</a> 在反应这个问题。<br> 其他人的解决办法是降低版本，比如我的版本是<code>GitBook version: 3.2.3</code> 切换至 <code>2.6.7~2.6.4</code> 即可解决。我不倾向降版本。<br>我个人的解决办法是：如果执行 <code>gitbook serve</code> 后报上述错，那么先执行一次 <code>gitbook build</code> ,成功后再执行 <code>gitbook serve</code> 就不会报错找不到 <code>fontsettings.js</code> 了。</p>
+</blockquote>
+<h3 id="高级扩展"><a href="#高级扩展" class="headerlink" title="高级扩展"></a>高级扩展</h3><p>掌握了“基本使用”，但有时候想要gitBook更美观，或者更符合我们自己的需求，则通过book.json配置进行自定义、以及安装一些常用的插件等。</p>
+<h3 id="Book-json配置"><a href="#Book-json配置" class="headerlink" title="Book.json配置"></a>Book.json配置</h3><p>GitBook 在编译书籍的时候会读取书籍源码顶层目录中的 <code>book.js</code> 或者 <code>book.json</code>，这里以 <code>book.json</code> 为例，参考 GitBook 文档 可以知道，<code>book.json</code> 支持如下配置<br>  </p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">{</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//样式风格配置格式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"styles"</span>: {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"website"</span>: <span class="string">"styles/website.css"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"ebook"</span>: <span class="string">"styles/ebook.css"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"pdf"</span>: <span class="string">"styles/pdf.css"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"mobi"</span>: <span class="string">"styles/mobi.css"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"epub"</span>: <span class="string">"styles/epub.css"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">     },</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//插件安装配置格式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"plugins"</span>: [<span class="string">"myplugin"</span>],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"pluginsConfig"</span>: {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"myPlugin"</span>: {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">"message"</span>: <span class="string">"Hello World"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">     }    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="自定义插件扩展"><a href="#自定义插件扩展" class="headerlink" title="自定义插件扩展"></a>自定义插件扩展</h3><p>插件是扩展GitBook功能最好的方法。使得GitBook功能更加强大，例如，把数学公式显示支持，跟踪回访使用谷歌解析，…以<code>toggle-chapters</code>插件为例</p>
+<p><code>toggle-chapters</code> 插件的效果是默认只在目录导航中显示章的标题，而不会显示小节的标题，点击每一章或者每一节会显示当前章或节的子目录，如果有的话，但是同时会收起其它之前展开的章节。所以，个人认为不是非常实用，因为这样子用户不能快速跳转到没有展开的章节！</p>
+<h4 id="一、搜索、安装插件方式"><a href="#一、搜索、安装插件方式" class="headerlink" title="一、搜索、安装插件方式"></a>一、搜索、安装插件方式</h4><ul>
+<li>1、编辑器方式（没成功）</li>
+</ul>
+<p><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVyKAo" class="lazyload"></p>
+<ul>
+<li><p>2、通过GitHub方式<br>官方获取插件地址： <a href="https://plugins.gitbook.com/" target="_blank" rel="external nofollow noreferrer noopener">https://plugins.gitbook.com/</a></p>
+</li>
+<li><p>3、node.js命令方式<br>默认安装在以下路径</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">C:\Users\QGY\AppData\Roaming\npm\node_modules</span></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<p>把插件文件夹复制到</p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm install gitbook-plugin-toggle-chapters --save-dev</span></pre></td></tr></tbody></table></figure>
+
+<h4 id="二、通过Book-json配置插件"><a href="#二、通过Book-json配置插件" class="headerlink" title="二、通过Book.json配置插件"></a>二、通过Book.json配置插件</h4><p>安装插件只需要在书籍目录下增加 <code>book.json</code> 文件，例如增加 折叠目录 的插件，需要在 <code>book.json</code> 内增加下面代码:</p>
+<p>安装插件只需要在书籍目录下增加 <code>book.json</code> 文件，例如增加<a href="https://plugins.gitbook.com/plugin/expandable-chapters-small" target="_blank" rel="external nofollow noreferrer noopener"> 折叠目录 </a>的插件，需要在 book.json 内增加下面代码:<br>  </p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">{</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"plugins"</span>: [<span class="string">"toggle-chapters"</span> <span class="string">"expandable-chapters-small"</span>],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="attr">"pluginsConfig"</span>: {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="attr">"expandable-chapters-small"</span>:{}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">         <span class="string">"myPlugin"</span>: {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            <span class="attr">"message"</span>: <span class="string">"Hello World"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></tbody></table></figure><p></p>
+<p>然后终端执行 install 来安装插件即可：<br>  </p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ gitbook install</span></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
+<li>去官网注册 GitBook。<a href="https://www.gitbook.com" target="_blank" rel="external nofollow noreferrer noopener">官网链接&gt;&gt;</a></li>
+<li>本地安装 GitBook 客户端。 <a href="http://www.pc6.com/mac/238113.html" target="_blank" rel="external nofollow noreferrer noopener">客户端下载链接&gt;&gt;</a></li>
+<li><a href="https://blog.csdn.net/qi_ruihua/article/details/80026160" target="_blank" rel="external nofollow noreferrer noopener">gitbook新版本 build命令导出的html不能跳转?</a></li>
+<li><a href="https://segmentfault.com/a/1190000005859901" target="_blank" rel="external nofollow noreferrer noopener">Gitbook简易教程</a></li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/f5aefaa4/">http://notes.seirhsiao.com/posts/f5aefaa4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/gitbook/">gitbook    </a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/gitbook.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/posts/521b8a35/"><img class="prev_cover lazyload" data-src="/static/cover/spring.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>SmartSpring框架 -- 06.升级计划</span></div></a></div><div class="next-post pull_right"><a href="/posts/7ad7806c/"><img class="next_cover lazyload" data-src="/static/cover/git.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>将 Hexo 博客部署到 GitHub 和 GitCafe</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/21cfbf15/" title="hexo-theme-butterfly安装文档"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/hexo-theme-butterfly-doc-cover.jpg"><div class="relatedPosts_title">hexo-theme-butterfly安装文档</div></a></div><div class="relatedPosts_item"><a href="/posts/19f9ade4/" title="设置Windows电脑自动关机"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Set_Auto_Shutdown_in_Windows.jpg"><div class="relatedPosts_title">设置Windows电脑自动关机</div></a></div><div class="relatedPosts_item"><a href="/posts/dda8c81b/" title="重装系统后重新部署恢复 Hexo blog"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Rebuild_hexo_when_reinstall_the_system.png"><div class="relatedPosts_title">重装系统后重新部署恢复 Hexo blog</div></a></div><div class="relatedPosts_item"><a href="/posts/aa98736e/" title="Windows上Java的环境变量配置"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/setting_up_enviromental_variables_in_windows10-cover.png"><div class="relatedPosts_title">Windows上Java的环境变量配置</div></a></div><div class="relatedPosts_item"><a href="/posts/31391d01/" title="Hexo和Next主题的相关设置（持续更新）"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Related_settings_for_Hexo_and_Next_theme.png"><div class="relatedPosts_title">Hexo和Next主题的相关设置（持续更新）</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/11871.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

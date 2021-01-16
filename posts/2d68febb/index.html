@@ -1,0 +1,796 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GitHub 秘籍 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="GitHub 秘籍"><meta name="keywords" content="指南,翻译,git,github"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="GitHub 秘籍"><meta name="twitter:description" content="GitHub 秘籍"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/github.png"><meta property="og:type" content="article"><meta property="og:title" content="GitHub 秘籍"><meta property="og:url" content="http://notes.seirhsiao.com/posts/2d68febb/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="GitHub 秘籍"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/github.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/2d68febb/"><link rel="prev" title="markdown学习资料汇总" href="/http:/notes.seirhsiao.com/posts/1f302c16/"><link rel="next" title="vi编辑器使用指南" href="/http:/notes.seirhsiao.com/posts/4672282/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/2d68febb/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#GitHub秘籍"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">GitHub秘籍 </span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#目录"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">目录</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#GitHub"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">GitHub</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#不比较空白字符"><span class="toc_mobile_items-number">2.1.1.</span> <span class="toc_mobile_items-text">不比较空白字符</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#调整-Tab-字符所代表的空格数"><span class="toc_mobile_items-number">2.1.2.</span> <span class="toc_mobile_items-text">调整 Tab 字符所代表的空格数</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#查看用户的全部-Commit-历史"><span class="toc_mobile_items-number">2.1.3.</span> <span class="toc_mobile_items-text">查看用户的全部 Commit 历史</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#仓库克隆"><span class="toc_mobile_items-number">2.1.4.</span> <span class="toc_mobile_items-text">仓库克隆</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#分支"><span class="toc_mobile_items-number">2.1.5.</span> <span class="toc_mobile_items-text">分支</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#将某个分支与其他所有分支进行对比"><span class="toc_mobile_items-number">2.1.5.1.</span> <span class="toc_mobile_items-text">将某个分支与其他所有分支进行对比</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#比较分支"><span class="toc_mobile_items-number">2.1.5.2.</span> <span class="toc_mobile_items-text">比较分支</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#比较不同派生库的分支"><span class="toc_mobile_items-number">2.1.5.3.</span> <span class="toc_mobile_items-text">比较不同派生库的分支</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Gists"><span class="toc_mobile_items-number">2.1.6.</span> <span class="toc_mobile_items-text">Gists</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Git-io"><span class="toc_mobile_items-number">2.1.7.</span> <span class="toc_mobile_items-text">Git.io</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#键盘快捷键"><span class="toc_mobile_items-number">2.1.8.</span> <span class="toc_mobile_items-text">键盘快捷键</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#整行高亮"><span class="toc_mobile_items-number">2.1.9.</span> <span class="toc_mobile_items-text">整行高亮</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#用-Commit-信息关闭-Issue"><span class="toc_mobile_items-number">2.1.10.</span> <span class="toc_mobile_items-text">用 Commit 信息关闭 Issue</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#链接其他仓库的-Issue"><span class="toc_mobile_items-number">2.1.11.</span> <span class="toc_mobile_items-text">链接其他仓库的 Issue</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#锁定项目对话功能"><span class="toc_mobile_items-number">2.1.12.</span> <span class="toc_mobile_items-text">锁定项目对话功能</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#设置-CI-对每条-Pull-Request-都进行构建"><span class="toc_mobile_items-number">2.1.13.</span> <span class="toc_mobile_items-text">设置 CI 对每条 Pull Request 都进行构建</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Markdown-文件语法高亮"><span class="toc_mobile_items-number">2.1.14.</span> <span class="toc_mobile_items-text">Markdown 文件语法高亮</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#表情符"><span class="toc_mobile_items-number">2.1.15.</span> <span class="toc_mobile_items-text">表情符</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#图片-GIF-动画"><span class="toc_mobile_items-number">2.1.16.</span> <span class="toc_mobile_items-text">图片 / GIF 动画</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#在-GitHub-Wiki-中引用图片"><span class="toc_mobile_items-number">2.1.16.1.</span> <span class="toc_mobile_items-text">在 GitHub Wiki 中引用图片</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#快速引用"><span class="toc_mobile_items-number">2.1.17.</span> <span class="toc_mobile_items-text">快速引用</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#粘贴剪贴板中的图片到评论"><span class="toc_mobile_items-number">2.1.18.</span> <span class="toc_mobile_items-text">粘贴剪贴板中的图片到评论</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#快速添加许可证文件"><span class="toc_mobile_items-number">2.1.19.</span> <span class="toc_mobile_items-text">快速添加许可证文件</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#任务列表"><span class="toc_mobile_items-number">2.1.20.</span> <span class="toc_mobile_items-text">任务列表</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Markdown-文件中的任务列表"><span class="toc_mobile_items-number">2.1.20.1.</span> <span class="toc_mobile_items-text">Markdown 文件中的任务列表</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#相对链接"><span class="toc_mobile_items-number">2.1.21.</span> <span class="toc_mobile_items-text">相对链接</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#GitHub-Pages-的元数据与插件支持"><span class="toc_mobile_items-number">2.1.22.</span> <span class="toc_mobile_items-text">GitHub Pages 的元数据与插件支持</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#查看-YAML-格式的元数据"><span class="toc_mobile_items-number">2.1.23.</span> <span class="toc_mobile_items-text">查看 YAML 格式的元数据</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#渲染表格数据"><span class="toc_mobile_items-number">2.1.24.</span> <span class="toc_mobile_items-text">渲染表格数据</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#撤销-Pull-Request"><span class="toc_mobile_items-number">2.1.25.</span> <span class="toc_mobile_items-text">撤销 Pull Request</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Diffs"><span class="toc_mobile_items-number">2.1.26.</span> <span class="toc_mobile_items-text">Diffs</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#可渲染文档的Diffs"><span class="toc_mobile_items-number">2.1.26.1.</span> <span class="toc_mobile_items-text">可渲染文档的Diffs</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#可比较的地图数据"><span class="toc_mobile_items-number">2.1.26.2.</span> <span class="toc_mobile_items-text">可比较的地图数据</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#在-Diff-中展开查看更多的上下文"><span class="toc_mobile_items-number">2.1.26.3.</span> <span class="toc_mobile_items-text">在 Diff 中展开查看更多的上下文</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#获取-Pull-Request-的-diff-或-patch-文件"><span class="toc_mobile_items-number">2.1.26.4.</span> <span class="toc_mobile_items-text">获取 Pull Request 的 diff 或 patch 文件</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#显示图片以及比较图片"><span class="toc_mobile_items-number">2.1.26.5.</span> <span class="toc_mobile_items-text">显示图片以及比较图片</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Hub"><span class="toc_mobile_items-number">2.1.27.</span> <span class="toc_mobile_items-text">Hub</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#贡献者指南"><span class="toc_mobile_items-number">2.1.28.</span> <span class="toc_mobile_items-text">贡献者指南</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Octicons"><span class="toc_mobile_items-number">2.1.29.</span> <span class="toc_mobile_items-text">Octicons</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#GitHub-资源"><span class="toc_mobile_items-number">2.1.30.</span> <span class="toc_mobile_items-text">GitHub 资源</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#GitHub-相关演讲视频"><span class="toc_mobile_items-number">2.1.30.1.</span> <span class="toc_mobile_items-text">GitHub 相关演讲视频</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Git"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">Git</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#从工作区去除大量已删除文件"><span class="toc_mobile_items-number">2.2.1.</span> <span class="toc_mobile_items-text">从工作区去除大量已删除文件</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#上一个分支"><span class="toc_mobile_items-number">2.2.2.</span> <span class="toc_mobile_items-text">上一个分支</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#去除空白"><span class="toc_mobile_items-number">2.2.3.</span> <span class="toc_mobile_items-text">去除空白</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#检出-Pull-Requests"><span class="toc_mobile_items-number">2.2.4.</span> <span class="toc_mobile_items-text">检出 Pull Requests</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#没有任何改动的提交"><span class="toc_mobile_items-number">2.2.5.</span> <span class="toc_mobile_items-text">没有任何改动的提交</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#美化-Git-Status"><span class="toc_mobile_items-number">2.2.6.</span> <span class="toc_mobile_items-text">美化 Git Status</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#美化-Git-Log"><span class="toc_mobile_items-number">2.2.7.</span> <span class="toc_mobile_items-text">美化 Git Log</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Git-查询"><span class="toc_mobile_items-number">2.2.8.</span> <span class="toc_mobile_items-text">Git 查询</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#合并分支"><span class="toc_mobile_items-number">2.2.9.</span> <span class="toc_mobile_items-text">合并分支</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#修复有问题的提交以及自动合并"><span class="toc_mobile_items-number">2.2.10.</span> <span class="toc_mobile_items-text">修复有问题的提交以及自动合并</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#以网站方式查看本地仓库"><span class="toc_mobile_items-number">2.2.11.</span> <span class="toc_mobile_items-text">以网站方式查看本地仓库</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Git-配置"><span class="toc_mobile_items-number">2.2.12.</span> <span class="toc_mobile_items-text">Git 配置</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Git-命令自定义别名"><span class="toc_mobile_items-number">2.2.12.1.</span> <span class="toc_mobile_items-text">Git 命令自定义别名</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#自动更正"><span class="toc_mobile_items-number">2.2.12.2.</span> <span class="toc_mobile_items-text">自动更正</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#颜色输出"><span class="toc_mobile_items-number">2.2.12.3.</span> <span class="toc_mobile_items-text">颜色输出</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Git-资源"><span class="toc_mobile_items-number">2.2.13.</span> <span class="toc_mobile_items-text">Git 资源</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Git-参考书籍"><span class="toc_mobile_items-number">2.2.13.1.</span> <span class="toc_mobile_items-text">Git 参考书籍</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub秘籍"><span class="toc-number">1.</span> <span class="toc-text">GitHub秘籍 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">2.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub"><span class="toc-number">2.1.</span> <span class="toc-text">GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不比较空白字符"><span class="toc-number">2.1.1.</span> <span class="toc-text">不比较空白字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调整-Tab-字符所代表的空格数"><span class="toc-number">2.1.2.</span> <span class="toc-text">调整 Tab 字符所代表的空格数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看用户的全部-Commit-历史"><span class="toc-number">2.1.3.</span> <span class="toc-text">查看用户的全部 Commit 历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仓库克隆"><span class="toc-number">2.1.4.</span> <span class="toc-text">仓库克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支"><span class="toc-number">2.1.5.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将某个分支与其他所有分支进行对比"><span class="toc-number">2.1.5.1.</span> <span class="toc-text">将某个分支与其他所有分支进行对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比较分支"><span class="toc-number">2.1.5.2.</span> <span class="toc-text">比较分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比较不同派生库的分支"><span class="toc-number">2.1.5.3.</span> <span class="toc-text">比较不同派生库的分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gists"><span class="toc-number">2.1.6.</span> <span class="toc-text">Gists</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-io"><span class="toc-number">2.1.7.</span> <span class="toc-text">Git.io</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘快捷键"><span class="toc-number">2.1.8.</span> <span class="toc-text">键盘快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整行高亮"><span class="toc-number">2.1.9.</span> <span class="toc-text">整行高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-Commit-信息关闭-Issue"><span class="toc-number">2.1.10.</span> <span class="toc-text">用 Commit 信息关闭 Issue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接其他仓库的-Issue"><span class="toc-number">2.1.11.</span> <span class="toc-text">链接其他仓库的 Issue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁定项目对话功能"><span class="toc-number">2.1.12.</span> <span class="toc-text">锁定项目对话功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-CI-对每条-Pull-Request-都进行构建"><span class="toc-number">2.1.13.</span> <span class="toc-text">设置 CI 对每条 Pull Request 都进行构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown-文件语法高亮"><span class="toc-number">2.1.14.</span> <span class="toc-text">Markdown 文件语法高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表情符"><span class="toc-number">2.1.15.</span> <span class="toc-text">表情符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片-GIF-动画"><span class="toc-number">2.1.16.</span> <span class="toc-text">图片 / GIF 动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在-GitHub-Wiki-中引用图片"><span class="toc-number">2.1.16.1.</span> <span class="toc-text">在 GitHub Wiki 中引用图片</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速引用"><span class="toc-number">2.1.17.</span> <span class="toc-text">快速引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粘贴剪贴板中的图片到评论"><span class="toc-number">2.1.18.</span> <span class="toc-text">粘贴剪贴板中的图片到评论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速添加许可证文件"><span class="toc-number">2.1.19.</span> <span class="toc-text">快速添加许可证文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务列表"><span class="toc-number">2.1.20.</span> <span class="toc-text">任务列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Markdown-文件中的任务列表"><span class="toc-number">2.1.20.1.</span> <span class="toc-text">Markdown 文件中的任务列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相对链接"><span class="toc-number">2.1.21.</span> <span class="toc-text">相对链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Pages-的元数据与插件支持"><span class="toc-number">2.1.22.</span> <span class="toc-text">GitHub Pages 的元数据与插件支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-YAML-格式的元数据"><span class="toc-number">2.1.23.</span> <span class="toc-text">查看 YAML 格式的元数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染表格数据"><span class="toc-number">2.1.24.</span> <span class="toc-text">渲染表格数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销-Pull-Request"><span class="toc-number">2.1.25.</span> <span class="toc-text">撤销 Pull Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Diffs"><span class="toc-number">2.1.26.</span> <span class="toc-text">Diffs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可渲染文档的Diffs"><span class="toc-number">2.1.26.1.</span> <span class="toc-text">可渲染文档的Diffs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可比较的地图数据"><span class="toc-number">2.1.26.2.</span> <span class="toc-text">可比较的地图数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在-Diff-中展开查看更多的上下文"><span class="toc-number">2.1.26.3.</span> <span class="toc-text">在 Diff 中展开查看更多的上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取-Pull-Request-的-diff-或-patch-文件"><span class="toc-number">2.1.26.4.</span> <span class="toc-text">获取 Pull Request 的 diff 或 patch 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示图片以及比较图片"><span class="toc-number">2.1.26.5.</span> <span class="toc-text">显示图片以及比较图片</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hub"><span class="toc-number">2.1.27.</span> <span class="toc-text">Hub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贡献者指南"><span class="toc-number">2.1.28.</span> <span class="toc-text">贡献者指南</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Octicons"><span class="toc-number">2.1.29.</span> <span class="toc-text">Octicons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-资源"><span class="toc-number">2.1.30.</span> <span class="toc-text">GitHub 资源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GitHub-相关演讲视频"><span class="toc-number">2.1.30.1.</span> <span class="toc-text">GitHub 相关演讲视频</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">2.2.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从工作区去除大量已删除文件"><span class="toc-number">2.2.1.</span> <span class="toc-text">从工作区去除大量已删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上一个分支"><span class="toc-number">2.2.2.</span> <span class="toc-text">上一个分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去除空白"><span class="toc-number">2.2.3.</span> <span class="toc-text">去除空白</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检出-Pull-Requests"><span class="toc-number">2.2.4.</span> <span class="toc-text">检出 Pull Requests</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有任何改动的提交"><span class="toc-number">2.2.5.</span> <span class="toc-text">没有任何改动的提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美化-Git-Status"><span class="toc-number">2.2.6.</span> <span class="toc-text">美化 Git Status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美化-Git-Log"><span class="toc-number">2.2.7.</span> <span class="toc-text">美化 Git Log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-查询"><span class="toc-number">2.2.8.</span> <span class="toc-text">Git 查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并分支"><span class="toc-number">2.2.9.</span> <span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修复有问题的提交以及自动合并"><span class="toc-number">2.2.10.</span> <span class="toc-text">修复有问题的提交以及自动合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以网站方式查看本地仓库"><span class="toc-number">2.2.11.</span> <span class="toc-text">以网站方式查看本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-配置"><span class="toc-number">2.2.12.</span> <span class="toc-text">Git 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-命令自定义别名"><span class="toc-number">2.2.12.1.</span> <span class="toc-text">Git 命令自定义别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动更正"><span class="toc-number">2.2.12.2.</span> <span class="toc-text">自动更正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色输出"><span class="toc-number">2.2.12.3.</span> <span class="toc-text">颜色输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-资源"><span class="toc-number">2.2.13.</span> <span class="toc-text">Git 资源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-参考书籍"><span class="toc-number">2.2.13.1.</span> <span class="toc-text">Git 参考书籍</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/11825.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">GitHub 秘籍</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-02-03<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-05</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/GitHub/">GitHub</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">5.6k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 21 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="GitHub秘籍"><a href="#GitHub秘籍" class="headerlink" title="GitHub秘籍 "></a>GitHub秘籍 <a href="https://github.com/sindresorhus/awesome" target="_blank" rel="external nofollow noreferrer noopener"><img alt="Awesome" data-src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" class="lazyload"></a></h1><p>Git 和 Github 秘籍，灵感来自于 <a href="https://github.com/holman" target="_blank" rel="external nofollow noreferrer noopener">Zach Holman</a> 在 2012 年 Aloha Ruby Conference 和 2013 年 WDCNZ 上所做的演讲：<a href="http://www.confreaks.com/videos/1229-aloharuby2012-git-and-github-secrets" target="_blank" rel="external nofollow noreferrer noopener">Git and GitHub Secrets</a>(<a href="https://speakerdeck.com/holman/git-and-github-secrets" target="_blank" rel="external nofollow noreferrer noopener">slides</a>) 和 <a href="https://vimeo.com/72955426" target="_blank" rel="external nofollow noreferrer noopener">More Git and GitHub Secrets</a>(<a href="https://speakerdeck.com/holman/more-git-and-github-secrets" target="_blank" rel="external nofollow noreferrer noopener">slides</a>)。</p>
+<p><em>其他语言版本: <a href="README.md">English</a>, <a href="README.ko.md">한국어</a>, <a href="README.ja.md">日本語</a>, <a href="README.zh-cn.md">简体中文</a>, <a href="README.zh-tw.md">正體中文</a>.</em></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#github">GitHub</a><ul>
+<li><a href="#不比较空白字符">不比较空白字符</a></li>
+<li><a href="#调整-tab-字符所代表的空格数">调整 Tab 字符所代表的空格数</a></li>
+<li><a href="#查看某个用户的-commit-历史">查看某个用户的 Commit 历史</a></li>
+<li><a href="#仓库克隆">仓库克隆</a></li>
+<li><a href="#分支">分支</a><ul>
+<li><a href="#将某个分支与其他所有分支进行对比">将某个分支与其他所有分支进行对比</a></li>
+<li><a href="#比较分支">比较分支</a></li>
+<li><a href="#比较不同派生库的分支">比较不同派生库的分支</a></li>
+</ul>
+</li>
+<li><a href="#gists">Gists</a></li>
+<li><a href="#gitio">Git.io</a></li>
+<li><a href="#键盘快捷键">键盘快捷键</a></li>
+<li><a href="#整行高亮">整行高亮</a></li>
+<li><a href="#用-commit-信息关闭-issue">用 Commit 信息关闭 Issue</a></li>
+<li><a href="#链接其他仓库的-issue">链接其他仓库的 Issue</a></li>
+<li><a href="#锁定项目对话功能">锁定项目对话功能</a></li>
+<li><a href="#设置-ci-对每条-pull-request-都进行构建">设置 CI 对每条 Pull Request 都进行构建</a></li>
+<li><a href="#markdown-文件语法高亮">Markdown 文件语法高亮</a></li>
+<li><a href="#表情符">表情符</a></li>
+<li><a href="#图片--gif-动画">图片 / GIF 动画</a><ul>
+<li><a href="#在-github-wiki-中引用图片">在 GitHub Wiki 中引用图片</a></li>
+</ul>
+</li>
+<li><a href="#快速引用">快速引用</a></li>
+<li><a href="#粘贴剪贴板中的图片到评论">粘贴剪贴板中的图片到评论</a></li>
+<li><a href="#快速添加许可证文件">快速添加许可证文件</a></li>
+<li><a href="#任务列表">任务列表</a><ul>
+<li><a href="#markdown-文件中的任务列表">Markdown 文件中的任务列表</a></li>
+</ul>
+</li>
+<li><a href="#相对链接">相对链接</a></li>
+<li><a href="#github-pages-的元数据与插件支持">GitHub Pages 的元数据与插件支持</a></li>
+<li><a href="#查看-yaml-格式的元数据">查看 YAML 格式的元数据</a></li>
+<li><a href="#渲染表格数据">渲染表格数据</a></li>
+<li><a href="#撤销-pull-request">撤销 Pull Request</a></li>
+<li><a href="#diffs">Diffs</a><ul>
+<li><a href="#可渲染文档的diffs">可渲染文档的Diffs</a></li>
+<li><a href="#可比较的地图数据">可比较的地图数据</a></li>
+<li><a href="#在-diff-中展开查看更多的上下文">在 Diff 中展开查看更多的上下文</a></li>
+<li><a href="#获取-pull-request-的-diff-或-patch-文件">获取 Pull Request 的 diff 或 patch 文件</a></li>
+<li><a href="#显示图片以及比较图片">显示图片以及比较图片</a></li>
+</ul>
+</li>
+<li><a href="#hub">Hub</a></li>
+<li><a href="#贡献者指南">贡献者指南</a></li>
+<li><a href="#octicons">Octicons</a></li>
+<li><a href="#github-资源">GitHub 资源</a><ul>
+<li><a href="#github-相关演讲视频">GitHub 相关演讲视频</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#git">Git</a><ul>
+<li><a href="#从工作区去除大量已删除文件">从工作区去除大量已删除文件</a></li>
+<li><a href="#上一个分支">上一个分支</a></li>
+<li><a href="#去除空白">去除空白</a></li>
+<li><a href="#检出-pull-requests">检出 Pull Requests</a></li>
+<li><a href="#没有任何改动的提交">没有任何改动的提交</a></li>
+<li><a href="#美化-git-status">美化 Git Status</a></li>
+<li><a href="#美化-git-log">美化 Git Log</a></li>
+<li><a href="#git-查询">Git 查询</a></li>
+<li><a href="#合并分支">合并分支</a></li>
+<li><a href="#修复有问题的提交以及自动合并">修复有问题的提交以及自动合并</a></li>
+<li><a href="#以网站方式查看本地仓库">以网站方式查看本地仓库</a></li>
+<li><a href="#git-配置">Git 配置</a><ul>
+<li><a href="#git-命令自定义别名">Git 命令自定义别名</a></li>
+<li><a href="#自动更正">自动更正</a></li>
+<li><a href="#颜色输出">颜色输出</a></li>
+</ul>
+</li>
+<li><a href="#git-资源">Git 资源</a><ul>
+<li><a href="#git-参考书籍">Git 参考书籍</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><h3 id="不比较空白字符"><a href="#不比较空白字符" class="headerlink" title="不比较空白字符"></a>不比较空白字符</h3><p>在任意 diff 页面的 UR L后加上 <code>?w=1</code>，可以去掉那些只是空白字符的改动，使你能更专注于代码改动。</p>
+<p><img alt="Diff without whitespace" data-src="https://camo.githubusercontent.com/797184940defadec00393e6559b835358a863eeb/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f776869746573706163652e706e67" class="lazyload"></p>
+<p><a href="https://github.com/blog/967-github-secrets" target="_blank" rel="external nofollow noreferrer noopener"><em>详见 GitHub secrets.</em></a></p>
+<h3 id="调整-Tab-字符所代表的空格数"><a href="#调整-Tab-字符所代表的空格数" class="headerlink" title="调整 Tab 字符所代表的空格数"></a>调整 Tab 字符所代表的空格数</h3><p>在 diff 或文件的 URL 后面加上 <code>?ts=4</code> ，这样当显示 tab 字符的长度时就会是 4 个空格的长度，不再是默认的 8 个空格。 <code>ts</code> 后面的数字还可以根据你个人的偏好进行修改。这个技巧不适用于 Gists，或者以 Raw 格式查看文件， 但有浏览器扩展插件可以帮你自动调整: <a href="https://chrome.google.com/webstore/detail/github-tab-size/ofjbgncegkdemndciafljngjbdpfmbkn" target="_blank" rel="external nofollow noreferrer noopener">Chrome 扩展</a>。</p>
+<p>下面以一个 Go 语言源文件为例，看看在 URL 里添加 <code>?ts=4</code> 参数的效果。添加前：</p>
+<p><img alt="Before, tab space example" data-src="http://i.imgur.com/GIT1Fr0.png" class="lazyload"></p>
+<p>… 添加后的样子：</p>
+<p><img alt="After, tab space example" data-src="http://i.imgur.com/70FL4H9.png" class="lazyload"></p>
+<h3 id="查看用户的全部-Commit-历史"><a href="#查看用户的全部-Commit-历史" class="headerlink" title="查看用户的全部 Commit 历史"></a>查看用户的全部 Commit 历史</h3><p>在 Commits 页面 URL 后加上 <code>?author={user}</code> 查看用户全部的提交。</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/commits/m</span>aster?author=dhh</span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="DHH commit history" data-src="http://i.imgur.com/S7AE29b.png" class="lazyload"></p>
+<p><a href="https://help.github.com/articles/differences-between-commit-views" target="_blank" rel="external nofollow noreferrer noopener"><em>深入了解提交视图之间的区别</em></a></p>
+<h3 id="仓库克隆"><a href="#仓库克隆" class="headerlink" title="仓库克隆"></a>仓库克隆</h3><p>当克隆仓库时可以不要那个<code>.git</code>后缀。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/tiimgreen/github-cheat-sheet</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="http://git-scm.com/docs/git-clone" target="_blank" rel="external nofollow noreferrer noopener"><em>更多对 Git <code>clone</code> 命令的介绍.</em></a></p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><h4 id="将某个分支与其他所有分支进行对比"><a href="#将某个分支与其他所有分支进行对比" class="headerlink" title="将某个分支与其他所有分支进行对比"></a>将某个分支与其他所有分支进行对比</h4><p>当你查看某个仓库的分支（Branches）页面（紧挨着 Commits 链接）时</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/{user}/</span>{repo}<span class="regexp">/branches</span></span></pre></td></tr></tbody></table></figure>
+<p>你会看到一个包含所有未合并的分支的列表。</p>
+<p>在这里你可以访问分支比较页面或删除某个分支。</p>
+<p><img alt="Compare branches not merged into master in rails/rails repo - https://github.com/rails/rails/branches" data-src="http://i.imgur.com/0FEe30z.png" class="lazyload"></p>
+<h4 id="比较分支"><a href="#比较分支" class="headerlink" title="比较分支"></a>比较分支</h4><p>如果要在 GitHub 上直接比较两个分支，可以使用如下形式的 URL ：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/{user}/</span>{repo}<span class="regexp">/compare/</span>{range}</span></pre></td></tr></tbody></table></figure>
+
+<p>其中 <code>{range} = master...4-1-stable</code></p>
+<p>例如：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/m</span>aster...<span class="number">4</span>-<span class="number">1</span>-stable</span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="Rails branch compare example" data-src="http://i.imgur.com/tIRCOsK.png" class="lazyload"></p>
+<p><code>{range}</code> 参数还可以使用下面的形式:</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/m</span>aster@{<span class="number">1</span>.day.ago}...master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/m</span>aster@{<span class="number">2014</span>-<span class="number">10</span>-<span class="number">04</span>}...master</span></pre></td></tr></tbody></table></figure>
+
+<p><em>日期格式 <code>YYYY-MM-DD</code></em></p>
+<p><img alt="Another compare example" data-src="http://i.imgur.com/5dtzESz.png" class="lazyload"></p>
+<p>在 <code>diff</code> 和 <code>patch</code> 页面里也可以比较分支：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/m</span>aster...<span class="number">4</span>-<span class="number">1</span>-stable.diff</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/m</span>aster...<span class="number">4</span>-<span class="number">1</span>-stable.patch</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://help.github.com/articles/comparing-commits-across-time" target="_blank" rel="external nofollow noreferrer noopener"><em>了解更多关于基于时间的 Commit 比较.</em></a></p>
+<h4 id="比较不同派生库的分支"><a href="#比较不同派生库的分支" class="headerlink" title="比较不同派生库的分支"></a>比较不同派生库的分支</h4><p>想要对派生仓库（Forked Repository）之间的分支进行比较，可以使用如下的 URL：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/user/</span>repo<span class="regexp">/compare/</span>{foreign-user}:{branch}...{own-branch}</span></pre></td></tr></tbody></table></figure>
+
+<p>例如：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/rails/</span>rails<span class="regexp">/compare/</span>byroot:master...master</span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="Forked branch compare" data-src="http://i.imgur.com/Q1W6qcB.png" class="lazyload"></p>
+<h3 id="Gists"><a href="#Gists" class="headerlink" title="Gists"></a>Gists</h3><p><a href="https://gist.github.com/" target="_blank" rel="external nofollow noreferrer noopener">Gists</a> 方便我们管理代码片段，不必使用功能齐全的仓库。</p>
+<p><img alt="Gist" data-src="http://i.imgur.com/VkKI1LC.png?1" class="lazyload"></p>
+<p>Gist 的 URL 后加上 <code>.pibb</code>（<a href="https://gist.github.com/tiimgreen/10545817.pibb" target="_blank" rel="external nofollow noreferrer noopener">像这样</a>）可以得到便于嵌入到其他网站 的 HTML 代码。</p>
+<p>Gists 可以像任何标准仓库一样被克隆。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://gist.github.com/tiimgreen/10545817</span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="Gists" data-src="http://i.imgur.com/BcFzabp.png" class="lazyload"></p>
+<p>这意味着你可以像 Github 仓库一样修改和更新 Gists :</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git commit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ git push</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Username <span class="keyword">for</span> <span class="string">'https://gist.github.com'</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Password <span class="keyword">for</span> <span class="string">'https://tiimgreen@gist.github.com'</span>:</span></pre></td></tr></tbody></table></figure>
+
+<p>但是， Gists 不支持目录。所有文件都必须添加在仓库的根目录下。<br><a href="https://help.github.com/articles/creating-gists" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解如何创建 Gists.</em></a></p>
+<h3 id="Git-io"><a href="#Git-io" class="headerlink" title="Git.io"></a>Git.io</h3><p><a href="http://git.io" target="_blank" rel="external nofollow noreferrer noopener">Git.io</a>是 Github 的短网址服务。</p>
+<p><img alt="Git.io" data-src="http://i.imgur.com/6JUfbcG.png?1" class="lazyload"></p>
+<p>你可以通过 Curl 命令以普通 HTTP 协议使用它：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ curl -i http://git.io -F <span class="string">"url=https://github.com/..."</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">HTTP/1.1 201 Created</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Location: http://git.io/abc123</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">$ curl -i http://git.io/abc123</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">HTTP/1.1 302 Found</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Location: https://github.com/...</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://github.com/blog/985-git-io-github-url-shortener" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git.io.</em></a></p>
+<h3 id="键盘快捷键"><a href="#键盘快捷键" class="headerlink" title="键盘快捷键"></a>键盘快捷键</h3><p>在仓库页面上提供了快捷键方便快速导航。</p>
+<ul>
+<li>按 <code>t</code> 键打开一个文件浏览器。</li>
+<li>按 <code>w</code> 键打开分支选择菜单。</li>
+<li>按 <code>s</code> 键聚焦光标到当前仓库的搜索框。此时按退格键就会从搜索当前仓库切换到搜索整个 Github 网站。</li>
+<li>按 <code>l</code> 键编辑 Issue 列表页的标签。</li>
+<li><strong>查看文件内容时</strong>（如：<code>https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md</code>），按 <code>y</code> 键将会冻结这个页面，这样就算代码被修改了也不会影响你当前看到的。</li>
+</ul>
+<p>按<code>?</code>查看当前页面支持的快捷键列表：</p>
+<p><img alt="Keyboard shortcuts" data-src="http://i.imgur.com/y5ZfNEm.png" class="lazyload"></p>
+<p><a href="https://help.github.com/articles/search-syntax/" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解可用的搜索语法.</em></a></p>
+<h3 id="整行高亮"><a href="#整行高亮" class="headerlink" title="整行高亮"></a>整行高亮</h3><p>在代码文件地址 URL 后加上<code>#L52</code>或者单击行号 52 都会将第 52 行代码高亮显示。</p>
+<p>多行高亮也可以，比如用<code>#L53-L60</code>选择范围，或者按住 <code>shift</code> 键，然后再点击选择的两行。</p>
+<figure class="highlight crystal"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span>/<span class="regexp">/github.com/rails</span><span class="regexp">/rails/blob</span><span class="regexp">/master/activemodel</span><span class="regexp">/lib/active</span>_model.rb<span class="comment">#L53-L60</span></span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="整行高亮" data-src="http://i.imgur.com/8AhjrCz.png" class="lazyload"></p>
+<h3 id="用-Commit-信息关闭-Issue"><a href="#用-Commit-信息关闭-Issue" class="headerlink" title="用 Commit 信息关闭 Issue"></a>用 Commit 信息关闭 Issue</h3><p>如果某个提交修复了一个 Issue，当提交到 master 分支时，提交信息里可以使用 <code>fix/fixes/fixed</code>, <code>close/closes/closed</code> 或者 <code>resolve/resolves/resolved</code> 等关键词，后面再跟上 Issue 号，这样就会关闭这个 Issue 。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"Fix screwup, fixes #12"</span></span></pre></td></tr></tbody></table></figure>
+
+<p>这将会关闭 Issue #12，并且在 Issue 讨论列表里关联引用这次提交。</p>
+<p><img alt="Closing Repo" data-src="http://i.imgur.com/Uh1gZdx.png" class="lazyload"></p>
+<p><a href="https://help.github.com/articles/closing-issues-via-commit-messages" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解通过提交信息关闭 Issue.</em></a></p>
+<h3 id="链接其他仓库的-Issue"><a href="#链接其他仓库的-Issue" class="headerlink" title="链接其他仓库的 Issue"></a>链接其他仓库的 Issue</h3><p>如果你想引用到同一个仓库中的一个 Issue，只需使用井号 <code>#</code> 加上 Issue 号，这样就会自动创建到此 Issue 的链接。</p>
+<p>要链接到其他仓库的 Issue ，就使用<code>{user}/{repo}#ISSUE_NUMBER</code>的方式，例如<code>tiimgreen/toc#12</code>。</p>
+<p><img alt="Cross-Link Issues" data-src="https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67" class="lazyload"></p>
+<h3 id="锁定项目对话功能"><a href="#锁定项目对话功能" class="headerlink" title="锁定项目对话功能"></a>锁定项目对话功能</h3><p>现在仓库的管理员和合作者可以将 Pull Requests 和 Issue 的评论功能关闭。</p>
+<p><img alt="Lock conversation" data-src="https://cloud.githubusercontent.com/assets/2723/3221693/bf54dd44-f00d-11e3-8eb6-bb51e825bc2c.png" class="lazyload"></p>
+<p>这样，不是项目合作者的用户就不能在这个项目上使用评论功能。</p>
+<p><img alt="Comments locked" data-src="https://cloud.githubusercontent.com/assets/2723/3221775/d6e513b0-f00e-11e3-9721-2131cb37c906.png" class="lazyload"></p>
+<p><a href="https://github.com/blog/1847-locking-conversations" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解对话锁定功能.</em></a></p>
+<h3 id="设置-CI-对每条-Pull-Request-都进行构建"><a href="#设置-CI-对每条-Pull-Request-都进行构建" class="headerlink" title="设置 CI 对每条 Pull Request 都进行构建"></a>设置 CI 对每条 Pull Request 都进行构建</h3><p>如果配置正确，<a href="https://travis-ci.org/" target="_blank" rel="external nofollow noreferrer noopener">Travis CI</a> 会为每个你收到的 Pull Request 执行构建，就像每次提交也会触发构建一样。想了解更多关于 Travis CI 的信息，请参考 <a href="http://docs.travis-ci.com/user/getting-started/" target="_blank" rel="external nofollow noreferrer noopener">Travis CI入门</a>。</p>
+<p><a href="https://github.com/octokit/octokit.rb/pull/452" target="_blank" rel="external nofollow noreferrer noopener"><img alt="Travis CI status" data-src="https://cloud.githubusercontent.com/assets/1687642/2700187/3a88838c-c410-11e3-9a46-e65e2a0458cd.png" class="lazyload"></a></p>
+<p><a href="https://github.com/blog/1227-commit-status-api" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解提交状态 API.</em></a></p>
+<h3 id="Markdown-文件语法高亮"><a href="#Markdown-文件语法高亮" class="headerlink" title="Markdown 文件语法高亮"></a>Markdown 文件语法高亮</h3><p>例如，可以像下面这样在你的 Markdown 文件里为 Ruby 代码添加语法高亮：</p>
+<pre><code><figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'tabbit'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">table = Tabbit.new(<span class="string">'Name'</span>, <span class="string">'Email'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">table.add_row(<span class="string">'Tim Green'</span>, <span class="string">'tiimgreen@gmail.com'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">puts table.to_s</span></pre></td></tr></tbody></table></figure></code></pre><p>效果如下：</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'tabbit'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">table = Tabbit.new(<span class="string">'Name'</span>, <span class="string">'Email'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">table.add_row(<span class="string">'Tim Green'</span>, <span class="string">'tiimgreen@gmail.com'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">puts table.to_s</span></pre></td></tr></tbody></table></figure>
+
+<p>Github使用 <a href="https://github.com/github/linguist" target="_blank" rel="external nofollow noreferrer noopener">Linguist</a> 做语言识别和语法高亮。你可以仔细阅读 <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank" rel="external nofollow noreferrer noopener">languages YAML file</a>，了解有哪些可用的关键字。</p>
+<p><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 GitHub Flavored Markdown.</em></a></p>
+<h3 id="表情符"><a href="#表情符" class="headerlink" title="表情符"></a>表情符</h3><p>可以在 Pull Requests, Issues, 提交消息, Markdown 文件里加入表情符。使用方法 <code>:name_of_emoji:</code></p>
+<figure class="highlight clojure"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="symbol">:smile:</span></span></pre></td></tr></tbody></table></figure>
+<p>将输出一个笑脸：</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
+<p>Github 支持的完整表情符号列表详见<a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="external nofollow noreferrer noopener">emoji-cheat-sheet.com</a> 或 <a href="https://github.com/scotch-io/All-Github-Emoji-Icons" target="_blank" rel="external nofollow noreferrer noopener">scotch-io/All-Github-Emoji-Icons</a>。</p>
+<p>Github 上使用最多的5个表情符号是：</p>
+<ol>
+<li><code>:shipit:</code></li>
+<li><code>:sparkles:</code></li>
+<li><code>:-1:</code></li>
+<li><code>:+1:</code></li>
+<li><code>:clap:</code></li>
+</ol>
+<h3 id="图片-GIF-动画"><a href="#图片-GIF-动画" class="headerlink" title="图片 / GIF 动画"></a>图片 / GIF 动画</h3><p>注释和README等文件里也可以使用图片和 GIF 动画：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt Text</span>](<span class="link">http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif</span>)</span></pre></td></tr></tbody></table></figure>
+
+<p>仓库中的图片可以被直接引用：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt Text</span>](<span class="link">https://github.com/{user}/{repo}/raw/master/path/to/image.gif</span>)</span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="Peter don't care" data-src="http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif" class="lazyload"></p>
+<p>所有图片都缓存在 Github，不用担心你的站点不能访问时就看不到图片了。</p>
+<h4 id="在-GitHub-Wiki-中引用图片"><a href="#在-GitHub-Wiki-中引用图片" class="headerlink" title="在 GitHub Wiki 中引用图片"></a>在 GitHub Wiki 中引用图片</h4><p>有多种方法可以在 Wiki 页面里嵌入图片。既可以像上一条里那样使用标准的 Markdown 语法，也可以像下面这样指定图片的高度或宽度：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[[ http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif | height = 100px ]]</span></pre></td></tr></tbody></table></figure>
+<p>结果：</p>
+<p><img alt="Just a screenshot" data-src="http://i.imgur.com/J5bMf7S.png" class="lazyload"></p>
+<h3 id="快速引用"><a href="#快速引用" class="headerlink" title="快速引用"></a>快速引用</h3><p>在主题评论中引用之前某个人所说的，只需选中文本，然后按 <code>r</code> 键，想要的就会以引用的形式复制到你的输入框里。</p>
+<p><img alt="Quick Quote" data-src="https://f.cloud.github.com/assets/296432/124483/b0fa6204-6ef0-11e2-83c3-256c37fa7abc.gif" class="lazyload"></p>
+<p><a href="https://github.com/blog/1399-quick-quotes" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解快速引用.</em></a></p>
+<h3 id="粘贴剪贴板中的图片到评论"><a href="#粘贴剪贴板中的图片到评论" class="headerlink" title="粘贴剪贴板中的图片到评论"></a>粘贴剪贴板中的图片到评论</h3><p><em>（仅适用于 Chrome 浏览器）</em></p>
+<p>当截屏图片复制到剪贴板后（mac 上用 <code>cmd-ctrl-shift-4</code>），你可以用(<code>cmd-v / ctrl-v</code>)把图片粘贴到评论框里，然后它就会自动上传到 Github。</p>
+<p><img alt="Pasting Clipboard Image to Comments" data-src="https://cloud.githubusercontent.com/assets/39191/5794265/39c9b65a-9f1b-11e4-9bc7-04e41f59ea5f.png" class="lazyload"></p>
+<p><a href="https://help.github.com/articles/issue-attachments" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解在 issue 中使用附件</em></a></p>
+<h3 id="快速添加许可证文件"><a href="#快速添加许可证文件" class="headerlink" title="快速添加许可证文件"></a>快速添加许可证文件</h3><p>创建一个仓库时，Github会为你提供一个预置的软件许可列表：</p>
+<p><img alt="License" data-src="http://i.imgur.com/Chqj4Fg.png" class="lazyload"></p>
+<p>对于已有的仓库，可以通过 web 界面创建文件来添加软件许可。输入<code>LICENSE</code>作为文件名后，同样可以从预置的列表中选择一个作为模板。</p>
+<p><img alt="License" data-src="http://i.imgur.com/fTjQict.png" class="lazyload"></p>
+<p>这个技巧也适用于 <code>.gitignore</code> 文件。</p>
+<p><a href="https://help.github.com/articles/open-source-licensing" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解开源许可证</em></a></p>
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>Issues 和 Pull requests 里可以添加复选框，语法如下（注意空白符）：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Be</span> <span class="selector-tag">awesome</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Prepare</span> <span class="selector-tag">dinner</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Research</span> <span class="selector-tag">recipe</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Buy</span> <span class="selector-tag">ingredients</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Cook</span> <span class="selector-tag">recipe</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Sleep</span></span></pre></td></tr></tbody></table></figure>
+
+<p><img alt="Task List" data-src="http://i.imgur.com/jJBXhsY.png" class="lazyload"></p>
+<p>当项目被选中时，它对应的 Markdown 源码也被更新了：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Be</span> <span class="selector-tag">awesome</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Prepare</span> <span class="selector-tag">dinner</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Research</span> <span class="selector-tag">recipe</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Buy</span> <span class="selector-tag">ingredients</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Cook</span> <span class="selector-tag">recipe</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Sleep</span></span></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://help.github.com/articles/writing-on-github#task-lists" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解任务列表.</em></a></p>
+<h4 id="Markdown-文件中的任务列表"><a href="#Markdown-文件中的任务列表" class="headerlink" title="Markdown 文件中的任务列表"></a>Markdown 文件中的任务列表</h4><p>在完全适配Markdown语法的文件中可以使用以下语法加入一个<strong>只读</strong>的任务列表</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Mercury</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Venus</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Earth</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Moon</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> <span class="selector-attr">[x]</span> <span class="selector-tag">Mars</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Deimos</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">-</span> <span class="selector-attr">[ ]</span> <span class="selector-tag">Phobos</span></span></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> Mercury</li>
+<li><input checked disabled type="checkbox"> Venus</li>
+<li><input checked disabled type="checkbox"> Earth<ul>
+<li><input checked disabled type="checkbox"> Moon</li>
+</ul>
+</li>
+<li><input checked disabled type="checkbox"> Mars<ul>
+<li><input disabled type="checkbox"> Deimos</li>
+<li><input disabled type="checkbox"> Phobos</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/blog/1825-task-lists-in-all-markdown-documents" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Markdown 文件中的任务列表</em></a></p>
+<h3 id="相对链接"><a href="#相对链接" class="headerlink" title="相对链接"></a>相对链接</h3><p>Markdown文件里链接到内部内容时推荐使用相对链接。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[<span class="string">Link to a header</span>](<span class="link">#awesome-section</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[<span class="string">Link to a file</span>](<span class="link">docs/readme</span>)</span></pre></td></tr></tbody></table></figure>
+<p>绝对链接会在 URL 改变时（例如重命名仓库、用户名改变，建立分支项目）被更新。使用相对链接能够保证你的文档不受此影响。</p>
+<p><a href="https://help.github.com/articles/relative-links-in-readmes" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解相对链接.</em></a></p>
+<h3 id="GitHub-Pages-的元数据与插件支持"><a href="#GitHub-Pages-的元数据与插件支持" class="headerlink" title="GitHub Pages 的元数据与插件支持"></a>GitHub Pages 的元数据与插件支持</h3><p>在 Jekyll 页面和文章里，仓库信息可在 <code>site.github</code> 命名空间下找到，也可以显示出来，例如，使用 <code></code>显示项目标题。</p>
+<p>Jemoji 和 jekyll-mentions 插件为你的 Jekyll 文章和页面增加了<a href="#emojis">emoji</a>和<a href="https://github.com/blog/821" target="_blank" rel="external nofollow noreferrer noopener">@mentions</a>功能。</p>
+<p><a href="https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages" target="_blank" rel="external nofollow noreferrer noopener"><em>了解更多 GitHub Pages 的元数据和插件支持.</em></a></p>
+<h3 id="查看-YAML-格式的元数据"><a href="#查看-YAML-格式的元数据" class="headerlink" title="查看 YAML 格式的元数据"></a>查看 YAML 格式的元数据</h3><p>许多博客站点，比如基于 <a href="http://jekyllrb.com/" target="_blank" rel="external nofollow noreferrer noopener">Jekyll</a>的<a href="http://pages.github.com/" target="_blank" rel="external nofollow noreferrer noopener">GitHub Pages</a> ，都依赖于一些文章头部的 YAML 格式的元数据。 Github 会将其渲染成一个水平表格，方便阅读。</p>
+<p><img alt="YAML metadata" data-src="https://camo.githubusercontent.com/47245aa16728e242f74a9a324ce0d24c0b916075/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f36343035302f313232383236372f65303439643063362d323761302d313165332d396464382d6131636432323539393334342e706e67" class="lazyload"></p>
+<p><a href="https://github.com/blog/1647-viewing-yaml-metadata-in-your-documents" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 在文档里查看 YAML 元数据.</em></a></p>
+<h3 id="渲染表格数据"><a href="#渲染表格数据" class="headerlink" title="渲染表格数据"></a>渲染表格数据</h3><p>GitHub 支持将 <code>.csv</code> (逗号分隔)和 <code>.tsv</code> (制表符分隔)格式的文件渲染成表格数据。</p>
+<p><img alt="Tabular data" data-src="https://camo.githubusercontent.com/1b6dd0157ffb45d9939abf14233a0cb13b3b4dfe/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3238323735392f3937363436322f33323038336463652d303638642d313165332d393262322d3566323863313061353035392e706e67" class="lazyload"></p>
+<p><a href="https://github.com/blog/1601-see-your-csvs" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解渲染表格数据.</em></a></p>
+<h3 id="撤销-Pull-Request"><a href="#撤销-Pull-Request" class="headerlink" title="撤销 Pull Request"></a>撤销 Pull Request</h3><p>合并一个 Pull Request 之后，你可能会反悔：要么是这次 Pull Request 没什么用处，要么是还不到合并的时候。</p>
+<p>此时可以通过 Pull Request 中的 Revert 按钮来撤销一个已合并的 Pull Request 中的 commit。按下按钮后将自动生成一个进行逆操作的 Pull Request。</p>
+<p><img alt="Revert button" data-src="https://camo.githubusercontent.com/0d3350caf2bb1cba53123ffeafc00ca702b1b164/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f68656c702f70756c6c5f72657175657374732f7265766572742d70756c6c2d726571756573742d6c696e6b2e706e67" class="lazyload"></p>
+<p><a href="https://github.com/blog/1857-introducing-the-revert-button" target="_blank" rel="external nofollow noreferrer noopener">*进一步了解“撤销”按钮</a></p>
+<h3 id="Diffs"><a href="#Diffs" class="headerlink" title="Diffs"></a>Diffs</h3><h4 id="可渲染文档的Diffs"><a href="#可渲染文档的Diffs" class="headerlink" title="可渲染文档的Diffs"></a>可渲染文档的Diffs</h4><p>Commit 和 Pull Request 里包含有 Github 支持的可渲染文档（比如 Markdown）会提供<em>source</em> 和 <em>rendered</em> 两个视图功能。</p>
+<p><img alt="Source / Rendered view" data-src="https://github-images.s3.amazonaws.com/help/repository/rendered_prose_diff.png" class="lazyload"></p>
+<p>点击 “rendered” 按钮，看看改动在渲染后的显示效果。当你添加、删除或修改文本时，渲染纯文本视图非常方便。</p>
+<p><img alt="Rendered Prose Diffs" data-src="https://f.cloud.github.com/assets/17715/2003056/3997edb4-862b-11e3-90be-5e9586edecd7.png" class="lazyload"></p>
+<p><a href="https://github.com/blog/1784-rendered-prose-diffs" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解渲染纯文本视图Diffs.</em></a></p>
+<h4 id="可比较的地图数据"><a href="#可比较的地图数据" class="headerlink" title="可比较的地图数据"></a>可比较的地图数据</h4><p>当你在GitHub上查看一个包含地理数据的 commit 或 pull request时，Github 将以可视化的方式对比版本之间的差异。</p>
+<p><a href="https://github.com/benbalter/congressional-districts/commit/2233c76ca5bb059582d796f053775d8859198ec5" target="_blank" rel="external nofollow noreferrer noopener"><img alt="Diffable Maps" data-src="https://f.cloud.github.com/assets/282759/2090660/63f2e45a-8e97-11e3-9d8b-d4c8078b004e.gif" class="lazyload"></a></p>
+<p><a href="https://github.com/blog/1772-diffable-more-customizable-maps" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解可比较的地图数据.</em></a></p>
+<h4 id="在-Diff-中展开查看更多的上下文"><a href="#在-Diff-中展开查看更多的上下文" class="headerlink" title="在 Diff 中展开查看更多的上下文"></a>在 Diff 中展开查看更多的上下文</h4><p>你可以通过点击 diff 边栏里的 <em>unfold</em> 按钮来多显示几行上下文。你可以一直点击 <em>unfold</em> 按钮直到显示了文件的全部内容。这个功能在所有 GitHub 的 diff 功能中都可以使用。</p>
+<p><img alt="Expanding Context in Diffs" data-src="https://f.cloud.github.com/assets/22635/1610539/863c1f64-5584-11e3-82bf-151b406a272f.gif" class="lazyload"></p>
+<p><a href="https://github.com/blog/1705-expanding-context-in-diffs" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解展开 Diff 上下文.</em></a></p>
+<h4 id="获取-Pull-Request-的-diff-或-patch-文件"><a href="#获取-Pull-Request-的-diff-或-patch-文件" class="headerlink" title="获取 Pull Request 的 diff 或 patch 文件"></a>获取 Pull Request 的 diff 或 patch 文件</h4><p>在 Pull Request 的 URL 后面加上 <code>.diff</code> 或 <code>.patch</code> 的扩展名就可以得到它的 diff 或 patch 文件，例如：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/tiimgreen/gi</span>thub-cheat-sheet<span class="regexp">/pull/</span><span class="number">15</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/tiimgreen/gi</span>thub-cheat-sheet<span class="regexp">/pull/</span><span class="number">15</span>.diff</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/tiimgreen/gi</span>thub-cheat-sheet<span class="regexp">/pull/</span><span class="number">15</span>.patch</span></pre></td></tr></tbody></table></figure>
+<p><code>.diff</code> 扩展会使用普通文本格式显示如下内容：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">diff --git a/README.md b/README.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">index 88fcf69..8614873 100644</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">--- a/README.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">+++ b/README.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">@@ -28,6 +28,7 @@ All the hidden and not hidden features of Git and GitHub. This cheat sheet was i</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="bullet"> - </span>[<span class="string">Merged Branches</span>](<span class="link">#merged-branches</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="bullet"> - </span>[<span class="string">Quick Licensing</span>](<span class="link">#quick-licensing</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="bullet"> - </span>[<span class="string">TODO Lists</span>](<span class="link">#todo-lists</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">+- [<span class="string">Relative Links</span>](<span class="link">#relative-links</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="bullet"> - </span>[<span class="string">.gitconfig Recommendations</span>](<span class="link">#gitconfig-recommendations</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">     - </span>[<span class="string">Aliases</span>](<span class="link">#aliases</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="bullet">     - </span>[<span class="string">Auto-correct</span>](<span class="link">#auto-correct</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">@@ -381,6 +382,19 @@ When they are clicked, they will be updated in the pure Markdown:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="bullet"> - </span>[ ] Sleep</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">(...)</span></pre></td></tr></tbody></table></figure>
+<h4 id="显示图片以及比较图片"><a href="#显示图片以及比较图片" class="headerlink" title="显示图片以及比较图片"></a>显示图片以及比较图片</h4><p>GitHub 可以显示包括 PNG、JPG、GIF、PSD 在内的多种图片格式并提供了几种方式来比较这些格式的图片文件版本间的不同。</p>
+<p><a href="https://github.com/blog/1845-psd-viewing-diffing" target="_blank" rel="external nofollow noreferrer noopener"><img alt="Diffable PSD" data-src="https://cloud.githubusercontent.com/assets/2546/3165594/55f2798a-eb56-11e3-92e7-b79ad791a697.gif" class="lazyload"></a></p>
+<p><a href="https://help.github.com/articles/rendering-and-diffing-images" target="_blank" rel="external nofollow noreferrer noopener"><em>查看更多关于图片显示和比较</em></a></p>
+<h3 id="Hub"><a href="#Hub" class="headerlink" title="Hub"></a>Hub</h3><p><a href="https://github.com/github/hub" target="_blank" rel="external nofollow noreferrer noopener">Hub</a> 是一个对 Git 进行了封装的命令行工具，可以帮助你更方便的使用 Github。</p>
+<p>例如可以像下面这样进行克隆：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hub <span class="built_in">clone</span> tiimgreen/toc</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://github.com/github/hub#commands" target="_blank" rel="external nofollow noreferrer noopener"><em>查看更多 Hub 提供的超酷命令.</em></a></p>
+<h3 id="贡献者指南"><a href="#贡献者指南" class="headerlink" title="贡献者指南"></a>贡献者指南</h3><p>在仓库的根目录添加一个名为 <code>CONTRIBUTING</code> 的文件后，贡献者在新建 Issue 或 Pull Request 时会看到一个指向这个文件的链接。</p>
+<p><img alt="Contributing Guidelines" data-src="https://camo.githubusercontent.com/71995d6b0e620a9ef1ded00a04498241c69dd1bf/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f736b697463682f6973737565732d32303132303931332d3136323533392e6a7067" class="lazyload"></p>
+<p><a href="https://github.com/blog/1184-contributing-guidelines" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解贡献者指南.</em></a></p>
+<h3 id="Octicons"><a href="#Octicons" class="headerlink" title="Octicons"></a>Octicons</h3><p>GitHubs 图标库 (Octicons) 现已开源。</p>
+<p><img alt="Octicons" data-src="https://og.github.com/octicons/octicons@1200x630.png" class="lazyload"></p>
+<p><a href="https://octicons.github.com" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 GitHub 图标库</em></a></p>
+<h3 id="GitHub-资源"><a href="#GitHub-资源" class="headerlink" title="GitHub 资源"></a>GitHub 资源</h3><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>探索 GitHub</td>
+<td><a href="https://github.com/explore" target="_blank" rel="external nofollow noreferrer noopener">https://github.com/explore</a></td>
+</tr>
+<tr>
+<td>GitHub 博客</td>
+<td><a href="https://github.com/blog" target="_blank" rel="external nofollow noreferrer noopener">https://github.com/blog</a></td>
+</tr>
+<tr>
+<td>GitHub 帮助</td>
+<td><a href="https://help.github.com/" target="_blank" rel="external nofollow noreferrer noopener">https://help.github.com/</a></td>
+</tr>
+<tr>
+<td>GitHub 培训</td>
+<td><a href="http://training.github.com/" target="_blank" rel="external nofollow noreferrer noopener">http://training.github.com/</a></td>
+</tr>
+<tr>
+<td>GitHub 开发者</td>
+<td><a href="https://developer.github.com/" target="_blank" rel="external nofollow noreferrer noopener">https://developer.github.com/</a></td>
+</tr>
+</tbody></table>
+<h4 id="GitHub-相关演讲视频"><a href="#GitHub-相关演讲视频" class="headerlink" title="GitHub 相关演讲视频"></a>GitHub 相关演讲视频</h4><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>How GitHub Uses GitHub to Build GitHub</td>
+<td><a href="https://www.youtube.com/watch?v=qyz3jkOBbQY" target="_blank" rel="external nofollow noreferrer noopener">https://www.youtube.com/watch?v=qyz3jkOBbQY</a></td>
+</tr>
+<tr>
+<td>Introduction to Git with Scott Chacon of GitHub</td>
+<td><a href="https://www.youtube.com/watch?v=ZDR433b0HJY" target="_blank" rel="external nofollow noreferrer noopener">https://www.youtube.com/watch?v=ZDR433b0HJY</a></td>
+</tr>
+<tr>
+<td>How GitHub No Longer Works</td>
+<td><a href="https://www.youtube.com/watch?v=gXD1ITW7iZI" target="_blank" rel="external nofollow noreferrer noopener">https://www.youtube.com/watch?v=gXD1ITW7iZI</a></td>
+</tr>
+<tr>
+<td>Git and GitHub Secrets</td>
+<td><a href="https://www.youtube.com/watch?v=Foz9yvMkvlA" target="_blank" rel="external nofollow noreferrer noopener">https://www.youtube.com/watch?v=Foz9yvMkvlA</a></td>
+</tr>
+<tr>
+<td>More Git and GitHub Secrets</td>
+<td><a href="https://www.youtube.com/watch?v=p50xsL-iVgU" target="_blank" rel="external nofollow noreferrer noopener">https://www.youtube.com/watch?v=p50xsL-iVgU</a></td>
+</tr>
+</tbody></table>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="从工作区去除大量已删除文件"><a href="#从工作区去除大量已删除文件" class="headerlink" title="从工作区去除大量已删除文件"></a>从工作区去除大量已删除文件</h3><p>当用 <code>/bin/rm</code> 命令删除了大量文件之后，你可以用下面一条命令从工作区和索引中去除这些文件，以免一个一个的删除：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git rm $(git ls-files -d)</span></pre></td></tr></tbody></table></figure>
+
+<p>例如:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git status</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">On branch master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Changes not staged <span class="keyword">for</span> commit:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    deleted:    a</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    deleted:    c</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">$ git rm $(git ls-files -d)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">rm <span class="string">'a'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">rm <span class="string">'c'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">$ git status</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">On branch master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">Changes to be committed:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    deleted:    a</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    deleted:    c</span></pre></td></tr></tbody></table></figure>
+
+<h3 id="上一个分支"><a href="#上一个分支" class="headerlink" title="上一个分支"></a>上一个分支</h3><p>快速检出上一个分支：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git checkout -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Switched to branch 'master'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">$ git checkout -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Switched to branch 'next'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">$ git checkout -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Switched to branch 'master'</span></span></pre></td></tr></tbody></table></figure>
+
+<p><a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git 分支.</em></a></p>
+<h3 id="去除空白"><a href="#去除空白" class="headerlink" title="去除空白"></a>去除空白</h3><p>Git Stripspace 命令可以:</p>
+<ul>
+<li>去掉行尾空白符</li>
+<li>多个空行压缩成一行</li>
+<li>必要时在文件末尾增加一个空行</li>
+</ul>
+<p>使用此命令时必须传入一个文件，像这样：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git stripspace &lt; README.md</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="http://git-scm.com/docs/git-stripspace" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>stripspace</code> 命令.</em></a></p>
+<h3 id="检出-Pull-Requests"><a href="#检出-Pull-Requests" class="headerlink" title="检出 Pull Requests"></a>检出 Pull Requests</h3><p>对 Github 仓库来说，Pull Request 是种特殊分支， 可以通过以下多种方式取到本地：</p>
+<p>取出某个特定的 Pull Request 并临时作为本地的 <code>FETCH_HEAD</code> 中以便进行快速查看更改( diff )以及合并( merge )：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git fetch origin refs/pull/[PR-Number]/head</span></pre></td></tr></tbody></table></figure>
+
+<p>通过 refspec 获取所有的 Pull Request 为本地分支：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git fetch origin <span class="string">'+refs/pull/*/head:refs/remotes/origin/pr/*'</span></span></pre></td></tr></tbody></table></figure>
+
+<p>或在仓库的 <code>.git/config</code> 中加入下列设置来自动获取远程仓库中的 Pull Request</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[remote <span class="string">"origin"</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    fetch = +refs/heads/*<span class="symbol">:refs/remotes/origin/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    url = git<span class="variable">@github</span>.<span class="symbol">com:</span>tiimgreen/github-cheat-sheet.git</span></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[remote <span class="string">"origin"</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    fetch = +refs/heads/*<span class="symbol">:refs/remotes/origin/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    url = git<span class="variable">@github</span>.<span class="symbol">com:</span>tiimgreen/github-cheat-sheet.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    fetch = +refs/pull/*<span class="regexp">/head:refs/remotes</span><span class="regexp">/origin/pr</span><span class="regexp">/*</span></span></pre></td></tr></tbody></table></figure>
+
+<p>对基于派生库的 Pull Request，可以通过先 <code>checkout</code> 代表此 Pull Request 的远端分支再由此分支建立一个本地分支：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git checkout pr/42 pr-42</span></pre></td></tr></tbody></table></figure>
+
+<p>操作多个仓库的时候，可以在 Git 中设置获取 Pull Request 的全局选项。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git config --global --add remote.origin.fetch <span class="string">"+refs/pull/*/head:refs/remotes/origin/pr/*"</span></span></pre></td></tr></tbody></table></figure>
+
+<p>此时可以在任意仓库中使用以下命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch origin</span></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git checkout pr/42</span></pre></td></tr></tbody></table></figure>
+
+
+<p><a href="https://help.github.com/articles/checking-out-pull-requests-locally" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解如何本地检出 pull request.</em></a></p>
+<h3 id="没有任何改动的提交"><a href="#没有任何改动的提交" class="headerlink" title="没有任何改动的提交"></a>没有任何改动的提交</h3><p>可以使用<code>--allow-empty</code>选项强制创建一个没有任何改动的提交：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"Big-ass commit"</span> --allow-empty</span></pre></td></tr></tbody></table></figure>
+
+<p>这样做在如下几种情况下是有意义的：</p>
+<ul>
+<li>标记新的工作或一个新功能的开始。</li>
+<li>记录对项目的跟代码无关的改动。</li>
+<li>跟使用你仓库的其他人交流。</li>
+<li>作为仓库的第一次提交，因为第一次提交后不能被 rebase： <code>git commit -m "init repo" --allow-empty</code>.</li>
+</ul>
+<h3 id="美化-Git-Status"><a href="#美化-Git-Status" class="headerlink" title="美化 Git Status"></a>美化 Git Status</h3><p>在命令行输入如下命令:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git status</span></pre></td></tr></tbody></table></figure>
+
+<p>可以看到:</p>
+<p><img alt="git status" data-src="http://i.imgur.com/qjPyvXb.png" class="lazyload"></p>
+<p>加上<code>-sb</code>选项:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git status -sb</span></pre></td></tr></tbody></table></figure>
+
+<p>这会得到:</p>
+<p><img alt="git status -sb" data-src="http://i.imgur.com/K0OY3nm.png" class="lazyload"></p>
+<p><a href="http://git-scm.com/docs/git-status" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>status</code> 命令.</em></a></p>
+<h3 id="美化-Git-Log"><a href="#美化-Git-Log" class="headerlink" title="美化 Git Log"></a>美化 Git Log</h3><p>输入如下命令:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --all --graph --pretty=format:<span class="string">'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset'</span> --abbrev-commit --date=relative</span></pre></td></tr></tbody></table></figure>
+
+<p>可以看到:</p>
+<p><img alt="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative" data-src="http://i.imgur.com/58eOtkW.png" class="lazyload"></p>
+<p>这要归功于 <a href="http://stackoverflow.com/users/88355/palesz" target="_blank" rel="external nofollow noreferrer noopener">Palesz</a> 在 stackoverflow 的回答。</p>
+<p><em>这个命令可以被用作别名，详细做法见<a href="#git%E5%91%BD%E4%BB%A4%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%AB%E5%90%8D">这里</a>。</em></p>
+<p><a href="http://git-scm.com/docs/git-log" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>log</code> 命令.</em></a></p>
+<h3 id="Git-查询"><a href="#Git-查询" class="headerlink" title="Git 查询"></a>Git 查询</h3><p>Git 查询运行你在之前的所有提交信息里进行搜索，找到其中和搜索条件相匹配的最近的一条。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git show :/query</span></pre></td></tr></tbody></table></figure>
+
+<p>这里 <code>query</code> （区别大小写）是你想要搜索的词语， 这条命令会找到包含这个词语的最后那个提交并显示变动详情。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git show :/typo</span></pre></td></tr></tbody></table></figure>
+<p><img alt="git show :/query" data-src="http://i.imgur.com/icaGiNt.png" class="lazyload"></p>
+<ul>
+<li>按 <code>q</code> 键退出命令。*</li>
+</ul>
+<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><p>输入命令:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git branch --merged</span></pre></td></tr></tbody></table></figure>
+
+<p>这会显示所有已经合并到你当前分支的分支列表。</p>
+<p>相反地：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git branch --no-merged</span></pre></td></tr></tbody></table></figure>
+
+<p>会显示所有还没有合并到你当前分支的分支列表。</p>
+<p><a href="http://git-scm.com/docs/git-branch" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>branch</code> 命令.</em></a></p>
+<h3 id="修复有问题的提交以及自动合并"><a href="#修复有问题的提交以及自动合并" class="headerlink" title="修复有问题的提交以及自动合并"></a>修复有问题的提交以及自动合并</h3><p>如果上一个或多个提交包含了错误，可以在你修复问题后使用下列命令处理（假设要修复的提交版本是<code>abcde</code>）：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git commit --fixup=abcde</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ git rebase abcde^ --autosquash -i</span></pre></td></tr></tbody></table></figure>
+<p><a href="http://git-scm.com/docs/git-commit" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>commit</code> 命令.</em></a><br><a href="http://git-scm.com/docs/git-rebase" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>rebase</code> 命令.</em></a></p>
+<h3 id="以网站方式查看本地仓库"><a href="#以网站方式查看本地仓库" class="headerlink" title="以网站方式查看本地仓库"></a>以网站方式查看本地仓库</h3><p>使用 Git 的 <code>instaweb</code> 可以立即在 <code>gitweb</code> 中浏览你的工作仓库。这个命令是个简单的脚本，配置了 <code>gitweb</code> 和用来浏览本地仓库的Web服务器。<em>（译者注：默认需要lighttpd支持）</em></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git instaweb</span></pre></td></tr></tbody></table></figure>
+
+<p>执行后打开：</p>
+<p><img alt="Git instaweb" data-src="http://i.imgur.com/Dxekmqc.png" class="lazyload"></p>
+<p><a href="http://git-scm.com/docs/git-instaweb" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>instaweb</code> 命令.</em></a></p>
+<h3 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h3><p>所有 Git 配置都保存在你的 <code>.gitconfig</code> 文件中。</p>
+<h4 id="Git-命令自定义别名"><a href="#Git-命令自定义别名" class="headerlink" title="Git 命令自定义别名"></a>Git 命令自定义别名</h4><p>别名用来帮助你定义自己的 git 命令。比如你可以定义 <code>git a</code> 来运行 <code>git add --all</code>。</p>
+<p>要添加一个别名， 一种方法是打开 <code>~/.gitconfig</code> 文件并添加如下内容：</p>
+<figure class="highlight nix"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[alias]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">co</span> = checkout</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">cm</span> = commit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">p</span> = push</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="comment"># Show verbose output about tags, branches or remotes</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">tags</span> = tag -l</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">branches</span> = branch -a</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">remotes</span> = remote -v</span></pre></td></tr></tbody></table></figure>
+
+<p>…或者在命令行里键入：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git config --global alias.new_alias git_function</span></pre></td></tr></tbody></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git config --global alias.cm commit</span></pre></td></tr></tbody></table></figure>
+
+<p>指向多个命令的别名可以用引号来定义：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git config --global alias.ac <span class="string">'add -A . &amp;&amp; commit'</span></span></pre></td></tr></tbody></table></figure>
+
+<p>下面列出了一些有用的别名：</p>
+<table>
+<thead>
+<tr>
+<th>别名 Alias</th>
+<th>命令 Command</th>
+<th>如何设置 What to Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git cm</code></td>
+<td><code>git commit</code></td>
+<td><code>git config --global alias.cm commit</code></td>
+</tr>
+<tr>
+<td><code>git co</code></td>
+<td><code>git checkout</code></td>
+<td><code>git config --global alias.co checkout</code></td>
+</tr>
+<tr>
+<td><code>git ac</code></td>
+<td><code>git add . -A</code> <code>git commit</code></td>
+<td><code>git config --global alias.ac '!git add -A &amp;&amp; git commit'</code></td>
+</tr>
+<tr>
+<td><code>git st</code></td>
+<td><code>git status -sb</code></td>
+<td><code>git config --global alias.st 'status -sb'</code></td>
+</tr>
+<tr>
+<td><code>git tags</code></td>
+<td><code>git tag -l</code></td>
+<td><code>git config --global alias.tags 'tag -l'</code></td>
+</tr>
+<tr>
+<td><code>git branches</code></td>
+<td><code>git branch -a</code></td>
+<td><code>git config --global alias.branches 'branch -a'</code></td>
+</tr>
+<tr>
+<td><code>git cleanup</code></td>
+<td><code>git branch --merged | grep -v '*' | xargs git branch -d</code></td>
+<td><code>git config --global alias.cleanup "!git branch --merged | grep -v '*' | xargs git branch -d"</code></td>
+</tr>
+<tr>
+<td><code>git remotes</code></td>
+<td><code>git remote -v</code></td>
+<td><code>git config --global alias.remotes 'remote -v'</code></td>
+</tr>
+<tr>
+<td><code>git lg</code></td>
+<td><code>git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --</code></td>
+<td><code>git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --"</code></td>
+</tr>
+</tbody></table>
+<h4 id="自动更正"><a href="#自动更正" class="headerlink" title="自动更正"></a>自动更正</h4><p>如果键入 <code>git comit</code> 你会看到如下输出：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git comit -m <span class="string">"Message"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># git: 'comit' is not a git command. See 'git --help'.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Did you mean this?</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#   commit</span></span></pre></td></tr></tbody></table></figure>
+
+<p>为了在键入 <code>comit</code> 调用 <code>commit</code>命令，只需启用自动纠错功能：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git config --global help.autocorrect 1</span></pre></td></tr></tbody></table></figure>
+
+<p>现在你就会看到：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git comit -m <span class="string">"Message"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># WARNING: You called a Git command named 'comit', which does not exist.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Continuing under the assumption that you meant 'commit'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># in 0.1 seconds automatically...</span></span></pre></td></tr></tbody></table></figure>
+
+<h4 id="颜色输出"><a href="#颜色输出" class="headerlink" title="颜色输出"></a>颜色输出</h4><p>要在你的 Git 命令输出里加上颜色的话，可以用如下命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ git config --global color.ui 1</span></pre></td></tr></tbody></table></figure>
+
+<p><a href="http://git-scm.com/docs/git-config" target="_blank" rel="external nofollow noreferrer noopener"><em>进一步了解 Git <code>config</code> 命令.</em></a></p>
+<h3 id="Git-资源"><a href="#Git-资源" class="headerlink" title="Git 资源"></a>Git 资源</h3><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Official Git Site</td>
+<td><a href="http://git-scm.com/" target="_blank" rel="external nofollow noreferrer noopener">http://git-scm.com/</a></td>
+</tr>
+<tr>
+<td>Official Git Video Tutorials</td>
+<td><a href="http://git-scm.com/videos" target="_blank" rel="external nofollow noreferrer noopener">http://git-scm.com/videos</a></td>
+</tr>
+<tr>
+<td>Code School Try Git</td>
+<td><a href="http://try.github.com/" target="_blank" rel="external nofollow noreferrer noopener">http://try.github.com/</a></td>
+</tr>
+<tr>
+<td>Introductory Reference &amp; Tutorial for Git</td>
+<td><a href="http://gitref.org/" target="_blank" rel="external nofollow noreferrer noopener">http://gitref.org/</a></td>
+</tr>
+<tr>
+<td>Official Git Tutorial</td>
+<td><a href="http://git-scm.com/docs/gittutorial" target="_blank" rel="external nofollow noreferrer noopener">http://git-scm.com/docs/gittutorial</a></td>
+</tr>
+<tr>
+<td>Everyday Git</td>
+<td><a href="http://git-scm.com/docs/everyday" target="_blank" rel="external nofollow noreferrer noopener">http://git-scm.com/docs/everyday</a></td>
+</tr>
+<tr>
+<td>Git Immersion</td>
+<td><a href="http://gitimmersion.com/" target="_blank" rel="external nofollow noreferrer noopener">http://gitimmersion.com/</a></td>
+</tr>
+<tr>
+<td>Git for Computer Scientists</td>
+<td><a href="http://eagain.net/articles/git-for-computer-scientists/" target="_blank" rel="external nofollow noreferrer noopener">http://eagain.net/articles/git-for-computer-scientists/</a></td>
+</tr>
+<tr>
+<td>Git Magic</td>
+<td><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/" target="_blank" rel="external nofollow noreferrer noopener">http://www-cs-students.stanford.edu/~blynn/gitmagic/</a></td>
+</tr>
+<tr>
+<td>GitHub Training Kit</td>
+<td><a href="http://training.github.com/kit" target="_blank" rel="external nofollow noreferrer noopener">http://training.github.com/kit</a></td>
+</tr>
+<tr>
+<td>Git Visualization Playground</td>
+<td><a href="http://onlywei.github.io/explain-git-with-d3/#freeplay" target="_blank" rel="external nofollow noreferrer noopener">http://onlywei.github.io/explain-git-with-d3/#freeplay</a></td>
+</tr>
+</tbody></table>
+<h4 id="Git-参考书籍"><a href="#Git-参考书籍" class="headerlink" title="Git 参考书籍"></a>Git 参考书籍</h4><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pragmatic Version Control Using Git</td>
+<td><a href="http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git" target="_blank" rel="external nofollow noreferrer noopener">http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git</a></td>
+</tr>
+<tr>
+<td>Pro Git</td>
+<td><a href="http://git-scm.com/book" target="_blank" rel="external nofollow noreferrer noopener">http://git-scm.com/book</a></td>
+</tr>
+<tr>
+<td>Git Internals Pluralsight</td>
+<td><a href="https://github.com/pluralsight/git-internals-pdf" target="_blank" rel="external nofollow noreferrer noopener">https://github.com/pluralsight/git-internals-pdf</a></td>
+</tr>
+<tr>
+<td>Git in the Trenches</td>
+<td><a href="http://cbx33.github.com/gitt/" target="_blank" rel="external nofollow noreferrer noopener">http://cbx33.github.com/gitt/</a></td>
+</tr>
+<tr>
+<td>Version Control with Git</td>
+<td><a href="http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387" target="_blank" rel="external nofollow noreferrer noopener">http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387</a></td>
+</tr>
+<tr>
+<td>Pragmatic Guide to Git</td>
+<td><a href="http://www.pragprog.com/titles/pg_git/pragmatic-guide-to-git" target="_blank" rel="external nofollow noreferrer noopener">http://www.pragprog.com/titles/pg_git/pragmatic-guide-to-git</a></td>
+</tr>
+<tr>
+<td>Git: Version Control for Everyone</td>
+<td><a href="http://www.packtpub.com/git-version-control-for-everyone/book" target="_blank" rel="external nofollow noreferrer noopener">http://www.packtpub.com/git-version-control-for-everyone/book</a></td>
+</tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/2d68febb/">http://notes.seirhsiao.com/posts/2d68febb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8C%87%E5%8D%97/">指南    </a><a class="post-meta__tags" href="/tags/%E7%BF%BB%E8%AF%91/">翻译    </a><a class="post-meta__tags" href="/tags/git/">git    </a><a class="post-meta__tags" href="/tags/github/">github    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/github.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/posts/1f302c16/"><img class="prev_cover lazyload" data-src="/static/cover/markdown.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>markdown学习资料汇总</span></div></a></div><div class="next-post pull_right"><a href="/posts/4672282/"><img class="next_cover lazyload" data-src="/static/cover/vim.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>vi编辑器使用指南</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/81fc5f62/" title="Git 风格指南"><img class="relatedPosts_cover lazyload"data-src="/static/cover/git.png"><div class="relatedPosts_title">Git 风格指南</div></a></div><div class="relatedPosts_item"><a href="/posts/9285c344/" title="Clojure 代码规范（中文）"><img class="relatedPosts_cover lazyload"data-src="/static/cover/clojure.png"><div class="relatedPosts_title">Clojure 代码规范（中文）</div></a></div><div class="relatedPosts_item"><a href="/posts/c8e71c7e/" title="Markdown 语法指南"><img class="relatedPosts_cover lazyload"data-src="/static/cover/markdown.png"><div class="relatedPosts_title">Markdown 语法指南</div></a></div><div class="relatedPosts_item"><a href="/posts/e129951/" title="Rails 风格指南"><img class="relatedPosts_cover lazyload"data-src="/static/cover/rails.png"><div class="relatedPosts_title">Rails 风格指南</div></a></div><div class="relatedPosts_item"><a href="/posts/25353fe1/" title="Ruby 风格指南"><img class="relatedPosts_cover lazyload"data-src="/static/cover/ruby.png"><div class="relatedPosts_title">Ruby 风格指南</div></a></div><div class="relatedPosts_item"><a href="/posts/120c9a64/" title="Git管理多个SSH密钥，Git多帐号配置"><img class="relatedPosts_cover lazyload"data-src="/static/cover/ssh.png"><div class="relatedPosts_title">Git管理多个SSH密钥，Git多帐号配置</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/11825.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

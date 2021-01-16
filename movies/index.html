@@ -1,0 +1,1053 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>有人的地方，就有江湖！ | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="有人的地方，就有江湖！"><meta name="keywords"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><meta name="referrer" content="no-referrer"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="有人的地方，就有江湖！"><meta name="twitter:description" content="有人的地方，就有江湖！"><meta name="twitter:image" content="http://notes.seirhsiao.com/image/avatar.jpg"><meta property="og:type" content="website"><meta property="og:title" content="有人的地方，就有江湖！"><meta property="og:url" content="http://notes.seirhsiao.com/movies/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="有人的地方，就有江湖！"><meta property="og:image" content="http://notes.seirhsiao.com/image/avatar.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/movies/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="preload" href="https://cdn.jsdelivr.net/gh/seirhsiao/CDN@latest/bg/movie.jpg" as="image"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/movies/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><nav class="not_index_bg" id="nav"><div class="nav_bg" style="background-image: url(https://cdn.jsdelivr.net/gh/seirhsiao/CDN@latest/bg/movie.jpg)"></div><div id="page_site-info"><div id="site-title"><span class="blogtitle"></span><!-- page.title || page.tag || page.category || config.title--></div></div></nav><div id="content-outer"><div class="layout_page" id="content-inner"><article id="page"><h1>有人的地方，就有江湖！</h1><div class="article-container"><blockquote>
+    <p>电影里有什么？有别人的故事，和我们那些——永远闪亮的梦想。</p>
+</blockquote>
+
+<style>
+    .main {
+    padding-bottom: 150px;
+    margin-top: 0px;
+    background-image:url("images/bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+}
+
+.hexo-douban-tabs {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.hexo-douban-tab {
+    padding: 5px;
+}
+
+.hexo-douban-active {
+    background: #657b83;
+    color: #fff;
+}
+
+.hexo-douban-item {
+    padding-bottom: 10px;
+    position: relative;
+    clear: both;
+    min-height: 170px;
+    padding: 10px 0;
+    border-bottom: 1px #ddd solid;
+}
+
+@media screen and (max-width: 600px) {
+    .hexo-douban-item {
+        width: 100%;
+    }
+}
+
+.hexo-douban-picture {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100px;
+}
+
+.hexo-douban-info {
+    padding-left: 120px;
+}
+
+.hexo-douban-meta {
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+.hexo-douban-comments {
+    font-size: 12px;
+}
+
+.hexo-douban-pagination {
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.hexo-douban-button {
+    padding: 5px;
+}
+
+.hexo-douban-button:hover {
+    background: #657b83;
+    color: #fff;
+}
+
+.hexo-douban-hide {
+    display: none;
+}
+
+.hexo-douban-show {
+    display: block;
+}
+
+
+</style>
+
+<div class="hexo-douban-tabs">
+    <a class="hexo-douban-tab" id="hexo-douban-tab1" href="javascript:;"
+       rel="external">
+        在看
+        (0)</a>
+    <a class="hexo-douban-tab" id="hexo-douban-tab2" href="javascript:;"
+       rel="external">
+        想看
+        (6)</a>
+    <a class="hexo-douban-tab" id="hexo-douban-tab3" href="javascript:;"
+       rel="external">
+        已看
+        (44)</a>
+</div>
+<div>
+    <div id="hexo-douban-item1">
+        
+        <div class="hexo-douban-pagination">
+    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;" rel="external nofollow noreferrer"> 首页</a>
+    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;" rel="external nofollow noreferrer">上一页</a>
+    <span class="hexo-douban-pagenum">2 / 3</span>
+    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;" rel="external nofollow noreferrer">下一页</a>
+    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;" rel="external nofollow noreferrer">尾页</a>
+</div>
+    </div>
+    <div id="hexo-douban-item2">
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p453788577.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1294408/" rel="external nofollow noreferrer">音乐之声 / The Sound of Music</a>
+        </div>
+        <div class="hexo-douban-meta">1965-03-02(美国) / 朱莉·安德鲁斯 / 克里斯托弗·普卢默 / 埃琳诺·帕克 / 理查德·海顿 / 佩吉·伍德 / 查尔敏·卡尔 / 希瑟·孟席斯-尤里克 / 尼古拉斯·哈蒙德 / 杜安·蔡斯 / 安吉拉·卡特怀特 / 黛比·特纳 / 基姆·卡拉思 / 安娜·李 / 波希娅·纳尔逊 / 本·怀特 / 丹尼尔·特鲁希特 / 诺玛·威登 / 吉尔克里斯特·斯图尔特 / 马妮·尼克松 / 埃瓦德妮·贝克 / 多丽丝·劳埃德 / 格特鲁德·阿斯特 / 弗兰克·贝克 / 史蒂夫·卡鲁瑟斯 / 山姆·哈里斯 / 多罗西·吉金斯 / 利奥达·理查德斯 / 杰弗里·塞尔 / 伯纳德·赛尔 / 诺尔曼·斯蒂凡斯 / 伯特史蒂文斯 / 玛丽亚·冯·特拉普 / 毕克 / 李梓 / 美国 / 罗伯特·怀斯 / 174分钟 / 音乐之声 / 剧情 / 传记 / 爱情 / 歌舞 / 乔治·胡达勒克 George Hurdalek / 霍华德·林赛 Howard Lindsay / 拉塞尔·克劳斯 Russel Crouse / 恩斯特·莱赫曼 Ernest Lehman / Maria von Trapp / 英语 / 德语</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2165511465.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1303021/" rel="external nofollow noreferrer">小鞋子 / بچههای آسمان</a>
+        </div>
+        <div class="hexo-douban-meta">1997-02(伊朗) / 1999-01-22(美国) / 法拉赫阿米尔·哈什米安 / 默罕默德·阿米尔·纳吉 / 巴哈丽·西迪奇 / 纳菲丝·贾法-穆罕默迪 / 费雷什特·萨拉班迪 / Dariush Mokhtari / 克里斯托弗·马利基 / 少爷占 / 伊朗 / 马基德·马基迪 / 89分钟 / 小鞋子 / 剧情 / 儿童 / 家庭 / 马基德·马基迪 Majid Majidi / 波斯语</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p909265336.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291572/" rel="external nofollow noreferrer">指环王2：双塔奇兵 / The Lord of the Rings: The Two Towers</a>
+        </div>
+        <div class="hexo-douban-meta">2002-12-05(纽约首映) / 2002-12-18(美国) / 2003-04-25(中国大陆) / 伊利亚·伍德 / 西恩·奥斯汀 / 多米尼克·莫纳汉 / 奥兰多·布鲁姆 / 维果·莫腾森 / 伊恩·麦克莱恩 / 凯特·布兰切特 / 比利·博伊德 / 杰德·布罗菲 / 丽芙·泰勒 / 安迪·瑟金斯 / 米兰达·奥图 / 雨果·维文 / 布拉德·道里夫 / 卡卢姆·吉廷斯 / 伯纳德·希尔 / 布鲁斯·霍普金斯 / 克里斯托弗·李 / 纳撒尼尔·利斯 / 罗宾·马尔科姆 / 约翰·贝西 / 萨拉·贝克 / 克雷格·帕克 / 布鲁斯·菲利普斯 / Robert Pollock / 约翰·瑞斯-戴维斯 / 奥利维亚·田內 / 卡尔·厄本 / 史蒂芬·乌瑞 / 大卫·文翰 / 菲利普·格里夫 / 肖恩·宾 / 约翰·诺贝尔 / Jarl Benzon / Jørn Benzon / Ben Britton / 阿利斯泰尔·布朗宁 / Sean Button / Robert Catto / 罗德尼·库克 / 卡尔洛斯德林克沃特 / 西奥沙福瓦 / 本·弗兰舍姆 / Jonathan Harding / Lucas Hayward / 丹·汉纳 / Paul Holmes / 杰森霍德 / 彼得·杰克逊 / Sam Kelly / Sandro Kopp / 姜广涛 / 张磊 / 陆建艺 / 金永钢 / 劳伦斯·马克奥雷 / 布鲁克·奥佩斯 / 美国 / 新西兰 / www.lordoftherings.net / 彼得·杰克逊 / 179分钟 / 223分钟(加长版) / 235分钟(蓝光加长版) / 指环王2：双塔奇兵 / 剧情 / 动作 / 奇幻 / 冒险 / 弗兰·威尔士 Fran Walsh / Philippa Boyens / Stephen Sinclair / 彼得·杰克逊 Peter Jackson / 托尔金 J.R.R. Tolkien / 英语 / 辛达林语 / 古代英语</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2524040532.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292365/" rel="external nofollow noreferrer">活着</a>
+        </div>
+        <div class="hexo-douban-meta">1994-05-17(戛纳电影节) / 1994-06-30(中国香港) / 葛优 / 巩俐 / 姜武 / 牛犇 / 郭涛 / 张璐 / 倪大红 / 肖聪 / 董飞 / 刘天池 / 董立范 / 黄宗洛 / 刘燕瑾 / 李连义 / 杨同顺 / 苏岩 / 王丽华 / 中国大陆 / 中国香港 / 张艺谋 / 132分钟 / 剧情 / 历史 / 家庭 / 芦苇 Wei Lu / 余华 Hua Yu / 汉语普通话</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2540924496.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291560/" rel="external nofollow noreferrer">龙猫 / となりのトトロ</a>
+        </div>
+        <div class="hexo-douban-meta">1988-04-16(日本) / 2018-12-14(中国大陆) / 日高法子 / 坂本千夏 / 糸井重里 / 岛本须美 / 北林谷荣 / 高木均 / 雨笠利幸 / 丸山裕子 / 广濑正志 / 鹫尾真知子 / 铃木玲子 / 千叶繁 / 龙田直树 / 鳕子 / 西村朋纮 / 石田光子 / 神代知衣 / 中村大树 / 水谷优子 / 平松晶子 / 大谷育江 / 达科塔·范宁 / 艾丽·范宁 / 秦岚 / 日本 / 宫崎骏 / 86分钟 / 龙猫 / 动画 / 奇幻 / 冒险 / 宫崎骏 Hayao Miyazaki / 日语</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2161532134.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/6080840/" rel="external nofollow noreferrer">回家的路 / 집으로 가는 길</a>
+        </div>
+        <div class="hexo-douban-meta">2013-12-11(韩国) / 全度妍 / 高修 / 姜智宇 / 朴智一 / 大谷亮平 / 李言廷 / 朴永希 / 金海坤 / 金周宪 / 崔英佑 / 崔民哲 / 朴亨洙 / 许俊硕 / 裴晟祐 / 吴妍儿 / 柳泰浩 / 李民雄 / 金正洙 / 韩国 / 方银振 / 130分钟 / 回家的路 / 剧情 / 犯罪 / 家庭 / 李桢凡 Jeong-beom Lee / Jung-Hwa Lee / 方银振 Eun-jin Bang / Dong-Sun Shin / Jin-ho Yoon / 韩语</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-pagination">
+    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;" rel="external nofollow noreferrer"> 首页</a>
+    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;" rel="external nofollow noreferrer">上一页</a>
+    <span class="hexo-douban-pagenum">2 / 3</span>
+    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;" rel="external nofollow noreferrer">下一页</a>
+    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;" rel="external nofollow noreferrer">尾页</a>
+</div>
+    </div>
+    <div id="hexo-douban-item3">
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2561305376.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/26752088/" rel="external nofollow noreferrer">我不是药神</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  生活 社会 剧情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p477229647.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292262/" rel="external nofollow noreferrer">美国往事 / Once Upon a Time in America</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 人生 成长 犯罪 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p1014542496.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292849/" rel="external nofollow noreferrer">拯救大兵瑞恩 / Saving Private Ryan</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  军事 人性 经典 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2441988159.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292402/" rel="external nofollow noreferrer">西西里的美丽传说 / Malèna</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  成长 情色 人性 青春 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1512562287.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/3742360/" rel="external nofollow noreferrer">让子弹飞</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  搞笑 剧情 黑色幽默 人性 喜剧 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p449897379.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292220/" rel="external nofollow noreferrer">情书 / Love Letter</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  日本 经典 初恋 温情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2192535722.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1485260/" rel="external nofollow noreferrer">本杰明·巴顿奇事 / The Curious Case of Benjamin Button</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  爱情 人生 温情 成长 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p792376093.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1296736/" rel="external nofollow noreferrer">钢琴家 / The Pianist</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人性 钢琴 音乐 经典 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1665997400.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1306029/" rel="external nofollow noreferrer">美丽心灵 / A Beautiful Mind</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  心理 人生 励志 爱情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1465235231.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1309046/" rel="external nofollow noreferrer">V字仇杀队 / V for Vendetta</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  动作 政治 人性 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p792238287.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292224/" rel="external nofollow noreferrer">飞越疯人院 / One Flew Over the Cuckoo&#39;s Nest</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  心理 人性 人生 信念 经典 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2194138787.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1299131/" rel="external nofollow noreferrer">教父2 / The Godfather: Part Ⅱ</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人生 人性 成长 经典 教父 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2575465690.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291548/" rel="external nofollow noreferrer">死亡诗社 / Dead Poets Society</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 青春 人生 治愈系 励志 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1808872109.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1900841/" rel="external nofollow noreferrer">窃听风暴 / Das Leben der Anderen</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 人性 德国 剧情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2158166535.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/21937445/" rel="external nofollow noreferrer">辩护人 / 변호인</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  民主 韩国 感人 人性 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2118532944.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/21937452/" rel="external nofollow noreferrer">素媛 / 소원</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人性 韩国 感人 虐心 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2550757929.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1298624/" rel="external nofollow noreferrer">闻香识女人 / Scent of a Woman</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 人性 人生 剧情 成长 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1910926158.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292000/" rel="external nofollow noreferrer">搏击俱乐部 / Fight Club</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  动作 心理 经典 人性 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2189265085.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1293839/" rel="external nofollow noreferrer">罗马假日 / Roman Holiday</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  罗马假日 奥黛丽·赫本 经典 赫本 爱情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1446261379.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291583/" rel="external nofollow noreferrer">天空之城 / 天空の城ラピュタ</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  天空之城 宫崎峻 日本 经典 动画 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2401676338.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/26387939/" rel="external nofollow noreferrer">摔跤吧！爸爸 / Dangal</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  励志 成长 印度 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1784592701.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1929463/" rel="external nofollow noreferrer">少年派的奇幻漂流 / Life of Pi</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  文艺 人性 剧情 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1963126880.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1300267/" rel="external nofollow noreferrer">乱世佳人 / Gone with the Wind</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 爱情 乱世佳人 人生 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p1454261925.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/6786002/" rel="external nofollow noreferrer">触不可及 / Intouchables</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  剧情 感人 人性 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p501177648.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/3319755/" rel="external nofollow noreferrer">怦然心动 / Flipped</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  爱情 初恋 经典 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2614359276.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1849031/" rel="external nofollow noreferrer">当幸福来敲门 / The Pursuit of Happyness</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  感人 信念 人生 温情 亲情 感动 父子 励志 / ★★★★★ 力荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p616779645.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291841/" rel="external nofollow noreferrer">教父 / The Godfather</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人性 美国 人生 经典 成长 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2564556863.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1307914/" rel="external nofollow noreferrer">无间道 / 無間道</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  犯罪 经典 香港 人性 黑帮 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p1363250216.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/5912992/" rel="external nofollow noreferrer">熔炉 / 도가니</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  社会 震撼 韩国 人性 剧情 感人 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p479682972.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292064/" rel="external nofollow noreferrer">楚门的世界 / The Truman Show</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  自由 人性 人生 成长 剧情 经典 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910824951.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291549/" rel="external nofollow noreferrer">放牛班的春天 / Les choristes</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  治愈系 剧情 经典 感人 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2574551676.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292001/" rel="external nofollow noreferrer">海上钢琴师 / La leggenda del pianista sull&#39;oceano</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 感人 人生 治愈系 信念 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p579729551.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/3793023/" rel="external nofollow noreferrer">三傻大闹宝莱坞 / 3 Idiots</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  喜剧 印度 搞笑 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p524964039.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/3011091/" rel="external nofollow noreferrer">忠犬八公的故事 / Hachi: A Dog&#39;s Tale</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人性 感人 温情 剧情 治愈系 / ★★★★★ 力荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2616355133.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/3541415/" rel="external nofollow noreferrer">盗梦空间 / Inception</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 悬疑 剧情 科幻 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p492406163.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1295124/" rel="external nofollow noreferrer">辛德勒的名单 / Schindler&#39;s List</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  自由 感人 人性 历史 战争 二战 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p457760035.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292722/" rel="external nofollow noreferrer">泰坦尼克号 / Titanic</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  温情 剧情 感人 爱情 奥斯卡 /  </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2557573348.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1291561/" rel="external nofollow noreferrer">千与千寻 / 千と千尋の神隠し</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  感人 成长 温情 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p511118051.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1295644/" rel="external nofollow noreferrer">这个杀手不太冷 / Léon</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  犯罪 人性 剧情 感人 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2578474613.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292063/" rel="external nofollow noreferrer">美丽人生 / La vita è bella</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  希望 剧情 人性 温情 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2372307693.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292720/" rel="external nofollow noreferrer">阿甘正传 / Forrest Gump</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  经典 人生 美国 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/1292052/" rel="external nofollow noreferrer">肖申克的救赎 / The Shawshank Redemption</a>
+        </div>
+        <div class="hexo-douban-meta">2019-11-23 /  人性 人生 剧情 励志 自由 希望 / ★★★★★ 力荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2395733377.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/26683290/" rel="external nofollow noreferrer">你的名字。 / 君の名は。</a>
+        </div>
+        <div class="hexo-douban-meta">2017-01-01 /  / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> </div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2016930906.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/21360417/" rel="external nofollow noreferrer">恐怖直播 / 더 테러 라이브</a>
+        </div>
+        <div class="hexo-douban-meta">2014-11-16 /  / ★★★★★ 力荐 </div>
+        <div class="hexo-douban-comments"> 难得一见的电影。。。</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-pagination">
+    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;" rel="external nofollow noreferrer"> 首页</a>
+    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;" rel="external nofollow noreferrer">上一页</a>
+    <span class="hexo-douban-pagenum">2 / 3</span>
+    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;" rel="external nofollow noreferrer">下一页</a>
+    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;" rel="external nofollow noreferrer">尾页</a>
+</div>
+    </div>
+</div>
+
+<script>
+    /**
+ * Created by myths on 18-2-8.
+ */
+
+Element.prototype.siblings = function () {
+    var siblingElement = [];
+    var sibs = this.parentNode.children;
+    for (var i = 0; i < sibs.length; i++) {
+        if (sibs[i] !== this) {
+            siblingElement.push(sibs[i]);
+        }
+    }
+    return siblingElement;
+};
+function tabClick() {
+    //修改标签样式
+    this.classList.add('hexo-douban-active');
+    var sibs = this.siblings();
+    for (var j = 0; j < sibs.length; j++) {
+        sibs[j].classList.remove('hexo-douban-active');
+    }
+    //显示对应板块
+    var itemId = this.id.replace('tab', 'item');
+    var target = document.getElementById(itemId);
+    target.classList.remove('hexo-douban-hide');
+    target.classList.add('hexo-douban-show');
+    sibs = document.getElementById(itemId).siblings();
+    for (var k = 0; k < sibs.length; k++) {
+        sibs[k].classList.remove('hexo-douban-show');
+        sibs[k].classList.add('hexo-douban-hide');
+    }
+}
+var tabs = document.getElementsByClassName("hexo-douban-tab");
+for (var i = 0; i < tabs.length; i++) {
+    tabs[i].onclick = tabClick;
+    tabs[i].onclick.apply(tabs[i]);
+}
+tabs[2].click();
+
+    var firstpages = document.getElementsByClassName("hexo-douban-firstpage");
+var previouspages = document.getElementsByClassName("hexo-douban-previouspage");
+var nextpages = document.getElementsByClassName("hexo-douban-nextpage");
+var lastpages = document.getElementsByClassName("hexo-douban-lastpage");
+var pagenums = document.getElementsByClassName("hexo-douban-pagenum");
+
+function makePageNum(num, arr) {
+    return (num + 1) + ' / ' + (Math.ceil(arr.length / 10 === 0 ? 1 : Math.ceil(arr.length / 10)));
+}
+
+function firstBtn() {
+    var sibs = this.parentNode.siblings();
+    displayPage(sibs, 0);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(0, sibs);
+}
+
+function previousBtn() {
+    var sibs = this.parentNode.siblings();
+    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
+    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
+    currNum = parseInt(currNum, 10) - 1;
+    if (currNum > 0) {
+        currNum--;
+    }
+    displayPage(sibs, currNum);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
+}
+
+function nextBtn() {
+    var sibs = this.parentNode.siblings();
+    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
+    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
+    currNum = parseInt(currNum, 10) - 1;
+    if (currNum < Math.ceil(sibs.length / 10) - 1) {
+        currNum++;
+    }
+    displayPage(sibs, currNum);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
+}
+
+function lastBtn() {
+    var sibs = this.parentNode.siblings();
+    displayPage(sibs, Math.ceil(sibs.length / 10) - 1);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(Math.ceil(sibs.length / 10) - 1 === -1 ? 0 : Math.ceil(sibs.length / 10) - 1, sibs);
+}
+
+function displayPage(arr, num) {
+    for (var i = 0; i < arr.length; i++) {
+        if (Math.floor(i / 10) === num) {
+            arr[i].classList.remove('hexo-douban-hide');
+            var img = arr[i].getElementsByTagName('img')[0];
+            img.src = img.getAttribute('data-src');
+        } else {
+            arr[i].classList.add('hexo-douban-hide');
+        }
+    }
+}
+
+for (var i = 0; i < firstpages.length; i++) {
+
+    //add listener
+    firstpages[i].onclick = firstBtn;
+    previouspages[i].onclick = previousBtn;
+    nextpages[i].onclick = nextBtn;
+    lastpages[i].onclick = lastBtn;
+
+    //set page num
+    var size = pagenums[i].parentNode.siblings().length;
+    pagenums[i].innerText = '1 / ' + (Math.ceil(size / 10) === 0 ? 1 : Math.ceil(size / 10));
+    firstpages[i].click();
+}
+
+</script>
+
+</div><nav id="pagination"><div class="pagination"></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></article><div class="aside_content" id="aside_content"><div class="card_widget card-author"><div class="card-content"><div class="post_data"><div class="data-item is_center"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"><p class="author-info__name is_center">萧</p><p class="author-info__description is_center">一花一世界，一叶一追寻。一曲一场叹，一生为一人。</p></div></div><div class="post_data data_config"><div class="data-item is_center"><div class="data_link"><a href="/archives/"><p class="headline">文章</p><p class="length_num">122</p></a></div></div><div class="data-item is_center">      <div class="data_link"><a href="/tags/"><p class="headline">标签</p><p class="length_num">106</p></a></div></div><div class="data-item is_center">     <div class="data_link"><a href="/categories/"><p class="headline">分类</p><p class="length_num">33</p></a></div></div></div><div class="post_data is_center"><a class="data-item bookmark bookmarke--primary bookmark--animated" id="bookmark-it" href="javascript:;" rel="external nofollow noreferrer" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="post_data data_config"><div id="aside-social-icons"> <a class="social-icon data-item" href="https://github.com/seirhsiao" rel="external nofollow noreferrer" target="_blank"><i class="fa fa-github"></i></a><a class="social-icon data-item" href="mailto:309183912@qq.com" rel="external nofollow noreferrer" target="_blank"><i class="fa fa-envelope"></i></a><a class="social-icon data-item" href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div></div></div></div><div class="card_widget card-announcement"><div class="card-content"><div class="item_headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">來了,就不要急著走...</div></div></div><div class="card_widget card-recent-post"><div class="card-content"><div class="item_headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside_recent_item"><div class="aside_recent_post"><a href="/posts/7a099988/"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="/static/cover/algorithm.png" onerror="onerror=null;src='/img/404.jpg'" title="十大排序算法全面解析 - Java实现"></div><div id="aside_title"><div class="aside_post_title" href="/posts/7a099988/" title="十大排序算法全面解析 - Java实现">十大排序算法全面解析 - Java实现</div><time class="aside_post_meta post-meta__date">2019-12-08</time></div></a></div><div class="aside_recent_post"><a href="/posts/6b900457/"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="/static/cover/mysql.png" onerror="onerror=null;src='/img/404.jpg'" title="Mysql 常用命令"></div><div id="aside_title"><div class="aside_post_title" href="/posts/6b900457/" title="Mysql 常用命令">Mysql 常用命令</div><time class="aside_post_meta post-meta__date">2019-12-07</time></div></a></div><div class="aside_recent_post"><a href="/posts/120c9a64/"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="/static/cover/ssh.png" onerror="onerror=null;src='/img/404.jpg'" title="Git管理多个SSH密钥，Git多帐号配置"></div><div id="aside_title"><div class="aside_post_title" href="/posts/120c9a64/" title="Git管理多个SSH密钥，Git多帐号配置">Git管理多个SSH密钥，Git多帐号配置</div><time class="aside_post_meta post-meta__date">2019-12-02</time></div></a></div><div class="aside_recent_post"><a href="/posts/eaf9c5a0/"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="/static/cover/hexo.png" onerror="onerror=null;src='/img/404.jpg'" title="Hexo使用 hexo-tag-aplayer 播放音乐"></div><div id="aside_title"><div class="aside_post_title" href="/posts/eaf9c5a0/" title="Hexo使用 hexo-tag-aplayer 播放音乐">Hexo使用 hexo-tag-aplayer 播放音乐</div><time class="aside_post_meta post-meta__date">2019-12-02</time></div></a></div><div class="aside_recent_post"><a href="/posts/3a07f81/"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="/static/cover/hexo.png" onerror="onerror=null;src='/img/404.jpg'" title="Hexo 使用 APlayer 播放音乐"></div><div id="aside_title"><div class="aside_post_title" href="/posts/3a07f81/" title="Hexo 使用 APlayer 播放音乐">Hexo 使用 APlayer 播放音乐</div><time class="aside_post_meta post-meta__date">2019-12-02</time></div></a></div></div></div></div><div class="card_widget card-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8919908724705274" data-ad-slot="8108145410" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+
+</script></div><div class="card_widget card-categories"><div class="card-content"><div class="item_headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside_category_item">       <li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Algorithm/"><span class="aside_category_list_name">Algorithm</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Android/"><span class="aside_category_list_name">Android</span><span class="aside_category_list_length">2</span></a></li><ul class="aside_category_item child"><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Android/%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81/"><span class="aside_category_list_name">第一行代码</span><span class="aside_category_list_length">2</span></a></li></ul><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Blog/"><span class="aside_category_list_name">Blog</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Books/"><span class="aside_category_list_name">Books</span><span class="aside_category_list_length">6</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Clojure/"><span class="aside_category_list_name">Clojure</span><span class="aside_category_list_length">25</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Eclipse/"><span class="aside_category_list_name">Eclipse</span><span class="aside_category_list_length">3</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Editor/"><span class="aside_category_list_name">Editor</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Git/"><span class="aside_category_list_name">Git</span><span class="aside_category_list_length">4</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/GitHub/"><span class="aside_category_list_name">GitHub</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Guide/"><span class="aside_category_list_name">Guide</span><span class="aside_category_list_length">6</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Hadoop/"><span class="aside_category_list_name">Hadoop</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Hexo/"><span class="aside_category_list_name">Hexo</span><span class="aside_category_list_length">9</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Java/"><span class="aside_category_list_name">Java</span><span class="aside_category_list_length">12</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Jekyll/"><span class="aside_category_list_name">Jekyll</span><span class="aside_category_list_length">3</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Jenkins/"><span class="aside_category_list_name">Jenkins</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Linux/"><span class="aside_category_list_name">Linux</span><span class="aside_category_list_length">7</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Markdown/"><span class="aside_category_list_name">Markdown</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Maven/"><span class="aside_category_list_name">Maven</span><span class="aside_category_list_length">3</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Mongodb/"><span class="aside_category_list_name">Mongodb</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Spring-Boot/"><span class="aside_category_list_name">Spring Boot</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Sql/"><span class="aside_category_list_name">Sql</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Structure/"><span class="aside_category_list_name">Structure</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Tools/"><span class="aside_category_list_name">Tools</span><span class="aside_category_list_length">4</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/UML/"><span class="aside_category_list_name">UML</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/Web/"><span class="aside_category_list_name">Web</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E5%8D%9A%E5%AE%A2/"><span class="aside_category_list_name">博客</span><span class="aside_category_list_length">4</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E6%95%99%E7%A8%8B/"><span class="aside_category_list_name">教程</span><span class="aside_category_list_length">6</span></a></li><ul class="aside_category_item child"><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E6%95%99%E7%A8%8B/Hexo/"><span class="aside_category_list_name">Hexo</span><span class="aside_category_list_length">3</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E6%95%99%E7%A8%8B/Windows/"><span class="aside_category_list_name">Windows</span><span class="aside_category_list_length">3</span></a></li></ul><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E6%A1%86%E6%9E%B6/"><span class="aside_category_list_name">框架</span><span class="aside_category_list_length">6</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"><span class="aside_category_list_name">触类旁通</span><span class="aside_category_list_length">1</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E8%BB%9F%E4%BB%B6%E6%8E%A8%E8%96%A6/"><span class="aside_category_list_name">軟件推薦</span><span class="aside_category_list_length">1</span></a></li></ul></div></div><div class="card_widget card-archives"><div class="card-content"><div class="item_headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><div class="archives_item"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">2019年12月<span class="archive-list-count">8</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">2019年11月<span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">2019年10月<span class="archive-list-count">2</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">2019年06月<span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">2019年05月<span class="archive-list-count">5</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019年04月<span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">2019年03月<span class="archive-list-count">2</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019年02月<span class="archive-list-count">67</span></a></li><li class="archive-list-item"><a class="archive-list-link is_center" href="/archives" >查看更多</a></li></ul></div></div></div><div class="card_widget card-webinfo"><div class="card-content"><div class="item_headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo_item"><div class="webinfo_article_name">文章数目 :</div><div class="webinfo_article_count">122</div></div><div class="webinfo_item"><div class="webinfo_runtime_name">已运行时间 :</div><div class="webinfo_runtime_count" id="webinfo_runtime_count"></div><script id="runtionshow" src="/js/runtimeshow.js" start_date="2018/01/18 00:00:00">      </script></div><div class="webinfo_item">      <div class="webinfo_site_uv_name">本站访客数 :</div><div class="webinfo_site_uv_count" id="busuanzi_value_site_uv"></div></div><div class="webinfo_item"><div class="webinfo_site_name">本站总访问量 :</div><div class="webinfo_site_pv_count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></div></div><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/seirhsiao/CDN@latest/bg/movie.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

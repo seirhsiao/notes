@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Hexo+NexT(v7.0+) 搭建博客：性能优化 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="Hexo+NexT(v7.0+) 搭建博客：性能优化"><meta name="keywords" content="Hexo,NexT,阿里云,七牛云"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Hexo+NexT(v7.0+) 搭建博客：性能优化"><meta name="twitter:description" content="Hexo+NexT(v7.0+) 搭建博客：性能优化"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/hexo-next.jpg"><meta property="og:type" content="article"><meta property="og:title" content="Hexo+NexT(v7.0+) 搭建博客：性能优化"><meta property="og:url" content="http://notes.seirhsiao.com/posts/e824570/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="Hexo+NexT(v7.0+) 搭建博客：性能优化"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/hexo-next.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/e824570/"><link rel="prev" title="Windows必裝軟件推薦" href="/http:/notes.seirhsiao.com/posts/59b77e20/"><link rel="next" title="Hexo+NexT(v7.0+) 搭建博客：功能强化" href="/http:/notes.seirhsiao.com/posts/e0970dc8/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/e824570/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#CDN加速"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">CDN加速</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#上云"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">上云</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Nginx压缩、缓存"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">Nginx压缩、缓存</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#开启gzip"><span class="toc_mobile_items-number">3.1.</span> <span class="toc_mobile_items-text">开启gzip</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#开启缓存"><span class="toc_mobile_items-number">3.2.</span> <span class="toc_mobile_items-text">开启缓存</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#图床"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">图床</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#七牛云"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">七牛云</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#注册账号并实名认证"><span class="toc_mobile_items-number">5.1.</span> <span class="toc_mobile_items-text">注册账号并实名认证</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#新建存储空间"><span class="toc_mobile_items-number">5.2.</span> <span class="toc_mobile_items-text">新建存储空间</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#上传文件"><span class="toc_mobile_items-number">5.3.</span> <span class="toc_mobile_items-text">上传文件</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#上传工具"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">上传工具</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN加速"><span class="toc-number">1.</span> <span class="toc-text">CDN加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上云"><span class="toc-number">2.</span> <span class="toc-text">上云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx压缩、缓存"><span class="toc-number">3.</span> <span class="toc-text">Nginx压缩、缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开启gzip"><span class="toc-number">3.1.</span> <span class="toc-text">开启gzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开启缓存"><span class="toc-number">3.2.</span> <span class="toc-text">开启缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图床"><span class="toc-number">4.</span> <span class="toc-text">图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七牛云"><span class="toc-number">5.</span> <span class="toc-text">七牛云</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册账号并实名认证"><span class="toc-number">5.1.</span> <span class="toc-text">注册账号并实名认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建存储空间"><span class="toc-number">5.2.</span> <span class="toc-text">新建存储空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#上传文件"><span class="toc-number">5.3.</span> <span class="toc-text">上传文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传工具"><span class="toc-number">6.</span> <span class="toc-text">上传工具</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/81810.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">Hexo+NexT(v7.0+) 搭建博客：性能优化</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-05-20<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-07</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">2.4k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 7 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p>在访问很多博客的时候，页面加载和响应速度往往都要上十秒，严重影响用户的体验。<br>本文将探究如何利用常用的方案来进行性能优化，主要包括:</p>
+<ul>
+<li>CDN加速</li>
+<li>Nginx压缩、缓存</li>
+<li>图床</li>
+</ul>
+<a id="more"></a>
+
+<p>首先，可利用 <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="external nofollow noreferrer noopener">Google PageSpeed Insights</a> 帮助分析网页加载速度，根据报告结果和优化建议进行针对性的优化。<br>常见的网站提速方案有：cdn加速，压缩源文件，nginx gzip压缩，减少网站一些不必要的引入，图片大小等。</p>
+<h3 id="CDN加速"><a href="#CDN加速" class="headerlink" title="CDN加速"></a>CDN加速</h3><p>在阅读下文之前，如果你还不知道 CDN 是什么，请先移步<a href="https://baike.baidu.com/item/CDN" target="_blank" rel="external nofollow noreferrer noopener">百度百科：CDN词条</a> 进行一些了解。<br>在所有静态资源中，对加载速度影响较大且存在大幅优化空间的主要还是「JavaScript 第三方库」脚本，设定成合适的 CDN 地址，此特性可以加速静态资源的加载。<br>对于我 Hexo 博客来说，NexT 主题已经做好了配置，只需添加 CDN 加载源，将其改为从公共 CDN 加载即可。<br>在 <span id="inline-purple">主题配置文件</span> _config.yml 中修改<code>vendors</code>：</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="attr">jquery:</span> <span class="string">//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span></pre></td></tr></tbody></table></figure>
+
+<p>比较常用的开源项目 CDN 服务商主要有 unpkg、bootcdn、 cdnjs、jsdelivr 和 cloudflare，本站主要使用 jsdelivr 提供的 CDN 加速服务。</p>
+<h3 id="上云"><a href="#上云" class="headerlink" title="上云"></a>上云</h3><div class="note info">
+            <p>国内的 CDN服务 要求网站必须备案，但是有些服务商是不支持备案的，于是云主机就是我们需要的了，可以一键备案直接上云。</p>
+          </div>
+
+<p>研究了一下各个云服务的价格，1核1G的云主机一年大概都是500+，不过近期阿里云和腾讯云针对新用户都有很给力的活动：</p>
+<p>| 服务商 | 产品名称 | 配置 | 时长 | 原价 | 现价 | 折扣 |<br>| :—: | :—: | :————-: | :—: | :—-: |<br>| <a href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=0DB71CCB9AC09C95A317ACF8723EE01989B9F59A2D8E8A59&amp;userCode=wdpvvh4p&amp;activityId=3&amp;share_source=copy_link" target="_blank" rel="external nofollow noreferrer noopener">阿里云</a> | ECS T6 | 2核1G内存1M带宽 | 一年 | 648 | 99 | 15% |<br>|  | ECS T6  | 2核2G内存2M带宽 | 一年 | 1288 | 228 | 18% |<br>|  | ECS T6 | 2核2G内存2M带宽 | 三年 | 3858 | 614 | 16% |<br>|  | ECS T5 | 1核2G内存1M带宽（香港）| 三年 | 5068 | 719 | 14% |</p>
+<p>看起来的话 <a href="https://www.aliyun.com/acts/hi-group-buying-share?ptCode=0DB71CCB9AC09C95A317ACF8723EE01989B9F59A2D8E8A59&amp;userCode=wdpvvh4p&amp;activityId=3&amp;share_source=copy_link" target="_blank" rel="external nofollow noreferrer noopener">阿里云2核1G的云主机</a> 一年只要99 ，简直太白菜价了。</p>
+<p>Tips：香港主机的优势在于无需备案，且可以访问墙外的网络，要注意正规建站用途。</p>
+<h3 id="Nginx压缩、缓存"><a href="#Nginx压缩、缓存" class="headerlink" title="Nginx压缩、缓存"></a>Nginx压缩、缓存</h3><div class="note info">
+            <p>Nginx 是一个高性能的 Web 服务器，可以适当地分配流量（负载均衡器）、流媒体、动态调整图像大小、缓存内容等等，合理配置可以有效提高网站的响应速度。</p>
+          </div>
+
+<h4 id="开启gzip"><a href="#开启gzip" class="headerlink" title="开启gzip"></a>开启gzip</h4><p>gzip压缩页面需要浏览器和服务器双方都支持，实际上就是服务器端压缩，传到浏览器后浏览器解压并解析。<br>修改nginx.conf，在http模块中增加gzip配置：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#开启gzip压缩;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">gzip  on;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">#设置允许压缩的页面最小字节数;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">gzip_min_length 1k;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">#设置压缩缓冲区大小，此处设置为4个16K内存作为压缩结果流缓存</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">gzip_buffers 4 16k;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">#压缩版本</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">gzip_http_version 1.1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">#设置压缩比率，最小为1，处理速度快，传输速度慢；9为最大压缩比，处理速度慢，传输速度快;级别越高，压缩就越小</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">gzip_comp_level 6;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">#制定压缩的类型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/javascript application/json image/svg+xml application/x-font-ttf font/opentype image/x-icon;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">#配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">gzip_disable "MSIE [1-6]\.";</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">#选择支持vary header；改选项可以让前端的缓存服务器缓存经过gzip压缩的页面; 这个可以不写</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">gzip_vary on;</span></pre></td></tr></tbody></table></figure>
+
+<h4 id="开启缓存"><a href="#开启缓存" class="headerlink" title="开启缓存"></a>开启缓存</h4><p>修改nginx.conf，在server中配置缓存和失效时间：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    access_log off;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    expires 30d;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    access_log off;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    expires 24h;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(html|htm)$ {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">     expires 1h;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></tbody></table></figure>
+
+<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><div class="note info">
+            <p>目前各大云服务商都提供了对象存储服务，如七牛云 QINIU、又拍云 USS、腾讯云 COS、阿里云 OSS 等。我们可以使用这些服务器来存储图片信息，并将其称为图床。</p>
+          </div>
+
+<p>使用图床的好处：</p>
+<ul>
+<li>可以减轻服务器的存储压力；</li>
+<li>减轻应为图片带来的额外的流量消耗；</li>
+<li>图床一般都是具有cdn加速的，可以让你的网页变得更快。</li>
+</ul>
+<p>我主要是看中了cdn加速这点，这个对网站的性能提升太重要了。</p>
+<p>常用的云存储服务费用对比：</p>
+<table>
+<thead>
+<tr>
+<th align="center">限定符</th>
+<th align="center">免费存储空间</th>
+<th align="center">免费下载流量</th>
+<th align="center">免费请求</th>
+<th align="center">免费时间</th>
+<th align="center">HTTPS</th>
+<th align="center">CDN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">微博图床</td>
+<td align="center">无限</td>
+<td align="center">无限</td>
+<td align="center">无限</td>
+<td align="center">永久</td>
+<td align="center"><i class="fa fa-close"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">七牛云</td>
+<td align="center">10G</td>
+<td align="center">10G</td>
+<td align="center">PUT: 10万次 <br>GET: 100万次</td>
+<td align="center">永久</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">青云QingStor</td>
+<td align="center">30G</td>
+<td align="center">11G</td>
+<td align="center">PUT: 10万次 <br>GET: 100万次</td>
+<td align="center">12个月</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">又拍云USS</td>
+<td align="center">10G</td>
+<td align="center">15G</td>
+<td align="center">无限</td>
+<td align="center">12个月</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">阿里云OSS</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">腾讯云COS</td>
+<td align="center">50G</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">6个月</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-check"></i></td>
+</tr>
+<tr>
+<td align="center">Github</td>
+<td align="center">100G</td>
+<td align="center">无限</td>
+<td align="center">无限</td>
+<td align="center">永久</td>
+<td align="center"><i class="fa fa-check"></i></td>
+<td align="center"><i class="fa fa-close"></i></td>
+</tr>
+</tbody></table>
+<ul>
+<li>七牛云是专业云服务商，提供比较完备的服务，且免费额度足够个人博客使用。</li>
+<li>七牛云的定位就是 CDN，让你在浏览网页的时候最快的接收到页面中的图片、音频等文件，所以非常适合个人、企业用户用来储存站点资源，且CDN加速也不会产生太多的费用。</li>
+<li>微博图床是匿名图床，如果有一天禁止外链访问的话，图片将全部丢失。想着辛辛苦苦制作的图片有丢失的风险，马上就放弃了。【2019年4月微博图床开启了防盗链，对图片 CDN 添加了引用来源<code>Referer</code>检测，对于非微博站内引用的请求统统拒绝访问】</li>
+<li>GitHub 看起来是个不错的选择，但是网络访问速度不是很理想，随即放弃了。</li>
+<li>阿里云OSS也是个不错的选择，有个9元包年40G存储空间，无限流量。</li>
+</ul>
+<h3 id="七牛云"><a href="#七牛云" class="headerlink" title="七牛云"></a>七牛云</h3><p>综合比较之后：我选择了七牛云的对象存储作为图床(高效、快速、有保障)。<br><img alt="七牛云对象存储" title="七牛云对象存储" data-src="https://image.chingow.cn/images/20190610215145_FVk4s5_Screenshot.jpeg" class="lazyload"></p>
+<h4 id="注册账号并实名认证"><a href="#注册账号并实名认证" class="headerlink" title="注册账号并实名认证"></a>注册账号并实名认证</h4><p>注册 <a href="https://portal.qiniu.com/signup?code=1hjtnnywndb9u" target="_blank" rel="external nofollow noreferrer noopener">七牛开发者平台</a> 账号，并前往 <strong>个人中心</strong>  -&gt;  <strong>个人信息</strong> 实名认证。</p>
+<h4 id="新建存储空间"><a href="#新建存储空间" class="headerlink" title="新建存储空间"></a>新建存储空间</h4><ul>
+<li><p>进入控制台，打开 <strong>对象存储</strong>  -&gt; <strong>新建存储空间</strong>， 即可创建新的Bucket。<br>【存储区域】：建议选择一个离你较近的CDN<br>【访问控制】：这里必须选择“公开空间”，因为设置为私有空间，图片的外链是无法访问的。</p>
+</li>
+<li><p>进入新创建的存储空间，在 <strong>空间概览</strong>里点击 <strong>自定义域名</strong> 为空间绑定融合cdn加速域名。详细的参数解释可以参考 <a href="https://developer.qiniu.com/fusion/manual/4939/the-domain-name-to-access" target="_blank" rel="external nofollow noreferrer noopener">官方域名接入文档</a> 。<br><img alt="自定义域名" title="自定义域名" data-src="https://image.chingow.cn/images/20190610224405_2DZajr_Screenshot.jpeg" class="lazyload"><br>【域名类型】：如果没有特殊需求，选择普通域名即可。<br>【加速域名】：建议填写的是，您未在使用的二级或三级域名等，请勿轻易绑定www域名避免影响您的源站服务。<br>【源站配置】：当您为存储空间绑定自定义域名的时候，源站配置默认为七牛云存储空间即可。</p>
+</li>
+<li><p>配置CNAME<br>创建加速域名成功后，七牛云会提供CNAME地址，需要在域名服务提供商处将加速域名指向分配的CNAME地址，配置生效后，即可享受CDN加速服务。根据控制台的引导文档并参考 <a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name" target="_blank" rel="external nofollow noreferrer noopener">官方配置域名CNAME文档</a> 。</p>
+</li>
+</ul>
+<h4 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h4><p>进入新创建的存储空间，在 <strong>内容管理</strong> 中上传、下载、访问、修改资源，这样就可以使用资源的外链了。<br>上传图片文件以后，复制外链连接就可以利用这个链接访问这个图片了。<br><img alt="使用资源外链" title="使用资源外链" data-src="https://image.chingow.cn/images/20190610224604_5uT2oa_Screenshot.jpeg" class="lazyload"></p>
+<h3 id="上传工具"><a href="#上传工具" class="headerlink" title="上传工具"></a>上传工具</h3><p>如果每次都需要在web端点击上传图片，然后复制外链的操作就比较麻烦了，使用工具可以让我们更加方便地上传资源。<br>Mac平台上有多款图床工具，找到了几个优秀的工具，做了个对比：</p>
+<style>
+table th:nth-of-type(2){
+width: 10%;;
+}
+table th:nth-of-type(5){
+width: 15%;
+}
+
+</style>
+
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">收费标准</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+<th align="center">推荐指数</th>
+<th align="center">下载链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ipic</td>
+<td align="center">60元/年</td>
+<td align="center">剪贴板、压缩、拖拽上传，功能强大，支持多种云服务</td>
+<td align="center">免费版只支持微博图床</td>
+<td align="center"><i class="fa fa-star"></i></td>
+<td align="center"><a href="https://itunes.apple.com/cn/app/ipic-markdown-%E5%9B%BE%E5%BA%8A-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%B7%A5%E5%85%B7/id1101244278?mt=12" target="_blank" rel="external nofollow noreferrer noopener">Mac App Store</a></td>
+</tr>
+<tr>
+<td align="center">PicGo</td>
+<td align="center">免费</td>
+<td align="center">链接上传，支持相册管理</td>
+<td align="center">不支持清除上传历史</td>
+<td align="center"><i class="fa fa-star"> <i class="fa fa-star"> <i class="fa fa-star-half-o"></i></i></i></td>
+<td align="center"><a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="external nofollow noreferrer noopener">PicGo.dmg</a></td>
+</tr>
+<tr>
+<td align="center">PicUploader</td>
+<td align="center">免费</td>
+<td align="center">压缩上传，多文件、文件夹同时上传</td>
+<td align="center">不支持顶部菜单</td>
+<td align="center"><i class="fa fa-star"> <i class="fa fa-star"></i></i></td>
+<td align="center"><a href="https://github.com/xiebruce/PicUploader/releases" target="_blank" rel="external nofollow noreferrer noopener">PicUploader.zip</a></td>
+</tr>
+<tr>
+<td align="center">云存储管理</td>
+<td align="center">免费</td>
+<td align="center">链接上传，可视化相册管理</td>
+<td align="center">上传速度太慢，会卡死（不能忍受(°⌓°;）</td>
+<td align="center"><i class="fa fa-star"> <i class="fa fa-star"> <i class="fa fa-star"></i></i></i></td>
+<td align="center"><a href="https://github.com/willnewii/qiniuClient" target="_blank" rel="external nofollow noreferrer noopener">云存储管理客户端</a></td>
+</tr>
+<tr>
+<td align="center">cuImage</td>
+<td align="center">免费</td>
+<td align="center">剪贴板、压缩、拖拽上传，与ipic类似</td>
+<td align="center">仅支持七牛云<br>不支持链接上传</td>
+<td align="center"><i class="fa fa-star"> <i class="fa fa-star"> <i class="fa fa-star"> <i class="fa fa-star">  <i class="fa fa-star-half-o"></i></i></i></i></i></td>
+<td align="center"><a href="https://github.com/hulizhen/cuImage/releases" target="_blank" rel="external nofollow noreferrer noopener">Mac App Store</a></td>
+</tr>
+</tbody></table>
+<p>如果是使用七牛云图床我推荐cuImage，它的功能完善，使用剪贴板、拖曳、甚至是快捷键都可以直接将图片上传到云存储，并直接生成Markdown外链，操作十分简便。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/e824570/">http://notes.seirhsiao.com/posts/e824570/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo    </a><a class="post-meta__tags" href="/tags/NexT/">NexT    </a><a class="post-meta__tags" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云    </a><a class="post-meta__tags" href="/tags/%E4%B8%83%E7%89%9B%E4%BA%91/">七牛云    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/hexo-next.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/posts/59b77e20/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/must-have-windows-software-recommend.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>Windows必裝軟件推薦</span></div></a></div><div class="next-post pull_right"><a href="/posts/e0970dc8/"><img class="next_cover lazyload" data-src="/static/cover/hexo-next.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Hexo+NexT(v7.0+) 搭建博客：功能强化</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/e0970dc8/" title="Hexo+NexT(v7.0+) 搭建博客：功能强化"><img class="relatedPosts_cover lazyload"data-src="/static/cover/hexo-next.jpg"><div class="relatedPosts_title">Hexo+NexT(v7.0+) 搭建博客：功能强化</div></a></div><div class="relatedPosts_item"><a href="/posts/bd723aed/" title="Hexo+NexT(v7.0+) 搭建博客：内容优化"><img class="relatedPosts_cover lazyload"data-src="/static/cover/hexo-next.jpg"><div class="relatedPosts_title">Hexo+NexT(v7.0+) 搭建博客：内容优化</div></a></div><div class="relatedPosts_item"><a href="/posts/c7372a12/" title="Hexo+NexT(v7.0+) 搭建博客：主题美化"><img class="relatedPosts_cover lazyload"data-src="/static/cover/hexo-next.jpg"><div class="relatedPosts_title">Hexo+NexT(v7.0+) 搭建博客：主题美化</div></a></div><div class="relatedPosts_item"><a href="/posts/21cfbf15/" title="hexo-theme-butterfly安装文档"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/hexo-theme-butterfly-doc-cover.jpg"><div class="relatedPosts_title">hexo-theme-butterfly安装文档</div></a></div><div class="relatedPosts_item"><a href="/posts/ae8c6a29/" title="Hexo+NexT(v7.0+) 搭建博客：基础安装"><img class="relatedPosts_cover lazyload"data-src="/static/cover/hexo-next.jpg"><div class="relatedPosts_title">Hexo+NexT(v7.0+) 搭建博客：基础安装</div></a></div><div class="relatedPosts_item"><a href="/posts/dda8c81b/" title="重装系统后重新部署恢复 Hexo blog"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Rebuild_hexo_when_reinstall_the_system.png"><div class="relatedPosts_title">重装系统后重新部署恢复 Hexo blog</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/81810.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

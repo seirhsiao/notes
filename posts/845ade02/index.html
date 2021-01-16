@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>hadoop--完全分布式安装实例 | ——╅ 萧 ☯ ℡'s Blog</title><meta name="description" content="hadoop--完全分布式安装实例"><meta name="keywords" content="hadoop,hdfs,install"><meta name="author" content="萧"><meta name="copyright" content="萧"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/image/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/image/pwa/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/image/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/image/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/image/pwa/16.png"><link rel="mask-icon" href="/image/pwa/safari-pinned-tab.svg" color="#5bbad5"><meta name="google-site-verification" content="8d5fb649bdfda9cb"><meta name="baidu-site-verification" content="a2ac21ed3bfd04546458acf79469e44c"><meta name="360-site-verification" content="8c0e5fdcdef668cffe962f1cf3f99a03"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="hadoop--完全分布式安装实例"><meta name="twitter:description" content="hadoop--完全分布式安装实例"><meta name="twitter:image" content="http://notes.seirhsiao.com/static/cover/hadoop.png"><meta property="og:type" content="article"><meta property="og:title" content="hadoop--完全分布式安装实例"><meta property="og:url" content="http://notes.seirhsiao.com/posts/845ade02/"><meta property="og:site_name" content="——╅ 萧 ☯ ℡'s Blog"><meta property="og:description" content="hadoop--完全分布式安装实例"><meta property="og:image" content="http://notes.seirhsiao.com/static/cover/hadoop.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://notes.seirhsiao.com/posts/845ade02/"><link rel="prev" title="Java 提高篇(二) --- 内部类（inner class)" href="/http:/notes.seirhsiao.com/posts/58a40d11/"><link rel="next" title="hadoop--安装介绍文档" href="/http:/notes.seirhsiao.com/posts/845ade01/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-70461570-1', 'auto');
+ga('send', 'pageview');
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-8919908724705274",
+enable_page_level_ads: true
+});
+
+
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"502RMOS83O","apiKey":"c0621f18b83bdbdec63c1ac56235a5ea","indexName":"Jerryc","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://notes.seirhsiao.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: 萧","link":"链接: http://notes.seirhsiao.com/posts/845ade02/","source":"来源: ——╅ 萧 ☯ ℡'s Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script><link rel="alternate" href="/atom.xml" title="——╅ 萧 ☯ ℡'s Blog" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">——╅ 萧 ☯ ℡'s Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">122</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">106</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">33</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#机器环境"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">机器环境</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#每个节点的环境准备"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">每个节点的环境准备</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#机器帐户及基准目录"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">机器帐户及基准目录</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#安装ssh-rsync"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">安装ssh, rsync</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#hostname及域名配置"><span class="toc_mobile_items-number">2.3.</span> <span class="toc_mobile_items-text">hostname及域名配置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#所有节点的时间同步"><span class="toc_mobile_items-number">2.4.</span> <span class="toc_mobile_items-text">所有节点的时间同步</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#角色分配"><span class="toc_mobile_items-number">2.5.</span> <span class="toc_mobile_items-text">角色分配</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#jdk安装"><span class="toc_mobile_items-number">2.6.</span> <span class="toc_mobile_items-text">jdk安装</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#hadoop安装文件布署"><span class="toc_mobile_items-number">2.7.</span> <span class="toc_mobile_items-text">hadoop安装文件布署</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#hadoop完全分布式集群布署"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">hadoop完全分布式集群布署</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#配置免密码ssh登录"><span class="toc_mobile_items-number">3.1.</span> <span class="toc_mobile_items-text">配置免密码ssh登录</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#配置从节点"><span class="toc_mobile_items-number">3.2.</span> <span class="toc_mobile_items-text">配置从节点</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#建立存储数据的相应目录"><span class="toc_mobile_items-number">3.3.</span> <span class="toc_mobile_items-text">建立存储数据的相应目录</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#pid文件存放目录"><span class="toc_mobile_items-number">3.3.1.</span> <span class="toc_mobile_items-text">pid文件存放目录</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#NameNode节点"><span class="toc_mobile_items-number">3.3.2.</span> <span class="toc_mobile_items-text">NameNode节点</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Secondary-NameNode节点"><span class="toc_mobile_items-number">3.3.3.</span> <span class="toc_mobile_items-text">Secondary NameNode节点</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#DataNode节点"><span class="toc_mobile_items-number">3.3.4.</span> <span class="toc_mobile_items-text">DataNode节点</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#datanode数据"><span class="toc_mobile_items-number">3.3.4.1.</span> <span class="toc_mobile_items-text">datanode数据</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#local-dirs目录"><span class="toc_mobile_items-number">3.3.4.2.</span> <span class="toc_mobile_items-text">local-dirs目录</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#log-dirs目录"><span class="toc_mobile_items-number">3.3.4.3.</span> <span class="toc_mobile_items-text">log-dirs目录</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#配置参数"><span class="toc_mobile_items-number">3.4.</span> <span class="toc_mobile_items-text">配置参数</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#配置参数说明的官方链接"><span class="toc_mobile_items-number">3.4.1.</span> <span class="toc_mobile_items-text">配置参数说明的官方链接</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#环境变量的配置"><span class="toc_mobile_items-number">3.4.2.</span> <span class="toc_mobile_items-text">环境变量的配置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#pid存放位置的配置"><span class="toc_mobile_items-number">3.4.3.</span> <span class="toc_mobile_items-text">pid存放位置的配置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#core-site-xml"><span class="toc_mobile_items-number">3.4.4.</span> <span class="toc_mobile_items-text">core-site.xml</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#hdfs-site-xml"><span class="toc_mobile_items-number">3.4.5.</span> <span class="toc_mobile_items-text">hdfs-site.xml</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#yarn-site-xml"><span class="toc_mobile_items-number">3.4.6.</span> <span class="toc_mobile_items-text">yarn-site.xml</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#mapred-site-xml"><span class="toc_mobile_items-number">3.4.7.</span> <span class="toc_mobile_items-text">mapred-site.xml</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#启动hadoop"><span class="toc_mobile_items-number">3.5.</span> <span class="toc_mobile_items-text">启动hadoop</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#格式化namenode"><span class="toc_mobile_items-number">3.5.1.</span> <span class="toc_mobile_items-text">格式化namenode</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#在NameNode节点上启动NameNode守护进程"><span class="toc_mobile_items-number">3.5.2.</span> <span class="toc_mobile_items-text">在NameNode节点上启动NameNode守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#启动所有从节点的DataNode守护进程"><span class="toc_mobile_items-number">3.5.3.</span> <span class="toc_mobile_items-text">启动所有从节点的DataNode守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#在ResourceManager节点上启动ResourceManager守护进程"><span class="toc_mobile_items-number">3.5.4.</span> <span class="toc_mobile_items-text">在ResourceManager节点上启动ResourceManager守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#启动所有从节点的NodeManager守护进程"><span class="toc_mobile_items-number">3.5.5.</span> <span class="toc_mobile_items-text">启动所有从节点的NodeManager守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#启动MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><span class="toc_mobile_items-number">3.5.6.</span> <span class="toc_mobile_items-text">启动MapReduce JobHistory Server，在设定为运行该服务的节点上</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#通过浏览器查看服务情况"><span class="toc_mobile_items-number">3.6.</span> <span class="toc_mobile_items-text">通过浏览器查看服务情况</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#停止hadoop"><span class="toc_mobile_items-number">3.7.</span> <span class="toc_mobile_items-text">停止hadoop</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#在NameNode节点上停止NameNode守护进程"><span class="toc_mobile_items-number">3.7.1.</span> <span class="toc_mobile_items-text">在NameNode节点上停止NameNode守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#停止所有从节点的DataNode守护进程"><span class="toc_mobile_items-number">3.7.2.</span> <span class="toc_mobile_items-text">停止所有从节点的DataNode守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#在ResourceManager节点上停止ResourceManager守护进程"><span class="toc_mobile_items-number">3.7.3.</span> <span class="toc_mobile_items-text">在ResourceManager节点上停止ResourceManager守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#停止所有从节点的NodeManager守护进程"><span class="toc_mobile_items-number">3.7.4.</span> <span class="toc_mobile_items-text">停止所有从节点的NodeManager守护进程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#停止MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><span class="toc_mobile_items-number">3.7.5.</span> <span class="toc_mobile_items-text">停止MapReduce JobHistory Server，在设定为运行该服务的节点上</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#安装运行过程中碰到的问题记录"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">安装运行过程中碰到的问题记录</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#运行job时碰到错误信息：running-beyond-virtual-memory-limits"><span class="toc_mobile_items-number">4.0.1.</span> <span class="toc_mobile_items-text">运行job时碰到错误信息：running beyond virtual memory limits</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#错误：This-token-is-expired-current-time-is-XXXXX-found-YYYYY"><span class="toc_mobile_items-number">4.0.2.</span> <span class="toc_mobile_items-text">错误：This token is expired. current time is XXXXX found YYYYY</span></a></li></ol></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器环境"><span class="toc-number">1.</span> <span class="toc-text">机器环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#每个节点的环境准备"><span class="toc-number">2.</span> <span class="toc-text">每个节点的环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#机器帐户及基准目录"><span class="toc-number">2.1.</span> <span class="toc-text">机器帐户及基准目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装ssh-rsync"><span class="toc-number">2.2.</span> <span class="toc-text">安装ssh, rsync</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hostname及域名配置"><span class="toc-number">2.3.</span> <span class="toc-text">hostname及域名配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所有节点的时间同步"><span class="toc-number">2.4.</span> <span class="toc-text">所有节点的时间同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#角色分配"><span class="toc-number">2.5.</span> <span class="toc-text">角色分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jdk安装"><span class="toc-number">2.6.</span> <span class="toc-text">jdk安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hadoop安装文件布署"><span class="toc-number">2.7.</span> <span class="toc-text">hadoop安装文件布署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hadoop完全分布式集群布署"><span class="toc-number">3.</span> <span class="toc-text">hadoop完全分布式集群布署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置免密码ssh登录"><span class="toc-number">3.1.</span> <span class="toc-text">配置免密码ssh登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置从节点"><span class="toc-number">3.2.</span> <span class="toc-text">配置从节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立存储数据的相应目录"><span class="toc-number">3.3.</span> <span class="toc-text">建立存储数据的相应目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pid文件存放目录"><span class="toc-number">3.3.1.</span> <span class="toc-text">pid文件存放目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NameNode节点"><span class="toc-number">3.3.2.</span> <span class="toc-text">NameNode节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Secondary-NameNode节点"><span class="toc-number">3.3.3.</span> <span class="toc-text">Secondary NameNode节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataNode节点"><span class="toc-number">3.3.4.</span> <span class="toc-text">DataNode节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#datanode数据"><span class="toc-number">3.3.4.1.</span> <span class="toc-text">datanode数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#local-dirs目录"><span class="toc-number">3.3.4.2.</span> <span class="toc-text">local-dirs目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#log-dirs目录"><span class="toc-number">3.3.4.3.</span> <span class="toc-text">log-dirs目录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置参数"><span class="toc-number">3.4.</span> <span class="toc-text">配置参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置参数说明的官方链接"><span class="toc-number">3.4.1.</span> <span class="toc-text">配置参数说明的官方链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量的配置"><span class="toc-number">3.4.2.</span> <span class="toc-text">环境变量的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pid存放位置的配置"><span class="toc-number">3.4.3.</span> <span class="toc-text">pid存放位置的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#core-site-xml"><span class="toc-number">3.4.4.</span> <span class="toc-text">core-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hdfs-site-xml"><span class="toc-number">3.4.5.</span> <span class="toc-text">hdfs-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yarn-site-xml"><span class="toc-number">3.4.6.</span> <span class="toc-text">yarn-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mapred-site-xml"><span class="toc-number">3.4.7.</span> <span class="toc-text">mapred-site.xml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动hadoop"><span class="toc-number">3.5.</span> <span class="toc-text">启动hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式化namenode"><span class="toc-number">3.5.1.</span> <span class="toc-text">格式化namenode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在NameNode节点上启动NameNode守护进程"><span class="toc-number">3.5.2.</span> <span class="toc-text">在NameNode节点上启动NameNode守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动所有从节点的DataNode守护进程"><span class="toc-number">3.5.3.</span> <span class="toc-text">启动所有从节点的DataNode守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在ResourceManager节点上启动ResourceManager守护进程"><span class="toc-number">3.5.4.</span> <span class="toc-text">在ResourceManager节点上启动ResourceManager守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动所有从节点的NodeManager守护进程"><span class="toc-number">3.5.5.</span> <span class="toc-text">启动所有从节点的NodeManager守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><span class="toc-number">3.5.6.</span> <span class="toc-text">启动MapReduce JobHistory Server，在设定为运行该服务的节点上</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过浏览器查看服务情况"><span class="toc-number">3.6.</span> <span class="toc-text">通过浏览器查看服务情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#停止hadoop"><span class="toc-number">3.7.</span> <span class="toc-text">停止hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在NameNode节点上停止NameNode守护进程"><span class="toc-number">3.7.1.</span> <span class="toc-text">在NameNode节点上停止NameNode守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止所有从节点的DataNode守护进程"><span class="toc-number">3.7.2.</span> <span class="toc-text">停止所有从节点的DataNode守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在ResourceManager节点上停止ResourceManager守护进程"><span class="toc-number">3.7.3.</span> <span class="toc-text">在ResourceManager节点上停止ResourceManager守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止所有从节点的NodeManager守护进程"><span class="toc-number">3.7.4.</span> <span class="toc-text">停止所有从节点的NodeManager守护进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><span class="toc-number">3.7.5.</span> <span class="toc-text">停止MapReduce JobHistory Server，在设定为运行该服务的节点上</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装运行过程中碰到的问题记录"><span class="toc-number">4.</span> <span class="toc-text">安装运行过程中碰到的问题记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行job时碰到错误信息：running-beyond-virtual-memory-limits"><span class="toc-number">4.0.1.</span> <span class="toc-text">运行job时碰到错误信息：running beyond virtual memory limits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误：This-token-is-expired-current-time-is-XXXXX-found-YYYYY"><span class="toc-number">4.0.2.</span> <span class="toc-text">错误：This token is expired. current time is XXXXX found YYYYY</span></a></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/static/cover/11869.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">hadoop--完全分布式安装实例</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2014-10-31<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-07</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Hadoop/">Hadoop</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">3.8k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 16 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="机器环境"><a href="#机器环境" class="headerlink" title="机器环境"></a>机器环境</h1><ul>
+<li>3台处于同一网段的虚拟机，IP地址分别为 192.168.1.171, 192.168.1.189, 192.168.1.196</li>
+<li>所有机器节点均能访问外网</li>
+<li>系统均为 ubuntu12.04 LTS server x86-64</li>
+<li>所有机器节点的登录帐户为 work ，但密码并不一定一致</li>
+<li>所要安装的hadoop版本为stable版：2.5.1</li>
+</ul>
+<h1 id="每个节点的环境准备"><a href="#每个节点的环境准备" class="headerlink" title="每个节点的环境准备"></a>每个节点的环境准备</h1><h2 id="机器帐户及基准目录"><a href="#机器帐户及基准目录" class="headerlink" title="机器帐户及基准目录"></a>机器帐户及基准目录</h2><p>所有节点均使用<code>work</code>帐户，即<code>$HOME</code>路径为 <code>/home/work</code>，以后所有的资源及文件均会在 <code>$HOME</code> 目录下的 <code>VMBigData</code> 目录下，即后面所说的 <strong>VMBigData</strong> 目录均指 <code>/home/work/VMBigData</code> 。</p>
+<p>在 <code>VMBigData</code> 下建立 <code>resource</code> 目录，存放所有原始资源文件，如<code>jdk</code>安装文件，<code>hadoop</code>安装包等。</p>
+<h2 id="安装ssh-rsync"><a href="#安装ssh-rsync" class="headerlink" title="安装ssh, rsync"></a>安装ssh, rsync</h2><p>使用的是<code>ubuntu</code>，又可以访问外网，所以使用以下命令完成安装：</p>
+<ul>
+<li><code>sudo apt-get install ssh</code></li>
+<li><code>sudo apt-get install rsync</code></li>
+</ul>
+<h2 id="hostname及域名配置"><a href="#hostname及域名配置" class="headerlink" title="hostname及域名配置"></a>hostname及域名配置</h2><p>如果允许的话，还是尽量在内网中搭建自己的DNS服务，搭建可参考<a href="/2014/07/10/ubuntu-dns-bind.html">ubuntu搭建本地网DNS服务器</a>{:target=”_blank”}。</p>
+<p>若是不能自己搭建DNS服务的话，那就使用各机器的 <code>/etc/hosts</code> 来指定IP地址与域名的关系。</p>
+<p>本实例中对3台</p>
+<ul>
+<li><code>h171.vm.com : 192.168.1.171</code></li>
+<li><code>h189.vm.com : 192.168.1.189</code></li>
+<li><code>h196.vm.com : 192.168.1.196</code></li>
+</ul>
+<p>在后面的记录中，均使用节点简称来指某一个节点，如h171指h171.vm.com，h189指h189.vm.com，h196指h196.vm.com。</p>
+<h2 id="所有节点的时间同步"><a href="#所有节点的时间同步" class="headerlink" title="所有节点的时间同步"></a>所有节点的时间同步</h2><p>hadoop对于时间还是有一些要求，每一个节点的时间需要一致，所以最好搭建一个ntp服务，搭建过程参考：<a href="/2014/10/28/ubuntu-ntp.html">ubuntu时间设置与ntp同步</a>{:target=”_blank”}。</p>
+<h2 id="角色分配"><a href="#角色分配" class="headerlink" title="角色分配"></a>角色分配</h2><table>
+<thead>
+<tr>
+<th>角色名称</th>
+<th>节点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NameNode</td>
+<td>h196</td>
+</tr>
+<tr>
+<td>Secondary NameNode</td>
+<td>h171</td>
+</tr>
+<tr>
+<td>ResourceManager</td>
+<td>h171</td>
+</tr>
+<tr>
+<td>slave</td>
+<td>h196, h171, h189</td>
+</tr>
+<tr>
+<td>job history server</td>
+<td>h196</td>
+</tr>
+</tbody></table>
+<p>只有3台机器，所以这里并没有让NameNode与ResourceManager做为专用节点，同样加入到从节点中了。线上环境的话还是应该NameNode与ResourceManager使用专用节点。</p>
+<h2 id="jdk安装"><a href="#jdk安装" class="headerlink" title="jdk安装"></a>jdk安装</h2><p>选用的jdk版本为 7u71 的64位版，从官网下载 jdk-7u71-linux-x64.tar.gz 放到 VMBigData/resource 目录下，并做出如下命令操作</p>
+<figure class="highlight properties"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">~/VMBigData/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">mkdir</span> <span class="string">java</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="attr">tar</span> <span class="string">zxf resource/jdk-7u71-linux-x64.tar.gz -C java/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">java/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="attr">ln</span> <span class="string">-s jdk1.7.0_71 default</span></span></pre></td></tr></tbody></table></figure>
+<p>这样子就安装好jdk了，并用<code>default</code>的软链接指向真正的jdk目录，使用default软链接可以方便以后更新jdk版本，只要把<code>default</code>软链接指向新的jdk目录即可，在后面的配置中当需要使用到 <code>JAVA_HOME</code> 变量时，其值为 <code>/home/work/VMBigData/java/default</code> 。</p>
+<h2 id="hadoop安装文件布署"><a href="#hadoop安装文件布署" class="headerlink" title="hadoop安装文件布署"></a>hadoop安装文件布署</h2><p>本次安装所选取的hadoop版本，为<code>stable</code>的2.5.1版，从<code>hadoop</code>官网下载 <code>hadoop-2.5.1.tar.gz</code> 到 <code>VMBigData/resource</code> 目录下。</p>
+<figure class="highlight lsl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">cd ~/VMBigData</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">tar zxf resource/hadoop<span class="number">-2.5</span><span class="number">.1</span>.tar.gz -C hadoop/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">cd hadoop/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">ln -s hadoop<span class="number">-2.5</span><span class="number">.1</span> <span class="section">default</span></span></pre></td></tr></tbody></table></figure>
+
+<h1 id="hadoop完全分布式集群布署"><a href="#hadoop完全分布式集群布署" class="headerlink" title="hadoop完全分布式集群布署"></a>hadoop完全分布式集群布署</h1><h2 id="配置免密码ssh登录"><a href="#配置免密码ssh登录" class="headerlink" title="配置免密码ssh登录"></a>配置免密码ssh登录</h2><p>只需要配置主节点到从节点的免密码登录。从节点到主节点，及从节点之间，是不需要配置的。运行NameNode及ResourceManager的节点即为主节点，剩余的都是从节点。</p>
+<p>另外也要设置好各主节点之间及<strong>主节点自己到自己（即localhost）</strong>的免密码登录。</p>
+<p>在每一个节点上生成ssh密钥对，若是原来已经生成过，就不必再次生成了：</p>
+<pre><code>## 注意，这里使用 dsa 方式，而不是ssh默认常用的 rsa 方式
+## 不采用默认的rsa方式，避免以后由于误操作重新生成密钥对时覆盖掉原来的，这样免密码登录就失效了
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa</code></pre><p>将所有<strong>主节点</strong>的<code>~/.ssh/id_dsa.pub</code>文件内容集合成一个文件内容，并把该文件内容追加到所有节点的<code>~/.ssh/authorized_keys</code>文件内容后面。</p>
+<h2 id="配置从节点"><a href="#配置从节点" class="headerlink" title="配置从节点"></a>配置从节点</h2><p>将需要做为从节点的机器hostname或IP地址放到 hadoop 目录（即 <code>~/VMBigData/hadoop/default</code>)下的<code>etc/hadoop/slaves</code>文件内容中，一行一个从节点，内容如下：</p>
+<pre><code>h171
+h189
+h196</code></pre><h2 id="建立存储数据的相应目录"><a href="#建立存储数据的相应目录" class="headerlink" title="建立存储数据的相应目录"></a>建立存储数据的相应目录</h2><p>hdfs是分布式文件系统，不过最终数据还是存储在一个个节点的磁盘目录上，所以需要在相应的节点上建立相应的存放数据的目录，用于后面的配置文件中进行配置。</p>
+<h3 id="pid文件存放目录"><a href="#pid文件存放目录" class="headerlink" title="pid文件存放目录"></a>pid文件存放目录</h3><p>默认pid文件是存放在<code>/tmp</code>目录下，这样有时不够安全，所以建一目录用于存放，下面的配置中会提到如何修改该路径。</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/home/</span>work<span class="regexp">/VMBigData/</span>hadoop<span class="regexp">/data/</span>hdfs<span class="regexp">/pid</span></span></pre></td></tr></tbody></table></figure>
+<p>另外为了保护pid文件，将该目录权限做如下修改：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">chmod <span class="number">700</span> <span class="regexp">/home/</span>work<span class="regexp">/VMBigData/</span>hadoop<span class="regexp">/data/</span>hdfs<span class="regexp">/pid</span></span></pre></td></tr></tbody></table></figure>
+<h3 id="NameNode节点"><a href="#NameNode节点" class="headerlink" title="NameNode节点"></a>NameNode节点</h3><p><code>NameNode</code>节点需要存放<code>NameNode</code>数据，本例中在196上的建立以下一个目录用于存放数据，实际生产环境中最好用一个专门存放数据的磁盘下的目录。</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/home/</span>work<span class="regexp">/VMBigData/</span>hadoop<span class="regexp">/data/</span>hdfs<span class="regexp">/namenode</span></span></pre></td></tr></tbody></table></figure>
+
+<h3 id="Secondary-NameNode节点"><a href="#Secondary-NameNode节点" class="headerlink" title="Secondary NameNode节点"></a>Secondary NameNode节点</h3><p><code>Secondary NameNode</code>节点需要存放NameNode的备份数据，本例中为h171节点，用以下命令建立如下目录：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/home/</span>work<span class="regexp">/VMBigData/</span>hadoop<span class="regexp">/data/</span>hdfs<span class="regexp">/namesecondary</span></span></pre></td></tr></tbody></table></figure>
+<h3 id="DataNode节点"><a href="#DataNode节点" class="headerlink" title="DataNode节点"></a>DataNode节点</h3><h4 id="datanode数据"><a href="#datanode数据" class="headerlink" title="datanode数据"></a>datanode数据</h4><p>从节点均做为DataNode节点，本例中在每一个从节点中建立以下两个目录用于存放datanode的数据。实际生产环境中，最好用不同磁盘下有一个目录。</p>
+<pre><code>mkdir -p /home/work/VMBigData/hadoop/data/hdfs/datanode1
+mkdir -p /home/work/VMBigData/hadoop/data/hdfs/datanode2</code></pre><h4 id="local-dirs目录"><a href="#local-dirs目录" class="headerlink" title="local-dirs目录"></a>local-dirs目录</h4><p>local-dirs目录，用于存放作业运行时的存放中间结果的本地目录，一般设置多个，分摊磁盘IO负载。</p>
+<pre><code>mkdir -p /home/work/VMBigData/hadoop/data/hdfs/localdir1
+mkdir -p /home/work/VMBigData/hadoop/data/hdfs/localdir2</code></pre><h4 id="log-dirs目录"><a href="#log-dirs目录" class="headerlink" title="log-dirs目录"></a>log-dirs目录</h4><p>log-dirs目录，用于存放日志，一般也设置多个。</p>
+<pre><code>mkdir -p /home/work/VMBigData/hadoop/data/hdfs/logdir1
+mkdir -p /home/work/VMBigData/hadoop/data/hdfs/logdir2</code></pre><h2 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h2><p><strong>注意：当下面的所有配置文件配置好之后，需要将所有配置文件分发到所有节点的相应路径下。下面所用配置参数的值的具体设定，是结合考虑了系统环境限制的，真实线上环境时请根据需要重新配置某些参数值。</strong></p>
+<h3 id="配置参数说明的官方链接"><a href="#配置参数说明的官方链接" class="headerlink" title="配置参数说明的官方链接"></a>配置参数说明的官方链接</h3><p>下面是各文件的具体配置参数说明的官方链接：</p>
+<ul>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml" target="_blank" rel="external nofollow noreferrer noopener">core-site.xml</a>{:target=”_blank”}</li>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml" target="_blank" rel="external nofollow noreferrer noopener">hdfs-site.xml</a>{:target=”_blank”}</li>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml" target="_blank" rel="external nofollow noreferrer noopener">mapred-site.xml</a>{:target=”_blank”}</li>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml" target="_blank" rel="external nofollow noreferrer noopener">yarn-site.xml</a>{:target=”_blank”}</li>
+</ul>
+<h3 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h3><p>在<code>etc/hadoop/hadoop-env.sh</code>文件的前面设置以下内容：</p>
+<pre><code>export JAVA_HOME=/home/work/VMBigData/java/default
+export HADOOP_PREFIX=/home/work/VMBigData/hadoop/default</code></pre><h3 id="pid存放位置的配置"><a href="#pid存放位置的配置" class="headerlink" title="pid存放位置的配置"></a>pid存放位置的配置</h3><p>在<code>etc/hadoop/hadoop-env.sh</code>文件中做出以下变量值的修改。<code>HADOOP_PID_DIR</code>注释掉原来的再新增一行，<code>YARN_PID_DIR</code>原本就没有，直接新增即可:</p>
+<pre><code>#export HADOOP_PID_DIR=${HADOOP_PID_DIR}
+export HADOOP_PID_DIR=/home/work/VMBigData/hadoop/data/hdfs/pid
+export YARN_PID_DIR=/home/work/VMBigData/hadoop/data/hdfs/pid</code></pre><p>在<code>etc/hadoop/mapred-env.sh</code>文件中做出如下修改：</p>
+<pre><code>#export HADOOP_MAPRED_PID_DIR= # The pid files are stored. /tmp by default.
+export HADOOP_MAPRED_PID_DIR=/home/work/VMBigData/hadoop/data/hdfs/pid</code></pre><h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://h196.vm.com:9000&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;</code></pre><h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>这里主要完成datanode及namenode目录位置的配置，还有Secondary NameNode的配置，把Secondary NameNode指定在另外一个节点上，这样对于数据安全性更高一些。</p>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;!-- 单机版的一般设为1，若是集群，一般设为3 --&gt;
+        &lt;value&gt;2&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+        &lt;!-- 创建的namenode文件夹位置，如有多个用逗号隔开。配置多个的话，每一个目录下数据都是相同的，达到数据冗余备份的目的 --&gt;
+        &lt;value&gt;/home/work/VMBigData/hadoop/data/hdfs/namenode&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+        &lt;!-- 创建的datanode文件夹位置，多个用逗号隔开，实际不存在的目录会被忽略 --&gt;
+        &lt;value&gt;/home/work/VMBigData/hadoop/data/hdfs/datanode1,/home/work/VMBigData/hadoop/data/hdfs/datanode2&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 配置Secondary NameNode在另外一个节点上，该节点也将作为主节点之一 --&gt;
+    &lt;property&gt;  
+        &lt;name&gt;dfs.http.address&lt;/name&gt;  
+        &lt;value&gt;h196.vm.com:50070&lt;/value&gt;  
+        &lt;description&gt;Secondary get fsimage and edits via dfs.http.address&lt;/description&gt;  
+    &lt;/property&gt;  
+    &lt;property&gt;  
+        &lt;name&gt;dfs.secondary.http.address&lt;/name&gt;  
+        &lt;value&gt;h171.vm.com:50090&lt;/value&gt;  
+    &lt;/property&gt; 
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;
+        &lt;value&gt;/home/work/VMBigData/hadoop/data/hdfs/namesecondary&lt;/value&gt;
+    &lt;/property&gt;
+
+&lt;/configuration&gt;</code></pre><h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;h171.vm.com&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;property&gt;
+        &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;
+        &lt;!-- 打开日志聚合功能，这样才能从web界面查看日志 --&gt;
+        &lt;value&gt;true&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;
+        &lt;!-- 聚合日志最长保留时间 --&gt;
+        &lt;value&gt;86400&lt;/value&gt;
+    &lt;/property&gt;
+
+
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;
+        &lt;!-- NodeManager总的可用内存，这个要根据实际情况合理配置 --&gt;
+        &lt;value&gt;2048&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;/name&gt;
+        &lt;!-- MapReduce作业时，每个task最少可申请内存 --&gt;
+        &lt;value&gt;512&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.scheduler.maximum-allocation-mb&lt;/name&gt;
+        &lt;!-- MapReduce作业时，每个task最多可申请内存 --&gt;
+        &lt;value&gt;2048&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;/name&gt;
+        &lt;!-- 可申请使用的虚拟内存，相对于实际使用内存大小的倍数。实际生产环境中可设置的大一些，如4.2 --&gt;
+        &lt;value&gt;2.1&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
+        &lt;value&gt;false&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.local-dirs&lt;/name&gt;
+        &lt;!-- 中间结果存放位置。注意，这个参数通常会配置多个目录，已分摊磁盘IO负载。 --&gt;
+        &lt;value&gt;/home/work/VMBigData/hadoop/data/hdfs/localdir1,/home/work/VMBigData/hadoop/data/hdfs/localdir2&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.log-dirs&lt;/name&gt;
+        &lt;!-- 日志存放位置。注意，这个参数通常会配置多个目录，已分摊磁盘IO负载。 --&gt;
+        &lt;value&gt;/home/work/VMBigData/hadoop/data/hdfs/logdir1,/home/work/VMBigData/hadoop/data/hdfs/logdir2&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+        &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;</code></pre><h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.app.mapreduce.am.resource.mb&lt;/name&gt;
+        &lt;!-- 默认值为 1536,可根据需要调整，调小一些也是可接受的 --&gt;
+        &lt;value&gt;768&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.map.memory.mb&lt;/name&gt;
+        &lt;!-- 每个map task申请的内存，每一次都会实际申请这么多 --&gt;
+        &lt;value&gt;512&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.map.java.opts&lt;/name&gt;
+        &lt;!-- 每个map task中的child jvm启动时参数，需要比 mapreduce.map.memory.mb 设置的小一些 --&gt;
+        &lt;!-- 注意：map任务里不一定跑java，可能跑非java（如streaming） --&gt;
+        &lt;value&gt;-Xmx384m&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.reduce.memory.mb&lt;/name&gt;
+        &lt;value&gt;640&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.reduce.java.opts&lt;/name&gt;
+        &lt;value&gt;-Xmx512m&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.tasktracker.map.tasks.maximum&lt;/name&gt;
+        &lt;value&gt;2&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.tasktracker.reduce.tasks.maximum&lt;/name&gt;
+        &lt;value&gt;2&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.child.java.opts&lt;/name&gt;
+        &lt;!-- 默认值为 -Xmx200m，生产环境可以设大一些 --&gt;
+        &lt;value&gt;-Xmx200m&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.task.io.sort.mb&lt;/name&gt;
+        &lt;!-- 任务内部排序缓冲区大小 --&gt;
+        &lt;value&gt;128&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.task.io.sort.factor&lt;/name&gt;
+        &lt;!-- map计算完全后的merge阶段，一次merge时最多可有多少个输入流 --&gt;
+        &lt;value&gt;100&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.reduce.shuffle.parallelcopies&lt;/name&gt;
+        &lt;!-- reuduce shuffle阶段并行传输数据的数量 --&gt;
+        &lt;value&gt;50&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+        &lt;value&gt;h196.vm.com:10020&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+        &lt;value&gt;h196.vm.com:19888&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;</code></pre><h2 id="启动hadoop"><a href="#启动hadoop" class="headerlink" title="启动hadoop"></a>启动hadoop</h2><p><strong>以下所有命令都是在hadoop目录（即 VMBigData/hadoop/default目录）下运行的。</strong></p>
+<h3 id="格式化namenode"><a href="#格式化namenode" class="headerlink" title="格式化namenode"></a>格式化namenode</h3><p><strong>该操作只需首次的时候执行，以后重启hadoop时无需再次执行。</strong></p>
+<pre><code>bin/hdfs namenode -format</code></pre><h3 id="在NameNode节点上启动NameNode守护进程"><a href="#在NameNode节点上启动NameNode守护进程" class="headerlink" title="在NameNode节点上启动NameNode守护进程"></a>在NameNode节点上启动NameNode守护进程</h3><pre><code>sbin/hadoop-daemon.sh --script hdfs start namenode</code></pre><h3 id="启动所有从节点的DataNode守护进程"><a href="#启动所有从节点的DataNode守护进程" class="headerlink" title="启动所有从节点的DataNode守护进程"></a>启动所有从节点的DataNode守护进程</h3><pre><code>sbin/hadoop-daemon.sh --script hdfs start datanode</code></pre><h3 id="在ResourceManager节点上启动ResourceManager守护进程"><a href="#在ResourceManager节点上启动ResourceManager守护进程" class="headerlink" title="在ResourceManager节点上启动ResourceManager守护进程"></a>在ResourceManager节点上启动ResourceManager守护进程</h3><pre><code>sbin/yarn-daemon.sh start resourcemanager</code></pre><h3 id="启动所有从节点的NodeManager守护进程"><a href="#启动所有从节点的NodeManager守护进程" class="headerlink" title="启动所有从节点的NodeManager守护进程"></a>启动所有从节点的NodeManager守护进程</h3><pre><code>sbin/yarn-daemon.sh start nodemanager</code></pre><h3 id="启动MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><a href="#启动MapReduce-JobHistory-Server，在设定为运行该服务的节点上" class="headerlink" title="启动MapReduce JobHistory Server，在设定为运行该服务的节点上"></a>启动MapReduce JobHistory Server，在设定为运行该服务的节点上</h3><pre><code>sbin/mr-jobhistory-daemon.sh start historyserver</code></pre><h2 id="通过浏览器查看服务情况"><a href="#通过浏览器查看服务情况" class="headerlink" title="通过浏览器查看服务情况"></a>通过浏览器查看服务情况</h2><p>一旦hadoop服务正常启动之后，可通过下列地址在浏览器查看服务</p>
+<table>
+<thead>
+<tr>
+<th>守护进程</th>
+<th>web地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NameNode</td>
+<td><a href="http://nn_host:port/" target="_blank" rel="external nofollow noreferrer noopener">http://nn_host:port/</a></td>
+<td>端口默认为50070，本实例为：<a href="http://192.168.1.196:50070" target="_blank" rel="external nofollow noreferrer noopener">http://192.168.1.196:50070</a></td>
+</tr>
+<tr>
+<td>Secondary NameNode</td>
+<td><a href="http://snn_host:port/" target="_blank" rel="external nofollow noreferrer noopener">http://snn_host:port/</a></td>
+<td>端口默认为50090，本实例为：<a href="http://192.168.1.171:50090" target="_blank" rel="external nofollow noreferrer noopener">http://192.168.1.171:50090</a></td>
+</tr>
+<tr>
+<td>ResourceManager</td>
+<td><a href="http://rm_host:port/" target="_blank" rel="external nofollow noreferrer noopener">http://rm_host:port/</a></td>
+<td>端口默认为8088，本实例为：<a href="http://192.168.1.171:8088" target="_blank" rel="external nofollow noreferrer noopener">http://192.168.1.171:8088</a></td>
+</tr>
+<tr>
+<td>MapReduce JobHistory Server</td>
+<td><a href="http://jhs_host:port/" target="_blank" rel="external nofollow noreferrer noopener">http://jhs_host:port/</a></td>
+<td>商品默认为19888，本实例为：<a href="http://192.168.1.196:19888" target="_blank" rel="external nofollow noreferrer noopener">http://192.168.1.196:19888</a></td>
+</tr>
+</tbody></table>
+<h2 id="停止hadoop"><a href="#停止hadoop" class="headerlink" title="停止hadoop"></a>停止hadoop</h2><h3 id="在NameNode节点上停止NameNode守护进程"><a href="#在NameNode节点上停止NameNode守护进程" class="headerlink" title="在NameNode节点上停止NameNode守护进程"></a>在NameNode节点上停止NameNode守护进程</h3><pre><code>sbin/hadoop-daemon.sh --script hdfs stop namenode</code></pre><h3 id="停止所有从节点的DataNode守护进程"><a href="#停止所有从节点的DataNode守护进程" class="headerlink" title="停止所有从节点的DataNode守护进程"></a>停止所有从节点的DataNode守护进程</h3><pre><code>sbin/hadoop-daemon.sh --script hdfs stop datanode</code></pre><h3 id="在ResourceManager节点上停止ResourceManager守护进程"><a href="#在ResourceManager节点上停止ResourceManager守护进程" class="headerlink" title="在ResourceManager节点上停止ResourceManager守护进程"></a>在ResourceManager节点上停止ResourceManager守护进程</h3><pre><code>sbin/yarn-daemon.sh stop resourcemanager</code></pre><h3 id="停止所有从节点的NodeManager守护进程"><a href="#停止所有从节点的NodeManager守护进程" class="headerlink" title="停止所有从节点的NodeManager守护进程"></a>停止所有从节点的NodeManager守护进程</h3><pre><code>sbin/yarn-daemon.sh stop nodemanager</code></pre><h3 id="停止MapReduce-JobHistory-Server，在设定为运行该服务的节点上"><a href="#停止MapReduce-JobHistory-Server，在设定为运行该服务的节点上" class="headerlink" title="停止MapReduce JobHistory Server，在设定为运行该服务的节点上"></a>停止MapReduce JobHistory Server，在设定为运行该服务的节点上</h3><pre><code>sbin/mr-jobhistory-daemon.sh stop historyserver</code></pre><h1 id="安装运行过程中碰到的问题记录"><a href="#安装运行过程中碰到的问题记录" class="headerlink" title="安装运行过程中碰到的问题记录"></a>安装运行过程中碰到的问题记录</h1><h3 id="运行job时碰到错误信息：running-beyond-virtual-memory-limits"><a href="#运行job时碰到错误信息：running-beyond-virtual-memory-limits" class="headerlink" title="运行job时碰到错误信息：running beyond virtual memory limits"></a>运行job时碰到错误信息：<code>running beyond virtual memory limits</code></h3><p>这是因为hadoop的YARN默认打开了一个配置特性<code>yarn.nodemanager.vmem-check-enabled</code>，该特性会检查job运行时所需的虚拟内存容易在运行节点上是否可以提供，若不能提供则报该错误并终止任务执行。通过查找相关资料，CDH也是默认关闭此特性的，所以推荐把该特性在<code>yarn-site.xml</code>配置中设成<code>false</code>吧，不然的话，要算好内存量之间的关系还是相当麻烦的，反正我是折腾了好久也没设定正确的内存容量值。</p>
+<h3 id="错误：This-token-is-expired-current-time-is-XXXXX-found-YYYYY"><a href="#错误：This-token-is-expired-current-time-is-XXXXX-found-YYYYY" class="headerlink" title="错误：This token is expired. current time is XXXXX found YYYYY"></a>错误：This token is expired. current time is XXXXX found YYYYY</h3><p>这种错误属于节点时间不一致导致的，把所有节点的时间同步一下，最好加上ntp服务就好了。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">萧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/notes.seirhsiao.com/posts/845ade02/">http://notes.seirhsiao.com/posts/845ade02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://notes.seirhsiao.com">——╅ 萧 ☯ ℡'s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hadoop/">hadoop    </a><a class="post-meta__tags" href="/tags/hdfs/">hdfs    </a><a class="post-meta__tags" href="/tags/install/">install    </a></div><div class="post_share"><div class="social-share" data-image="/static/cover/hadoop.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/wechat.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/image/alipay.png"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><div class="post-ad"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-pub-8919908724705274" data-ad-slot="5978969231"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/posts/58a40d11/"><img class="prev_cover lazyload" data-src="/static/cover/java.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>Java 提高篇(二) --- 内部类（inner class)</span></div></a></div><div class="next-post pull_right"><a href="/posts/845ade01/"><img class="next_cover lazyload" data-src="/static/cover/hadoop.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>hadoop--安装介绍文档</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/845ade01/" title="hadoop--安装介绍文档"><img class="relatedPosts_cover lazyload"data-src="/static/cover/hadoop.png"><div class="relatedPosts_title">hadoop--安装介绍文档</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'PFdiF3pQOKd2cMhsTRt7bDYT',
+  appKey:'WprfuKVn4SHdhAU8UqjC0Fyb',
+  placeholder:'记得得留下你的昵称和邮箱....可以快速收到回復',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer" style="background-image: url(/static/cover/11869.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2021 By 萧</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" rel="external nofollow noreferrer"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noreferrer"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js"></script><script src="/js/baidupush.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/jerryc127.github.io@latest/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js"></script><script>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-cn.js')
+  .then(reg => {
+      reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    var bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark;
+                    var position = GLOBAL_CONFIG.Snackbar.position;
+                    Snackbar.show({
+                      text: '已更新最新版本',
+                      backgroundColor: bg,
+                      duration: 3000,
+                      pos: position,
+                      actionText: '點擊刷新',
+                      onActionClick: function(element) {
+                        location.reload();
+                       }
+                    });
+
+                  }
+                }
+            });
+        });
+    });
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

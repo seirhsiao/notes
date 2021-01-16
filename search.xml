@@ -1,0 +1,3115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>十大排序算法全面解析 - Java实现</title>
+      <link href="/posts/7a099988/"/>
+      <url>/posts/7a099988/</url>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql 常用命令</title>
+      <link href="/posts/6b900457/"/>
+      <url>/posts/6b900457/</url>
+      
+      
+      <categories>
+          
+          <category> Sql </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git管理多个SSH密钥，Git多帐号配置</title>
+      <link href="/posts/120c9a64/"/>
+      <url>/posts/120c9a64/</url>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> github </tag>
+            
+            <tag> ssh </tag>
+            
+            <tag> gitcafe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo使用 hexo-tag-aplayer 播放音乐</title>
+      <link href="/posts/eaf9c5a0/"/>
+      <url>/posts/eaf9c5a0/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> APlayer </tag>
+            
+            <tag> hexo-tag-aplayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 使用 APlayer 播放音乐</title>
+      <link href="/posts/3a07f81/"/>
+      <url>/posts/3a07f81/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> APlayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo-tag-aplayer</title>
+      <link href="/posts/8fce93b9/"/>
+      <url>/posts/8fce93b9/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> plguin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用 gulp 压缩 hexo 静态资源</title>
+      <link href="/posts/d326277f/"/>
+      <url>/posts/d326277f/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> gulp </tag>
+            
+            <tag> 静态资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 加入豆瓣读书页面</title>
+      <link href="/posts/105de8b9/"/>
+      <url>/posts/105de8b9/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> douban </tag>
+            
+            <tag> 豆瓣 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>添加Windows Terminal到鼠标右键菜单</title>
+      <link href="/posts/c621cf12/"/>
+      <url>/posts/c621cf12/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>调研实现高性能动画</title>
+      <link href="/posts/845ade13/"/>
+      <url>/posts/845ade13/</url>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JS </tag>
+            
+            <tag> 性能优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在浏览器输入 URL 回车之后发生了什么（超详细版）</title>
+      <link href="/posts/20bbe8ff/"/>
+      <url>/posts/20bbe8ff/</url>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring Boot - 条件化注解Conditional</title>
+      <link href="/posts/4478b9ec/"/>
+      <url>/posts/4478b9ec/</url>
+      
+      
+      <categories>
+          
+          <category> Spring Boot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> Conditional </tag>
+            
+            <tag> ConditionalOnProperty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo-theme-butterfly安装文档</title>
+      <link href="/posts/21cfbf15/"/>
+      <url>/posts/21cfbf15/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 主题 </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring Boot - 配置文件外置</title>
+      <link href="/posts/ad708d57/"/>
+      <url>/posts/ad708d57/</url>
+      
+      
+      <categories>
+          
+          <category> Spring Boot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> property </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>设置Windows电脑自动关机</title>
+      <link href="/posts/19f9ade4/"/>
+      <url>/posts/19f9ade4/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows必裝軟件推薦</title>
+      <link href="/posts/59b77e20/"/>
+      <url>/posts/59b77e20/</url>
+      
+      
+      <categories>
+          
+          <category> 軟件推薦 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 軟件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+NexT(v7.0+) 搭建博客：性能优化</title>
+      <link href="/posts/e824570/"/>
+      <url>/posts/e824570/</url>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NexT </tag>
+            
+            <tag> 阿里云 </tag>
+            
+            <tag> 七牛云 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+NexT(v7.0+) 搭建博客：功能强化</title>
+      <link href="/posts/e0970dc8/"/>
+      <url>/posts/e0970dc8/</url>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NexT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+NexT(v7.0+) 搭建博客：内容优化</title>
+      <link href="/posts/bd723aed/"/>
+      <url>/posts/bd723aed/</url>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NexT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+NexT(v7.0+) 搭建博客：主题美化</title>
+      <link href="/posts/c7372a12/"/>
+      <url>/posts/c7372a12/</url>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NexT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+NexT(v7.0+) 搭建博客：基础安装</title>
+      <link href="/posts/ae8c6a29/"/>
+      <url>/posts/ae8c6a29/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于字符编码，你所需要知道的（ASCII,Unicode,Utf-8,GB2312…）</title>
+      <link href="/posts/f5f84b52/"/>
+      <url>/posts/f5f84b52/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>好用的新浪图床工具推荐 - Weibo-Picture-Store</title>
+      <link href="/posts/d786a301/"/>
+      <url>/posts/d786a301/</url>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 图床 </tag>
+            
+            <tag> chrome插件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java知识点复习(二)</title>
+      <link href="/posts/46be9372/"/>
+      <url>/posts/46be9372/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java知识点复习(一)</title>
+      <link href="/posts/58a40d07/"/>
+      <url>/posts/58a40d07/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Visual Studio Code 插件推荐-VSC Netease Music</title>
+      <link href="/posts/86e73295/"/>
+      <url>/posts/86e73295/</url>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 插件 </tag>
+            
+            <tag> Visual Studio Code </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java 开源资源</title>
+      <link href="/posts/58a40d08/"/>
+      <url>/posts/58a40d08/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 资源 </tag>
+            
+            <tag> 翻译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jekyll主题收藏</title>
+      <link href="/posts/845ade14/"/>
+      <url>/posts/845ade14/</url>
+      
+      
+      <categories>
+          
+          <category> Jekyll </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jekyll写作技巧小札</title>
+      <link href="/posts/845ade15/"/>
+      <url>/posts/845ade15/</url>
+      
+      
+      <categories>
+          
+          <category> Jekyll </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ruby 实现各种排序查找算法</title>
+      <link href="/posts/f5f84c58/"/>
+      <url>/posts/f5f84c58/</url>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux 常用命令</title>
+      <link href="/posts/58a41d08/"/>
+      <url>/posts/58a41d08/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql 学习</title>
+      <link href="/posts/92d20c8/"/>
+      <url>/posts/92d20c8/</url>
+      
+      
+      <categories>
+          
+          <category> Sql </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sublime 快捷键集合</title>
+      <link href="/posts/62f96e9a/"/>
+      <url>/posts/62f96e9a/</url>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Learn Mongodb</title>
+      <link href="/posts/2ba8dc9d/"/>
+      <url>/posts/2ba8dc9d/</url>
+      
+      
+      <categories>
+          
+          <category> Mongodb </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git 常用命令</title>
+      <link href="/posts/845ade19/"/>
+      <url>/posts/845ade19/</url>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git常用命令速查表</title>
+      <link href="/posts/845ade18/"/>
+      <url>/posts/845ade18/</url>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 基础</title>
+      <link href="/posts/58a40d09/"/>
+      <url>/posts/58a40d09/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>clojure学习 —— 学习资料汇总</title>
+      <link href="/posts/955788d1/"/>
+      <url>/posts/955788d1/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AWK入门指南</title>
+      <link href="/posts/69de0ee2/"/>
+      <url>/posts/69de0ee2/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> awk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AWK语言详解</title>
+      <link href="/posts/d5b3edf3/"/>
+      <url>/posts/d5b3edf3/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> awk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 代码规范（中文）</title>
+      <link href="/posts/9285c344/"/>
+      <url>/posts/9285c344/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> clojure </tag>
+            
+            <tag> 代码规范 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 字符串</title>
+      <link href="/posts/69baf7da/"/>
+      <url>/posts/69baf7da/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 基本运算</title>
+      <link href="/posts/ceee0cc3/"/>
+      <url>/posts/ceee0cc3/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 符号及关键字</title>
+      <link href="/posts/6dc5d2e6/"/>
+      <url>/posts/6dc5d2e6/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 函数定义</title>
+      <link href="/posts/f45f9581/"/>
+      <url>/posts/f45f9581/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 正则表达式</title>
+      <link href="/posts/2cfc7ba0/"/>
+      <url>/posts/2cfc7ba0/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 条件判断</title>
+      <link href="/posts/203e8a64/"/>
+      <url>/posts/203e8a64/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 循环控制</title>
+      <link href="/posts/f1db92fe/"/>
+      <url>/posts/f1db92fe/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 集合List</title>
+      <link href="/posts/58a07c8e/"/>
+      <url>/posts/58a07c8e/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> 集合 </tag>
+            
+            <tag> list </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 集合Map</title>
+      <link href="/posts/97485eea/"/>
+      <url>/posts/97485eea/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> 集合 </tag>
+            
+            <tag> map </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 序列函数</title>
+      <link href="/posts/3b0a3388/"/>
+      <url>/posts/3b0a3388/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> 集合 </tag>
+            
+            <tag> seq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— binding</title>
+      <link href="/posts/abb22136/"/>
+      <url>/posts/abb22136/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> binding </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 集合Set</title>
+      <link href="/posts/e2f1d18d/"/>
+      <url>/posts/e2f1d18d/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> 集合 </tag>
+            
+            <tag> set </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 异常处理</title>
+      <link href="/posts/22348167/"/>
+      <url>/posts/22348167/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure简介与应用</title>
+      <link href="/posts/fa0e0cf8/"/>
+      <url>/posts/fa0e0cf8/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 连接mongodb</title>
+      <link href="/posts/fa8d6b84/"/>
+      <url>/posts/fa8d6b84/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 连接mysql</title>
+      <link href="/posts/dfed0350/"/>
+      <url>/posts/dfed0350/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— 连接redis</title>
+      <link href="/posts/31e8cb7d/"/>
+      <url>/posts/31e8cb7d/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>几分钟内学习clojure宏</title>
+      <link href="/posts/8b27109d/"/>
+      <url>/posts/8b27109d/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>clojure 相关的一些小贴士</title>
+      <link href="/posts/678ce1cb/"/>
+      <url>/posts/678ce1cb/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> tips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— httpkit</title>
+      <link href="/posts/8dda23a1/"/>
+      <url>/posts/8dda23a1/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> httpkit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure 学习 —— macro</title>
+      <link href="/posts/c527cf93/"/>
+      <url>/posts/c527cf93/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> macro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>同时部署博客到github 与 gitcafe</title>
+      <link href="/posts/18a27be/"/>
+      <url>/posts/18a27be/</url>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> gitcafe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二章 -- Clojure环境</title>
+      <link href="/posts/67729cfa/"/>
+      <url>/posts/67729cfa/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> tips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何同一台电脑配置多个git或github账号</title>
+      <link href="/posts/8bb3b77d/"/>
+      <url>/posts/8bb3b77d/</url>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows 上安装 Jekyll</title>
+      <link href="/posts/a883aa98/"/>
+      <url>/posts/a883aa98/</url>
+      
+      
+      <categories>
+          
+          <category> Jekyll </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jekyll </tag>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>UML类图几种关系的总结</title>
+      <link href="/posts/fdd35213/"/>
+      <url>/posts/fdd35213/</url>
+      
+      
+      <categories>
+          
+          <category> UML </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UML </tag>
+            
+            <tag> 类图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Eclipse设置、调优、使用</title>
+      <link href="/posts/39e61ab3/"/>
+      <url>/posts/39e61ab3/</url>
+      
+      
+      <categories>
+          
+          <category> Eclipse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> eclipse </tag>
+            
+            <tag> 优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>UML类图实例</title>
+      <link href="/posts/67600903/"/>
+      <url>/posts/67600903/</url>
+      
+      
+      <categories>
+          
+          <category> UML </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UML </tag>
+            
+            <tag> 类图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给Eclipse提速的7个技巧</title>
+      <link href="/posts/8b973c0a/"/>
+      <url>/posts/8b973c0a/</url>
+      
+      
+      <categories>
+          
+          <category> Eclipse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> eclipse </tag>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>eclipse设置和优化</title>
+      <link href="/posts/1af86ba2/"/>
+      <url>/posts/1af86ba2/</url>
+      
+      
+      <categories>
+          
+          <category> Eclipse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> eclipse </tag>
+            
+            <tag> 优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jenkins安装以及集成使用</title>
+      <link href="/posts/e6fee501/"/>
+      <url>/posts/e6fee501/</url>
+      
+      
+      <categories>
+          
+          <category> Jenkins </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jenkins </tag>
+            
+            <tag> tools </tag>
+            
+            <tag> 环境搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Maven+Nexus配置手册</title>
+      <link href="/posts/674ab227/"/>
+      <url>/posts/674ab227/</url>
+      
+      
+      <categories>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> maven </tag>
+            
+            <tag> nexus </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Maven学习 —— Maven 环境搭建</title>
+      <link href="/posts/1bc69444/"/>
+      <url>/posts/1bc69444/</url>
+      
+      
+      <categories>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 环境搭建 </tag>
+            
+            <tag> maven </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTML/CSS 开发规范指南</title>
+      <link href="/posts/7fe7f23a/"/>
+      <url>/posts/7fe7f23a/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+            <tag> 指南 </tag>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sonar及其eclipse插件的安装</title>
+      <link href="/posts/7fb9dba/"/>
+      <url>/posts/7fb9dba/</url>
+      
+      
+      <categories>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tools </tag>
+            
+            <tag> 环境搭建 </tag>
+            
+            <tag> maven </tag>
+            
+            <tag> nexus </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git 风格指南</title>
+      <link href="/posts/81fc5f62/"/>
+      <url>/posts/81fc5f62/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> git </tag>
+            
+            <tag> 风格 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown 基本语法</title>
+      <link href="/posts/7894e390/"/>
+      <url>/posts/7894e390/</url>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+            <tag> 语法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown 语法指南</title>
+      <link href="/posts/c8e71c7e/"/>
+      <url>/posts/c8e71c7e/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给程序员的开源、免费图书集合</title>
+      <link href="/posts/83e9c285/"/>
+      <url>/posts/83e9c285/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> book </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Rails 风格指南</title>
+      <link href="/posts/e129951/"/>
+      <url>/posts/e129951/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> ruby </tag>
+            
+            <tag> rails </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端资源收集</title>
+      <link href="/posts/649971dd/"/>
+      <url>/posts/649971dd/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费编程书籍</title>
+      <link href="/posts/31d41407/"/>
+      <url>/posts/31d41407/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> book </tag>
+            
+            <tag> 书籍 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费的编程中文书籍索引</title>
+      <link href="/posts/62b712b2/"/>
+      <url>/posts/62b712b2/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> book </tag>
+            
+            <tag> 书籍 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端知识结构</title>
+      <link href="/posts/ad32fa10/"/>
+      <url>/posts/ad32fa10/</url>
+      
+      
+      <categories>
+          
+          <category> Structure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> frontend </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown学习资料汇总</title>
+      <link href="/posts/1f302c16/"/>
+      <url>/posts/1f302c16/</url>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GitHub 秘籍</title>
+      <link href="/posts/2d68febb/"/>
+      <url>/posts/2d68febb/</url>
+      
+      
+      <categories>
+          
+          <category> GitHub </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> git </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vi编辑器使用指南</title>
+      <link href="/posts/4672282/"/>
+      <url>/posts/4672282/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vi </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSH 学习</title>
+      <link href="/posts/24b791e0/"/>
+      <url>/posts/24b791e0/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Clojure学习 —— 安装与配置</title>
+      <link href="/posts/9f994d38/"/>
+      <url>/posts/9f994d38/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> leigingen </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>几分钟内学习 Clojure</title>
+      <link href="/posts/f1582a9d/"/>
+      <url>/posts/f1582a9d/</url>
+      
+      
+      <categories>
+          
+          <category> Clojure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clojure </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ruby 风格指南</title>
+      <link href="/posts/25353fe1/"/>
+      <url>/posts/25353fe1/</url>
+      
+      
+      <categories>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指南 </tag>
+            
+            <tag> 翻译 </tag>
+            
+            <tag> 风格 </tag>
+            
+            <tag> ruby </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>欢迎使用 Cmd Markdown 编辑阅读器</title>
+      <link href="/posts/41dbf9c2/"/>
+      <url>/posts/41dbf9c2/</url>
+      
+      
+      <categories>
+          
+          <category> Editor </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>重装系统后重新部署恢复 Hexo blog</title>
+      <link href="/posts/dda8c81b/"/>
+      <url>/posts/dda8c81b/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 主题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows上Java的环境变量配置</title>
+      <link href="/posts/aa98736e/"/>
+      <url>/posts/aa98736e/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Windows </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Adapter</title>
+      <link href="/posts/d6615de0/"/>
+      <url>/posts/d6615de0/</url>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+          <category> 第一行代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> 第一行代码 </tag>
+            
+            <tag> Adapter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>9Patch 介绍</title>
+      <link href="/posts/777fb9e9/"/>
+      <url>/posts/777fb9e9/</url>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+          <category> 第一行代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 9Patch </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> UI </tag>
+            
+            <tag> 第一行代码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>为Blog添加版权说明</title>
+      <link href="/posts/d87ce901/"/>
+      <url>/posts/d87ce901/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 主题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo和Next主题的相关设置（持续更新）</title>
+      <link href="/posts/31391d01/"/>
+      <url>/posts/31391d01/</url>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 主题 </tag>
+            
+            <tag> next </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 01.框架介绍</title>
+      <link href="/posts/9cf0a555/"/>
+      <url>/posts/9cf0a555/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> Spring </tag>
+            
+            <tag> Dubbo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 02.开发指南</title>
+      <link href="/posts/1f1067d3/"/>
+      <url>/posts/1f1067d3/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> 设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 03.开发说明</title>
+      <link href="/posts/8d7215c3/"/>
+      <url>/posts/8d7215c3/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> Dubbo </tag>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 04.接口说明</title>
+      <link href="/posts/79afe3c1/"/>
+      <url>/posts/79afe3c1/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 05.常见问题</title>
+      <link href="/posts/bdc7564d/"/>
+      <url>/posts/bdc7564d/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartSpring框架 -- 06.升级计划</title>
+      <link href="/posts/521b8a35/"/>
+      <url>/posts/521b8a35/</url>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smartSpring </tag>
+            
+            <tag> 框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Gitbook简易教程</title>
+      <link href="/posts/f5aefaa4/"/>
+      <url>/posts/f5aefaa4/</url>
+      
+      
+      <categories>
+          
+          <category> Books </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> gitbook </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>将 Hexo 博客部署到 GitHub 和 GitCafe</title>
+      <link href="/posts/7ad7806c/"/>
+      <url>/posts/7ad7806c/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> GitHub </tag>
+            
+            <tag> GitCafe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在 Hexo 中创建匹配主题的404页面</title>
+      <link href="/posts/a2525418/"/>
+      <url>/posts/a2525418/</url>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>EndNote 与 Markdown 结合 — 为网文快速添加 Reference</title>
+      <link href="/posts/37fc90e4/"/>
+      <url>/posts/37fc90e4/</url>
+      
+      
+      <categories>
+          
+          <category> 触类旁通 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> EndNote </tag>
+            
+            <tag> Reference </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(六) --- 泛型（Generics）</title>
+      <link href="/posts/58a40d16/"/>
+      <url>/posts/58a40d16/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(五) --- 集合类</title>
+      <link href="/posts/58a40d15/"/>
+      <url>/posts/58a40d15/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(一) --- Java 关键字</title>
+      <link href="/posts/58a40e10/"/>
+      <url>/posts/58a40e10/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(三) --- 多态</title>
+      <link href="/posts/58a40d12/"/>
+      <url>/posts/58a40d12/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(四) --- 异常处理</title>
+      <link href="/posts/58a40d13/"/>
+      <url>/posts/58a40d13/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 提高篇(二) --- 内部类（inner class)</title>
+      <link href="/posts/58a40d11/"/>
+      <url>/posts/58a40d11/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hadoop--完全分布式安装实例</title>
+      <link href="/posts/845ade02/"/>
+      <url>/posts/845ade02/</url>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> hdfs </tag>
+            
+            <tag> install </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hadoop--安装介绍文档</title>
+      <link href="/posts/845ade01/"/>
+      <url>/posts/845ade01/</url>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> hdfs </tag>
+            
+            <tag> install </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sublime Text 全程指南</title>
+      <link href="/posts/cca0c723/"/>
+      <url>/posts/cca0c723/</url>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sublime </tag>
+            
+            <tag> editor </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GitHub 添加 SSH keys</title>
+      <link href="/posts/b5f9fbbd/"/>
+      <url>/posts/b5f9fbbd/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSH 常用命令</title>
+      <link href="/posts/47408a41/"/>
+      <url>/posts/47408a41/</url>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 命令 </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>javaSE 基础笔记之环境变量的配置</title>
+      <link href="/posts/c1947bf9/"/>
+      <url>/posts/c1947bf9/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 环境搭建 </tag>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 基本开发之环境搭建</title>
+      <link href="/posts/81524af9/"/>
+      <url>/posts/81524af9/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 环境搭建 </tag>
+            
+            <tag> java </tag>
+            
+            <tag> language </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
